@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Spellpot Heroes v0.3.5b</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
+<title>Spellpot Heroes v0.3.5c</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='22' fill='%232b2433' stroke='%23f3d98a' stroke-width='4'/%3E%3Cellipse cx='32' cy='24' rx='20' ry='6' fill='%233ce08a'/%3E%3Ccircle cx='26' cy='16' r='4' fill='%239ff5c4'/%3E%3Ccircle cx='38' cy='10' r='3' fill='%239ff5c4'/%3E%3C/svg%3E">
 <style>
 /* Nunito (SIL Open Font License 1.1, see OFL.txt), subset, inlined so it works offline from one file */
@@ -349,7 +349,7 @@ small.more{font-weight:700;color:#f2e8d0;white-space:nowrap}
 #ageyr{display:block;margin:6px auto;width:140px;font:inherit;font-size:20px;text-align:center;background:#1b1520;color:#f2e8d0;border:1px solid #6a5a44;border-radius:8px;padding:6px}
 .shopwarn{color:#ffd27a!important}.pickbox:has(.pickhint)>h1+p:not(.pickbank),.pickbox:has(.pickhint)>p.pickbank+p{display:none}.rrhint{font-size:14px!important;padding:4px 8px!important}.lose3{background:rgba(242,210,122,.12);border:1px solid rgba(242,210,122,.5);border-radius:12px;padding:6px 10px;margin:4px 0 6px}.lose3 p{margin:0 0 6px!important;font-size:15px;color:#f2e8d0;font-weight:700;text-align:center}.l3row{display:flex;gap:8px;justify-content:center}.l3row .act{margin:0;padding:6px 12px;font-size:15px;flex:1}
 #ov.story{background:#6a7ad8}#ov.story .stxt{padding-top:40px;background:linear-gradient(rgba(22,14,36,0),rgba(22,14,36,.5) 45%,rgba(22,14,36,.62))}#ov.story .stxt p.stline{background:rgba(26,18,42,.9);border:1px solid rgba(242,210,122,.45);box-shadow:0 4px 16px rgba(0,0,0,.25);max-width:560px}#ov.story .stgo{animation:flowin .8s 1s both,stglow 2.6s 1.8s ease-in-out infinite}@keyframes stglow{0%,100%{box-shadow:0 0 10px rgba(255,214,120,.35)}50%{box-shadow:0 0 26px rgba(255,214,120,.75)}}
-.pickbank{color:#f3d98a;font-weight:700;margin:0 0 .3em}@media (orientation:portrait) and (max-height:700px){.pickbox:has(.rrhint) .pickbank{display:none}.pickbox:has(.rrhint) .up{padding:6px 10px;margin:4px 0}#pg_upg h1.ph{margin-top:0;margin-bottom:4px;font-size:24px}#pg_upg .unote{font-size:14px;line-height:1.15;margin-top:2px}#pg_upg h1.ph{margin-bottom:0}#pg_upg .ucard{padding-top:3px!important;padding-bottom:3px!important}#pg_upg .ucard img{width:22px!important;height:22px!important}}#spot.fspot{background:rgba(8,6,12,.7)}
+.pickbank{color:#f3d98a;font-weight:700;margin:0 0 .3em}@media (orientation:portrait) and (max-height:700px){.pickbox:has(.rrhint) .pickbank{display:none}.pickbox:has(.rrhint) .up{padding:6px 10px;margin:4px 0}#pg_upg h1.ph{margin-top:0;margin-bottom:4px;font-size:24px}#pg_upg .unote{font-size:14px;line-height:1.15;margin-top:2px}#pg_upg h1.ph{margin-bottom:0}#pg_upg .ucard{padding-top:3px!important;padding-bottom:3px!important}#pg_upg .ucard img{width:22px!important;height:22px!important}}#spot.fspot{background:rgba(8,6,12,.7)}/* 0.3.5c: with a target the dim comes from the ring's outer shadow, so the highlighted button is not dimmed; soft glow + gentle 0.55 Hz pulse */#spot.hasring{background:transparent}#spot.hasring .spring{--dim:rgba(8,6,12,.55);box-shadow:0 0 0 200vmax var(--dim),0 0 12px 3px rgba(255,226,140,.45),inset 0 0 10px rgba(255,226,140,.25);animation:sppulse 1.8s ease-in-out infinite}#spot.fspot.hasring .spring{--dim:rgba(8,6,12,.7)}@keyframes sppulse{0%,100%{box-shadow:0 0 0 200vmax var(--dim),0 0 10px 2px rgba(255,226,140,.38),inset 0 0 8px rgba(255,226,140,.2)}50%{box-shadow:0 0 0 200vmax var(--dim),0 0 22px 7px rgba(255,226,140,.7),inset 0 0 14px rgba(255,226,140,.32)}}@media (prefers-reduced-motion:reduce){#spot.hasring .spring{animation:none}}
 </style></head><body>
 <canvas id="c"></canvas>
 <button id="bm" class="snd" aria-label="Music on/off"></button><button id="bs" class="snd" aria-label="Sound effects on/off"></button><button id="bp" class="snd" aria-label="Pause" style="display:none">II</button>
@@ -377,7 +377,7 @@ const WORLD={w:2400,h:2400};const WAREA=WORLD.w*WORLD.h/(1800*1800); // 0.2.7b: 
 let cam={x:0,y:0};
 const TAU=Math.PI*2,rnd=Math.random,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 
-const VERSION='0.3.5b';
+const VERSION='0.3.5c';
 /* ===== 0.3.2 BALANCE: every balance number lives here (heroes, weapons, enemies, bosses, levels, endless) ===== */
 const BALANCE={
  // hp, move speed, dmg = all damage x, boss = damage vs bosses and captains x (per hero)
@@ -1292,7 +1292,8 @@ function showStory(replay){let i=0;S=null;document.querySelectorAll('#htip').for
 // 0.3.5 intro scenes (INTRO.md): bright painted layers with slow parallax, soft particles, a slow Ken Burns zoom/pan per slide and a
 // 0.7 s cross-fade + slide-in between slides. Every pulse is slower than 1 Hz and low-contrast: no flashes anywhere in the intro.
 let stLastN=0,stLastT0=0,stPrevN=0,stPrevT0=0,stFadeT0=-9;const GLOWC={};
-function glowSpr(col){if(GLOWC[col])return GLOWC[col];const cv=mkCv(64,64),g=cv.getContext('2d'),rg=g.createRadialGradient(32,32,0,32,32,32);rg.addColorStop(0,col);rg.addColorStop(.35,col.replace(/[\d.]+\)$/,'.35)'));rg.addColorStop(1,col.replace(/[\d.]+\)$/,'0)'));g.fillStyle=rg;g.fillRect(0,0,64,64);return GLOWC[col]=cv;}
+// 0.3.5c: own name; as a 2nd 'glowSpr' it replaced the game's hex glow sprite (hoisting) and drew solid squares in battle
+function stGlowSpr(col){if(GLOWC[col])return GLOWC[col];const cv=mkCv(64,64),g=cv.getContext('2d'),rg=g.createRadialGradient(32,32,0,32,32,32);rg.addColorStop(0,col);rg.addColorStop(.35,col.replace(/[\d.]+\)$/,'.35)'));rg.addColorStop(1,col.replace(/[\d.]+\)$/,'0)'));g.fillStyle=rg;g.fillRect(0,0,64,64);return GLOWC[col]=cv;}
 function drawStory(){const cvs=document.getElementById('storycv');if(!cvs)return;const w=innerWidth,h=innerHeight,d=DPR;if(cvs.width!=Math.round(w*d)){cvs.width=Math.round(w*d);cvs.height=Math.round(h*d);}
  const c=cvs.getContext('2d'),old=ctx;ctx=c;const n=storyI+1;
  if(n!=stLastN){stPrevN=stLastN;stPrevT0=stLastT0;stFadeT0=stLastN?TT:-9;stLastN=n;stLastT0=storyT0;}
@@ -1305,9 +1306,9 @@ function storyScene(c,n,el,w,h,cur){const A0=c.globalAlpha,t=TT,port=h>w,s=Math.
  const kb=Math.min(1,el/16),kz=1.03+.07*(kb*kb*(3-2*kb)),pan=[0,-1,1,-1,1,0,-1,1][n-1]||0;
  c.save();if(n!=8){c.translate(w/2+pan*w*.025*kb,h*.42);c.scale(kz,kz);c.translate(-w/2,-h*.42);}
  const sky=(stops)=>{const g=c.createLinearGradient(0,0,0,gy+20);stops.forEach((col,i)=>g.addColorStop(i/(stops.length-1),col));c.fillStyle=g;c.fillRect(-w*.2,-h*.2,w*1.4,h*1.4);};
- const sun=(x,y,r,col)=>{c.drawImage(glowSpr(col),x-r,y-r,r*2,r*2);};
+ const sun=(x,y,r,col)=>{c.drawImage(stGlowSpr(col),x-r,y-r,r*2,r*2);};
  const hill=(y,col,amp,fr,ph,par)=>{const dx=par*el*6*s;c.fillStyle=col;c.beginPath();c.moveTo(-w*.2,h*1.2);for(let x=-w*.2;x<=w*1.2;x+=8)c.lineTo(x,y+Math.sin((x+dx)/w*fr+ph)*amp*s);c.lineTo(w*1.2,h*1.2);c.fill();};
- const glow=(x,y,r,col,a)=>{c.globalAlpha*=a;c.drawImage(glowSpr(col),x-r,y-r,r*2,r*2);c.globalAlpha/=a;};
+ const glow=(x,y,r,col,a)=>{c.globalAlpha*=a;c.drawImage(stGlowSpr(col),x-r,y-r,r*2,r*2);c.globalAlpha/=a;};
  const flies=(nn,col,y0,y1)=>{for(let i=0;i<nn;i++){const x=((i*137.5+el*(4+i%5)*s)%(w*1.1))-w*.05+Math.sin(t*.35+i)*14*s,y=y0+((i*71)%1000)/1000*(y1-y0)+Math.cos(t*.42+i*1.3)*10*s,a=.55+.35*Math.sin(t*.7+i*2.1);glow(x,y,9*s,col,a);c.fillStyle='#fffbe0';c.globalAlpha*=a;c.beginPath();c.arc(x,y,1.6*s,0,TAU2);c.fill();c.globalAlpha/=a;}};
  const tree=(x,y,r,col,trunk)=>{c.fillStyle=trunk||'#6b4a33';c.fillRect(x-r*.12,y-r*.9,r*.24,r*.9);c.fillStyle=col;c.beginPath();c.arc(x,y-r*1.2,r*.62,0,TAU2);c.arc(x-r*.42,y-r*.95,r*.45,0,TAU2);c.arc(x+r*.42,y-r*.95,r*.45,0,TAU2);c.fill();};
  const shroom=(x,y,r,col)=>{c.fillStyle='#f4ead6';c.beginPath();c.moveTo(x-r*.28,y);c.quadraticCurveTo(x-r*.2,y-r*.6,x-r*.18,y-r*.9);c.lineTo(x+r*.18,y-r*.9);c.quadraticCurveTo(x+r*.2,y-r*.6,x+r*.28,y);c.fill();c.fillStyle=col;c.beginPath();c.ellipse(x,y-r*.9,r,r*.62,0,Math.PI,0);c.fill();c.fillStyle='rgba(255,255,255,.8)';for(const [a,b] of [[-.45,-1.15],[.2,-1.3],[.55,-1.05]]){c.beginPath();c.arc(x+r*a,y+r*b,r*.12,0,TAU2);c.fill();}};
@@ -1453,7 +1454,7 @@ function spotlight(k,after){const tgt=document.querySelector(SPOT_SEL[k]);const 
  const el=document.createElement('div');el.id='spot';el.setAttribute('role','dialog');el.innerHTML='<div class="spbox"><i class="sparr"></i><p>'+T('spot.'+k)+'</p><button id="spskip" class="act">'+T('spot.skip')+'</button></div>';document.body.appendChild(el);
  const bx=el.querySelector('.spbox'),ar=el.querySelector('.sparr'),W=innerWidth,H=innerHeight,G=10;
  const r=tgt&&tgt.getBoundingClientRect();
- if(r&&r.width>0){const P=6,rl=Math.max(2,r.left-P),rt=Math.max(2,r.top-P),rw=Math.min(W-2,r.right+P)-rl,rh=Math.min(H-2,r.bottom+P)-rt;const ring=document.createElement('div');ring.className='spring';Object.assign(ring.style,{left:rl+'px',top:rt+'px',width:rw+'px',height:rh+'px'});el.insertBefore(ring,bx);
+ if(r&&r.width>0){const P=6,rl=Math.max(2,r.left-P),rt=Math.max(2,r.top-P),rw=Math.min(W-2,r.right+P)-rl,rh=Math.min(H-2,r.bottom+P)-rt;const ring=document.createElement('div');ring.className='spring';el.classList.add('hasring');Object.assign(ring.style,{left:rl+'px',top:rt+'px',width:rw+'px',height:rh+'px'});el.insertBefore(ring,bx);
   const bw=bx.offsetWidth,bh=bx.offsetHeight,cx=r.left+r.width/2;let below=rt+rh+G+12+bh<=H-4&&(rt<H/2||rt-G-12-bh<4),left=Math.round(Math.min(W-bw-8,Math.max(8,cx-bw/2)));
   // 0.3.2: the bubble never covers the hero's name and description in the village
   {const av=[...document.querySelectorAll('#pg_home .hname')].filter(q=>q!==tgt&&!q.contains(tgt)&&!tgt.contains(q)).map(q=>q.getBoundingClientRect()).filter(q=>q.width>0);
@@ -1567,15 +1568,22 @@ function showAge(){openSheet2(T('age.title'),'<div class="fbbox agebox" id="ageb
 function upgBought(){let n=0;for(const k in (M.upg||{}))n+=M.upg[k]||0;for(const k in WEAPONS)n+=wl(k)||0;return n;}
 function needUpgTut(){if(M.upgTut)return false;if(TESTB&&QS.get('upgtut')!='1'&&!window.__upgTut)return false;const won=M.cleared&&Object.keys(M.cleared).some(k=>M.cleared[k]);
  if(!won)return false;if(upgBought()>0){M.upgTut=1;save();return false;}return M.gold>=upgCost(0);}
+// 0.3.5c: one tap path for spotlights: touchend (preventDefault, so no delayed ghost click lands on the button underneath) + click for mouse/pen
+function spTap(el,fn,btnToo){let tt=0,sx=0,sy=0;el.addEventListener('touchstart',e=>{const t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
+ el.addEventListener('touchend',e=>{const t=e.changedTouches&&e.changedTouches[0];if(!t||Math.hypot(t.clientX-sx,t.clientY-sy)>24)return;const b=e.target.closest&&e.target.closest('button');if(b&&!btnToo)return;
+  e.preventDefault();e.stopPropagation();tt=Date.now();fn({target:e.target,clientX:t.clientX,clientY:t.clientY});},{passive:false});
+ el.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(Date.now()-tt<800)return;fn(e);});}
 function fspot(sel,text,onTap,okBtn){const old=document.getElementById('spot');if(old)old.remove();markModal();const tgt=sel&&document.querySelector(sel);
  const el=document.createElement('div');el.id='spot';el.className='fspot';el.setAttribute('role','dialog');el.innerHTML='<div class="spbox"><i class="sparr"></i><p id="fsptxt">'+text+'</p>'+(okBtn?'<button id="fspok" class="act">'+T('ftut.ok')+'</button>':'')+'</div>';document.body.appendChild(el);
  const bx=el.querySelector('.spbox'),ar=el.querySelector('.sparr'),W0=innerWidth,H0=innerHeight,r=tgt&&tgt.getBoundingClientRect();
- if(r&&r.width>0){const P=6,rl=Math.max(2,r.left-P),rt=Math.max(2,r.top-P),rw=Math.min(W0-2,r.right+P)-rl,rh=Math.min(H0-2,r.bottom+P)-rt;const ring=document.createElement('div');ring.className='spring';Object.assign(ring.style,{left:rl+'px',top:rt+'px',width:rw+'px',height:rh+'px'});el.insertBefore(ring,bx);
+ if(r&&r.width>0){const P=6,rl=Math.max(2,r.left-P),rt=Math.max(2,r.top-P),rw=Math.min(W0-2,r.right+P)-rl,rh=Math.min(H0-2,r.bottom+P)-rt;const ring=document.createElement('div');ring.className='spring';el.classList.add('hasring');Object.assign(ring.style,{left:rl+'px',top:rt+'px',width:rw+'px',height:rh+'px'});el.insertBefore(ring,bx);
   const bw=bx.offsetWidth,bh=bx.offsetHeight,cx=r.left+r.width/2,below=rt+rh+22+bh<=H0-4&&rt<H0/2,left=Math.round(Math.min(W0-bw-8,Math.max(8,cx-bw/2))),top=below?rt+rh+22:rt-22-bh;
   Object.assign(bx.style,{left:left+'px',top:Math.round(Math.max(4,top))+'px',transform:'none'});ar.className='sparr '+(below?'sp-up':'sp-dn');ar.style.left=Math.round(Math.min(bw-22,Math.max(22,cx-left)))+'px';}
  else{ar.remove();Object.assign(bx.style,{left:'50%',top:'40%',transform:'translateX(-50%)'});}
- const inT=e=>{const q=tgt&&tgt.getBoundingClientRect();return q&&e.clientX>=q.left-6&&e.clientX<=q.right+6&&e.clientY>=q.top-6&&e.clientY<=q.bottom+6;};
- el.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(okBtn&&e.target.closest('#fspok')){el.remove();if(onTap)onTap();return;}if(!okBtn&&inT(e)){el.remove();modalT=0;onTap();}});
+ // 0.3.5c: the target is looked up again at tap time: renderTabs() replaces the tab buttons after the spotlight opens, so the element
+ // found at creation was detached (rect 0x0) and no tap ever hit it. Touch taps are handled on touchend (no ghost click), mouse on click.
+ const inT=e=>{const t0=(sel&&document.querySelector(sel))||tgt,q=t0&&t0.isConnected&&t0.getBoundingClientRect();return q&&q.width>0&&e.clientX>=q.left-6&&e.clientX<=q.right+6&&e.clientY>=q.top-6&&e.clientY<=q.bottom+6;};
+ const hitF=e=>{if(okBtn&&e.target.closest('#fspok')){el.remove();if(onTap)onTap();return;}if(!okBtn&&inT(e)){el.remove();modalT=0;onTap();}};spTap(el,hitF,true);
  window.__fspot={sel,tap:()=>{el.remove();modalT=0;onTap&&onTap();}};return el;}
 function upgTut(){if(TABS[tabI]!='home')go(2,true);
  fspot('#h_upg',T('ftut.tab'),()=>{go(1,true);upgTab='w';upgSel.w=HEROES[M.sel].startWeapon||'missile';showUpg();
