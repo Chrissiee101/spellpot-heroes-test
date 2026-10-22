@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Spellpot Heroes v0.3.6b</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
+<title>Spellpot Heroes v0.3.6c</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='22' fill='%232b2433' stroke='%23f3d98a' stroke-width='4'/%3E%3Cellipse cx='32' cy='24' rx='20' ry='6' fill='%233ce08a'/%3E%3Ccircle cx='26' cy='16' r='4' fill='%239ff5c4'/%3E%3Ccircle cx='38' cy='10' r='3' fill='%239ff5c4'/%3E%3C/svg%3E">
 <style>
 /* Nunito (SIL Open Font License 1.1, see OFL.txt), subset, inlined so it works offline from one file */
@@ -243,7 +243,7 @@ body.lowfx .scrin{animation:scrFade .2s linear both}@keyframes scrFade{from{opac
 .hact{display:flex;gap:6px;margin-top:5px;align-items:center}.hact button{flex:1;margin:0}.hsoon2{color:#e8dcc4}
 #pauseconf p{max-width:300px;margin:.4em auto}
 @media (max-height:700px){.ugrid{gap:4px}.ucard{padding:3px 2px}.ucmp b{font-size:18px}.ucmp div{padding:2px 10px}}
-@media (orientation:landscape) and (max-height:520px){.ucard{padding:1px 2px}.ucard img{width:20px;height:20px}.up .ucard img{display:none}.ucmp div{padding:1px 8px}}
+@media (orientation:landscape) and (max-height:520px){.ucard{padding:1px 2px}.ucard img{width:20px;height:20px}.ug-p .ucard img{display:none}.ucmp div{padding:1px 8px}}
 .hact button{padding:7px 8px;font-size:15px;white-space:nowrap}.hact .more{flex:1}.udet #ubuy{padding:7px 10px}
 @media (orientation:landscape) and (max-height:520px){.udet #ubuy{padding:4px 10px}.udet>small{line-height:1.2}.hact button{padding:4px 8px}.hinfo{line-height:1.2}.hskins{margin-top:1px}}
 @media (orientation:portrait){.hstrip{flex-direction:row;left:auto;right:6px;top:6px;bottom:auto}.hport{padding-top:30px}}
@@ -373,6 +373,44 @@ button{background:var(--pnoise),radial-gradient(130% 90% at 18% 0%,rgba(255,250,
 #pg_upg .udet{background:linear-gradient(rgba(255,240,220,.06),rgba(255,240,220,.02)),linear-gradient(rgba(30,23,38,.62),rgba(20,15,26,.62));border-color:rgba(232,198,106,.42);box-shadow:inset 0 1px 0 rgba(255,240,214,.06)}
 #pg_upg .utabs .act{box-shadow:var(--pbev)}
 @media (orientation:landscape) and (max-height:400px){#endbox:has(.endchest~.endchest~.endchest) .endchest{margin:0;line-height:1.1}#endbox:has(.endchest~.endchest~.endchest) .endchest img{height:23px}}
+/* 0.3.6c Heroes tab: ONE vertical list, one card per unique hero, that hero's skins as a small row inside its card. Only #herolist scrolls (explicit exception to the no-scroll rule); title, hint and tabs stay fixed */
+#pg_her{overflow:hidden;display:flex;flex-direction:column}#pg_her>.pbody{flex:1;min-height:0;min-width:0;width:100%;max-width:100%;display:flex;flex-direction:column}#pg_her .cshead{min-width:0;max-width:100%}
+#herolist{flex:1;min-height:0;min-width:0;width:100%;box-sizing:border-box;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;display:flex;flex-direction:column;gap:8px;padding:2px 2px 12px;margin-top:4px;border-radius:12px}
+.hrow{position:relative;flex:0 0 auto;min-width:0;max-width:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;padding:8px 10px 8px;border-radius:14px;border:2px solid #6a5634;background:linear-gradient(180deg,rgba(58,46,72,.94),rgba(30,23,38,.95));box-shadow:0 3px 10px rgba(0,0,0,.35);color:#f2e8d0;text-align:left}
+.hrow.sel{border-color:#f2d27a;box-shadow:0 0 0 1px rgba(242,210,122,.55) inset,0 0 14px rgba(242,210,122,.22),0 3px 10px rgba(0,0,0,.35)}
+.hrow.lock{background:linear-gradient(180deg,rgba(40,34,48,.95),rgba(24,20,30,.96))}
+.hrtop{display:flex;align-items:center;gap:10px;min-width:0}
+.hrtop canvas{flex:0 0 84px;width:84px;height:84px;border-radius:12px;background:radial-gradient(circle at 50% 35%,#4a3b58,#15111a 80%)}
+.hinf{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.hinf .bn{font-size:17px;line-height:1.15;color:#f6ecd4}
+.hrow .rar{position:static;margin:0;font-size:14px}
+.hinf .hst{font-size:15px;line-height:1.2}
+.hinf .hst .ic{width:15px;height:15px;vertical-align:-2px}
+.hact{display:flex;align-items:center;flex-wrap:wrap;gap:6px;min-width:0}
+#pg_her .hact button{width:auto;margin:0;min-height:40px;padding:6px 16px;font-size:15px}
+#pg_her .hact button.mini{min-height:36px;padding:4px 10px;font-size:14px;white-space:normal;max-width:100%;line-height:1.2;text-align:center}.hact{width:100%}
+.hact .how{font-size:14px;line-height:1.25;color:#efe3c8}
+.hact .more{font-size:14px;color:#f2d27a}
+.skrow{display:flex;gap:6px;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;touch-action:pan-x;scrollbar-width:none;padding:1px 1px 3px;margin:0 -2px}
+.skrow::-webkit-scrollbar{display:none}
+#pg_her .skc{position:relative;flex:0 0 96px;width:96px;margin:0;padding:4px 3px 5px;display:flex;flex-direction:column;align-items:center;gap:1px;clip-path:none;border-radius:10px;border:2px solid #4c3e5c;background:linear-gradient(#30263c,#211a2a);box-shadow:none;color:#f2e8d0;font-size:14px;font-weight:700;line-height:1.15;text-transform:none;letter-spacing:0;text-align:center;white-space:normal}
+#pg_her .skc canvas{width:48px;height:48px}
+#pg_her .skc.on{border-color:#f2d27a;background:linear-gradient(#4a3b56,#2e2438)}
+#pg_her .skc.lk{border-style:dashed;border-color:#6a5a7a}
+#pg_her .skc.lk canvas{opacity:.6}
+#pg_her .skc .skp{font-size:14px;font-weight:600;color:#e8dcc4}
+#pg_her .skc .skp .ic{width:14px;height:14px;vertical-align:-2px}
+#pg_her .skc .ck{position:absolute;top:2px;right:4px;color:#f2d27a;font-size:15px}
+.skhow{font-size:14px;line-height:1.25;color:#f2d27a;margin:0}
+.skhow:empty{display:none}
+@media (orientation:landscape) and (max-height:520px){.hrtop canvas{flex-basis:60px;width:60px;height:60px}#pg_her .skc canvas{width:36px;height:36px}#herolist{gap:6px}.hrow{padding:5px 8px;gap:4px}}
+/* 0.3.6c: chest odds sheet fits short landscape screens when skins are owned (owned rows wrap to 2 lines): the summary line below repeats the chances, so the intro sentence goes; tighter rows */
+@media (orientation:landscape) and (max-height:520px){#sheet .csheet .cright>small{display:none}#sheet .csheet .rrow{padding:1px 8px;margin:1px 0}#sheet .csheet .rsum{margin:1px 0 2px}}
+@media (orientation:portrait) and (max-height:700px){#sheet .csheet .rrow{padding:2px 8px;margin:1px 0}#sheet .csheet .rsum{margin:1px 0 2px}}
+/* 0.3.6c: upgrade grids are .ug-w/.ug-p/.ug-c (the passives grid used to be class "up" = the level-up card class: card padding, border and press-scale leaked onto the whole grid). Chests tab on short landscape: the single card column stays narrow, the odds show Wooden | Golden side by side */
+@media (orientation:landscape) and (max-height:520px){#pg_upg .uwrap>.ugrid.ug-c{flex:0 0 108px;grid-template-columns:1fr}#pg_upg .lodds{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;grid-auto-flow:column;grid-auto-columns:1fr;column-gap:14px;row-gap:2px}#pg_upg .lodds .lh{grid-row:1;grid-column:1/-1}}
+/* 0.3.6c: level-up cards now include weapon cards (+ evolution hint line): keep the pick box on one screen on short portrait phones (NL/FR scrolled up to 8px) */
+@media (orientation:portrait) and (max-height:700px){.pickbox .cards3 .up,.pickbox .up{padding:6px 10px;margin:3px 0}.pickbox:has(.rrhint) .up{padding:5px 10px;margin:2px 0}.pickbox .up small{margin-top:2px}}
 </style></head><body>
 <canvas id="c"></canvas>
 <button id="bm" class="snd" aria-label="Music on/off"></button><button id="bs" class="snd" aria-label="Sound effects on/off"></button><button id="bp" class="snd" aria-label="Pause" style="display:none">II</button>
@@ -401,7 +439,7 @@ const WORLD={w:2400,h:2400};const WAREA=WORLD.w*WORLD.h/(1800*1800); // 0.2.7b: 
 let cam={x:0,y:0};
 const TAU=Math.PI*2,rnd=Math.random,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 
-const VERSION='0.3.6b';
+const VERSION='0.3.6c';
 /* ===== 0.3.2 BALANCE: every balance number lives here (heroes, weapons, enemies, bosses, levels, endless) ===== */
 const BALANCE={
  // hp, move speed, dmg = all damage x, boss = damage vs bosses and captains x (per hero)
@@ -640,12 +678,16 @@ Object.assign(STRINGS.fr,{"skin.ember": "Barbare des braises", "skin.frostfur": 
 /* ================= MAGIC SOURCES = WEAPON CRAFTING ================= 
  Each hero has a source that fills like an XP bar. Full = choose a new weapon or weapon upgrade ('craftables').
  perXp: fill per XP point, perSec: fill per second, perDmg/perHurt: fill per damage dealt/taken, need(n): needed for the n-th craft. */
+// 0.3.6c the Magic Source is the hero's ULT meter: ~45 s of normal play fills it (time + Hero XP, the drum: time + damage dealt)
+// bonusCap: charge per second that XP / damage can add on top of time, so a normal fight fills in ~40-50 s (idle 54 s) (busy late levels no longer fill in 20 s)
+const ULT_CHARGE={need:100,perSec:100/54,perXp:1.1,perDmg:.02,bonusCap:1};
 function srcDef(id,o){return Object.assign({id,get name(){return T('src.'+id)},get title(){return T('src.'+id+'.title')},get desc(){return T('src.'+id+'.desc')}},o);}
 const SOURCES={
- cauldron:srcDef('cauldron',{col:'#3ce08a',col2:'#0e6b3a',perXp:1,perSec:.5,need:n=>Math.round(45+n*28),draw:drawVesCauldron}),
- spellbook:srcDef('spellbook',{col:'#7fb8ff',col2:'#23407a',perXp:1,perSec:.5,need:n=>Math.round(45+n*28),draw:drawVesBook}),
- wardrum:srcDef('wardrum',{col:'#ff7a3a',col2:'#7a2a10',perXp:0,perSec:.3,perDmg:.05,perHurt:1.2,need:n=>Math.round(45+n*28),draw:drawVesDrum}),
- lifetree:srcDef('lifetree',{col:'#9be06a',col2:'#2f5a1e',perXp:1,perSec:.5,need:n=>Math.round(45+n*28),draw:drawVesTree})};
+ cauldron:srcDef('cauldron',{col:'#3ce08a',col2:'#0e6b3a',perXp:ULT_CHARGE.perXp,perSec:ULT_CHARGE.perSec,need:()=>ULT_CHARGE.need,draw:drawVesCauldron}),
+ spellbook:srcDef('spellbook',{col:'#7fb8ff',col2:'#23407a',perXp:ULT_CHARGE.perXp,perSec:ULT_CHARGE.perSec,need:()=>ULT_CHARGE.need,draw:drawVesBook}),
+ // 0.3.6c: the War Drum charges with time + damage DEALT; it is never filled by the hero being hit (in 0.3.6b its pop fired in the same frame as a hit on the hero 41% of the time and read as self-damage)
+ wardrum:srcDef('wardrum',{col:'#ff7a3a',col2:'#7a2a10',perXp:0,perSec:ULT_CHARGE.perSec,perDmg:ULT_CHARGE.perDmg,need:()=>ULT_CHARGE.need,draw:drawVesDrum}),
+ lifetree:srcDef('lifetree',{col:'#9be06a',col2:'#2f5a1e',perXp:ULT_CHARGE.perXp,perSec:ULT_CHARGE.perSec,need:()=>ULT_CHARGE.need,draw:drawVesTree})};
 
 /* ================= HEROES ================= */
 // Hero movement speed (world units per second), tuned per hero. v0.1.5b: both 12% slower (witch 200→176, barbarian 182→160).
@@ -1082,7 +1124,7 @@ const PICKUP_MAGNET_R=65;
 const introImm=e=>e.boss&&e.introT>0; // boss is untouchable during his intro: collisions skip him
 function dmgE(e,d,dot){if(e.hp<=0)return;if(e.boss&&!(e.introT>0))d*=S.bossMul||1;if(e.boss&&e.introT>0){if(S.t>=(e.immT||0)){e.immT=S.t+.3;S.immLog&&S.immLog.push(S.t);if(inView(e,0))float(T('boss.immune'),e.x,e.y-e.r,'#dcecff');}return;}SND.hit();const cr=rnd()<S.ups.crit;if(cr)d*=2;e.hp-=d;
  if(S.t>=(e.flashCD||0)&&(S.nFlash||0)<HIT_FX.maxFlashing){e.flash=HIT_FX.flashDur;e.flashCD=S.t+HIT_FX.flashCD;S.nFlash=(S.nFlash||0)+1;S.flashLog&&S.flashLog.push([e,S.t]);
-  const kb=dot||e.still?0:e.boss?HIT_FX.kbBoss:e.elite?HIT_FX.kbElite:HIT_FX.kb;if(kb){const a=Math.atan2(e.y-S.p.y,e.x-S.p.x);e.x+=Math.cos(a)*kb;e.y+=Math.sin(a)*kb;}}if(S.hero.source.perDmg)addCraft(d*S.hero.source.perDmg);if(inView(e,0))float(Math.round(d)+(cr?'!':''),e.x+(rnd()-.5)*10,e.y-e.r,cr?'#ffd84a':'#eadfc8');}
+  const kb=dot||e.still?0:e.boss?HIT_FX.kbBoss:e.elite?HIT_FX.kbElite:HIT_FX.kb;if(kb){const a=Math.atan2(e.y-S.p.y,e.x-S.p.x);e.x+=Math.cos(a)*kb;e.y+=Math.sin(a)*kb;}}if(S.hero.source.perDmg)addCraftB(d*S.hero.source.perDmg);if(inView(e,0))float(Math.round(d)+(cr?'!':''),e.x+(rnd()-.5)*10,e.y-e.r,cr?'#ffd84a':'#eadfc8');}
 /* ================= WEAPONS (craftables) & PASSIVE SKILLS ================= */
 function wDef(id,o){return Object.assign({get n(){return T('w.'+id)},get evoN(){return T('w.'+id+'.evo')},get lv(){return T('w.'+id+'.lv')},get evoD(){return T('w.'+id+'.evoD')}},o);}
 const WEAPONS={
@@ -1109,15 +1151,19 @@ function applyPassives(){const p=S.p,h=S.hero;p.spd=h.spd*(1+.08*plv('boots'))*(
  S.ups.regen=.5*plv('heart');S.ups.magnet=PICKUP_MAGNET_R*(1+.3*plv('magnet'))*(1+UPGRADES.mag.per*upl('mag'));S.ups.crit=.05*plv('clover');S.ups.xp=1+UPGRADES.xp.per*upl('xp');}
 function evoReady(k){const w=B().wep[k];return w&&!w.evo&&w.lv>=MAXL&&plv(WEAPONS[k].evo)>0;}
 // kind: 'craft' = weapons (from the magic source), 'lvl' = passive skills only, 'chest' = improve what you have
+// 0.3.6c: a hero level-up offers weapons again (new weapon / upgrade / evolution) next to skills; the Magic Source is the ULT now
 function choicePool(kind){const b=B(),out=[];
- if(kind!='lvl'){for(const k in WEAPONS){if(evoReady(k))out.push({t:'evo',k,w:5});}
+ {for(const k in WEAPONS){if(evoReady(k))out.push({t:'evo',k,w:5});}
   for(const k in b.wep){const w=b.wep[k];if(!w.evo&&w.lv<MAXL)out.push({t:'w',k,w:3});}
-  if(kind=='craft'&&Object.keys(b.wep).length<MAXW)for(const k in WEAPONS)if(!b.wep[k])out.push({t:'w',k,w:2});}
+  if((kind=='craft'||kind=='lvl')&&Object.keys(b.wep).length<MAXW)for(const k in WEAPONS)if(!b.wep[k])out.push({t:'w',k,w:2});}
  if(kind!='craft'){for(const k in b.pas)if(b.pas[k]<MAXL)out.push({t:'p',k,w:2});
   if(kind=='lvl'&&Object.keys(b.pas).length<MAXP)for(const k in PASSIVES)if(!b.pas[k])out.push({t:'p',k,w:1.5});}
  return out;}
 function draw3(kind){const pool=choicePool(kind),res=[];const ev=pool.filter(c=>c.t=='evo');if(ev.length)res.push(ev[0]);
  let rest=pool.filter(c=>!res.includes(c));while(res.length<3&&rest.length){let tot=rest.reduce((a,c)=>a+c.w,0),r=rnd()*tot,i=0;for(;i<rest.length;i++){r-=rest[i].w;if(r<=0)break;}i=Math.min(i,rest.length-1);res.push(rest[i]);rest.splice(i,1);}
+ // 0.3.6c level-up: at least 2 weapon cards (new or upgrade) whenever the pool has them, so weapons keep coming every level
+ if(kind=='lvl'){const isW=c=>c.t=='w'||c.t=='evo',need=Math.min(2,pool.filter(isW).length);let wr=pool.filter(c=>isW(c)&&!res.includes(c));
+  while(res.filter(isW).length<need&&wr.length){const j=res.map(isW).lastIndexOf(false);const pick=wr.splice(Math.floor(rnd()*wr.length),1)[0];if(j<0||res.length<3)res.push(pick);else res[j]=pick;}}
  if(!res.length)res.push({t:'heal'});return res;}
 const ICONS={};function iconURL(art,col){const k=art+col;if(ICONS[k])return ICONS[k];const c=document.createElement('canvas');c.width=c.height=40;const old=ctx;ctx=c.getContext('2d');ctx.fillStyle=col;ctx.strokeStyle=col;SYM_ART[art](20,20,14);ctx=old;return ICONS[k]=c.toDataURL();}
 function evoHint(wk){const P=PASSIVES[WEAPONS[wk].evo],own=plv(WEAPONS[wk].evo)>0;return '<span class="evh'+(own?' own':'')+'" title="'+T('card.evoItem')+'"><img src="'+iconURL(P.art,P.c)+'" alt="">'+P.n+(own?' ✓':'')+'</span>';}
@@ -1162,16 +1208,51 @@ function showPick(kind){S.state='pick';joyEnd();SND.lvl();let pool=draw3(kind);c
  render();}
 addEventListener('keydown',e=>{if(S&&S.state=='pick'){if(pickFn&&'123'.includes(e.key))pickFn(+e.key-1);else if(cardAct&&(e.key=='r'||e.key=='x'))cardAct(e.key=='r'?'r':'s');}});
 function xpNeed(l){return Math.round(5+(l-1)*2.5+Math.pow(l-1,1.4));}
-function gainXp(v){v*=S.ups.xp;S.xp+=v;addCraft(v*S.hero.source.perXp);
+function gainXp(v){v*=S.ups.xp;S.xp+=v;addCraftB(v*S.hero.source.perXp);
  while(S.xp>=S.xpNeed){S.xp-=S.xpNeed;S.level++;S.xpNeed=xpNeed(S.level);S.lvlPop=1;if(!S.vic)bigMoment('#9feeff',false);
   S.fx.push({x:S.p.x,y:S.p.y,r:10,max:120,c:'#9feeff',life:.6,ring:true});burst(S.p.x,S.p.y,'#9feeff',40,240);float(T('run.levelup'),S.p.x,S.p.y-40,'#9feeff');{S.healLeft=Math.max(S.healLeft||0,S.p.max*(S.noHeal?0:LEVELUP_HEAL));S.fx.push({x:S.p.x,y:S.p.y,r:6,max:70,c:'#5cff7a',life:.7,ring:true});burst(S.p.x,S.p.y,'#5cff7a',30,140);}enqueue('lvl');}}
-function addCraft(v){const c=S.craft;c.v+=v*(1+.15*plv('brew'));while(c.v>=c.need){c.v-=c.need;c.n++;c.need=S.hero.source.need(c.n);c.pop=1;c.bank=(c.bank||0)+1;
- S.fx.push({x:S.p.x,y:S.p.y,r:10,max:160,c:S.hero.source.col,life:.7,ring:true});burst(S.p.x,S.p.y,S.hero.source.col,50,260);float(T('run.full',S.hero.source.name),S.p.x,S.p.y-50,S.hero.source.col);if(!S.cauldTipQ){S.cauldTipQ=1;(S.tipQ||(S.tipQ=[])).push('cauld');}}}
+function addCraft(v){const c=S.craft;if(c.bank>0||S.ultA)return;c.v+=v*(1+.15*plv('brew'));if(c.v>=c.need){c.v=c.need;c.n++;c.bank=1;c.pop=1;
+ float(T('ult.ready'),S.p.x,S.p.y-50,S.hero.source.col);SND.lvl();if(!S.cauldTipQ){S.cauldTipQ=1;(S.tipQ||(S.tipQ=[])).push('cauld');}}}
+// XP / damage charge: limited by a small budget that refills at ULT_CHARGE.bonusCap per second
+function addCraftB(v){const c=S.craft;const u=Math.min(Math.max(0,v),c.bud||0);if(u<=0)return;c.bud-=u;addCraft(u);}
 // 0.3.4: a full Magic Source is banked; the player taps it to open the weapon pick (never opens by itself, never auto-picks)
 function tipSeen(k){if(k=='auto')return !!M.hintAuto;if(k=='src')return !!M.hintSrc;return !!(M.tips&&M.tips[k]);}
 function setTip(k){M.tips=M.tips||{};M.tips[k]=1;save();}
 function runTipText(k){return k=='cauld'?T('tip.cauld',S.hero.source.name):T('tip.'+k);}
-function openCauldron(){if(!S||S.state!='play'||!(S.craft.bank>0)||S.vic)return false;S.craft.bank--;showPick('craft');return true;}
+function openCauldron(){if(!S||S.state!='play'||!(S.craft.bank>0)||S.vic||S.ultA)return false;S.craft.bank=0;S.craft.v=0;S.stats.crafts++;startUlt();return true;}
+// ===== 0.3.6c ULTs: tapped by the player when the Magic Source is full. They only ever touch S.en (enemies) through dmgE: no path to hitP / the hero =====
+const ULTS={
+ witch:{dur:4,every:.18,R:250,dropR:72,drop:26,pulse:9,pulseEvery:.5,boss:.4,burn:6,burnT:2,slowT:2,col:'#ffb04a'},
+ barbarian:{dur:3.2,beats:[0,.8,1.6,2.4],R:220,beat:55,boss:1,kb:34,col:'#ff7a3a'},
+ any:{dur:1,R:200,blast:80,boss:.5,col:'#bfe9ff'}};
+const ULT_EL=['fire','ice','bolt','fire','ice','fire','ice','bolt'],ULT_ELC={fire:'#ff8a3c',ice:'#9fe6ff',bolt:'#ffe45a'};
+function ultKey(){return ULTS[S.hero.id]?S.hero.id:'any';}
+function ultName(){return T('ult.'+ultKey());}
+function ultHit(e,d,U){if(e.hp<=0||introImm(e))return 0;const dd=d*(e.boss?U.boss:1);dmgE(e,dd);S.stats.ultDmg=(S.stats.ultDmg||0)+dd;return dd;}
+function startUlt(){const k=ultKey(),U=ULTS[k];S.ultA={k,t:0,dur:U.dur,nx:0,np:0,nb:0,i:0};S.ultDrops=[];say(ultName()+'!',U.col);SND.super();S.stats.ults=(S.stats.ults||0)+1;}
+function updUlt(dt){const A=S.ultA,p=S.p;if(S.ultDrops)for(const d of S.ultDrops){d.t-=dt;if(d.t<=0&&!d.hit){d.hit=1;const U=ULTS.witch,D=dm(),c=ULT_ELC[d.el];
+   S.fx.push({x:d.x,y:d.y,r:6,max:U.dropR*area(),c,life:.45,ring:true});burst(d.x,d.y,c,10,160);if(d.el=='bolt')S.zaps.push({x1:d.x+14,y1:d.y-150,x2:d.x,y2:d.y,life:.16});
+   for(const e of S.en)if(Math.hypot(e.x-d.x,e.y-d.y)<U.dropR*area()+e.r){if(ultHit(e,U.drop*D*(d.el=='bolt'?1.3:1),U)>0){if(d.el=='fire'){e.ultBurn=U.burnT;}else if(d.el=='ice'){e.slowT=Math.max(e.slowT||0,U.slowT);e.ultIce=U.slowT;}}}}}
+  if(S.ultDrops)S.ultDrops=S.ultDrops.filter(d=>d.t>-.05);
+ // statuses from the storm: Burning ticks a little damage, Slowed is handled by slowT; both visible on the enemy
+ for(const e of S.en){if(e.ultIce>0)e.ultIce-=dt;if(e.ultBurn>0){e.ultBurn-=dt;e.ubT=(e.ubT||0)-dt;if(e.ubT<=0&&e.hp>0){e.ubT=.5;const dd=ULTS.witch.burn*dm()*(e.boss?ULTS.witch.boss:1);dmgE(e,dd,1);S.stats.ultDmg=(S.stats.ultDmg||0)+dd;}}}
+ if(!A)return;A.t+=dt;const U=ULTS[A.k],D=dm(),R=U.R*area();
+ if(A.k=='witch'){while(A.nx<=A.t&&A.t<U.dur){A.nx+=U.every;const tg=S.en.filter(e=>e.hp>0&&dist(e,p)<R);let x,y;
+   if(tg.length&&rnd()<.6){const e=tg[Math.floor(rnd()*tg.length)];x=e.x+(rnd()-.5)*30;y=e.y+(rnd()-.5)*30;}else{const a=rnd()*TAU,r=60+rnd()*(R-60);x=p.x+Math.cos(a)*r;y=p.y+Math.sin(a)*r;}
+   S.ultDrops.push({x,y,el:ULT_EL[A.i++%ULT_EL.length],t:.35});}
+  while(A.np<=A.t&&A.t<U.dur){A.np+=U.pulseEvery;for(const e of S.en)if(dist(e,p)<R+e.r)ultHit(e,U.pulse*D,U);}}
+ else if(A.k=='barbarian'){while(A.nb<U.beats.length&&U.beats[A.nb]<=A.t){A.nb++;S.fx.push({x:p.x,y:p.y,r:12,max:R,c:U.col,life:.55,ring:true});S.fx.push({x:p.x,y:p.y,r:6,max:R*.6,c:'#ffd27a',life:.4,ring:true});SND.nova();
+   for(const e of S.en)if(dist(e,p)<R+e.r){if(ultHit(e,U.beat*D,U)>0&&!e.boss){const dx=e.x-p.x,dy=e.y-p.y,l=Math.hypot(dx,dy)||1;e.x+=dx/l*U.kb;e.y+=dy/l*U.kb;e.slowT=Math.max(e.slowT||0,.5);}}}}
+ else if(!A.done){A.done=1;S.fx.push({x:p.x,y:p.y,r:10,max:R,c:U.col,life:.6,ring:true});for(const e of S.en)if(dist(e,p)<R+e.r)ultHit(e,U.blast*D,U);}
+ if(A.t>=U.dur)S.ultA=null;}
+function drawUlt(){if(S.ultDrops)for(const d of S.ultDrops){if(d.t<=0)continue;const k=d.t/.35,y=d.y-k*150,x=d.x+k*30,c=ULT_ELC[d.el];
+  const g=ctx.createRadialGradient(x,y,1,x,y,13);g.addColorStop(0,'#fff8e8');g.addColorStop(.35,c);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,13,0,TAU);ctx.fill();
+  ctx.strokeStyle=c;ctx.globalAlpha=.45;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+16,y-34);ctx.stroke();ctx.globalAlpha=1;
+  ctx.globalAlpha=.3;ctx.fillStyle=c;ctx.beginPath();ctx.ellipse(d.x,d.y,ULTS.witch.dropR*.35*(1-k*.6),ULTS.witch.dropR*.14*(1-k*.6),0,0,TAU);ctx.fill();ctx.globalAlpha=1;}
+ if(S.ultA&&S.ultA.k=='witch'){const p=S.p,R=ULTS.witch.R*area();ctx.save();ctx.globalAlpha=.18;ctx.strokeStyle='#ffd27a';ctx.lineWidth=3;ctx.setLineDash([10,12]);ctx.beginPath();ctx.arc(p.x,p.y,R,S.t,S.t+TAU);ctx.stroke();ctx.restore();}}
+// visible statuses: Burning (small flames over the enemy), Slowed (frosty ring)
+function statusFx(e){if(e.hp<=0)return;const r=e.r;if(e.ultIce>0){ctx.globalAlpha=.55*Math.min(1,e.ultIce);ctx.strokeStyle='#bff0ff';ctx.lineWidth=2.5;ctx.beginPath();ctx.ellipse(e.x,e.y+r*.6,r*1.1,r*.42,0,0,TAU);ctx.stroke();ctx.fillStyle='#e8fbff';for(let i=0;i<4;i++){const a=i/4*TAU+e.ph*.15;ctx.beginPath();ctx.arc(e.x+Math.cos(a)*r*1.1,e.y+r*.6+Math.sin(a)*r*.42,2,0,TAU);ctx.fill();}ctx.globalAlpha=1;}
+ if(e.ultBurn>0){const a=Math.min(1,e.ultBurn);for(let i=-1;i<=1;i++){const fx=e.x+i*r*.45,fy=e.y-r*1.05-(i?0:3),h=7+Math.sin(e.ph*1.3+i*2)*2;const g=ctx.createLinearGradient(fx,fy-h,fx,fy+3);g.addColorStop(0,'rgba(255,230,120,0)');g.addColorStop(.4,'rgba(255,170,60,'+(.85*a)+')');g.addColorStop(1,'rgba(255,90,30,'+(.75*a)+')');ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(fx-4,fy+3);ctx.quadraticCurveTo(fx-3,fy-h*.5,fx,fy-h);ctx.quadraticCurveTo(fx+3,fy-h*.5,fx+4,fy+3);ctx.closePath();ctx.fill();}}}
 // Elite Drop (0.2.6): no popup, no pause. Fixed contents (no randomness): the evolution if one is ready (first ready weapon in WEAPONS order),
 // plus ELITE_GOLD gold (the old 10–14 average) and 30% max health. A floating label shows what you got; an evolution gets a calm top bar.
 const ELITE_GOLD=12,ELITE_HEAL=.3,CHEST_FLY=.4;
@@ -1560,9 +1641,11 @@ function renderSoon(k){document.getElementById('pg_'+k).innerHTML='<h1 class="ph
 function renderTabs(){const n=document.getElementById('tabs');const LK={her:'heroes',che:'chests'};n.innerHTML=TABS.map((k,i)=>{const lk=LK[k]&&!unl(LK[k]);return '<button id="h_'+k+'" class="tab'+(i==tabI?' on':'')+(k=='sho'||k=='pas'?' soon':'')+(k=='home'?' homet':'')+(lk?' tlock':'')+'"'+(lk?' aria-label="'+T(TAB_KEY[k])+': '+T('lvl.unlocksAt',UNL[LK[k]])+'"':'')+'><span class="ti">'+(lk?IC('lock'):k=='home'?'<b class="tlv">'+M.lvlSel+'</b>':TAB_ICO[k])+'</span>'+(k=='home'?T('tab.level',M.lvlSel).replace(/\s*\d+$/,''):T(TAB_KEY[k]))+(lk?'':(k=='upg'?badge(upgBadge()):k=='che'?badge(readyCount()):k=='her'?badge(M.evoNew):''))+'</button>';}).join('');
  n.querySelectorAll('.tab').forEach((b,i)=>b.addEventListener('click',e=>{e.preventDefault();ac();if(TABS[i]=='home'&&tabI==i&&!guarded()){showLevels();return;}go(i);}));}
 function go(i,instant){tabI=clamp(i,0,TABS.length-1);const tr=document.getElementById('track');if(!tr)return;tr.style.transition=instant?'none':'';tr.style.transform='translateX('+(-tabI*100/TABS.length)+'%)';
- if(TABS[tabI]=='home')renderHome();document.querySelectorAll('#tabs .tab').forEach((b,j)=>b.classList.toggle('on',j==tabI));}
+ if(TABS[tabI]=='home')renderHome();if(TABS[tabI]=='her')heroInView();document.querySelectorAll('#tabs .tab').forEach((b,j)=>b.classList.toggle('on',j==tabI));}
 function initSwipe(){const p=document.getElementById('pages'),tr=document.getElementById('track');let sx=0,sy=0,dx=0,on=false,hor=null;
- p.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;dx=0;on=true;hor=null;},{passive:true});
+ p.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;dx=0;hor=null;
+  // 0.3.6c root-cause fix: a horizontal swipe inside a horizontal scroller (skin row, old hero carousel) belongs to that scroller, never to the hub page swipe
+  on=!(e.target&&e.target.closest&&e.target.closest('.skrow,.carousel,[data-hscroll]'));},{passive:true});
  p.addEventListener('touchmove',e=>{if(!on)return;const t=e.touches[0];dx=t.clientX-sx;const dy=t.clientY-sy;if(hor===null&&Math.hypot(dx,dy)>12)hor=Math.abs(dx)>Math.abs(dy);
   if(hor){const edgeK=(tabI==0&&dx>0)||(tabI==TABS.length-1&&dx<0)?.3:1;tr.style.transition='none';tr.style.transform='translateX(calc('+(-tabI*100/TABS.length)+'% + '+(dx*edgeK)+'px))';}},{passive:true});
  const end=()=>{if(!on)return;on=false;if(hor){markModal();go(Math.abs(dx)>60?tabI+(dx<0?1:-1):tabI);}};p.addEventListener('touchend',end,{passive:true});p.addEventListener('touchcancel',end,{passive:true});}
@@ -1642,7 +1725,7 @@ function upgDetail(tab,it){const max=it.l>=it.max,cost=upgCost(it.l),hs=HEROES[M
 const UPGLOCK={p:'passives',c:'luck'};function upgLocked(t){return t=='c'&&!shOn()?T('upg.luckL10'):UPGLOCK[t]&&!unl(UPGLOCK[t])?T('lvl.unlocksAt',UNL[UPGLOCK[t]]):'';}
 function showUpg(){const items=upgItems(upgTab);let sel=items.find(x=>x.k==upgSel[upgTab])||items[0];upgSel[upgTab]=sel.k;
  screen('upg',T('upg.title'),'<div class="utabs" role="tablist">'+[['w','upg.tabW'],['p','upg.tabP'],['c','upg.tabC']].map(([k,s])=>'<button class="act'+(upgTab==k?' on':'')+(upgLocked(k)?' ulock':'')+'" data-ut="'+k+'">'+(upgLocked(k)?IC('lock')+' ':'')+T(s)+'</button>').join('')+'</div>'+
-  (upgLocked(upgTab)?'<div class="lockpg">'+IC('lock')+'<p>'+upgLocked(upgTab)+'</p></div>':'<div class="uwrap"><div class="ugrid u'+upgTab+'">'+items.map(it=>'<button class="ucard'+(it.k==sel.k?' sel':'')+(it.l>=it.max?' max':'')+'" data-uc="'+it.k+'"><img src="'+it.img+'" alt=""><b>'+it.n+'</b><small>'+T('upg.lv',it.l,it.max)+'</small>'+starsOf(it.l,it.max)+'</button>').join('')+'</div>'+upgDetail(upgTab,sel)+'</div>'));
+  (upgLocked(upgTab)?'<div class="lockpg">'+IC('lock')+'<p>'+upgLocked(upgTab)+'</p></div>':'<div class="uwrap"><div class="ugrid ug-'+upgTab+'">'+items.map(it=>'<button class="ucard'+(it.k==sel.k?' sel':'')+(it.l>=it.max?' max':'')+'" data-uc="'+it.k+'"><img src="'+it.img+'" alt=""><b>'+it.n+'</b><small>'+T('upg.lv',it.l,it.max)+'</small>'+starsOf(it.l,it.max)+'</button>').join('')+'</div>'+upgDetail(upgTab,sel)+'</div>'));
  const pg=document.getElementById('pg_upg');if(!pg)return;
  pg.querySelectorAll('[data-ut]').forEach(b=>tapBtn(b,()=>{upgTab=b.dataset.ut;showUpg();}));pg.querySelectorAll('[data-uc]').forEach(b=>tapBtn(b,()=>{upgSel[upgTab]=b.dataset.uc;showUpg();}));
  const ub=document.getElementById('ubuy');if(ub)tapBtn(ub,()=>{if(ub.disabled)return;
@@ -1664,12 +1747,33 @@ function cardHtml(c){const h=HEROES[c.k],un=!!M.unlocked[c.k],st=M.stars[c.k]||1
  else act='<button data-card="'+c.k+'|'+c.sk+'">'+T('heroes.pick')+'</button>';
  return '<div class="bcard r-'+rar+(sel?' sel':'')+(lock?' lock':'')+'" '+(isSkin?'':'data-hero="'+c.k+'"')+' data-bc="'+c.k+'|'+c.sk+'"><span class="rar r-'+rar+'">'+T('rar.'+rar)+'</span><canvas data-pv="'+c.k+'" data-sk="'+c.sk+'"'+(lock?' data-sil="1"':'')+'></canvas>'+
   '<b class="bn">'+(isSkin?SKINS[c.sk].n:h.name)+'</b><small class="bs">'+(isSkin?T('cs.skin'):un?'<span class="gold">'+'★'.repeat(st)+'</span>':IC('lock'))+'</small><div class="bact">'+act+'</div></div>';}
+// 0.3.6c Heroes tab: vertical list, one card per unique hero, skins inside the card. The list keeps its own scroll position (heroScroll) across re-renders and tab switches.
+let heroScroll=0,heroSeen=null;
+function chestSkin(s){return Object.values(CHESTS).some(c=>c.odds.some(o=>o[0]=='skin:'+s));}
+function skinHow(s){const o=SKINS[s];return o.boss?T('cs.howBoss'):chestSkin(s)?T('cs.howSkin2',o.gems):T('cs.howShop',o.gems);}
+function skinChip(k,s,un){const own=s?!!M.skins[s]:un,worn=(M.skin[k]||'')==s,o=s?SKINS[s]:null;
+ return '<button class="skc'+(worn&&own?' on':'')+(own?'':' lk')+'" '+(own&&un?'data-card="'+k+'|'+s+'"':'data-lk="'+k+'|'+s+'"')+' aria-pressed="'+(worn&&own)+'"><canvas data-pv="'+k+'" data-sk="'+s+'"'+(own?'':' data-sil="1"')+'></canvas>'+(worn&&own?'<span class="ck">✓</span>':'')+'<span>'+(s?o.n:T('cs.base'))+'</span>'+(own?'':'<span class="skp">'+IC('lock')+' '+(o&&o.boss?IC('chest'):o?IC('gem')+' '+o.gems:'')+'</span>')+'</button>';}
+function heroRow(k){const h=HEROES[k],un=!!M.unlocked[k],st=M.stars[k]||1,sh=M.shards[k]||0,rar=RARITY[k]||'rare',sel=un&&M.sel==k,lock=!un||!h.playable;let act='';
+ if(!h.playable)act='<small class="how">'+IC('lock')+' '+T('hub.soon')+'</small>';
+ else if(!un&&!shOn())act='<small class="how">'+T('cs.howHeroNS')+'</small>';
+ else if(!un)act=sh>=50?'<button data-un="'+k+'">'+IC('unlock')+' '+T('heroes.unlock')+'</button>':'<small class="how">'+T('cs.howHero',sh)+'</small><small class="more" data-more="'+k+'">'+T('heroes.moreShards',50-sh)+'</small>';
+ else if(sel)act='<span class="selb">✓ '+T('heroes.chosen')+'</span>'+(shOn()?(st<5?'<button class="mini" data-s="'+k+'"'+(sh<20*st?' disabled':'')+'>★ '+T('heroes.starUp')+' '+sh+'/'+20*st+'</button>':''):'');
+ else act='<button data-pick="'+k+'">'+T('heroes.pick')+'</button>';
+ const sk=h.playable?Object.keys(SKINS).filter(s=>SKINS[s].hero==k&&(!SKINS[s].boss||M.skins[s])):[];
+ return '<div class="hrow r-'+rar+(sel?' sel':'')+(lock?' lock':'')+'" data-hero="'+k+'"><div class="hrtop"><canvas data-pv="'+k+'" data-sk="'+(un?(M.skin[k]||''):'')+'"'+(lock?' data-sil="1"':'')+'></canvas><div class="hinf"><b class="bn">'+h.name+'</b><span class="rar r-'+rar+'">'+T('rar.'+rar)+'</span>'+
+  '<small class="hst">'+(un?'<span class="gold">'+'★'.repeat(st)+'</span>':IC('lock'))+'</small><div class="hact">'+act+'</div></div></div>'+
+  (sk.length?'<div class="skrow" aria-label="'+T('cs.skinsOf')+'">'+['',...sk].map(s=>skinChip(k,s,un)).join('')+'</div><p class="skhow"></p>':'')+'</div>';}
+function heroInView(){const l=document.getElementById('herolist');if(!l)return;const r=l.querySelector('.hrow.sel');const key=M.sel+'|'+(M.skin[M.sel]||'');
+ // bring the selected hero into view the first time the tab opens and whenever the selection changed (e.g. arrows on the home screen); otherwise keep the player's scroll position
+ if(r&&heroSeen!==key){const top=r.offsetTop-l.offsetTop,bot=top+r.offsetHeight;if(top<l.scrollTop||bot>l.scrollTop+l.clientHeight)l.scrollTop=Math.max(0,Math.min(top-4,l.scrollHeight-l.clientHeight));heroScroll=l.scrollTop;}heroSeen=key;}
 function showHeroes(){if(!unl('heroes')){screen('her',T('heroes.title'),'<div class="lockpg">'+IC('lock')+'<h2>'+T('heroes.title')+'</h2><p>'+T('lvl.unlocksAt',UNL.heroes)+'</p></div>');return;}
- screen('her',T('heroes.title'),'<div class="cshead"><small>'+T('cs.sub')+'</small><button id="bookbtn" class="act hbook" aria-label="'+T('book.title')+'">'+IC('book')+badge(M.evoNew)+'</button></div><div class="carousel" id="carousel">'+heroCards().map(cardHtml).join('')+'</div>');
+ screen('her',T('heroes.title'),'<div class="cshead"><small>'+T('cs.sub2')+'</small><button id="bookbtn" class="act hbook" aria-label="'+T('book.title')+'">'+IC('book')+badge(M.evoNew)+'</button></div><div id="herolist">'+['witch','barbarian','wizard','elf'].filter(k=>HEROES[k]).map(heroRow).join('')+'</div>');
  const pg=document.getElementById('pg_her');if(!pg)return;pg.querySelectorAll('[data-pv]').forEach(cv=>heroPreview(cv,cv.dataset.pv,cv.dataset.sk,!!cv.dataset.sil));{const bb=document.getElementById('bookbtn');if(bb)tapBtn(bb,()=>showBook());}
- const cs=pg.querySelector('.bcard.sel');if(cs){const car=document.getElementById('carousel');car.scrollLeft=Math.max(0,cs.offsetLeft-car.clientWidth/2+cs.offsetWidth/2);}
- pg.querySelectorAll('[data-card]').forEach(b=>tapBtn(b,()=>{const [k,sk]=b.dataset.card.split('|');M.sel=k;M.skin[k]=sk;save();showHeroes();renderHome();}));
- pg.querySelectorAll('[data-pick]').forEach(b=>tapBtn(b,()=>{M.sel=b.dataset.pick;save();showHeroes();renderHome();}));
+ const l=document.getElementById('herolist');l.scrollTop=heroScroll;l.addEventListener('scroll',()=>{heroScroll=l.scrollTop;},{passive:true});if(TABS[tabI]=='her')heroInView();
+ const pick=(k,sk)=>{M.sel=k;if(sk!==undefined)M.skin[k]=sk;save();heroSeen=M.sel+'|'+(M.skin[M.sel]||'');showHeroes();renderHome();};
+ pg.querySelectorAll('[data-card]').forEach(b=>tapBtn(b,()=>{const [k,sk]=b.dataset.card.split('|');pick(k,sk);}));
+ pg.querySelectorAll('[data-pick]').forEach(b=>tapBtn(b,()=>pick(b.dataset.pick)));
+ pg.querySelectorAll('[data-lk]').forEach(b=>tapBtn(b,()=>{const [k,s]=b.dataset.lk.split('|');const row=b.closest('.hrow'),hw=row&&row.querySelector('.skhow');if(hw)hw.innerHTML=IC('lock')+' '+(s?SKINS[s].n+': '+skinHow(s):HEROES[k].name);}));
  pg.querySelectorAll('[data-un]').forEach(b=>tapBtn(b,()=>{const q=b.dataset.un;if(M.shards[q]>=50){M.shards[q]-=50;M.unlocked[q]=true;M.stars[q]=1;save();SND.chest();showHeroes();}}));
  pg.querySelectorAll('[data-s]').forEach(b=>tapBtn(b,()=>{const q=b.dataset.s,n=20*(M.stars[q]||1);if(M.shards[q]>=n){M.shards[q]-=n;M.stars[q]++;save();showHeroes();}}));}
 
@@ -1682,6 +1786,16 @@ Object.assign(STRINGS.en,{"lose3.tip": "Tough level! Upgrade your hero or replay
 Object.assign(STRINGS.nl,{"lose3.tip": "Pittig level! Upgrade je held of speel het vorige level nog eens.", "lose3.tip1": "Pittig level! Upgrade je held en probeer het opnieuw.", "lose3.upg": "Upgrades", "lose3.prev": "Level {0}"});
 Object.assign(STRINGS.de,{"lose3.tip": "Kniffliges Level! Verbessere deinen Helden oder spiel das vorige Level noch einmal.", "lose3.tip1": "Kniffliges Level! Verbessere deinen Helden und versuch es nochmal.", "lose3.upg": "Upgrades", "lose3.prev": "Level {0}"});
 Object.assign(STRINGS.fr,{"lose3.tip": "Niveau coriace ! Améliore ton héros ou rejoue le niveau précédent.", "lose3.tip1": "Niveau coriace ! Améliore ton héros, puis réessaie.", "lose3.upg": "Améliorations", "lose3.prev": "Niveau {0}"});
+// 0.3.6c strings: the Magic Source is the ULT meter; level-ups give weapons again
+Object.assign(STRINGS.en,{"ult.ready": "ULT ready!", "ult.btn": "ULT", "ult.line": "Ult: {0}", "ult.on": "{0}!", "ult.witch": "Spellpot Storm", "ult.barbarian": "War Drum", "ult.any": "Magic Blast", "src.cauldron.desc": "Fills up, then tap for your ult", "src.spellbook.desc": "Fills up, then tap for your ult", "src.wardrum.desc": "Fills up, then tap for your ult", "src.lifetree.desc": "Fills up, then tap for your ult", "panel.done": "ULT ready! Tap", "tip.cauld": "Your {0} is full! Tap the glowing ULT button for your ult. No rush, it waits.", "hint.source": "When your {0} is full, tap ULT for a big attack", "pick.levelSub": "Choose a weapon, an upgrade or a skill", "pick.first": "Pick one: a new weapon, an upgrade or a skill", "tut.3": "Your hero's <b>Magic Source</b> (the witch's cauldron, the barbarian's war drum) fills up while you play. When it glows, tap the <b>ULT</b> button for a big special attack that only hits monsters.", "tut.4": "Every hero level you pick 1 of 3 cards: a <b>new weapon</b>, a <b>weapon upgrade</b> or a <b>skill</b>, and you heal up. Weapon at Lv 5 + the right skill = <b>evolution</b>. Find a <b>magnet</b> and every Hero XP crystal and coin on the map flies to you."});
+Object.assign(STRINGS.nl,{"ult.ready": "ULT klaar!", "ult.btn": "ULT", "ult.line": "Ult: {0}", "ult.on": "{0}!", "ult.witch": "Toverpotstorm", "ult.barbarian": "Oorlogstrom", "ult.any": "Magische knal", "src.cauldron.desc": "Vult zich, tik dan voor je ult", "src.spellbook.desc": "Vult zich, tik dan voor je ult", "src.wardrum.desc": "Vult zich, tik dan voor je ult", "src.lifetree.desc": "Vult zich, tik dan voor je ult", "panel.done": "ULT klaar! Tik", "tip.cauld": "Je {0} is vol! Tik op de gloeiende ULT-knop voor je ult. Geen haast, hij wacht.", "hint.source": "Is je {0} vol, tik dan op ULT voor een grote aanval", "pick.levelSub": "Kies een wapen, een upgrade of een vaardigheid", "pick.first": "Kies er één: een nieuw wapen, een upgrade of een vaardigheid", "tut.3": "De <b>Magische Bron</b> van je held (de ketel van de heks, de oorlogstrom van de barbaar) vult zich terwijl je speelt. Gloeit hij, tik dan op de knop <b>ULT</b> voor een grote speciale aanval die alleen monsters raakt.", "tut.4": "Elk heldniveau kies je 1 van 3 kaarten: een <b>nieuw wapen</b>, een <b>wapen-upgrade</b> of een <b>vaardigheid</b>, en je geneest. Wapen op Lv 5 + de juiste vaardigheid = <b>evolutie</b>. Vind een <b>magneet</b> en alle Held-XP-kristallen en munten vliegen naar je toe."});
+Object.assign(STRINGS.de,{"ult.ready": "ULT bereit!", "ult.btn": "ULT", "ult.line": "Ult: {0}", "ult.on": "{0}!", "ult.witch": "Zaubertopf-Sturm", "ult.barbarian": "Kriegstrommel", "ult.any": "Magischer Knall", "src.cauldron.desc": "Füllt sich, dann tippen für dein Ult", "src.spellbook.desc": "Füllt sich, dann tippen für dein Ult", "src.wardrum.desc": "Füllt sich, dann tippen für dein Ult", "src.lifetree.desc": "Füllt sich, dann tippen für dein Ult", "panel.done": "ULT bereit! Tippen", "tip.cauld": "Deine {0} ist voll! Tippe auf den leuchtenden ULT-Knopf für dein Ult. Keine Eile, sie wartet.", "hint.source": "Ist dein {0} voll, tippe auf ULT für einen großen Angriff", "pick.levelSub": "Wähle eine Waffe, ein Upgrade oder eine Fähigkeit", "pick.first": "Wähle eins: neue Waffe, Upgrade oder Fähigkeit", "tut.3": "Die <b>Magische Quelle</b> deines Helden (der Kessel der Hexe, die Kriegstrommel des Barbaren) füllt sich beim Spielen. Leuchtet sie, tippe auf <b>ULT</b> für einen großen Spezialangriff, der nur Monster trifft.", "tut.4": "Bei jeder Heldenstufe wählst du 1 von 3 Karten: eine <b>neue Waffe</b>, ein <b>Waffen-Upgrade</b> oder eine <b>Fähigkeit</b>, und du heilst dich. Waffe auf St. 5 + die richtige Fähigkeit = <b>Evolution</b>. Finde einen <b>Magneten</b>, und alle Helden-EP-Kristalle und Münzen fliegen zu dir."});
+Object.assign(STRINGS.fr,{"ult.ready": "ULT prête !", "ult.btn": "ULT", "ult.line": "Ult : {0}", "ult.on": "{0} !", "ult.witch": "Tempête du Chaudron", "ult.barbarian": "Tambour de guerre", "ult.any": "Explosion magique", "src.cauldron.desc": "Se remplit, puis touche pour ton ult", "src.spellbook.desc": "Se remplit, puis touche pour ton ult", "src.wardrum.desc": "Se remplit, puis touche pour ton ult", "src.lifetree.desc": "Se remplit, puis touche pour ton ult", "panel.done": "ULT prête ! Touche", "tip.cauld": "Ton {0} est plein ! Touche le bouton ULT qui brille pour ton ult. Pas de hâte, il attend.", "hint.source": "Quand ton {0} est plein, touche ULT pour une grosse attaque", "pick.levelSub": "Choisis une arme, une amélioration ou un talent", "pick.first": "Choisis : une nouvelle arme, une amélioration ou un talent", "tut.3": "La <b>Source magique</b> de ton héros (le chaudron de la sorcière, le tambour du barbare) se remplit pendant que tu joues. Quand elle brille, touche le bouton <b>ULT</b> pour une grosse attaque spéciale qui ne touche que les monstres.", "tut.4": "À chaque niveau du héros, tu choisis 1 carte sur 3 : une <b>nouvelle arme</b>, une <b>amélioration d’arme</b> ou un <b>talent</b>, et tu te soignes. Arme au Nv 5 + le bon talent = <b>évolution</b>. Trouve un <b>aimant</b> et tous les cristaux d’XP du héros et les pièces volent vers toi."});
+// 0.3.6c Heroes list strings
+Object.assign(STRINGS.en,{"cs.sub2": "Scroll for every hero. Tap a skin to wear it.", "cs.base": "Classic", "cs.howShop": "Shop: {0} gems", "cs.skinsOf": "Skins"});
+Object.assign(STRINGS.nl,{"cs.sub2": "Scroll voor alle helden. Tik op een skin om hem te dragen.", "cs.base": "Klassiek", "cs.howShop": "Winkel: {0} edelstenen", "cs.skinsOf": "Skins"});
+Object.assign(STRINGS.de,{"cs.sub2": "Scrolle für alle Helden. Tippe auf einen Skin, um ihn zu tragen.", "cs.base": "Klassisch", "cs.howShop": "Shop: {0} Edelsteine", "cs.skinsOf": "Skins"});
+Object.assign(STRINGS.fr,{"cs.sub2": "Fais défiler pour voir tous les héros. Touche un skin pour le porter.", "cs.base": "Classique", "cs.howShop": "Boutique : {0} gemmes", "cs.skinsOf": "Skins"});
 const LANGS=['en','nl','de','fr'];
 /* ===== 0.3.3 gem shop (mock purchases only: no payment code, no SDK) ===== */
 function eur(v){try{return new Intl.NumberFormat(LANG_TAG[LANG]||'en-US',{style:'currency',currency:'EUR'}).format(v);}catch(e){return '€'+v.toFixed(2);}}
@@ -1748,7 +1862,8 @@ function hubTip(el,text){const old=document.getElementById('htip');if(old)old.re
  const bw=d.offsetWidth,bh=d.offsetHeight,below=r.bottom+8+bh<=innerHeight-4;d.style.left=Math.round(Math.min(innerWidth-bw-6,Math.max(6,r.left+r.width/2-bw/2)))+'px';d.style.top=Math.round(below?r.bottom+8:Math.max(4,r.top-8-bh))+'px';
  const close=()=>{d.remove();document.removeEventListener('pointerdown',close,true);};setTimeout(()=>document.addEventListener('pointerdown',close,true),50);setTimeout(close,6000);}
 function hubTipsOnce(){if(S||storyI>=0||document.getElementById('spot')||document.getElementById('htip'))return;const sh=document.getElementById('sheet');if(sh&&!sh.classList.contains('hide'))return;
- const list=[['rank','#plvbar','tip.rank'],['gems','#cgem','tip.gems']];for(const [k,sel,key] of list){if(tipSeen(k))continue;const el=document.querySelector(sel);if(!el||!el.getBoundingClientRect().width)continue;setTip(k);hubTip(el,T(key));
+ const list=[['rank','#plvbar','tip.rank'],['gems','#cgem','tip.gems']];for(const [k,sel,key] of list){if(tipSeen(k))continue;const el=document.querySelector(sel);if(!el||!el.getBoundingClientRect().width)continue;{const q=el.getBoundingClientRect();if(q.right<=0||q.left>=innerWidth)continue;} // 0.3.6c: anchor on another (off-screen) tab -> wait, never float the tip over the wrong page
+  setTip(k);hubTip(el,T(key));
   const nx=()=>{document.removeEventListener('pointerdown',nx,true);setTimeout(hubTipsOnce,400);};setTimeout(()=>document.addEventListener('pointerdown',nx,true),60);return;}}
 document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('.qlock,.tlock,.ulock,#cgem,#plvbar');if(!t)return;if(document.getElementById('spot'))return;
  if(t.id=='cgem'){hubTip(t,T('tip.gems'));return;}if(t.id=='plvbar'){hubTip(t,T('tip.rank'));return;}
@@ -1842,7 +1957,7 @@ function update(dt){S.t+=dt;if(S.rangePulse>0)S.rangePulse-=dt;if(DBG.inv)S.p.in
  if(!S.tip&&!S.hint&&!(S.tipGap>0)&&S.tipQ.length&&!['auto','src'].includes(S.tipQ[0])){const k=S.tipQ.shift();setTip(k);S.tip={k,t:runTipText(k),life:5.5,max:5.5};}
  if(!S.tip&&!S.hint&&!(S.tipGap>0)&&S.tipQ.length){const k=S.tipQ.shift();if(k=='auto'){M.hintAuto=1;save();S.tip={k,t:T('hint.auto'),life:4.5,max:4.5};}else{M.hintSrc=1;save();S.tip={k,t:T('hint.source',S.hero.source.name),life:5,max:5};}}
  if(joy.on){const l=Math.hypot(joy.dx,joy.dy);if(l>4){const k=Math.min(1,l/JOY_R);movePlayer(joy.dx/l*k*p.spd*dt,joy.dy/l*k*p.spd*dt);}}
- addCraft(S.hero.source.perSec*dt);if(S.L.craftBoost&&S.craft.n==0)addCraft(S.craft.need/S.L.craftBoost*dt/(1+.15*plv('brew')));S.craft.pop=Math.max(0,S.craft.pop-dt);
+ addCraft(S.hero.source.perSec*dt);S.craft.bud=Math.min(2,(S.craft.bud||0)+ULT_CHARGE.bonusCap*dt);if(S.L.craftBoost&&S.craft.n==0)addCraft(S.craft.need/S.L.craftBoost*dt/(1+.15*plv('brew')));S.craft.pop=Math.max(0,S.craft.pop-dt);
  updCam();
  if(S.L.endless){S.L.kinds=BALANCE.endless.kinds.filter(k=>S.t>=k[0]).map(k=>k[1]);S.L.newest=S.L.kinds[S.L.kinds.length-1];if(!S.boss&&S.t>=S.endNext){spawnBoss(endlessBoss());S.endIdx++;S.endNext=S.t+BALANCE.endless.rotEvery;}}
  if(!S.bossSpawned){S.spawnT-=dt;if(S.spawnT<=0){const em=S.L.endless?endlessMul():null,n=em?2:1+Math.floor(S.t/60),cap=Math.round(90*Math.min(1,S.L.enemyCount*(em?em.spawn:1)));for(let i=0;i<n;i++)if(S.en.length<cap)spawn(pickKind());S.spawnT=em?1.1/em.spawn:Math.max(.42,1.5-S.t/100)/S.L.enemyCount;}
@@ -1850,7 +1965,7 @@ function update(dt){S.t+=dt;if(S.rangePulse>0)S.rangePulse-=dt;if(DBG.inv)S.p.in
   S.eliteT-=dt;if(S.eliteT<=0){S.eliteT=S.L.elite||1e9;spawn(pickKind(),true);say(T('run.elite'),'#e8c66a');}
   if(!S.L.endless&&S.t>=S.L.len)spawnBoss();}
  else if(S.boss&&S.boss.hp>0&&S.winT<0&&S.en.length<25){S.spawnT-=dt;if(S.spawnT<=0){spawn(pickKind());S.spawnT=2;}}
- updWeapons(dt);
+ updWeapons(dt);updUlt(dt);
  for(const b of S.bul){b.x+=b.vx*dt;b.y+=b.vy*dt;
   for(const e of S.en)if(!introImm(e)){if(e.hp>0&&!b.hit.includes(e)&&Math.hypot(e.x-b.x,e.y-b.y)<e.r+5){dmgE(e,b.d);b.hit.push(e);if(b.pierce--<=0){b.dead=1;break;}}}
   if(Math.abs(b.x-p.x)>450||Math.abs(b.y-p.y)>450)b.dead=1;}
@@ -2110,7 +2225,8 @@ function drawOrbit(){const w=B().wep.orbit;if(!w||!w.pts)return;if(w.pts.length)
 function drawSwing(q){const k=1-q.life/q.max,a0=q.a-q.arc/2,a1=a0+q.arc*Math.min(1,k*1.6+.2);ctx.globalAlpha=Math.min(1,q.life*8);ctx.fillStyle='rgba(255,236,200,.25)';ctx.beginPath();ctx.moveTo(q.x,q.y);ctx.arc(q.x,q.y,q.R,a0,a1);ctx.closePath();ctx.fill();ctx.strokeStyle='#fff4dc';ctx.lineWidth=4;ctx.beginPath();ctx.arc(q.x,q.y,q.R-3,a0,a1);ctx.stroke();ctx.globalAlpha=1;}
 function drawZap(z){ctx.strokeStyle='#fff6a0';ctx.lineWidth=3;ctx.globalAlpha=z.life*5;ctx.beginPath();ctx.moveTo(z.x1,z.y1);const n=5;for(let i=1;i<n;i++){const t=i/n;ctx.lineTo(z.x1+(z.x2-z.x1)*t+(rnd()-.5)*12,z.y1+(z.y2-z.y1)*t+(rnd()-.5)*12);}ctx.lineTo(z.x2,z.y2);ctx.stroke();ctx.strokeStyle='#f2c418';ctx.lineWidth=1.2;ctx.stroke();ctx.globalAlpha=1;}
 function frame(x,y,w,h){ctx.fillStyle='#120e15';ctx.fillRect(x,y,w,h);ctx.strokeStyle='#8a6a2a';ctx.lineWidth=1;ctx.strokeRect(x+.5,y+.5,w-1,h-1);}
-const BARG=new Map();function bar(x,y,w,h,f,c,c2){ctx.fillStyle='#0a080c';ctx.fillRect(x,y,w,h);ctx.strokeStyle='#6a5430';ctx.lineWidth=1;ctx.strokeRect(x-.5,y-.5,w+1,h+1);const fw=w*clamp(f,0,1);if(fw>1){const gk=y+'|'+h+'|'+c+'|'+c2;let g=BARG.get(gk);if(!g){g=ctx.createLinearGradient(0,y,0,y+h);g.addColorStop(0,c2||c);g.addColorStop(1,c);if(BARG.size>64)BARG.clear();BARG.set(gk,g);}ctx.fillStyle=g;ctx.fillRect(x,y,fw,h);ctx.fillStyle='rgba(255,255,255,.18)';ctx.fillRect(x,y+1,fw,h*.3);}}
+const BARG=new Map();function bar(x,y,w,h,f,c,c2){ctx.fillStyle='#0a080c';ctx.fillRect(x,y,w,h);ctx.strokeStyle='#6a5430';ctx.lineWidth=1;ctx.strokeRect(x-.5,y-.5,w+1,h+1);barFill(x,y,w,h,f,c,c2);}
+function barFill(x,y,w,h,f,c,c2){const fw=w*clamp(f,0,1);if(fw>1){const gk=y+'|'+h+'|'+c+'|'+c2;let g=BARG.get(gk);if(!g){g=ctx.createLinearGradient(0,y,0,y+h);g.addColorStop(0,c2||c);g.addColorStop(1,c);if(BARG.size>64)BARG.clear();BARG.set(gk,g);}ctx.fillStyle=g;ctx.fillRect(x,y,fw,h);ctx.fillStyle='rgba(255,255,255,.18)';ctx.fillRect(x,y+1,fw,h*.3);}}
 // cached HUD strip: drawn offscreen at device resolution and only rebuilt when its inputs change
 const LAYERS={};function cachedLayer(name,key,x,y,w,h,fn){const tr=ctx.getTransform(),sx=Math.hypot(tr.a,tr.b),k=key+'|'+sx+'|'+x+'|'+y+'|'+w+'|'+h;let L=LAYERS[name];if(!L)L=LAYERS[name]={cv:document.createElement('canvas'),k:''};
  if(L.k!==k){const cw=Math.ceil(w*sx),ch=Math.ceil(h*sx);if(L.cv.width!==cw||L.cv.height!==ch){L.cv.width=cw;L.cv.height=ch;}const keep=ctx;ctx=L.cv.getContext('2d');try{ctx.setTransform(sx,0,0,sx,-x*sx,-y*sx);ctx.clearRect(x,y,w,h);fn();}finally{ctx=keep;}L.k=k;L.builds=(L.builds||0)+1;}
@@ -2149,16 +2265,20 @@ const PANC={cv:null,k:''};function panelStatic(ky,src,c,f){
  ctx.textBaseline='middle';ctx.textAlign='left';ctx.fillStyle='#f2d27a';ctx.font='bold 22px '+FS;ctx.fillText(src.name.toUpperCase(),140,ky+20,170);
  ctx.textAlign='right';ctx.fillStyle='#fff';ctx.font='bold 16px '+FS;ctx.fillText(Math.floor(f*100)+'%',388,ky+21);
  ctx.textAlign='left';ctx.fillStyle='#f2e8d0';ctx.font='16px '+FS;ctx.fillText(T('panel.full',src.desc),140,ky+44,250);
- bar(140,ky+56,248,14,f,src.col2,src.col);
- ctx.fillStyle='#f2e8d0';ctx.font='16px '+FS;ctx.fillText(T('panel.full2'),140,ky+86,252);
- ctx.fillStyle='#f2d27a';ctx.font='bold 16px '+FS;if(c.bank>0)ctx.fillText(T('panel.done',src.name,c.bank),140,ky+110,250);ctx.textAlign='center';}
+ bar(140,ky+56,248,14,0,src.col2,src.col); // 0.3.6c: track only; the moving fill is drawn live on top (keeps the cache stable while the ULT meter fills)
+ if(!(c.bank>0)){ctx.fillStyle='#f2e8d0';ctx.font='16px '+FS;ctx.fillText(S.ultA?T('ult.on',ultName()):T('ult.line',ultName()),140,ky+86,252);}ctx.textAlign='center';}
 function drawVesselPanel(ky){const src=S.hero.source,c=S.craft,f=c.v/c.need,tr=ctx.getTransform(),sx=Math.hypot(tr.a,tr.b),ph=H-ky;
- const k=[ky,H,W,sx,src.name,Math.floor(f*100),Math.round(clamp(f,0,1)*248*sx),c.n,c.bank,M.lang||''].join('|');
+ const k=[ky,H,W,sx,src.name,Math.floor(f*100),c.n,c.bank,!!S.ultA,M.lang||''].join('|');
  if(PANC.k!==k){const cv=PANC.cv||(PANC.cv=document.createElement('canvas')),pw=Math.ceil(W*sx),phh=Math.ceil(ph*sx);if(cv.width!==pw||cv.height!==phh){cv.width=pw;cv.height=phh;}
   const keep=ctx;ctx=cv.getContext('2d');try{ctx.setTransform(sx,0,0,sx,0,-ky*sx);ctx.clearRect(0,ky,W,ph);panelStatic(ky,src,c,f);}finally{ctx=keep;}PANC.k=k;}
- ctx.drawImage(PANC.cv,0,ky,W,ph);
+ ctx.drawImage(PANC.cv,0,ky,W,ph);barFill(140,ky+56,248,14,f,src.col2,src.col);
  if(c.pop>0){ctx.fillStyle='rgba(60,224,138,'+c.pop*.25+')';ctx.fillRect(0,ky,W,ph);}
- src.draw(72,ky+62,f);ctx.textAlign='center';}
+ src.draw(72,ky+62,f);if(c.bank>0)drawUltBtn(ky,src);ctx.textAlign='center';}
+// 0.3.6c the glowing ULT button (the whole panel is the tap target, see placeCauld); slow smooth pulse, never a flash
+function drawUltBtn(ky,src){const x=140,y=ky+76,w=248,h=36,g=.55+.45*Math.sin(TT*3);ctx.save();ctx.shadowColor=src.col;ctx.shadowBlur=10+12*g;
+ const gr=ctx.createLinearGradient(0,y,0,y+h);gr.addColorStop(0,'#ffe9a0');gr.addColorStop(.5,'#f2b640');gr.addColorStop(1,'#b97818');ctx.fillStyle=gr;rrect(x,y,w,h,h/2);ctx.fill();ctx.restore();
+ ctx.strokeStyle='rgba(255,250,220,'+(.5+.4*g).toFixed(3)+')';ctx.lineWidth=2;rrect(x+1,y+1,w-2,h-2,h/2-1);ctx.stroke();
+ ctx.fillStyle='#2a1606';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 18px '+FS;ctx.fillText(T('ult.btn')+' · '+ultName(),x+w/2,y+h/2+1,w-20);}
 function drawArrow(o,col){const sx=o.x-cam.x,sy=o.y-cam.y,cx=ARENA.w/2,cy=ARENA.h/2,a=Math.atan2(sy-cy,sx-cx),k=Math.min((cx-18)/Math.abs(Math.cos(a)||1e-6),(cy-18)/Math.abs(Math.sin(a)||1e-6));
  const x=ARENA.x+cx+Math.cos(a)*k,y=ARENA.y+cy+Math.sin(a)*k;ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.fillStyle=col;ctx.beginPath();ctx.moveTo(10,0);ctx.lineTo(-6,-8);ctx.lineTo(-3,0);ctx.lineTo(-6,8);ctx.closePath();ctx.fill();ctx.restore();}
 const ENTS=[],byY=(a,b)=>a.y-b.y;
@@ -2174,8 +2294,8 @@ function draw(){if(LAND&&S){ctx.setTransform(DPR,0,0,DPR,0,0);ctx.fillStyle='#0f
  const ents=ENTS;ents.length=0;for(const e of S.en)if(inView(e,60))ents.push(e);ents.push(p);ents.sort(byY);
  if(M.rangeOn!==0&&(S.showRange||plv('candle')>0)){ctx.save();ctx.globalAlpha=.13+(S.rangePulse>0?.35*Math.min(1,S.rangePulse):0);ctx.strokeStyle='#bfe9ff';ctx.lineWidth=1.5;ctx.setLineDash([6,9]);ctx.beginPath();ctx.arc(p.x,p.y,aimRange(),0,TAU);ctx.stroke();ctx.restore();}
  if(S.healFx>0){const g=ctx.createRadialGradient(p.x,p.y,4,p.x,p.y,46);g.addColorStop(0,'rgba(92,255,122,'+(.55*S.healFx)+')');g.addColorStop(1,'rgba(92,255,122,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,46,0,TAU);ctx.fill();}
- for(const it of ents){if(it===p){if(!(p.inv>0&&Math.floor(S.t*15)%2&&S.t-p.lastHit<1))drawHeroLit(p);}else if(it.hp===undefined)drawObst(it);else drawEnemy(it);}ents.length=0;
- drawOrbit();for(const z of S.zaps)drawZap(z);for(const q of S.swings)drawSwing(q);
+ for(const it of ents){if(it===p){if(!(p.inv>0&&Math.floor(S.t*15)%2&&S.t-p.lastHit<1))drawHeroLit(p);}else if(it.hp===undefined)drawObst(it);else{drawEnemy(it);statusFx(it);}}ents.length=0;
+ drawOrbit();drawUlt();for(const z of S.zaps)drawZap(z);for(const q of S.swings)drawSwing(q);
  for(const f of S.fx){ctx.globalAlpha=Math.max(0,f.life*2);ctx.strokeStyle=f.c;ctx.lineWidth=f.ring?6:4;ctx.beginPath();ctx.arc(f.x,f.y,Math.max(0,f.r),0,TAU);ctx.stroke();}ctx.globalAlpha=1;
  for(const q of S.parts){ctx.globalAlpha=Math.min(1,q.life*(q.poof?1.6:2));ctx.fillStyle=q.c;ctx.beginPath();ctx.arc(q.x,q.y,Math.max(0,q.poof?q.r*(1.4-q.life):q.r),0,TAU);ctx.fill();}ctx.globalAlpha=1;
  for(const b of S.bul){ctx.fillStyle=b.c;for(let i=1;i<=3;i++){ctx.globalAlpha=.3-.08*i;ctx.beginPath();ctx.arc(b.x-b.vx*.02*i,b.y-b.vy*.02*i,4-i*.8,0,TAU);ctx.fill();}ctx.globalAlpha=.3;ctx.beginPath();ctx.arc(b.x-b.vx*.02,b.y-b.vy*.02,4,0,TAU);ctx.fill();ctx.globalAlpha=1;ctx.save();ctx.translate(b.x,b.y);ctx.rotate(Math.atan2(b.vy,b.vx));ctx.beginPath();ctx.moveTo(7,0);ctx.lineTo(-4,-3.5);ctx.lineTo(-4,3.5);ctx.closePath();ctx.fill();ctx.restore();}
@@ -2231,8 +2351,8 @@ function draw(){if(LAND&&S){ctx.setTransform(DPR,0,0,DPR,0,0);ctx.fillStyle='#0f
  if(S.enterT>0){ctx.setTransform(DPR,0,0,DPR,0,0);ctx.globalAlpha=Math.min(1,S.enterT/ENTER_T);ctx.fillStyle='#0f0c12';ctx.fillRect(0,0,innerWidth,innerHeight);ctx.globalAlpha=1;}placeSnd();}
 let sndKey='';
 function placeCauld(){const b=document.getElementById('cauld');if(!b)return;const on=!!(S&&S.state=='play'&&S.craft&&S.craft.bank>0&&!S.vic&&!document.body.classList.contains('inlobby'));
- if(!on){if(b.style.display!='none')b.style.display='none';return;}let ox,oy,k,top;const ky=ARENA.y+ARENA.h;if(LAND){ox=LAND.hx;oy=LAND.hy;k=LAND.hs;top=ARENA.y;}else{const r=cv.getBoundingClientRect();ox=r.left;oy=r.top;k=scale;top=ky;}
- const css='display:block;left:'+ox+'px;top:'+(oy+top*k)+'px;width:'+(W*k)+'px;height:'+((H-ky)*k)+'px';if(b.__css!==css){b.__css=css;b.style.cssText=css;b.setAttribute('aria-label',T('panel.done',S.hero.source.name,S.craft.bank));}}
+ if(!on){if(b.style.display!='none')b.style.display='none';b.__css='';return;}/* 0.3.6c: forget the cached css when hidden, else the ULT button stayed hidden after a level-up pick */let ox,oy,k,top;const ky=ARENA.y+ARENA.h;if(LAND){ox=LAND.hx;oy=LAND.hy;k=LAND.hs;top=ARENA.y;}else{const r=cv.getBoundingClientRect();ox=r.left;oy=r.top;k=scale;top=ky;}
+ const css='display:block;left:'+ox+'px;top:'+(oy+top*k)+'px;width:'+(W*k)+'px;height:'+((H-ky)*k)+'px';if(b.__css!==css){b.__css=css;b.style.cssText=css;b.setAttribute('aria-label',T('ult.btn')+': '+ultName());}}
 function placeSnd(force){const bm=document.getElementById('bm'),bs=document.getElementById('bs'),bp=document.getElementById('bp');if(!bm||!bs)return;
  if(!S||document.body.classList.contains('inlobby')){if(sndKey){sndKey='';for(const b of [bm,bs])b.style.cssText='';if(bp)bp.style.cssText='display:none';}return;}
  let ox,oy,k;if(LAND){ox=LAND.hx;oy=LAND.hy;k=LAND.hs;}else{const r=cv.getBoundingClientRect();ox=r.left;oy=r.top;k=scale;}
