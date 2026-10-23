@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Spellpot Heroes v0.3.7f</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
+<title>Spellpot Heroes v0.3.7g</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='22' fill='%232b2433' stroke='%23f3d98a' stroke-width='4'/%3E%3Cellipse cx='32' cy='24' rx='20' ry='6' fill='%233ce08a'/%3E%3Ccircle cx='26' cy='16' r='4' fill='%239ff5c4'/%3E%3Ccircle cx='38' cy='10' r='3' fill='%239ff5c4'/%3E%3C/svg%3E">
 <style>
 /* Nunito (SIL Open Font License 1.1, see OFL.txt), subset, inlined so it works offline from one file */
@@ -26,6 +26,8 @@ button:disabled{filter:grayscale(1) brightness(.6);cursor:default}
 #bm{right:8px}#bs{right:52px}.snd.off{opacity:.45;text-decoration:line-through}
 .hub{width:92%;max-width:370px;color:#eadfc8}
 .cur{display:flex;justify-content:space-between;font-weight:700;padding:6px 10px;background:#15111a;border:1px solid #5a4520;margin:0 0 8px;font-size:16px}
+.gcap{display:inline-flex;align-items:center;vertical-align:middle;margin-left:7px;font-size:14px;font-weight:700;color:#bfe8f4;line-height:1}.gcap i{display:block;width:30px;height:6px;border-radius:3px;background:rgba(0,0,0,.45);box-shadow:inset 0 0 0 1px rgba(143,227,255,.45);overflow:hidden}.gcap b{display:block;height:100%;background:#8fe3ff;border-radius:3px}.gcap.near b{background:#ffd95a}
+.lvlist .lvend{grid-column:1/-1}.lvlist .lvend b,.lvlist .lvend small{display:flex;align-items:center;gap:6px}#pg_home .hend{width:100%}#pg_home .hend .ic{width:18px;height:18px;vertical-align:-3px}#pg_home .hend.hlock{border-style:dashed!important;box-shadow:none!important;color:#f0e8d8!important}
 .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.grid5 button{position:relative;font-size:14px;padding:12px 2px;margin:0;background:linear-gradient(#3a2f44,#221b29);color:#eadfc8;border-color:#7a6440;letter-spacing:.3px;overflow:visible}
 .grid5 button small{display:block;font-size:14px;text-transform:none;opacity:1}.grid5 .soon img,.grid5 .soon canvas{filter:grayscale(1) brightness(.6)}
 .badge{position:absolute;top:-6px;right:2px;background:#d42a2a;color:#fff;border-radius:9px;min-width:16px;height:16px;line-height:16px;font-size:14px;padding:0 3px;box-shadow:0 0 0 2px #1a1418}
@@ -267,7 +269,7 @@ body.lowfx .scrin{animation:scrFade .2s linear both}@keyframes scrFade{from{opac
 .lockln{display:inline-flex;align-items:center;gap:4px;color:#e6e0ea}.lockln .ic{width:16px;height:16px}
 .lockrow{justify-content:center;align-items:center;gap:6px;font-size:14px;color:#e6e0ea;background:rgba(40,36,46,.85);border:1px dashed #8a7a8c;border-radius:12px;padding:6px 10px;min-height:0}
 .qcard.qlock,.tab.tlock,.utabs .ulock{background:#3a3640!important;color:#e6e0ea!important;border-color:#6e6878!important;box-shadow:none!important;opacity:1!important}.qcard.qlock b,.qcard.qlock small{color:#e6e0ea}
-.cards{grid-template-columns:1fr 1fr 1fr!important}.qcard.qend small{white-space:normal}
+.cards{grid-template-columns:1fr 1fr!important}
 .lockpg{text-align:center;color:#f2e8d0;margin-top:10vh}.lockpg .ic{width:48px;height:48px}.lockpg p{font-size:16px}
 #spot{position:fixed;inset:0;z-index:70;background:rgba(8,6,12,.55)}#spot .spring{position:absolute;border:3px solid #f3d98a;border-radius:14px;box-shadow:0 0 0 4px rgba(243,217,138,.25);pointer-events:none}
 #spot .spbox{position:absolute;box-sizing:border-box;width:min(88vw,340px);background:#221b29;color:#f2e8d0;border:2px solid #f3d98a;border-radius:14px;padding:12px 14px 10px;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.5)}#spot .spbox p{margin:0 0 10px;font-size:16px;line-height:1.35;text-align:center}#spot .spbox button{margin:0 auto;display:block;width:auto;min-width:50%;padding:7px 18px}
@@ -608,6 +610,23 @@ body:has(#sheet:not(.hide)) #htip{display:none}
 @keyframes cfFall{0%{transform:translateY(0) rotate(var(--r));opacity:0}8%{opacity:1}100%{transform:translateY(110vh) rotate(calc(var(--r) + 540deg));opacity:1}}
 @media (prefers-reduced-motion:reduce){.cf i.f{animation:none;opacity:0}.cf i.b{animation:none;opacity:.8;transform:translate(var(--dx),var(--dy))}#celeb *{animation:none!important}}
 @media (orientation:landscape) and (max-height:520px){#celeb{flex-direction:column;gap:6px;padding:12px}#celeb .cl-ic,#celeb .cl-ic .ic{width:56px;height:56px}#celeb .cl-h{font-size:30px}#celeb .cl-l{font-size:18px}}
+
+/* 0.3.7g end screens: ONE column. Root cause of the crooked win screen: the play button (max-width 320px, 100%), the row (84%) and the village button (70%) each had their own width/margin rule, the play button breathed (scale), and the box height used large-viewport vh. Now: one flex column, every button 100% of the same inner width, equal gaps, nothing animates the width; safe-area + dvh aware */
+:root{--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px);--sar:env(safe-area-inset-right,0px)}
+#ov:has(#endbox),#ov:has(#celeb){box-sizing:border-box;padding:var(--sat) var(--sar) var(--sab) var(--sal)}
+#endbox,#celeb{box-sizing:border-box;max-height:calc(100vh - var(--sat) - var(--sab) - 12px)}
+@supports (height:1dvh){#endbox,#celeb{max-height:calc(100dvh - var(--sat) - var(--sab) - 12px)}}
+#endbox .e2btns,#endbox.e2 .e2btns{display:flex;flex-direction:column;align-items:stretch;gap:8px;width:100%;margin:10px 0 0;padding:0}
+#endbox .e2btns>button,#endbox .e2btns>.endrow>button,#celeb>button{box-sizing:border-box;display:block;width:100%!important;max-width:none!important;margin:0!important;animation:none!important;transform:none}
+#endbox .e2btns>.endrow{display:contents}
+#celeb>button{margin-top:10px!important}
+#cfxend>.playbtn{box-sizing:border-box;width:100%;max-width:none;animation:none}
+@media (orientation:portrait) and (max-height:700px){#endbox .e2btns{gap:6px;margin-top:6px}#endbox .e2btns>button,#endbox .e2btns>.endrow>button{padding:8px!important}}
+@media (orientation:landscape) and (max-height:520px){#endbox .e2btns{gap:4px;margin-top:4px}#endbox .e2btns>button,#endbox .e2btns>.endrow>button{padding:5px!important;margin:0!important}}
+/* 0.3.7g landscape home: the Endless button joins the stack, so the role line goes (the name stays) */
+@media (orientation:landscape) and (max-height:520px){#pg_home.v31 .hside{gap:5px}#pg_home.v31 .hname small.hrole{display:none!important}#pg_home .lvnext{min-height:38px}}
+@media (orientation:landscape) and (max-height:520px){#endbox,#endbox.e2{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,38%);column-gap:14px;row-gap:4px;align-items:center;align-content:center}#endbox>*{grid-column:1}#endbox>h1{grid-column:1/-1}#endbox.e2>.e2btns,#endbox>.e2btns{grid-column:2;grid-row:2/span 8;align-self:center;margin-top:0;gap:6px}#endbox>.e2btns>button,#endbox>.e2btns>.endrow>button{padding:8px!important}}
+.relicbox .up .ic{width:22px;height:22px;vertical-align:-5px;margin-right:6px}.relicbox .up{font-size:18px}.relicbox .up small{font-size:14px}
 </style>
 </head><body>
 <div id="boot" aria-live="polite"><div class="bootin"><div class="bootpot"><i></i><i></i><i></i></div><b>Spellpot Heroes</b><small id="boottx">Loading…</small></div></div>
@@ -628,6 +647,9 @@ Object.assign(UIICON,{music:'<path d="M9 17V6.5L19 4.5V15" fill="none" stroke="#
  snd:'<path d="M4 9.5H7.5L12.5 5.2V18.8L7.5 14.5H4Z" fill="#f5c542" stroke="#24170f" stroke-width="1.5" stroke-linejoin="round"/><path d="M15.5 9Q17.4 12 15.5 15M18 6.8Q21.4 12 18 17.2" fill="none" stroke="#24170f" stroke-width="4" stroke-linecap="round"/><path d="M15.5 9Q17.4 12 15.5 15M18 6.8Q21.4 12 18 17.2" fill="none" stroke="#f5c542" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="7" cy="9.6" rx="1.5" ry=".8" transform="rotate(-30 7 9.6)" fill="#fff" opacity=".55"/>',
  mute:'<path d="M4 9.5H7.5L12.5 5.2V18.8L7.5 14.5H4Z" fill="#d6cee4" stroke="#24170f" stroke-width="1.5" stroke-linejoin="round"/><path d="M15.5 9.5L20.5 14.5M20.5 9.5L15.5 14.5" stroke="#24170f" stroke-width="4" stroke-linecap="round"/><path d="M15.5 9.5L20.5 14.5M20.5 9.5L15.5 14.5" stroke="#d6cee4" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="7" cy="9.6" rx="1.5" ry=".8" transform="rotate(-30 7 9.6)" fill="#fff" opacity=".55"/>'});
 UIICON.key+='<ellipse cx="6.6" cy="10" rx="1.4" ry=".8" transform="rotate(-30 6.6 10)" fill="#fff" opacity=".55"/>';UIICON.pot+='<ellipse cx="7.5" cy="12.5" rx="1.6" ry=".8" transform="rotate(-20 7.5 12.5)" fill="#fff" opacity=".45"/>';UIICON.paw+='<ellipse cx="10" cy="14.6" rx="1.8" ry=".9" transform="rotate(-20 10 14.6)" fill="#fff" opacity=".55"/>';
+Object.assign(UIICON,{shield:'<path d="M12 3L20 6V12C20 17 16.5 20 12 21.5C7.5 20 4 17 4 12V6Z" fill="#8fd0ff" stroke="#24170f" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="8.4" cy="8.2" rx="1.6" ry=".9" transform="rotate(-30 8.4 8.2)" fill="#fff" opacity=".55"/>',
+ star:'<path d="M12 3L14.6 9L21 9.5L16.1 13.6L17.7 20L12 16.6L6.3 20L7.9 13.6L3 9.5L9.4 9Z" fill="#f5c542" stroke="#24170f" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="9.4" cy="8.6" rx="1.3" ry=".8" transform="rotate(-30 9.4 8.6)" fill="#fff" opacity=".55"/>',
+ hourglass:'<path d="M6 3.5H18V6.5C18 9 15 10.8 14 12C15 13.2 18 15 18 17.5V20.5H6V17.5C6 15 9 13.2 10 12C9 10.8 6 9 6 6.5Z" fill="#f4c46a" stroke="#24170f" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="8.6" cy="6" rx="1.4" ry=".8" transform="rotate(-30 8.6 6)" fill="#fff" opacity=".55"/>'});
 function IC(n){return '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">'+UIICON[n]+'</svg>';}
 const ICIMG={};function icImg(n){if(!ICIMG[n]){const im=new Image();im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">'+UIICON[n]+'</svg>');ICIMG[n]=im;}return ICIMG[n];}
 const cv=document.getElementById('c'),mainCtx=cv.getContext('2d'),ov=document.getElementById('ov');let ctx=mainCtx;
@@ -647,9 +669,12 @@ const WORLD={w:2400,h:2400};const WAREA=WORLD.w*WORLD.h/(1800*1800); // 0.2.7b: 
 let cam={x:0,y:0};
 const TAU=Math.PI*2,rnd=Math.random,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 
-const VERSION='0.3.7f';
+const VERSION='0.3.7g';
 /* ===== 0.3.2 BALANCE: every balance number lives here (heroes, weapons, enemies, bosses, levels, endless) ===== */
 const BALANCE={
+  // 0.3.7g: max FREE gems per week (quests, bosses, ranks, milestones, season). Bought gems are never capped or counted.
+  weeklyGemCap:100,starHome:{turn:2.5,life:1.2,range:240,retarget:.12,cell:80},
+ 
  // hp, move speed, dmg = all damage x, boss = damage vs bosses and captains x (per hero)
  heroes:{witch:{hp:138,spd:176,dmg:1,boss:1,wep:'missile'},barbarian:{hp:156,spd:160,dmg:1,boss:.9,wep:'axe'},
   wizard:{hp:90,spd:195,dmg:1,boss:1,wep:'chain'},elf:{hp:100,spd:225,dmg:1,boss:1,wep:'orbit'}},
@@ -683,6 +708,15 @@ const BALANCE={
   {nw:'elite',end:'cap',cap:'shroom',elite:22},{nw:'thorn',end:'cap',cap:'imp'},{nw:'mix',end:'cap',cap:'bat'},{nw:'hopper',end:'cap'},{nw:null,end:'toadKing'}],
  // ENDLESS.md: wave g = floor(t/30)
  endless:{wave:30,hp:.10,dmg:.06,spawn:.05,spawnMax:2.5,rest:5,restMul:.85,ramp:[.6,.73,.87,1],lateT:1200,lateDmg:.10,bossRound:.25,rotEvery:150,
+  // 0.3.7g ENDLESS BALANCE (Endless only; normal levels never read this block). Tune here.
+  x:{passB:1, // passives go on past level 5: extra level i adds 1/sqrt(i+1) of a base level (diminishing)
+   cap:{hourglass:7.5,clover:10,boots:10,candle:10,heart:8,magnet:10,brew:12}, // effective-level cap per passive (a capped passive leaves the card pool)
+   cdFloor:.40,critMax:.5,spdMax:2,magMax:400,dmMax:50,lateMax:100,pierceMax:5,salvoMax:8,projRelicMax:3,bulSoft:150,bulHard:200,
+   hpLate:{t:1800,g:.05}, // enemy and boss HP x(1+g) per 30 s after t seconds (Endless only; g 0 = off)
+   bossDmgStep:.05, // boss contact damage = def.dmg*(1+step*floor(t/30)) (HP unchanged)
+   passW:{tome:3.5,hourglass:3.5,heart:3,clover:2.5}, // card weight of damage / cooldown / HP / crit passives (default 2)
+   bossReroll:1,rerollMax:9, // +1 reroll per boss kill
+   relic:{dmg:.04,cd:.03,ult:.10,aegisT:30,aegisStep:4,aegisMin:12,projEvery:3}},
   kinds:[[0,'slime'],[45,'bat'],[90,'shroom'],[180,'imp'],[420,'thorn'],[600,'hopper']],
   bosses:[[150,'shroomElder'],[300,'slimeMother'],[450,'toadKing']],chests:[[0,'wood'],[180,'silver'],[420,'gold'],[720,'magic']]}};
 // 0.3.3 gem shop: gems only buy skins (never chests). Earned only from fixed sources; packs are mock purchases (TEST - no payment).
@@ -876,6 +910,10 @@ Object.assign(STRINGS.en,{"lv.short": "Lv", "lvl.player": "Rank {0}", "lvl.xp": 
 Object.assign(STRINGS.nl,{"lv.short": "Lv", "lvl.player": "Rang {0}", "lvl.xp": "{0}/{1} XP", "lvl.unlocksAt": "Vrij op rang {0}", "end.pxp": "+{0} rang-XP", "end.plvUp": "Rang {0}!", "hub.quests": "Opdrachten", "hub.next": "Volgende: level {0} – {1}", "tab.level": "Level {0}", "lvsel.title": "Kies een level", "lvsel.cleared": "Gehaald", "lvsel.new": "Nieuw", "dbg.tut": "Uitleg overslaan", "dbg.title": "Testmenu", "dbg.level": "Level {0}", "dbg.boss": "Baas oproepen", "dbg.gold": "+1000 goud", "dbg.gems": "+100 edelstenen", "dbg.inv": "Onkwetsbaar: {0}", "dbg.range": "Bereik: {0}", "dbg.daily": "Dag resetten", "dbg.weekly": "Week resetten", "dbg.day": "+1 dag", "dbg.week": "+7 dagen", "dbg.wkrun": "Weekpotje", "dbg.close": "Sluiten", "dbg.date": "Datum: {0} · Week: {1}", "dbg.lv": "Lvl", "dbg.runs": "Potjes", "dbg.wins": "Winst", "dbg.rage": "Woede"});
 Object.assign(STRINGS.de,{"lv.short": "St.", "lvl.player": "Rang {0}", "lvl.xp": "{0}/{1} EP", "lvl.unlocksAt": "Frei ab Rang {0}", "end.pxp": "+{0} Rang-EP", "end.plvUp": "Rang {0}!", "hub.quests": "Aufgaben", "hub.next": "Nächstes: Level {0} – {1}", "tab.level": "Level {0}", "lvsel.title": "Wähle ein Level", "lvsel.cleared": "Geschafft", "lvsel.new": "Neu", "dbg.tut": "Anleitung überspringen", "dbg.title": "Testmenü", "dbg.level": "Level {0}", "dbg.boss": "Boss rufen", "dbg.gold": "+1000 Gold", "dbg.gems": "+100 Edelsteine", "dbg.inv": "Unverwundbar: {0}", "dbg.range": "Reichweite: {0}", "dbg.daily": "Tag zurücksetzen", "dbg.weekly": "Woche zurücksetzen", "dbg.day": "+1 Tag", "dbg.week": "+7 Tage", "dbg.wkrun": "Wochenrunde", "dbg.close": "Schließen", "dbg.date": "Datum: {0} · Woche: {1}", "dbg.lv": "St.", "dbg.runs": "Runden", "dbg.wins": "Siege", "dbg.rage": "Wut"});
 Object.assign(STRINGS.fr,{"lv.short": "Nv", "lvl.player": "Rang {0}", "lvl.xp": "{0}/{1} XP", "lvl.unlocksAt": "Débloqué au rang {0}", "end.pxp": "+{0} XP de rang", "end.plvUp": "Rang {0} !", "hub.quests": "Quêtes", "hub.next": "Suivant : niveau {0} – {1}", "tab.level": "Niveau {0}", "lvsel.title": "Choisis un niveau", "lvsel.cleared": "Réussi", "lvsel.new": "Nouveau", "dbg.tut": "Passer le tutoriel", "dbg.title": "Menu de test", "dbg.level": "Niveau {0}", "dbg.boss": "Faire venir le boss", "dbg.gold": "+1000 or", "dbg.gems": "+100 gemmes", "dbg.inv": "Invincible : {0}", "dbg.range": "Portée : {0}", "dbg.daily": "Réinit. jour", "dbg.weekly": "Réinit. semaine", "dbg.day": "+1 jour", "dbg.week": "+7 jours", "dbg.wkrun": "Partie de la semaine", "dbg.close": "Fermer", "dbg.date": "Date : {0} · Semaine : {1}", "dbg.lv": "Nv", "dbg.runs": "Parties", "dbg.wins": "Victoires", "dbg.rage": "Rage"});
+Object.assign(STRINGS.en,{"relic.title": "Relic", "relic.tag": "Relic", "relic.dmg": "+{0}% damage", "relic.cd": "-{0}% cooldowns", "relic.proj": "+1 projectile", "relic.aegis": "Aegis", "relic.aegis.d": "Blocks one hit, back after {0} s", "relic.ult": "+{0}% ult charge", "relic.owned": "Owned: {0}"});
+Object.assign(STRINGS.nl,{"relic.title": "Relikwie", "relic.tag": "Relikwie", "relic.dmg": "+{0}% schade", "relic.cd": "-{0}% afkoeltijd", "relic.proj": "+1 projectiel", "relic.aegis": "Schild", "relic.aegis.d": "Blokkeert één klap, terug na {0} s", "relic.ult": "+{0}% ult-lading", "relic.owned": "Aantal: {0}"});
+Object.assign(STRINGS.de,{"relic.title": "Relikt", "relic.tag": "Relikt", "relic.dmg": "+{0}% Schaden", "relic.cd": "-{0}% Abklingzeit", "relic.proj": "+1 Projektil", "relic.aegis": "Schild", "relic.aegis.d": "Blockt einen Treffer, zurück nach {0} s", "relic.ult": "+{0}% Ult-Ladung", "relic.owned": "Anzahl: {0}"});
+Object.assign(STRINGS.fr,{"relic.title": "Relique", "relic.tag": "Relique", "relic.dmg": "+{0}% de dégâts", "relic.cd": "-{0}% de recharge", "relic.proj": "+1 projectile", "relic.aegis": "Égide", "relic.aegis.d": "Bloque un coup, revient après {0} s", "relic.ult": "+{0}% de charge ult", "relic.owned": "Possédées : {0}"});
 Object.assign(STRINGS.en,{"boss.approach": "{0} approaches!", "boss.rage": "{0} is enraged!", "boss.name.toadKing": "The Toad King", "boss.name.youngToad": "The Young Toad King", "boss.name.shroomElder": "Shroom Elder", "boss.name.slimeMother": "Slime Mother", "boss.name.cap_bat": "Bat Captain", "boss.name.cap_imp": "Imp Captain", "boss.name.cap_shroom": "Shroom Captain", "boss.name.cap_hopper": "Hopper Captain", "boss.name.cap_slime": "Slime Captain", "boss.sub.toadKing": "Ruler of the Murk", "boss.sub.youngToad": "Heir of the Murk", "boss.sub.shroomElder": "Spores everywhere", "boss.sub.slimeMother": "Splits when hit", "boss.sub.cap_bat": "Captain of the horde", "boss.sub.cap_imp": "Captain of the horde", "boss.sub.cap_shroom": "Captain of the horde", "boss.sub.cap_hopper": "Captain of the horde", "boss.sub.cap_slime": "Captain of the horde", "boss.split": "Split!", "lvl.4": "Imp Thicket", "lvl.5": "Slime Pond", "lvl.6": "Old Oak", "lvl.7": "Thorn Path", "lvl.8": "Fern Hollow", "lvl.9": "Hopper Hills", "lvl.10": "Toad Throne", "lvsel.end": "Ends with: {0}", "endless.card": "Survive as long as you can · best {0}", "endless.over": "Endless run over", "endless.score": "Score {0} · {1} survived · {2} defeated", "endless.best": "Best: {0}", "endless.newBest": "New best!", "endless.bossDown": "Boss defeated!", "endless.again": "Play again", "orig.endless": "endless run", "bal.title": "Balance overview", "bal.hero": "Hero", "bal.dps": "DPS", "bal.bossDps": "Boss DPS", "bal.hp": "HP", "bal.spd": "Speed", "bal.power": "Power", "bal.rank": "Rank", "bal.level": "Lv", "bal.end": "End", "bal.target": "Target TTK", "bal.est": "Est. TTK", "bal.close": "Close"});
 Object.assign(STRINGS.nl,{"boss.approach": "{0} komt eraan!", "boss.rage": "{0} is woedend!", "boss.name.toadKing": "De Paddenkoning", "boss.name.youngToad": "De Jonge Paddenkoning", "boss.name.shroomElder": "Paddenstoeloudste", "boss.name.slimeMother": "Slijmmoeder", "boss.name.cap_bat": "Vleermuiskapitein", "boss.name.cap_imp": "Duiveltjeskapitein", "boss.name.cap_shroom": "Paddenstoelkapitein", "boss.name.cap_hopper": "Springerkapitein", "boss.name.cap_slime": "Slijmkapitein", "boss.sub.toadKing": "Heerser van het Slijk", "boss.sub.youngToad": "Erfgenaam van het Slijk", "boss.sub.shroomElder": "Overal sporen", "boss.sub.slimeMother": "Splitst als je raakt", "boss.sub.cap_bat": "Kapitein van de horde", "boss.sub.cap_imp": "Kapitein van de horde", "boss.sub.cap_shroom": "Kapitein van de horde", "boss.sub.cap_hopper": "Kapitein van de horde", "boss.sub.cap_slime": "Kapitein van de horde", "boss.split": "Splitsing!", "lvl.4": "Duivelsbos", "lvl.5": "Slijmvijver", "lvl.6": "Oude Eik", "lvl.7": "Doornpad", "lvl.8": "Varenkuil", "lvl.9": "Springheuvels", "lvl.10": "Paddentroon", "lvsel.end": "Eindigt met: {0}", "endless.card": "Overleef zo lang je kunt · record {0}", "endless.over": "Eindeloze run voorbij", "endless.score": "Score {0} · {1} overleefd · {2} verslagen", "endless.best": "Record: {0}", "endless.newBest": "Nieuw record!", "endless.bossDown": "Baas verslagen!", "endless.again": "Opnieuw", "orig.endless": "eindeloze run", "bal.title": "Balansoverzicht", "bal.hero": "Held", "bal.dps": "DPS", "bal.bossDps": "Baas-DPS", "bal.hp": "HP", "bal.spd": "Snelheid", "bal.power": "Kracht", "bal.rank": "Rang", "bal.level": "Lv", "bal.end": "Einde", "bal.target": "Doel-TTK", "bal.est": "Verw. TTK", "bal.close": "Sluiten"});
 Object.assign(STRINGS.de,{"boss.approach": "{0} naht!", "boss.rage": "{0} ist wütend!", "boss.name.toadKing": "Der Krötenkönig", "boss.name.youngToad": "Der junge Krötenkönig", "boss.name.shroomElder": "Pilzältester", "boss.name.slimeMother": "Schleimmutter", "boss.name.cap_bat": "Fledermaus-Hauptmann", "boss.name.cap_imp": "Kobold-Hauptmann", "boss.name.cap_shroom": "Pilz-Hauptmann", "boss.name.cap_hopper": "Hüpfer-Hauptmann", "boss.name.cap_slime": "Schleim-Hauptmann", "boss.sub.toadKing": "Herrscher des Schlicks", "boss.sub.youngToad": "Erbe des Schlicks", "boss.sub.shroomElder": "Sporen überall", "boss.sub.slimeMother": "Teilt sich bei Treffern", "boss.sub.cap_bat": "Hauptmann der Horde", "boss.sub.cap_imp": "Hauptmann der Horde", "boss.sub.cap_shroom": "Hauptmann der Horde", "boss.sub.cap_hopper": "Hauptmann der Horde", "boss.sub.cap_slime": "Hauptmann der Horde", "boss.split": "Teilung!", "lvl.4": "Koboldgehölz", "lvl.5": "Schleimteich", "lvl.6": "Alte Eiche", "lvl.7": "Dornenpfad", "lvl.8": "Farnmulde", "lvl.9": "Hüpferhügel", "lvl.10": "Krötenthron", "lvsel.end": "Endet mit: {0}", "endless.card": "Überlebe so lange du kannst · Rekord {0}", "endless.over": "Endlos-Lauf vorbei", "endless.score": "Punkte {0} · {1} überlebt · {2} besiegt", "endless.best": "Rekord: {0}", "endless.newBest": "Neuer Rekord!", "endless.bossDown": "Boss besiegt!", "endless.again": "Nochmal", "orig.endless": "Endlos-Lauf", "bal.title": "Balance-Übersicht", "bal.hero": "Held", "bal.dps": "DPS", "bal.bossDps": "Boss-DPS", "bal.hp": "LP", "bal.spd": "Tempo", "bal.power": "Stärke", "bal.rank": "Rang", "bal.level": "St.", "bal.end": "Ende", "bal.target": "Ziel-TTK", "bal.est": "Erw. TTK", "bal.close": "Schließen"});
@@ -961,14 +999,14 @@ function seasonFam(id){return SEASON_FAM[seasonMon(id)];}
 function seasonSkin(id){return 'sea'+String(seasonMon(id)).padStart(2,'0');}
 function seasonLook(id){return 's'+seasonFam(id);}
 function seasonName(id){return T('sea.n.'+String(seasonMon(id)).padStart(2,'0'));}
-function seasonSync(){const id=seasonId();if(!id)return null;if(M.pass.sid!==id){M.pass={sid:id,xp:0,claimed:{}};save();}return id;}
+function seasonSync(){const id=seasonId();if(!id)return null;if(M.pass.sid!==id){M.pass={sid:id,xp:0,claimed:{},gg:{}};save();}return id;}
 function seasonStepN(){return Math.min(PASS_TIERS,Math.floor((M.pass.xp||0)/PASS_XP));}
 function seasonDays(){const d=new Date(NOW()),e=new Date(d.getFullYear(),d.getMonth()+1,1);return Math.max(1,Math.ceil((e-d)/864e5));}
-function seasonGrant(st,id){if(st.k=='gold')M.gold+=st.v;else if(st.k=='gems')M.gems+=st.v;else if(st.k=='chest')addChest(st.v,'season');else if(st.k=='key')addKeys(st.v);
+function seasonGrant(st,id,k){if(st.k=='gold')M.gold+=st.v;else if(st.k=='gems'){const g=gemGrant(st.v,'season');if(!M.pass.gg)M.pass.gg={};if(k)M.pass.gg[k]=g;}else if(st.k=='chest')addChest(st.v,'season');else if(st.k=='key')addKeys(st.v);
  else if(st.k=='cauld'){const lk=seasonLook(id);if(M.cauld.own[lk])M.gold+=100;else M.cauld.own[lk]=1;}else if(st.k=='frame'){const f=seasonFam(id);if(M.sframes[f])M.gold+=100;else M.sframes[f]=1;M.sframe=f;}
  }
 function seasonAddXp(px){const id=seasonSync();if(!id||!(px>0))return [];M.pass.xp=Math.min(PASS_TIERS*PASS_XP,(M.pass.xp||0)+Math.round(px));const got=[];
- for(let i=1;i<=seasonStepN();i++)if(!M.pass.claimed[i]){M.pass.claimed[i]=1;seasonGrant(SEASON_STEPS[i-1],id);got.push(i);}save();return got;}
+ for(let i=1;i<=seasonStepN();i++)if(!M.pass.claimed[i]){M.pass.claimed[i]=1;seasonGrant(SEASON_STEPS[i-1],id,i);got.push(i);}save();return got;}
 // 0.3.7d (6) chest keys: an ad-free speed-up. Earned, never bought. Wooden/Silver open at once, Golden/Magic in half the time, boss chests never
 const KEY_MAX=5,KEY_OVER_GOLD=25;
 function addKeys(n){let a=0;for(let i=0;i<n;i++){if((M.keys||0)<KEY_MAX){M.keys=(M.keys||0)+1;a++;}else M.gold+=KEY_OVER_GOLD;}return a;}
@@ -997,7 +1035,7 @@ function shownTitle(){const t=M.ach&&M.ach.title;if(t=='none')return '';if(t){co
 const MILESTONES=[['games',5,10],['games',20,15],['bosses',1,20],['bosses',10,30],['best',180,10]];
 function mileName(k,n){return T('mile.'+k+n);}
 function defSave(){return{v:SAVE_V,loseCt:{},gold:0,gems:0,shards:{witch:0,wizard:0,barbarian:0,elf:0},stars:{witch:1},unlocked:{witch:true},
- upg:{hp:0,dmg:0,spd:0,mag:0,xp:0},games:0,stats:{best:0,bosses:0,kills:0,wins:0,goldEarned:0,chests:0},pass:{sid:'',xp:0,claimed:{}},keys:0,lucky:{day:'',dry:0},ach:{c:{},got:{},title:''},achNew:0,bossCard:{},beastSeen:{},sframes:{},sframe:'',
+ upg:{hp:0,dmg:0,spd:0,mag:0,xp:0},games:0,stats:{best:0,bosses:0,kills:0,wins:0,goldEarned:0,chests:0},pass:{sid:'',xp:0,claimed:{},gg:{}},gemWk:{wk:'',n:0},keys:0,lucky:{day:'',dry:0},ach:{c:{},got:{},title:''},achNew:0,bossCard:{},beastSeen:{},sframes:{},sframe:'',
  skins:{},skin:{witch:''},sel:'witch',chests:[],evoBook:{},evoFresh:{},evoNew:0,seenPas:{},chestHint:0,miles:{},firstBarb:0,introDone:0,maxLvl:1,lvlSel:1,cleared:{},storySeen:0,tutSkip:0,moveHintSeen:0,craftHintSeen:0,hintAuto:0,hintSrc:0,pickHintSeen:0,bossSeen:0,fx:'auto',shakeFx:0,daily:{date:'',q:[],chest:0,bonus:0},streak:0,weekly:{wk:'',idx:0,best:0,got:{},ach50:0},lvStats:{},runDry:0,hpath:{},clearHero:{},beast:{},beastGot:{},cauld:{own:{classic:1},sel:'classic'},lastDay:'',rangeOn:1,wupg:{},luck:0,chestN:0,silverN:0,goldN:0,bossN:0,toadWon:0,firstSilver:0,freeSpd:'',adDay:{date:'',n:0},under16:1,ageSet:0,upgTut:0,tips:{},welcomeSeen:0,mockBuys:0,gemDay:{d:'',n:0},plv:1,pxp:0,spotSeen:{},spotQ:['play','hero1','upg'],lang:'',introSeen8:0,celeb10:0,news:{}};}
 const KIT_MIG=[['trail','fireball'],['nova','icebolt'],['chain','lightning']];
 function migrate(d){const b=defSave();if(!d||typeof d!='object'||Array.isArray(d))return b;
@@ -1022,10 +1060,12 @@ function migrate(d){const b=defSave();if(!d||typeof d!='object'||Array.isArray(d
  if(!d.kitMig){for(const [o,n] of KIT_MIG)if(d.wupg[o])d.wupg[n]=Math.max(d.wupg[n]||0,d.wupg[o]);d.kitMig=1;} // 0.3.7b: Fire Trail -> Fireball, Frost Nova -> Ice Bolt, old chain weapon -> Chain Lightning (Magic Missile keeps its key)
  if(!d.beastMig){BALANCE.world1.forEach((w,i)=>{if(d.cleared[i+1]&&w.end!='cap')d.beast[w.end]=Math.max(1,d.beast[w.end]||0);});d.beastMig=1;} // 0.3.7c
  d.runDry=Math.max(0,Math.floor(+d.runDry)||0);if(!d.cauld.own||typeof d.cauld.own!='object')d.cauld.own={classic:1};d.cauld.own.classic=1;if(!['classic','gold','icy','ghost','ember','swinter','sspring','ssummer','sautumn'].includes(d.cauld.sel)||!d.cauld.own[d.cauld.sel])d.cauld.sel='classic';
- if(old<10){d.pass={sid:'',xp:0,claimed:{}};for(const k of ['youngToad','shroomElder','slimeMother','toadKing'])if((d.beast[k]||0)>0){d.bossCard[k]=1;d.beastSeen[k]=1;}} // 0.3.7d: the old pass XP never had rewards; bosses already met get no story card
+ if(old<10){d.pass={sid:'',xp:0,claimed:{},gg:{}};for(const k of ['youngToad','shroomElder','slimeMother','toadKing'])if((d.beast[k]||0)>0){d.bossCard[k]=1;d.beastSeen[k]=1;}} // 0.3.7d: the old pass XP never had rewards; bosses already met get no story card
  d.celeb10=(d.celeb10==1||(d.cleared&&d.cleared[LEVELS.length]))?1:0;{const nw=(d.news&&typeof d.news=='object'&&!Array.isArray(d.news))?d.news:{};d.news={};for(const k of NEWS_KEYS)d.news[k]=nw[k]?1:0;} // 0.3.7f: celebration shows once (never for saves that already cleared level 10 / have Endless); 'New!' flags
  d.keys=num(d.keys,0,KEY_MAX);d.lucky.dry=num(d.lucky.dry,0,99);if(typeof d.lucky.day!='string')d.lucky.day='';d.achNew=num(d.achNew,0,99);if(typeof d.ach.title!='string')d.ach.title='';for(const k in d.ach.c)d.ach.c[k]=num(d.ach.c[k],0,1e9);for(const k in d.ach.got)d.ach.got[k]=num(d.ach.got[k],0,3);
- if(typeof d.pass.sid!='string')d.pass.sid='';if(!d.pass.claimed||typeof d.pass.claimed!='object')d.pass.claimed={};if(typeof d.sframe!='string'||!SEASON_FAM_LIST.includes(d.sframe))d.sframe='';
+ if(typeof d.pass.sid!='string')d.pass.sid='';if(!d.pass.claimed||typeof d.pass.claimed!='object')d.pass.claimed={};if(!d.pass.gg||typeof d.pass.gg!='object'||Array.isArray(d.pass.gg))d.pass.gg={};for(const k in d.pass.gg)d.pass.gg[k]=num(d.pass.gg[k],0,99);
+ {const g=d.gemWk&&typeof d.gemWk=='object'?d.gemWk:{};d.gemWk={wk:typeof g.wk=='string'?g.wk.slice(0,12):'',n:num(g.n,0,BALANCE.weeklyGemCap)};} // 0.3.7g: free gems this week (old saves start at 0)
+ if(typeof d.sframe!='string'||!SEASON_FAM_LIST.includes(d.sframe))d.sframe='';
  d.v=SAVE_V;return d;}
 // 0.3.6: if a save can't be read it is kept aside (sph_save_bad) instead of being overwritten by the fresh save
 let M;try{M=migrate(JSON.parse(localStorage.getItem(SAVE_KEY)));}catch(e){window.__migErr=String(e&&e.stack||e);try{const raw=localStorage.getItem(SAVE_KEY);if(raw)localStorage.setItem('sph_save_bad',raw);}catch(_){}M=defSave();}
@@ -1044,7 +1084,17 @@ if(!shOn()&&M.firstBarb&&!M.unlocked.barbarian&&HEROES.barbarian&&HEROES.barbari
 {const ml=M.lang;setLang(ml||devLang());M.lang=ml||'';}
 function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(M));}catch(e){}}
 function upl(k){return M.upg[k]||0;}
-function checkMiles(){const got=[];for(const [k,n,g] of MILESTONES){const id=k+n,val=k=='games'?M.games:M.stats[k];if(!M.miles[id]&&val>=n){M.miles[id]=1;M.gems+=g;got.push(mileName(k,n)+': +'+g+' '+IC('gem')+' ');}}return got;}
+// ===== 0.3.7g weekly cap on FREE gems. ONE grant function: every free gem goes through gemGrant. Bought gems (shop pack) and spending never touch it =====
+function gemWeekKey(){const w=isoWeek(nowD());return w.y+'-W'+w.w;} // the same week key as the weekly challenge
+function gemWeekSync(){const k=gemWeekKey();if(!M.gemWk||M.gemWk.wk!==k)M.gemWk={wk:k,n:0};return M.gemWk;}
+function gemRoom(){return GEMCAP_OFF?1e9:Math.max(0,BALANCE.weeklyGemCap-gemWeekSync().n);}
+function gemGrant(n,src){n=Math.floor(+n);if(!(n>0)||!isFinite(n))return 0;const g=Math.min(n,gemRoom());if(g<=0)return 0;if(!GEMCAP_OFF)gemWeekSync().n+=g;M.gems+=g;return g;}
+// text for a gem reward: the real amount, never the promised one
+function gemTxt(g,want){return g>=want?T('gem.got',g):g>0?T('gem.cut',g):T('gem.maxWeek');}
+function gemMeterHtml(){if(GEMCAP_OFF)return '';const cap=BALANCE.weeklyGemCap,n=Math.min(cap,gemWeekSync().n),full=n>=cap,near=!full&&n>=cap*.85;
+ return '<span id="gcap" class="gcap'+(full?' capd':near?' near':'')+'" data-n="'+n+'" role="img" aria-label="'+T('gem.week',n,cap)+'">'+(full?T('gem.max'):'<i><b style="width:'+Math.round(n/cap*100)+'%"></b></i>')+'</span>';}
+function gemMeterSync(){const e=document.getElementById('gcap');if(!e)return;const t=document.createElement('div');t.innerHTML=gemMeterHtml();const nw=t.firstChild;if(!nw){e.remove();return;}if(nw.outerHTML!==e.outerHTML)e.replaceWith(nw);}
+function checkMiles(){const got=[];for(const [k,n,g] of MILESTONES){const id=k+n,val=k=='games'?M.games:M.stats[k];if(!M.miles[id]&&val>=n){M.miles[id]=1;const r=gemGrant(g,'mile');got.push(mileName(k,n)+': '+(r>0?'+'+r:T('gem.max'))+' '+IC('gem')+' ');}}return got;}
 function passTier(){return Math.min(PASS_TIERS,Math.floor(M.pass.xp/PASS_XP));}
 const ri=([a,b])=>a+(rnd()*(b-a+1)|0);
 // Results are rolled (and saved) BEFORE the opening animation; the animation only reveals them.
@@ -1102,6 +1152,7 @@ function oddsList(t){const C=CHESTS[t],OD=chestOdds(t,M.luck),tot=OD.reduce((a,o
 // ===== 0.2.9 chest ladder: timers, 4 slots + waiting stock, free daily speed-up, placeholder ads (no ad SDK, no payments) =====
 const TESTB=/^(localhost|127\.0\.0\.1|)$/.test(location.hostname); // test flags only work on local test builds
 const QS=new URLSearchParams(location.search);
+const GEMCAP_OFF=TESTB&&QS.get('gemcap')=='off'; // 0.3.7g QA only: ?gemcap=off turns the weekly free-gem cap off (never in a real build)
 let BOSS_CHANCE=TESTB&&QS.get('bosschance')=='1'?1:.005;
 // 0.3.7c (14): the end-of-run chest of a win is a drop: RUN_CHEST_P, and after RUN_CHEST_PITY dry wins in a row the next win always drops. The very first run ever always gives one.
 const RUN_CHEST_P=.6,RUN_CHEST_PITY=2,RUN_CHEST_FORCE=TESTB&&QS.get('runchest')!=null?QS.get('runchest')=='1':null; // test flag ?runchest=1 force / 0 deny (local builds only)
@@ -1436,8 +1487,9 @@ function edge(){for(let i=0;i<10;i++){const m=30,L=cam.x-m,R=cam.x+ARENA.w+m,T=c
   if(side==0){x=L+rnd()*(R-L);y=T}else if(side==1){x=R;y=T+rnd()*(Bm-T)}else if(side==2){x=L+rnd()*(R-L);y=Bm}else{x=L;y=T+rnd()*(Bm-T)}
   if(x>=0&&x<=WORLD.w&&y>=0&&y<=WORLD.h)return[x,y];}
  const a=rnd()*TAU;return[clamp(S.p.x+Math.cos(a)*330,0,WORLD.w),clamp(S.p.y+Math.sin(a)*330,0,WORLD.h)];}
-function endlessMul(){const E=BALANCE.endless,g=Math.floor(S.t/E.wave),r=g<E.ramp.length?E.ramp[g]:1,late=S.t>E.lateT?Math.pow(1+E.lateDmg,Math.floor((S.t-E.lateT)/E.wave)):1;
- return {g,hp:(1+E.hp*g)*r,dmg:(1+E.dmg*g)*r*late,spawn:Math.min(E.spawnMax,1+E.spawn*g)*((g+1)%E.rest==0?E.restMul:1)*r};}
+function hpLateF(){if(!endx())return 1;const H=BALANCE.endless.x.hpLate;return S.t>H.t&&H.g>0?Math.pow(1+H.g,Math.floor((S.t-H.t)/BALANCE.endless.wave)):1;} // 0.3.7g Endless only: after H.t s enemy + boss HP also grows exponentially (H.g per 30 s) so the stronger Endless builds still end in a finite run
+function endlessMul(){const E=BALANCE.endless,g=Math.floor(S.t/E.wave),r=g<E.ramp.length?E.ramp[g]:1,late=S.t>E.lateT?Math.min(endx()?E.x.lateMax:1e300,Math.pow(1+E.lateDmg,Math.floor((S.t-E.lateT)/E.wave))):1;
+ return {g,hp:(1+E.hp*g)*r*hpLateF(),dmg:(1+E.dmg*g)*r*late,spawn:Math.min(E.spawnMax,1+E.spawn*g)*((g+1)%E.rest==0?E.restMul:1)*r};}
 function spawn(kind,elite){const T=ETYPES[kind],G=BALANCE.grow,[x,y]=edge(),em=S.L.endless?endlessMul():null,m=em?em.hp:(1+S.t/G.hpT+Math.pow(S.t/G.hpT2,2))*(S.L.enemyHp||1);
  const e={kind,x,y,r:T.r*(elite?G.eliteR:1),hp:T.hp*m*(elite?G.eliteHp:1),spd:T.spd*(elite?.8:1)*(S.L.enemySpd||1),xp:T.xp*(elite?30:1),gold:T.gold*(elite?8:1),col:T.col,dmg:T.dmg*(elite?G.eliteDmg:1)*(em?em.dmg:(1+S.t/G.dmgT)*S.L.enemyDmg),ranged:T.ranged,still:T.still,hop:T.hop,elite,flash:0,ph:rnd()*TAU,shootT:2+rnd()*2,hopT:T.hop?rnd()*T.hop.every:0};
  e.max=e.hp;S.en.push(e);return e;}
@@ -1463,14 +1515,14 @@ function showBossCard(id){if(!S||document.getElementById('bcardov'))return;S.sta
 function closeBossCard(){clearTimeout(bcardT);const el=document.getElementById('bcardov');if(el)el.remove();const id=S&&S.cardId;if(id){M.bossCard[id]=1;M.beastSeen[id]=1;save();S.cardId=null;}
  if(S&&S.state=='bosscard'){S.state='play';lt=performance.now();if(S.queue.length)openModal(S.queue.shift());}}
 function spawnBoss(def){def=def||S.L.end;if(!S.L.endless)S.bossSpawned=true;const [x,y]=edge(),mul=def.mul||1,hp=Math.round(def.hp*mul);
- const e={kind:'boss',id:def.id,look:def.look,def,cap:def.type=='cap',x,y,r:def.r,hp,max:hp,spd:def.spd,xp:0,col:def.look=='toad'?'#4a6a2a':ETYPES[def.look].col,dmg:def.dmg*mul,boss:true,flash:0,ph:0,introT:2.5,at:def.atk.map((a,i)=>a.cd*.8+.6+i*.7),splitI:0,warn:0};
+ const e={kind:'boss',id:def.id,look:def.look,def,cap:def.type=='cap',x,y,r:def.r,hp,max:hp,spd:def.spd,xp:0,col:def.look=='toad'?'#4a6a2a':ETYPES[def.look].col,dmg:def.dmg*(def.dmgMul||mul),boss:true,flash:0,ph:0,introT:2.5,at:def.atk.map((a,i)=>a.cd*.8+.6+i*.7),splitI:0,warn:0};
  S.en.push(e);S.boss=e;S.bossIntro=2.5;if(!e.cap&&BEAST[2].ids.includes(def.id)&&!M.bossCard[def.id])showBossCard(def.id);S.bossT0=S.t;S.ebul=[];bigMoment('#ff5a3a',false);S.bossFirst=!M.bossSeen;if(S.bossFirst){M.bossSeen=1;save();S.bossIntro=2.2;if(!M.shakeFx){S.glowC='#ff9a4a';S.glowT=S.glowMax=2.2;S.glowRise=1;}}SND.super();return e;}
 function bossAtk(e,A,a,d,tl){if(A.t=='leap'){if(d<520){e.leap=.45;e.leapSpd=A.spd;e.leapTo=tl?{x:tl.x,y:tl.y}:null;}}
  else if(A.t=='ring'){const n=A.n;for(let i=0;i<n;i++){const aa=i/n*TAU+(tl?tl.off+(S.t-tl.off):S.t);S.ebul.push({x:e.x,y:e.y,vx:Math.cos(aa)*A.spd,vy:Math.sin(aa)*A.spd,r:7,spore:A.spore});}}
  else if(A.t=='spread'){for(let i=0;i<A.n;i++){const aa=a+(i-(A.n-1)/2)*.28;S.ebul.push({x:e.x,y:e.y,vx:Math.cos(aa)*A.spd,vy:Math.sin(aa)*A.spd,r:7});}}}
 function endlessLevel(){const E=BALANCE.endless;return {len:1e9,enemyCount:1,enemyDmg:1,enemyHp:1,D:1,kinds:['slime'],newest:null,elite:60,elite0:60,craftBoost:20,end:null,endless:true,rageHp:.5};}
 function endlessBoss(){const E=BALANCE.endless,n=S.endIdx,first=E.bosses.length,id=n<first?E.bosses[n][1]:E.bosses[(n-first)%first][1],round=n<first?0:1+Math.floor((n-first)/first);
- const def=Object.assign({},bossEnd(id,1));def.mul=(1+E.hp*Math.floor(S.t/E.wave))*Math.pow(1+E.bossRound,round);return def;}
+ const def=Object.assign({},bossEnd(id,1));def.mul=(1+E.hp*Math.floor(S.t/E.wave))*Math.pow(1+E.bossRound,round)*hpLateF();if(endx())def.dmgMul=1+E.x.bossDmgStep*Math.floor(S.t/E.wave);return def;}
 // invoer
 function pt(e){const r=cv.getBoundingClientRect();const p=e;if(LAND&&S)return{x:(p.clientX-r.left-LAND.pfX)/LAND.sp,y:(p.clientY-r.top-LAND.pfY)/LAND.sp+ARENA.y};return{x:(p.clientX-r.left)/scale,y:(p.clientY-r.top)/scale};}
 // floating virtual joystick: appears where the thumb (or mouse) goes down; movement capped at hero speed
@@ -1527,13 +1579,26 @@ const PASSIVES={
  candle:pDef('candle',{art:'candle',c:'#fff4c4'}),brew:pDef('brew',{art:'pot',c:'#4fd08a'})};
 const MAXW=4,MAXP=6,MAXL=5;
 const B=()=>S.build;
-function plv(k){return B().pas[k]||0;}
-function dm(){return (BALANCE.heroes[S.hero.id]||{dmg:1}).dmg*(1+.12*plv('tome'))*(1+UPGRADES.dmg.per*upl('dmg'));}
-function cdm(){return 1-.08*plv('hourglass');}
+// 0.3.7g Endless balance helpers: endx() is true only in an Endless run (and not ?endx=off on a test build); every new rule below is behind it
+const ENDX_OFF=TESTB&&QS.get('endx')=='off';
+function endx(){return !!(S&&S.L&&S.L.endless)&&!ENDX_OFF;}
+function EX(){return BALANCE.endless.x;}
+const EFFC=[0,1,2,3,4,5];function pEff(l){while(EFFC.length<=l){const n=EFFC.length;EFFC.push(EFFC[n-1]+1/Math.sqrt(n-4));}return EFFC[l];} // level 6 adds 1/sqrt(2), level 7 1/sqrt(3) ...
+function plRaw(k){return B().pas[k]||0;}
+function plv(k){const l=B().pas[k]||0;if(l<=5||!endx())return l;const c=EX().cap[k],e=pEff(l);return c?Math.min(e,c):e;}
+function passCapped(k){const c=EX().cap[k],l=plRaw(k);return !!c&&l>=5&&pEff(l)>=c;}
+function relS(){return S.rel||(S.rel={n:0,dmg:0,cd:0,proj:0,aegis:0,ult:0});}
+function xProj(){return endx()?Math.min(EX().projRelicMax,relS().proj):0;}
+function sn(n){return endx()?Math.min(EX().salvoMax,n)+xProj():n;}
+function bulCount(){return S.bul.length+(S.kbul?S.kbul.length:0);}
+function bulPush(b){if(endx()){const X=EX();if(bulCount()>=X.bulSoft)return;if(b.pierce>X.pierceMax)b.pierce=X.pierceMax;}S.bul.push(b);}
+function dm(){const v=(BALANCE.heroes[S.hero.id]||{dmg:1}).dmg*(1+.12*plv('tome'))*(1+UPGRADES.dmg.per*upl('dmg'));if(!endx())return v;const X=EX();return Math.min(X.dmMax,v*Math.pow(1+X.relic.dmg,relS().dmg));}
+function cdm(){const c=1-.08*plv('hourglass');if(!endx())return c;const X=EX();return Math.max(X.cdFloor,c*Math.pow(1-X.relic.cd,relS().cd));}
 function area(){return 1+.1*plv('candle');}
-function applyPassives(){const p=S.p,h=S.hero;p.spd=h.spd*(1+.08*plv('boots'))*(1+UPGRADES.spd.per*upl('spd'));
+function applyPassives(){const p=S.p,h=S.hero;p.spd=endx()?h.spd*Math.min(EX().spdMax,(1+.08*plv('boots'))*(1+UPGRADES.spd.per*upl('spd'))):h.spd*(1+.08*plv('boots'))*(1+UPGRADES.spd.per*upl('spd'));
  const base=Math.round(h.hp*(1+UPGRADES.hp.per*upl('hp'))*(1+.05*((M.stars[h.id]||1)-1))*(S.hpMul||1)),mx=base+20*plv('heart');p.hp+=Math.max(0,mx-p.max);p.max=mx;
- S.ups.regen=.5*plv('heart');S.ups.magnet=PICKUP_MAGNET_R*(1+.3*plv('magnet'))*(1+UPGRADES.mag.per*upl('mag'));S.ups.crit=.05*plv('clover');S.ups.xp=1+UPGRADES.xp.per*upl('xp');}
+ S.ups.regen=.5*plv('heart');S.ups.magnet=PICKUP_MAGNET_R*(1+.3*plv('magnet'))*(1+UPGRADES.mag.per*upl('mag'));S.ups.crit=.05*plv('clover');S.ups.xp=1+UPGRADES.xp.per*upl('xp');
+ if(endx()){S.ups.magnet=Math.min(S.ups.magnet,EX().magMax);S.ups.crit=Math.min(S.ups.crit,EX().critMax);}}
 function evoReady(k){const w=B().wep[k];return !!(w&&WEAPONS[k]&&!w.evo&&w.lv>=MAXL&&plv(WEAPONS[k].evo)>0);}
 // kind: 'craft' = weapons (from the magic source), 'lvl' = passive skills only, 'chest' = improve what you have
 // 0.3.6c: a hero level-up offers weapons again (new weapon / upgrade / evolution) next to skills; the Magic Source is the ULT now
@@ -1544,7 +1609,7 @@ function choicePool(kind){const b=B(),out=[];
   else{for(const k in WEAPONS){if(evoReady(k))out.push({t:'evo',k,w:5});}
   for(const k in b.wep){const w=b.wep[k];if(!w.evo&&w.lv<MAXL)out.push({t:'w',k,w:3});}
   if((kind=='craft'||kind=='lvl')&&Object.keys(b.wep).length<MAXW)for(const k in WEAPONS)if(!b.wep[k])out.push({t:'w',k,w:2});}}
- if(kind!='craft'){for(const k in b.pas)if(b.pas[k]<MAXL)out.push({t:'p',k,w:2});
+ if(kind!='craft'){const ex=endx();for(const k in b.pas)if(b.pas[k]<MAXL||(ex&&!passCapped(k)))out.push({t:'p',k,w:ex?(EX().passW[k]||2):2});
   if(kind=='lvl'&&Object.keys(b.pas).length<MAXP)for(const k in PASSIVES)if(!b.pas[k])out.push({t:'p',k,w:1.5});}
  return out;}
 function draw3(kind){const pool=choicePool(kind),res=[];const ev=pool.filter(c=>c.t=='evo');if(ev.length)res.push(ev[0]);
@@ -1566,8 +1631,8 @@ function cardInfo(c){const b=B();
   return{n:P.n+' '+T('lv.short')+' '+(cur+1),tag:T(isW?'card.wep':'card.spell')+' '+pips(cur,5),col:P.c,d:'<b>'+P.st[cur]+'</b>: '+P.sd[cur]+(WEAPONS[c.k]&&cur+1==MAXL?'<br><i>'+T('card.evoWith',PASSIVES[WEAPONS[c.k].evo].n)+'</i>':'')};}
  if(c.t=='w'){const W_=WEAPONS[c.k],cur=b.wep[c.k]?b.wep[c.k].lv:0;return{n:W_.n+(cur?' '+T('lv.short')+' '+(cur+1):''),tag:cur?T('card.wep')+' '+pips(cur,5):T('card.newwep'),col:W_.c,
   d:W_.lv[cur]+(cur+1==MAXL?'<br><i>'+T('card.evoWith',PASSIVES[W_.evo].n)+'</i>':cur==0?'<br><i>'+T('card.evoReq',PASSIVES[W_.evo].n)+'</i>':'')};}
- const P=PASSIVES[c.k],cur=plv(c.k),pairs=Object.keys(WEAPONS).filter(k=>WEAPONS[k].evo==c.k&&(!kitOf()||kitP(k))).map(k=>wInfo(k).n); // 0.3.7b: kit heroes only evolve kit pieces that have an evolution (Pip: Projectile -> Starfall)
- return{n:P.n+(cur?' '+T('lv.short')+' '+(cur+1):''),tag:cur?T('card.skill')+' '+pips(cur,5):T('card.newskill'),col:P.c,d:P.d+(pairs.length?'<br><i>'+T('card.evolves',pairs[0])+'</i>':'')};}
+ const P=PASSIVES[c.k],cur=plRaw(c.k),pairs=Object.keys(WEAPONS).filter(k=>WEAPONS[k].evo==c.k&&(!kitOf()||kitP(k))).map(k=>wInfo(k).n); // 0.3.7b: kit heroes only evolve kit pieces that have an evolution (Pip: Projectile -> Starfall)
+ return{n:P.n+(cur?' '+T('lv.short')+' '+(cur+1):''),tag:cur?T('card.skill')+' '+pips(Math.min(cur,5),5)+(cur>5?' +'+(cur-5):''):T('card.newskill'),col:P.c,d:P.d+(pairs.length?'<br><i>'+T('card.evolves',pairs[0])+'</i>':'')};}
 function applyChoice(c){const b=B();
  if(c.t=='heal'){S.p.hp=S.p.max;return;}
  if(c.t=='evo'){b.wep[c.k].evo=true;S.evos++;if(!M.evoBook[c.k]){M.evoBook[c.k]=1;M.evoNew=(M.evoNew||0)+1;M.evoFresh[c.k]=1;save();}say(WEAPONS[c.k].evoN+'!','#ffb000');bigMoment('#ffb000',false);S.flashC='#ffd84a';burst(S.p.x,S.p.y,'#ffd84a',60,300);SND.super();return;}
@@ -1579,7 +1644,7 @@ function tapBtn(el,fn){el.addEventListener('click',e=>{e.preventDefault();e.stop
 // choice screens in a queue (level-up, source full, chest)
 function enqueue(k){if(!S||S.state=='end'||S.vic)return; // after the boss falls no choice screen opens; XP keeps counting
 if(S.state=='play')openModal(k);else S.queue.push(k);}
-function openModal(k){if(k=='chest')openChest();else if(k=='bchest')openBossChest();else showPick(k);}
+function openModal(k){if(k=='relic')showRelic();else if(k=='chest')openChest();else if(k=='bchest')openBossChest();else showPick(k);}
 function resume(){ov.className='hide';ov.innerHTML='';S.state='play';lt=performance.now();if(S.queue.length)openModal(S.queue.shift());}
 let pickFn=null,cardAct=null;
 // 0.3.7c level-up: the chosen card shrinks and flies (0.5 s) to its slot in the weapon bar, then the slot shines once
@@ -1608,12 +1673,26 @@ function showPick(kind){S.state='pick';joyEnd();SND.lvl();let pool=draw3(kind);c
   if(a=='r'&&b.rerolls>0){b.rerolls--;pool=draw3(kind);render();}
   else if(a=='s'&&b.skips>0){b.skips--;S.p.hp=Math.min(S.p.max,S.p.hp+15);finish();}};
  render();}
+// 0.3.7g Endless relics: after every boss kill pick 1 of 3 small stackable boosts (average about x1.04 per boss); every 3rd relic offer includes +1 projectile
+const RELICS={dmg:{ic:'spark',c:'#f2a24a'},cd:{ic:'hourglass',c:'#f4c46a'},proj:{ic:'star',c:'#cfe8ff'},aegis:{ic:'shield',c:'#9fe6ff'},ult:{ic:'pot',c:'#4fd08a'}};
+function relicOffer(){const X=EX(),R=relS(),o=['dmg','cd','aegis','ult'];if(cdm()<=X.cdFloor+1e-9)o.splice(o.indexOf('cd'),1);
+ const res=[];if((R.n+1)%X.relic.projEvery==0&&R.proj<X.projRelicMax)res.push('proj');while(res.length<3&&o.length)res.push(o.splice(Math.floor(rnd()*o.length),1)[0]);if(res.length<3&&!res.includes('dmg'))res.push('dmg');return res;}
+function relicInfo(k){const X=EX(),R=relS(),r=X.relic;
+ return k=='dmg'?{n:T('relic.dmg',Math.round(r.dmg*100)),d:T('relic.owned',R.dmg)}:k=='cd'?{n:T('relic.cd',Math.round(r.cd*100)),d:T('relic.owned',R.cd)}:k=='proj'?{n:T('relic.proj'),d:T('relic.owned',R.proj)}:
+  k=='aegis'?{n:T('relic.aegis'),d:T('relic.aegis.d',Math.max(r.aegisMin,r.aegisT-r.aegisStep*R.aegis))}:{n:T('relic.ult',Math.round(r.ult*100)),d:T('relic.owned',R.ult)};}
+function applyRelic(k){const R=relS();R.n++;R[k]++;say(T('relic.'+k,k=='dmg'?Math.round(EX().relic.dmg*100):k=='cd'?Math.round(EX().relic.cd*100):Math.round(EX().relic.ult*100)),RELICS[k].c);if(k=='aegis')S.aegisT=Math.min(S.aegisT||0,0);applyPassives();}
+function showRelic(){S.state='pick';joyEnd();SND.lvl();const pool=relicOffer();let done=false;markModal();
+ ov.innerHTML='<div class="box pickbox relicbox" data-kind="relic"><h1>'+T('relic.title')+'</h1><div class="cards3">'+pool.map((k,i)=>{const f=relicInfo(k),R=RELICS[k];
+  return '<button class="up" data-i="'+i+'" data-t="relic" data-k="'+k+'" style="border-left:10px solid '+R.c+'"><span class="k">'+(i+1)+'</span><span class="tag">'+T('relic.tag')+'</span><br>'+IC(R.ic)+f.n+'<small>'+f.d+'</small></button>';}).join('')+'</div></div>';ov.className='';
+ const finish=()=>{done=true;pickFn=null;cardAct=null;resume();};
+ pickFn=i=>{if(done||S.state!='pick'||!pool[i])return;applyRelic(pool[i]);finish();};cardAct=null;
+ ov.querySelectorAll('.up').forEach(bt=>{const i=+bt.dataset.i;tapBtn(bt,()=>pickFn&&pickFn(i));});}
 addEventListener('keydown',e=>{if(S&&S.state=='pick'){if(pickFn&&'123'.includes(e.key))pickFn(+e.key-1);else if(cardAct&&(e.key=='r'||e.key=='x'))cardAct(e.key=='r'?'r':'s');}});
 function xpNeed(l){return Math.round(5+(l-1)*2.5+Math.pow(l-1,1.4));}
 function gainXp(v){v*=S.ups.xp;S.xp+=v;addCraftB(v*S.hero.source.perXp);
  while(S.xp>=S.xpNeed){S.xp-=S.xpNeed;S.level++;S.xpNeed=xpNeed(S.level);S.lvlPop=1;if(!S.vic)bigMoment('#9feeff',false);
   S.fx.push({x:S.p.x,y:S.p.y,r:10,max:120,c:'#9feeff',life:.6,ring:true});burst(S.p.x,S.p.y,'#9feeff',40,240);float(T('run.levelup'),S.p.x,S.p.y-40,'#9feeff');{S.healLeft=Math.max(S.healLeft||0,S.p.max*(S.noHeal?0:LEVELUP_HEAL));S.fx.push({x:S.p.x,y:S.p.y,r:6,max:70,c:'#5cff7a',life:.7,ring:true});burst(S.p.x,S.p.y,'#5cff7a',30,140);}enqueue('lvl');}}
-function addCraft(v){const c=S.craft;if(c.bank>0||S.ultA)return;c.v+=v*(1+.15*plv('brew'));if(c.v>=c.need){c.v=c.need;c.n++;c.bank=1;c.pop=1;
+function addCraft(v){const c=S.craft;if(c.bank>0||S.ultA)return;c.v+=v*(1+.15*plv('brew'))*(endx()?1+EX().relic.ult*relS().ult:1);if(c.v>=c.need){c.v=c.need;c.n++;c.bank=1;c.pop=1;
  float(T('ult.ready'),S.p.x,S.p.y-50,S.hero.source.col);SND.lvl();if(!S.cauldTipQ){S.cauldTipQ=1;(S.tipQ||(S.tipQ=[])).push('cauld');}}}
 // XP / damage charge: limited by a small budget that refills at ULT_CHARGE.bonusCap per second
 function addCraftB(v){const c=S.craft;const u=Math.min(Math.max(0,v),c.bud||0);if(u<=0)return;c.bud-=u;addCraft(u);}
@@ -1732,13 +1811,13 @@ function kStars(k){return Math.floor(wl(k)/2);}function kFull(k){return wl(k)>=1
 function kpDef(id,o){return Object.assign({id,get n(){return T('k.'+id)},get d(){return T('k.'+id+'.d')},get st(){return T('k.'+id+'.s')},get sd(){return T('k.'+id+'.sd')},get star(){return T('k.'+id+'.star')}},o);}
 const KITP={
  missile:kpDef('missile',{art:'star',c:'#cfe8ff',el:'arcane',kind:'w',
-  stats(w){const L=w.lv||1,st=kStars('missile');return {cd:.5*cdm(),n:L>=5?3:L>=2?2:1,d:15*(L>=4?1.25:1),pierce:(L>=3?1:0)+(kFull('missile')?1:0),sz:L>=4?1.2:1,bounce:L>=5?1:0,spd:420*(1+.05*st)};},
+  stats(w){const L=w.lv||1,st=kStars('missile');return {cd:.5*cdm(),n:sn(L>=5?3:L>=2?2:1),d:15*(L>=4?1.25:1),pierce:(L>=3?1:0)+(kFull('missile')?1:0),sz:L>=4?1.2:1,bounce:L>=5?1:0,spd:420*(1+.05*st)};},
   tick(w,D,A){if(w.cd>0)return;const p=S.p;
-   if(w.evo){w.cd=.45*cdm();for(let i=0;i<8;i++){const a=i/8*TAU+S.t;S.bul.push({x:p.x,y:p.y-10,vx:Math.cos(a)*380,vy:Math.sin(a)*380,d:22*D,pierce:3,c:'#8fd0ff',hit:[],by:'missile'});}SND.w('missile');return;} // Starfall (Lv 5 + Hourglass)
+   if(w.evo){w.cd=.45*cdm();const N8=8+xProj();for(let i=0;i<N8;i++){const a=i/N8*TAU+S.t;bulPush({x:p.x,y:p.y-10,vx:Math.cos(a)*380,vy:Math.sin(a)*380,d:22*D,pierce:3,c:'#8fd0ff',hit:[],by:'missile',hm:starLife(i)});}SND.w('missile');return;} // Starfall (Lv 5 + Hourglass)
    const n=nearest(p,0,null,true);if(!n)return;const s=this.stats(w);w.cd=s.cd;const a=Math.atan2(n.y-p.y,n.x-p.x);p.face=n.x>p.x?1:-1;
-   for(let i=0;i<s.n;i++){const aa=a+(i-(s.n-1)/2)*.18;S.bul.push({x:p.x+p.face*12,y:p.y-14,vx:Math.cos(aa)*s.spd,vy:Math.sin(aa)*s.spd,d:s.d*D,pierce:s.pierce,bounce:s.bounce,sz:s.sz,c:S.hero.bolt,hit:[],by:'missile'});}SND.w('missile');}}),
+   for(let i=0;i<s.n;i++){const aa=a+(i-(s.n-1)/2)*.18;bulPush({x:p.x+p.face*12,y:p.y-14,vx:Math.cos(aa)*s.spd,vy:Math.sin(aa)*s.spd,d:s.d*D,pierce:s.pierce,bounce:s.bounce,sz:s.sz,c:S.hero.bolt,hit:[],by:'missile'});}SND.w('missile');}}),
  fireball:kpDef('fireball',{art:'flame',c:'#ff8a3c',el:'fire',kind:'w',
-  stats(w){const L=w.lv||1;return {cd:2.5*cdm(),n:L>=3?2:1,d:34,R:46*(L>=2?1.3:1)*(1+.05*kStars('fireball')),burn:L>=4?12:8,burnT:(L>=4?4:3)+(kFull('fireball')?1:0),patch:L>=5?2:0};},
+  stats(w){const L=w.lv||1;return {cd:2.5*cdm(),n:sn(L>=3?2:1),d:34,R:46*(L>=2?1.3:1)*(1+.05*kStars('fireball')),burn:L>=4?12:8,burnT:(L>=4?4:3)+(kFull('fireball')?1:0),patch:L>=5?2:0};},
   tick(w,D,A){if(w.cd>0)return;const p=S.p,n=nearest(p,0,null,true);if(!n)return;const s=this.stats(w);w.cd=s.cd;const a=Math.atan2(n.y-p.y,n.x-p.x);p.face=n.x>p.x?1:-1;
    for(let i=0;i<s.n;i++){const aa=a+(i-(s.n-1)/2)*.26;kitShoot({k:'fireball',x:p.x+p.face*10,y:p.y-14,vx:Math.cos(aa)*320,vy:Math.sin(aa)*320,life:1.3,r:7,d:s.d*D,R:s.R*A,burnT:s.burnT,burn:s.burn*D,patch:s.patch,hit:[]});}
    SND.w('trail');},
@@ -1746,14 +1825,14 @@ const KITP={
    for(const e of S.en){if(e.hp<=0||introImm(e))continue;if(e!==t&&Math.hypot(e.x-b.x,e.y-b.y)>R+e.r)continue;kitHit(e,'fireball',b.d*(e===t?1:.6),e===t);addSt(e,'burning',b.burnT,{dps:b.burn});}
    if(b.patch){const L=S.kpatch||(S.kpatch=[]);L.push({x:b.x,y:b.y,r:R*.7,life:b.patch,max:b.patch,burn:b.burn,burnT:b.burnT,tk:0});if(L.length>12)L.shift();}}}),
  icebolt:kpDef('icebolt',{art:'flake',c:'#9fe6ff',el:'ice',kind:'s',
-  stats(w){const L=w.lv||1;return {cd:spellCd((L>=5?4.5:6)*(1-.03*kStars('icebolt'))),n:L>=3?2:1,d:30,freeze:(L>=2?2:1.5)+(kFull('icebolt')?.3:0),slow:3,pierce:L>=4?2:0,R:36*(L>=5?1.5:1)};},
+  stats(w){const L=w.lv||1;return {cd:spellCd((L>=5?4.5:6)*(1-.03*kStars('icebolt'))),n:sn(L>=3?2:1),d:30,freeze:(L>=2?2:1.5)+(kFull('icebolt')?.3:0),slow:3,pierce:L>=4?2:0,R:36*(L>=5?1.5:1)};},
   tick(w,D,A){if(w.cd>0)return;const p=S.p,n=nearest(p,0,null,true);if(!n)return;const s=this.stats(w);w.cd=s.cd;const a=Math.atan2(n.y-p.y,n.x-p.x);p.face=n.x>p.x?1:-1;
    for(let i=0;i<s.n;i++){const aa=a+(i-(s.n-1)/2)*.22;kitShoot({k:'icebolt',x:p.x+p.face*10,y:p.y-14,vx:Math.cos(aa)*440,vy:Math.sin(aa)*440,life:1,r:6,d:s.d*D,R:s.R*A,freeze:s.freeze,slow:s.slow,pierce:s.pierce,hit:[]});}
    SND.nova();},
   hit(b,t){S.fx.push({x:b.x,y:b.y,r:4,max:b.R,c:'#bff0ff',life:.35,ring:true});burst(b.x,b.y,'#dff8ff',10,120);kitHit(t,'icebolt',b.d,true);addSt(t,'frozen',b.freeze);addSt(t,'slowed',b.slow);
    for(const e of S.en)if(e!==t&&e.hp>0&&!introImm(e)&&Math.hypot(e.x-b.x,e.y-b.y)<b.R+e.r)addSt(e,'slowed',b.slow*.7);}}),
  lightning:kpDef('lightning',{art:'bolt',c:'#ffe45a',el:'bolt',kind:'s',
-  stats(w){const L=w.lv||1;return {cd:spellCd((L>=4?6.4:8)*(1-.03*kStars('lightning'))),n:(L>=5?8:L>=2?6:4)+(kFull('lightning')?1:0),d:34,range:260,hop:150*(L>=5?1.3:1),shockT:2,shock:L>=3?1.2:STATUS.shocked.dmgIn};},
+  stats(w){const L=w.lv||1;return {cd:spellCd((L>=4?6.4:8)*(1-.03*kStars('lightning'))),n:(L>=5?8:L>=2?6:4)+(kFull('lightning')?1:0)+xProj(),d:34,range:260,hop:150*(L>=5?1.3:1),shockT:2,shock:L>=3?1.2:STATUS.shocked.dmgIn};},
   // Chain Lightning looks for a Frozen enemy first (the combo target), else the nearest one
   tick(w,D,A){if(w.cd>0)return;const p=S.p,s=this.stats(w);let first=null,bd=s.range;for(const e of S.en){if(e.hp<=0||introImm(e)||!hasSt(e,'frozen')||!inView(e,20))continue;const d=dist(e,p);if(d<bd){bd=d;first=e;}}
    first=first||nearest(p,s.range,null,true);if(!first)return;w.cd=s.cd;let cur=first,prev={x:p.x,y:p.y-14};const hit=[];
@@ -1779,7 +1858,7 @@ function kitOf(h){h=h||(S&&S.hero);return h&&h.kit?KITS[h.kit]:null;}
 function kitP(k,h){const K=kitOf(h);return K&&(K.weapons.includes(k)||K.spells.includes(k))?KITP[k]:null;} // the kit piece only for a hero whose kit has it (Barbarian keeps the old missile)
 function wInfo(k){return kitP(k)||WEAPONS[k]||KITP[k];}
 function kitCombo(by,st){const K=kitOf();return K?K.combos.find(c=>c.by==by&&c.st==st):null;}
-function kitShoot(b){(S.kbul||(S.kbul=[])).push(b);}
+function kitShoot(b){if(endx()){const X=EX();if(bulCount()>=X.bulSoft)return;if(b.pierce>X.pierceMax)b.pierce=X.pierceMax;}(S.kbul||(S.kbul=[])).push(b);}
 // one hit from a kit piece: combos first (once per hit), then damage through dmgE (enemies only)
 function kitHit(e,by,d,lbl){const K=kitOf();if(K)for(const c of K.combos){if(c.by!=by||!hasSt(e,c.st))continue;d*=c.mul;comboFx(e,c);}
  dmgE(e,d);return d;}
@@ -1829,14 +1908,22 @@ function openChest(boss){S.state='chest';joyEnd();SND.chest();const pool=choiceP
  ov.className='';tapBtn(document.getElementById('cg'),()=>{if(S.state!='chest')return;resume();});}
 const RANGE={base:230,perCandle:.10}; // auto-aim range in world units (same on every screen); Moon Candle adds +10% per level
 function aimRange(){return RANGE.base*(1+RANGE.perCandle*plv('candle'));}
+// 0.3.7g Star Rain (the evolved Magic Missile, i.e. max projectiles) homing: each star turns toward the nearest enemy, at most BALANCE.starHome.turn rad/s, for BALANCE.starHome.life s. Damage, pierce, speed unchanged; no extra flashes/effects. Enemies are bucketed once per frame into a coarse grid (cell 80px) so a star only looks at the cells around it (no n*m per frame), and each star re-targets at most every .12 s (staggered).
+function starLife(i){const H=BALANCE.starHome;return H.turn>0?H.life+0:0;}
+function starGrid(){const H=BALANCE.starHome,G=S.hg;if(G&&G.t===S.t&&G.n===S.en.length)return G;const m=new Map(),c=H.cell;for(const e of S.en){if(e.hp<=0)continue;const k=(Math.floor(e.x/c)+32768)*65536+(Math.floor(e.y/c)+32768);const a=m.get(k);if(a)a.push(e);else m.set(k,[e]);}return S.hg={t:S.t,n:S.en.length,m};}
+function starNearest(b,R){const H=BALANCE.starHome,c=H.cell,G=starGrid().m,cx=Math.floor(b.x/c),cy=Math.floor(b.y/c),r=Math.ceil(R/c);let best=null,bd=R*R;
+ for(let i=cx-r;i<=cx+r;i++)for(let j=cy-r;j<=cy+r;j++){const a=G.get((i+32768)*65536+(j+32768));if(!a)continue;for(const e of a){if(e.hp<=0||(e.boss&&e.introT>0)||b.hit.includes(e)||introImm(e))continue;const dx=e.x-b.x,dy=e.y-b.y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=e;}}}return best;}
+function starSteer(b,dt){const H=BALANCE.starHome;b.hm-=dt;let t=b.tg;if(t&&(t.hp<=0||b.hit.includes(t)))t=b.tg=null;
+ b.rt=(b.rt===undefined?Math.random()*H.retarget:b.rt)-dt;if(!t||b.rt<=0){b.rt=H.retarget;t=b.tg=starNearest(b,H.range);}
+ if(!t)return;const cur=Math.atan2(b.vy,b.vx);let d=Math.atan2(t.y-b.y,t.x-b.x)-cur;d=Math.atan2(Math.sin(d),Math.cos(d));const m=H.turn*dt,a=cur+Math.max(-m,Math.min(m,d)),sp=Math.hypot(b.vx,b.vy);b.vx=Math.cos(a)*sp;b.vy=Math.sin(a)*sp;}
 function nearest(from,maxD,skip,aim){const rg=aim&&M.rangeOn!==0;
  // aimed weapons prefer the Toad King when he is within the normal aim range (no range extension)
  const bo=S.boss;if(aim&&bo&&bo.hp>0&&!(bo.introT>0)&&!(skip&&skip.includes(bo))&&dist(bo,from)<=Math.min(maxD||1e9,aimRange())&&(rg||inView(bo,90)))return bo;let n=null,bd=maxD||1e9;if(rg)bd=Math.min(bd,aimRange());for(const e of S.en){if(e.hp<=0||(skip&&skip.includes(e))||(e.boss&&e.introT>0))continue;if(!rg&&!inView(e,90))continue;const d=dist(e,from);if(d<bd){bd=d;n=e}}return n;}
 function updWeapons(dt){kitUpd(dt);const p=S.p,b=B(),D0=dm(),C=cdm(),A=area();let D=D0;const cd0={};for(const k in b.wep)cd0[k]=b.wep[k].cd-dt;
  for(const k in b.wep){const w=b.wep[k],L=w.lv;D=D0*(1+WUP_PER*wl(k));w.cd-=dt;w.a+=dt;{const P=kitP(k);if(P){P.tick(w,D,A);continue;}}
-  if(k=='missile'){if(w.cd<=0){if(w.evo){w.cd=.45*C;for(let i=0;i<8;i++){const a=i/8*TAU+S.t;S.bul.push({x:p.x,y:p.y-10,vx:Math.cos(a)*380,vy:Math.sin(a)*380,d:22*D,pierce:3,c:'#ffe27a',hit:[]});}}
-    else{const n=nearest(p,0,null,true);if(n){w.cd=(L>=5?.8:1)*BALANCE.weapons.missile.cd*C;const cnt=1+(L>=2)+(L>=5),pi=L>=4?1:0,dd=BALANCE.weapons.missile.d*(L>=3?1.3:1)*D,a=Math.atan2(n.y-p.y,n.x-p.x);p.face=n.x>p.x?1:-1;
-     for(let i=0;i<cnt;i++){const aa=a+(i-(cnt-1)/2)*.18;S.bul.push({x:p.x+p.face*12,y:p.y-14,vx:Math.cos(aa)*420,vy:Math.sin(aa)*420,d:dd,pierce:pi,c:S.hero.bolt,hit:[]});}}}}}
+  if(k=='missile'){if(w.cd<=0){if(w.evo){w.cd=.45*C;for(let i=0;i<8;i++){const a=i/8*TAU+S.t;bulPush({x:p.x,y:p.y-10,vx:Math.cos(a)*380,vy:Math.sin(a)*380,d:22*D,pierce:3,c:'#ffe27a',hit:[],hm:starLife(i)});}}
+    else{const n=nearest(p,0,null,true);if(n){w.cd=(L>=5?.8:1)*BALANCE.weapons.missile.cd*C;const cnt=sn(1+(L>=2)+(L>=5)),pi=L>=4?1:0,dd=BALANCE.weapons.missile.d*(L>=3?1.3:1)*D,a=Math.atan2(n.y-p.y,n.x-p.x);p.face=n.x>p.x?1:-1;
+     for(let i=0;i<cnt;i++){const aa=a+(i-(cnt-1)/2)*.18;bulPush({x:p.x+p.face*12,y:p.y-14,vx:Math.cos(aa)*420,vy:Math.sin(aa)*420,d:dd,pierce:pi,c:S.hero.bolt,hit:[]});}}}}}
   else if(k=='orbit'){const n=w.evo?8:Math.min(5,1+(L>=2)+(L>=4)+(L>=5)),R=(w.evo?85:L>=4?62:50)*A,sp=w.evo?4:L>=5?3.2:2.4,dd=(w.evo?30:BALANCE.weapons.orbit.d*(L>=3?1.4:1))*D;w.pts=[];
    for(let i=0;i<n;i++){const a=w.a*sp+i/n*TAU,x=p.x+Math.cos(a)*R,y=p.y-6+Math.sin(a)*R;w.pts.push([x,y]);
     for(const e of S.en)if(!introImm(e)){if(e.hp>0&&Math.hypot(e.x-x,e.y-y)<e.r+9*A){e.oh=e.oh||0;if(S.t-e.oh>.35){e.oh=S.t;dmgE(e,dd);SND.w('orbit');}}}}}
@@ -1866,7 +1953,7 @@ function endGame(win){if(S.state=='end')return;const firstEver=!M.games&&!(M.sta
  let lose3=0;if(!WK&&!RUNMODE){const lc=M.loseCt||(M.loseCt={});if(win)delete lc[S.lv];else{lc[S.lv]=(lc[S.lv]||0)+1;if(lc[S.lv]>=3){lose3=1;lc[S.lv]=0;}}}
  if(!WK){const ls=M.lvStats[S.lv]||(M.lvStats[S.lv]={runs:0,wins:0,rage:0});ls.runs++;if(win)ls.wins++;if(S.rageSeen)ls.rage++;}
  M.gold+=gold;M.games++;M.stats.goldEarned+=gold;M.stats.kills+=S.kills;M.stats.best=Math.max(M.stats.best,Math.floor(S.t));if(win){M.stats.bosses++;M.stats.wins++;}
- const seaGot=seasonAddXp(px);runAchCount(win);const PXR=addPlayerXp(px);chestLadder(win,S.p.hp/S.p.max,WK?0:S.lv,first,firstEver);const hfc=!WK&&heroFirstClear(S.hero.id,S.lv,win),hpr=heroPathAdd(S.hero.id),bst=beastAdd(S.killBy,win&&S.boss?S.boss.id:null),cnew=cauldCheck();S.newRw={hfc,hpr,bst,cnew};const bossGems=win&&!WK?bossGemAward():0;if(win&&!M.chestHint)M.chestHint=1;
+ const seaGot=seasonAddXp(px);runAchCount(win);const PXR=addPlayerXp(px);chestLadder(win,S.p.hp/S.p.max,WK?0:S.lv,first,firstEver);const hfc=!WK&&heroFirstClear(S.hero.id,S.lv,win),hpr=heroPathAdd(S.hero.id),bst=beastAdd(S.killBy,win&&S.boss?S.boss.id:null),cnew=cauldCheck();S.newRw={hfc,hpr,bst,cnew};const bossGems=win&&!WK?bossGemAward():0,bossMax=win&&!WK&&!bossGems&&gemRoom()<=0&&!(M.gemDay&&M.gemDay.d==dayKey()&&M.gemDay.n>=GEMSHOP.earn.bossCap);if(win&&!M.chestHint)M.chestHint=1;
  const qch=questProgress({kills:S.kills,gold,lv:S.lv,t:S.t,evos:S.evos,win,hero:S.hero.id,rage:S.rageSeen,weekly:!!WK});
  let wkHtml='',wkGold=0,wkNews=0;if(WK){const sc=weeklyScore(),prev=M.weekly.best,g0w=M.gold,got=weeklyAward(S.t,S.dmgDone||0);wkGold=M.gold-g0w;M.weekly.best=Math.max(prev,sc);if(win&&S.minHp>=.5&&!M.weekly.ach50){M.weekly.ach50=1;got.push(T('wk.ach50done'));}
   if(got.length)wkNews=1;wkHtml='<div class="odds endsec e2wk"><b>'+T('wk.title')+'</b> <b class="gold" id="wkstars">'+wkStarStr(weeklyStars(S.t,S.dmgDone||0))+'</b></div>';}
@@ -1876,14 +1963,14 @@ function endGame(win){if(S.state=='end')return;const firstEver=!M.games&&!(M.sta
  const qd=qch.filter(q=>q.newly).map(q=>q.name);S.endInfo={gold:gold+wkGold,chests:got,daily:qd};
  const celeb=first&&S.lv==LEVELS.length&&!M.celeb10;if(celeb)M.celeb10=1;newsSet(S.newRw,qd.length,wkNews);save(); // 0.3.7f: news -> 'New!' badges; level-10 celebration once
  const nextLv=win&&!WK&&S.lv<LEVELS.length&&M.maxLvl>S.lv;
- const html=endBoxHtml({win,WK,lose3,px,up:PXR.up,bossGems,gold:gold+wkGold,got,wkHtml,nextLv}),mode=RUNMODE;
+ const html=endBoxHtml({win,WK,lose3,px,up:PXR.up,bossGems,bossMax,gold:gold+wkGold,got,wkHtml,nextLv}),mode=RUNMODE;
  const showWin=()=>{ov.innerHTML=html;ov.className='';ovArt(ov,win?'victory':'defeat',.3);endAnim();try{artLoad(tileKey(M.lvlSel));}catch(e){}SND.endGold();tapBtn(document.getElementById('again'),()=>{if(nextLv)M.lvlSel=S.lv+1;startRun(mode);});tapBtn(document.getElementById('tohub'),()=>{S=null;tabI=2;showHub();});
   if(lose3){const lu=document.getElementById('l3upg'),lp=document.getElementById('l3prev');tapBtn(lu,()=>{S=null;tabI=TABS.indexOf('upg');showHub();go(tabI,true);});if(lp)tapBtn(lp,()=>{M.lvlSel=S.lv-1;save();startRun();});}bindEndFb();};
  if(celeb)showCeleb(()=>{try{showWin();}catch(err){endFallback(win,err);}});else showWin();}catch(err){endFallback(win,err);}}
 // 0.3.7f calm win/lose screen: title, gold + XP (count up), chest icons, buttons. Everything else (unlocks, achievements, bestiary, looks) is a 'New!' badge on the Heroes / Quests tab
 function endBoxHtml(o){const ch=Object.keys(o.got).filter(k=>CHESTS[k]);
  const cnt=v=>'<span class="cnt" data-to="'+v+'">'+v+'</span>';
- const top='<div class="e2top"><div class="endgold gold e2pill" id="endgold">'+IC('gold')+' '+T('end.goldBig',cnt(o.gold))+(S.lucky?' <small class="luckx">'+T('lucky.x2')+'</small>':'')+'</div><div class="endxp e2pill" id="endxp">'+T('end.pxp',cnt(o.px))+(o.up?' <b class="e2rank">'+T('end.plvUp',M.plv)+'</b>':'')+(o.bossGems?' <span class="gem">'+T('gem.got',o.bossGems)+'</span>':'')+'</div></div>';
+ const top='<div class="e2top"><div class="endgold gold e2pill" id="endgold">'+IC('gold')+' '+T('end.goldBig',cnt(o.gold))+(S.lucky?' <small class="luckx">'+T('lucky.x2')+'</small>':'')+'</div><div class="endxp e2pill" id="endxp">'+T('end.pxp',cnt(o.px))+(o.up?' <b class="e2rank">'+T('end.plvUp',M.plv)+'</b>':'')+(o.bossGems?' <span class="gem">'+T('gem.got',o.bossGems)+'</span>':o.bossMax?' <span class="gem">'+IC('gem')+' '+T('gem.max')+'</span>':'')+'</div></div>';
  const chests=ch.length?'<div class="e2chests" id="endchests">'+ch.map(k=>'<div class="endchest"><img src="'+chestImg(k)+'" alt="'+(o.got[k]>1?T('end.chestN',T('chest.short.'+k),o.got[k]):CHESTS[k].n)+'">'+(o.got[k]>1?'<b class="cx">×'+o.got[k]+'</b>':'')+'</div>').join('')+'</div>':'';
  const mid=o.win?'':o.lose3?'<div class="lose3" id="lose3"><p>'+T(S.lv>1?'lose3.tip':'lose3.tip1')+'</p><div class="l3row"><button id="l3upg" class="act">'+T('lose3.upg')+'</button>'+(S.lv>1?'<button id="l3prev" class="act">'+T('lose3.prev',S.lv-1)+'</button>':'')+'</div></div>':'<p class="endsub" id="endsub">'+T('end.loseSub')+'</p>';
  const again=o.nextLv?T('end.nextLevel'):o.WK?(o.win?T('end.again'):T('wk.again')):o.win?T('end.again'):T('end.tryAgain');
@@ -1905,7 +1992,7 @@ function cntUp(el,to,ms){to=+to||0;if(to<=0){el.textContent=String(to);return;}c
 function endAnim(){const b=document.getElementById('endbox');if(!b)return;b.querySelectorAll('.cnt').forEach((el,i)=>cntUp(el,el.dataset.to,800+i*150));}
 // 0.3.7e: minimal end screen if a reward step threw (progress already granted stays; nothing is granted twice)
 function endFallback(win,err){try{console.error('end-of-run step failed',err);window.__endErr=String(err&&err.stack||err);}catch(e){}try{save();}catch(e){}if(!S)return;S.state='end';const mode=RUNMODE,lv=S.lv;markModal();
- ov.innerHTML='<div class="box" id="endbox" data-fallback="1"><h1>'+(win?T('end.victory'):T('end.lose'))+'</h1><button id="again" class="playbtn endplay">'+(win?T('end.again'):T('end.tryAgain'))+'</button><div class="endrow"><button id="tohub" class="act endvil">'+T('end.village')+'</button></div></div>';ov.className='';
+ ov.innerHTML='<div class="box" id="endbox" data-fallback="1"><h1>'+(win?T('end.victory'):T('end.lose'))+'</h1><div class="e2btns"><button id="again" class="playbtn endplay">'+(win?T('end.again'):T('end.tryAgain'))+'</button><div class="endrow"><button id="tohub" class="act endvil">'+T('end.village')+'</button></div></div></div>';ov.className='';
  tapBtn(document.getElementById('again'),()=>{M.lvlSel=Math.min(lv||1,M.maxLvl||1);startRun(mode);});tapBtn(document.getElementById('tohub'),()=>{S=null;tabI=2;showHub();});}
 // 0.3.7e watchdog: an empty screen (no run, no lobby, no story) for 2 s rebuilds the lobby; a finished run without its end screen gets one
 let UIW=0;function uiWatch(){try{const hid=ov.className=='hide';let bad=0;if(!S&&storyI<0&&hid&&document.body.classList.contains('inlobby')&&!document.getElementById('lobby'))bad=1;else if(S&&S.state=='end'&&hid&&!document.getElementById('endbox'))bad=2;
@@ -1917,8 +2004,8 @@ function runAchCount(win){const st=S.stats||{};if(win&&!S.wk&&!S.hurtAny&&S.minH
 function endEndless(){const E=BALANCE.endless,t=S.t,sc=Math.floor(t)+S.kills,prev=M.endBest||0,ct=E.chests.filter(c=>t>=c[0]).pop()[1],gold=Math.round(S.gold)+Math.floor(t/SURV_GOLD_SEC),px=20+Math.floor(t/4);
  M.endBest=Math.max(prev,sc);M.gold+=gold;M.games++;M.stats.goldEarned+=gold;M.stats.kills+=S.kills;M.stats.best=Math.max(M.stats.best,Math.floor(t));
  const seaGot=seasonAddXp(px);runAchCount(false);const PXR=addPlayerXp(px);addChest(ct,'endless');beastAdd(S.killBy,null);cauldCheck();checkMiles();const achGot=achCheck();save();markModal();S.endInfo={gold,chests:{[ct]:1},daily:[],score:sc};
- ov.innerHTML='<div class="box" id="endbox"><h1>'+T('endless.over')+'</h1><p class="endxp" id="endxp">'+T('end.pxp',px)+(PXR.up?' · <b class="gold">'+T('end.plvUp',M.plv)+'</b>':'')+'</p><p class="endhead">'+T('endless.score',sc,fmt(t),S.kills)+'</p><p class="endsub" id="endsub">'+(sc>prev?'<b class="gold">'+T('endless.newBest')+'</b>':T('endless.best',prev))+'</p><div class="endgold gold" id="endgold">'+IC('gold')+' '+T('end.goldBig',gold)+'</div><div class="endchest"><img src="'+chestImg(ct)+'" alt=""><div><b>'+CHESTS[ct].n+'</b><br><small>'+T('end.chestOpen')+'</small></div></div><button id="again" class="playbtn endplay">'+T('endless.again')+'</button><div class="endrow"><button id="tohub" class="act endvil">'+T('end.village')+'</button><button id="endfb" class="act endfb">'+T('fb.btn')+'</button></div></div>';
- ov.className='';ovArt(ov,'defeat',.3);SND.endGold();tapBtn(document.getElementById('again'),()=>startRun('endless'));tapBtn(document.getElementById('tohub'),()=>{S=null;tabI=TABS.indexOf('qst');showHub();});bindEndFb();}
+ ov.innerHTML='<div class="box" id="endbox"><h1>'+T('endless.over')+'</h1><p class="endxp" id="endxp">'+T('end.pxp',px)+(PXR.up?' · <b class="gold">'+T('end.plvUp',M.plv)+'</b>':'')+'</p><p class="endhead">'+T('endless.score',sc,fmt(t),S.kills)+'</p><p class="endsub" id="endsub">'+(sc>prev?'<b class="gold">'+T('endless.newBest')+'</b>':T('endless.best',prev))+'</p><div class="endgold gold" id="endgold">'+IC('gold')+' '+T('end.goldBig',gold)+'</div><div class="endchest"><img src="'+chestImg(ct)+'" alt=""><div><b>'+CHESTS[ct].n+'</b><br><small>'+T('end.chestOpen')+'</small></div></div><div class="e2btns"><button id="again" class="playbtn endplay">'+T('endless.again')+'</button><div class="endrow"><button id="tohub" class="act endvil">'+T('end.village')+'</button><button id="endfb" class="act endfb">'+T('fb.btn')+'</button></div></div></div>';
+ ov.className='';ovArt(ov,'defeat',.3);SND.endGold();tapBtn(document.getElementById('again'),()=>startRun('endless'));tapBtn(document.getElementById('tohub'),()=>{S=null;tabI=TABS.indexOf('home');showHub();});bindEndFb();}
 // post-run gold count-up: at most 1 s, silent, the coin icon stays still; any tap shows the final number at once
 function countUp(){const el=document.getElementById('cup');if(!el)return;const to=+el.dataset.to,t0=performance.now(),dur=Math.min(1000,300+to*4);let done=false;
  const fin=()=>{done=true;el.textContent=to;document.removeEventListener('pointerdown',fin,true);};document.addEventListener('pointerdown',fin,true);
@@ -1948,13 +2035,13 @@ function questProgress(r){ensureDaily();const out=[];for(const q of M.daily.q){c
   q.p=Math.min(Q.n,q.p+add);if(q.p!=old||!q.c)out.push({name:T('q.'+q.id),p:q.p,n:Q.n,done:q.p>=Q.n,claimed:!!q.c,newly:old<Q.n&&q.p>=Q.n});}return out;}
 function dailyClaimable(){ensureDaily();return M.daily.q.filter(q=>!q.c&&q.p>=QUESTS[q.id].n).length+(M.daily.chest?0:1);}
 function dailyDone(){ensureDaily();return !!M.daily.chest&&M.daily.q.every(q=>q.c);}
-function claimQuest(i){const q=M.daily.q[i];if(!q||q.c||q.p<QUESTS[q.id].n)return '';q.c=1;const g=QREWARD[QUESTS[q.id].tier];M.gold+=g;M.gems+=GEMSHOP.earn.quest;let msg=T('daily.got',g)+' · '+T('gem.got',GEMSHOP.earn.quest);
- if(M.daily.q.every(x=>x.c)&&!M.daily.bonus){M.daily.bonus=1;addChest('magic','dailyall');M.gems+=QBONUS_GEMS;M.streak++;achAdd('dailies',1);msg+=' · '+T('daily.bonusGot',QBONUS_GEMS);if(addKeys(1))msg+=' · '+T('key.got1');if(M.streak%STREAK_CHEST==0){addChest('gold','streak');msg+=' · '+T('daily.streakChest');}}save();return msg;}
+function claimQuest(i){const q=M.daily.q[i];if(!q||q.c||q.p<QUESTS[q.id].n)return '';q.c=1;const g=QREWARD[QUESTS[q.id].tier];M.gold+=g;const qg=gemGrant(GEMSHOP.earn.quest,'quest');let msg=T('daily.got',g)+' · '+gemTxt(qg,GEMSHOP.earn.quest);
+ if(M.daily.q.every(x=>x.c)&&!M.daily.bonus){M.daily.bonus=1;addChest('magic','dailyall');const bg=gemGrant(QBONUS_GEMS,'dailyall');M.daily.bg=bg;M.streak++;achAdd('dailies',1);msg+=' · '+gemTxt(bg,QBONUS_GEMS);if(addKeys(1))msg+=' · '+T('key.got1');if(M.streak%STREAK_CHEST==0){addChest('gold','streak');msg+=' · '+T('daily.streakChest');}}save();return msg;}
 // score thresholds [bronze,silver,gold] tuned per challenge with bots: bronze in one try, gold only for good runs
 const WEEKLY=[{hero:'witch',wep:'missile',lv:1,rule:'double',th:[80,200,300],stars:{t1:60,d2:1500,t3:120,d3:2300}},{hero:'barbarian',wep:'axe',lv:2,rule:'noheal',th:[80,200,350],stars:{t1:60,d2:2500,t3:180,d3:5000}},{hero:'witch',wep:'nova',lv:2,rule:'fast',th:[80,300,600],stars:{t1:60,d2:2500,t3:130,d3:3800}},{hero:'barbarian',wep:'chain',lv:3,rule:'glass',th:[60,300,850],stars:{t1:60,d2:6000,t3:240,d3:15000}}];
 const WK_TIERS=[{k:'b',chest:'wood'},{k:'s',chest:'silver'},{k:'g',chest:'gold'}];
 function wkTh(i){return WEEKLY[M.weekly.idx%WEEKLY.length].th[i];} // bronze/silver give gold, gold gives a Golden Chest
-function ensureWeekly(){const w=isoWeek(nowD()),k=w.y+'-W'+w.w;if(M.weekly.wk!=k){M.weekly={wk:k,idx:w.w%WEEKLY.length,best:0,got:{},ach50:0};save();}}
+function ensureWeekly(){const w=isoWeek(nowD()),k=gemWeekKey();gemWeekSync();if(M.weekly.wk!=k){M.weekly={wk:k,idx:w.w%WEEKLY.length,best:0,got:{},ach50:0};save();}}
 function weeklyScore(){return Math.floor(S.t)+S.kills;}
 function wkStarStr(n){return '★'.repeat(n)+'☆'.repeat(3-n);}
 function wkStarsDef(){return WEEKLY[M.weekly.idx%WEEKLY.length].stars;}
@@ -1990,11 +2077,12 @@ function showBestiary(i){newsClear('bst');if(i!=null)beastI=i;const L=beastList(
  openSheet(T('beast.title'),tabs+book+nav,el=>{el.classList.add('bxsheet');drawBeastPic(document.getElementById('bxcv'),k,seen);
   tapBtn(document.getElementById('bxprev'),()=>showBestiary(beastI-1));tapBtn(document.getElementById('bxnext'),()=>showBestiary(beastI+1));
   el.querySelectorAll('[data-bch]').forEach(b=>tapBtn(b,()=>{const c=BEAST[+b.dataset.bch];showBestiary(L.findIndex(x=>x.ch===c));}));});}
+function bonusLbl(g,done){return g>0?T('daily.bonus',g):done?T('gem.maxWeek'):T('daily.bonusCap');}
 function showDaily(msg){ensureDaily();const D=M.daily;if(M.questDot){M.questDot=0;save();}const close=closeToUnlock();
  openSheet(T('daily.title'),(M.comeback==dayKey()?'<div class="odds" id="dailycome" style="color:#f2cf5b;font-size:15px">'+IC('chest')+' '+T('daily.comeback')+'</div>':'')+(msg?'<div class="odds" id="dailymsg" style="color:#f2cf5b;font-size:16px">'+msg+'</div>':'')+
   '<div class="li"><div class="g"><b>'+T('daily.chest')+'</b><br><small>'+T('daily.chestSub')+'</small></div>'+(D.chest?'<span class="gem">✓</span>':'<button id="dchest">'+T('daily.claim')+'</button>')+'</div>'+
   D.q.map((q,i)=>{const Q=QUESTS[q.id],dn=q.p>=Q.n;return '<div class="li"><div class="g"><small class="tier t'+Q.tier+'">'+T('daily.tier'+Q.tier)+'</small><br><b>'+T('q.'+q.id)+'</b><div class="qbar"><i style="width:'+Math.round(q.p/Q.n*100)+'%"></i></div><small>'+q.p+' / '+Q.n+' · '+IC('gold')+' '+QREWARD[Q.tier]+'</small></div>'+(q.c?'<span class="gem">✓</span>':'<button data-q="'+i+'"'+(dn?'':' disabled')+'>'+T('daily.claim')+'</button>')+'</div>';}).join('')+
-  '<div class="odds">'+T('daily.bonus',QBONUS_GEMS)+(D.bonus?' ✓':'')+'<br>'+T('daily.streak',M.streak,STREAK_CHEST-(M.streak%STREAK_CHEST))+'<br><small>'+T('daily.streakNote')+'</small></div>'+(close.length?'<div class="odds" id="dailyclose"><b>'+T('daily.close')+'</b>'+close.map((c,i)=>'<div class="dcl'+(i>1?' dcl3':'')+'">'+c+'</div>').join('')+'</div>':'')+(dailyDone()?'<p class="gem" id="tomorrow">'+T('daily.tomorrow')+'</p>':''),
+  '<div class="odds">'+bonusLbl(D.bonus?(D.bg===undefined?QBONUS_GEMS:+D.bg||0):Math.min(QBONUS_GEMS,gemRoom()),D.bonus)+(D.bonus?' ✓':'')+'<br>'+T('daily.streak',M.streak,STREAK_CHEST-(M.streak%STREAK_CHEST))+'<br><small>'+T('daily.streakNote')+'</small></div>'+(close.length?'<div class="odds" id="dailyclose"><b>'+T('daily.close')+'</b>'+close.map((c,i)=>'<div class="dcl'+(i>1?' dcl3':'')+'">'+c+'</div>').join('')+'</div>':'')+(dailyDone()?'<p class="gem" id="tomorrow">'+T('daily.tomorrow')+'</p>':''),
   el=>{el.querySelector('.pbody').classList.add('dailyb');const c=document.getElementById('dchest');if(c)tapBtn(c,()=>{if(!M.daily.chest){M.daily.chest=1;addChest('wood','daily');save();SND.chest();showDaily(T('daily.chestGot'));refreshTop();}});
    el.querySelectorAll('[data-q]').forEach(b=>tapBtn(b,()=>{const m=claimQuest(+b.dataset.q);if(m){SND.chest();showDaily(m);refreshTop();}}));});}
 function showWeekly(){ensureWeekly();const W2=WEEKLY[M.weekly.idx%WEEKLY.length],h=HEROES[W2.hero];
@@ -2007,7 +2095,7 @@ function showWeekly(){ensureWeekly();const W2=WEEKLY[M.weekly.idx%WEEKLY.length]
 function dbgMenu(){if(!DEBUG)return;let el=document.getElementById('dbg');if(!el){el=document.createElement('div');el.id='dbg';document.body.appendChild(el);}if(S&&S.state=='play'){S.state='dbgpause';DBG.wasPlay=true;}
  const st=[1,2,3].map(n=>{const x=M.lvStats[n]||{runs:0,wins:0,rage:0};const pc=v=>x.runs?Math.round(v/x.runs*100)+'%':'–';return '<tr><td>'+n+'</td><td>'+x.runs+'</td><td>'+x.wins+'</td><td>'+pc(x.wins)+'</td><td>'+x.rage+'</td><td>'+pc(x.rage)+'</td></tr>';}).join('');
  el.innerHTML='<div class="box"><h1>'+T('dbg.title')+'</h1><div class="grid">'+[1,2,3].map(n=>'<button data-d="lv'+n+'">'+T('dbg.level',n)+'</button>').join('')+'</div><div class="grid">'+
-  ['boss','rage','gold','gems','inv','range','daily','weekly','day','week','wkrun','tut','close'].map(k=>'<button data-d="'+k+'">'+T('dbg.'+k,k=='inv'?(DBG.inv?'ON':'OFF'):k=='range'?(M.rangeOn?'ON':'OFF'):'')+'</button>').join('')+'</div>'+
+  ['boss','rage','gold','gems','gemcap','inv','range','daily','weekly','day','week','wkrun','tut','close'].map(k=>'<button data-d="'+k+'">'+T('dbg.'+k,k=='inv'?(DBG.inv?'ON':'OFF'):k=='range'?(M.rangeOn?'ON':'OFF'):'')+'</button>').join('')+'</div>'+
   '<p><small>'+T('dbg.date',dkey(nowD()),M.weekly.wk||'–')+'</small></p><table class="dbgt"><tr><th>'+T('dbg.lv')+'</th><th>'+T('dbg.runs')+'</th><th>'+T('dbg.wins')+'</th><th>%</th><th>'+T('dbg.rage')+'</th><th>%</th></tr>'+st+'</table></div>';
  const done=()=>{el.remove();if(DBG.wasPlay&&S&&S.state=='dbgpause'){S.state='play';lt=performance.now();}DBG.wasPlay=false;refreshTop&&refreshTop();if(!S&&document.getElementById('pg_home'))renderHome();};
  el.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();const k=b.dataset.d;if(k=='tut'){DBG.wasPlay=false;skipTutorial();return;}
@@ -2015,7 +2103,7 @@ function dbgMenu(){if(!DEBUG)return;let el=document.getElementById('dbg');if(!el
   if(k=='wkrun'){DBG.wasPlay=false;el.remove();startRun('weekly');return;}
   if(k=='boss'){if(S&&!S.bossSpawned)spawnBoss();done();return;}
   if(k=='rage'){if(S&&S.boss&&S.boss.hp>0){S.boss.hp=Math.min(S.boss.hp,S.boss.max*S.L.rageHp);S.boss.introT=0;}done();return;}
-  if(k=='gold')M.gold+=1000;if(k=='gems')M.gems+=100;if(k=='inv')DBG.inv=!DBG.inv;if(k=='range')M.rangeOn=M.rangeOn?0:1;
+  if(k=='gold')M.gold+=1000;if(k=='gems')M.gems+=100;if(k=='gemcap')M.gemWk={wk:gemWeekKey(),n:0};if(k=='inv')DBG.inv=!DBG.inv;if(k=='range')M.rangeOn=M.rangeOn?0:1;
   if(k=='daily')M.daily.date='';if(k=='weekly')M.weekly.wk='';
   if(k=='day'||k=='week'){try{localStorage.setItem('sph_dbg_day',(+localStorage.getItem('sph_dbg_day')||0)+(k=='day'?1:7))}catch(e){}}
   if(k=='close'){done();return;}save();dbgMenu();}));}
@@ -2237,7 +2325,7 @@ function drawLobbyBg(){const cvs=document.getElementById('bg');if(!cvs)return;co
 function totalShards(){return PLAYABLE().reduce((a,k)=>a+(M.shards[k]||0),0);}
 // 0.3.7e step 3: new gold/gems fly from where they were earned (last tap, else screen centre) to the counter, which then counts up; spending updates at once
 let CURV={g:null,m:null},LASTPT={x:0,y:0,t:-1e9};document.addEventListener('pointerdown',e=>{LASTPT={x:e.clientX,y:e.clientY,t:performance.now()};},true);
-function curWatch(){if(!document.body.classList.contains('inlobby')||S)return;for(const [k,id,v] of [['g','cgold',M.gold],['m','cgem',M.gems]]){const el=document.getElementById(id),cv=el&&el.querySelector('.cv');if(!cv){CURV[k]=null;continue;}if(CURV[k]==null){CURV[k]=v;cv.textContent=v;continue;}if(v===CURV[k])continue;
+function curWatch(){if(!document.body.classList.contains('inlobby')||S)return;gemMeterSync();for(const [k,id,v] of [['g','cgold',M.gold],['m','cgem',M.gems]]){const el=document.getElementById(id),cv=el&&el.querySelector('.cv');if(!cv){CURV[k]=null;continue;}if(CURV[k]==null){CURV[k]=v;cv.textContent=v;continue;}if(v===CURV[k])continue;
   if(document.getElementById('chestfx'))continue;const from=CURV[k];CURV[k]=v;if(v<from){cv.textContent=v;continue;}curFly(el,cv,k=='g'?'gold':'gem',from,v);}}
 function curFly(el,cv,ic,from,to){const r=el.getBoundingClientRect(),tx=r.left+14,ty=r.top+r.height/2,red=matchMedia('(prefers-reduced-motion: reduce)').matches;
  const go=()=>{const t0=performance.now(),ms=700,f=n=>{if(!cv.isConnected)return;const q=Math.min(1,(n-t0)/ms);cv.textContent=String(Math.round(from+(to-from)*(1-Math.pow(1-q,3))));if(q<1)requestAnimationFrame(f);};requestAnimationFrame(f);setTimeout(()=>{if(cv.isConnected)cv.textContent=String(to);},ms+150);el.classList.remove('cbump');void el.offsetWidth;el.classList.add('cbump');};
@@ -2246,7 +2334,7 @@ function curFly(el,cv,ic,from,to){const r=el.getBoundingClientRect(),tx=r.left+1
   const a=d.animate([{transform:'translate(0,0) scale(.6)',opacity:0},{transform:'translate('+ox+'px,'+oy+'px) scale(1.1)',opacity:1,offset:.3},{transform:'translate('+(tx-sx)+'px,'+(ty-sy)+'px) scale(.7)',opacity:.9}],{duration:620,delay:i*55,easing:'cubic-bezier(.45,0,.55,1)',fill:'both'});
   a.onfinish=()=>{d.remove();if(first){first=0;go();}};a.oncancel=a.onfinish;}}
 setInterval(curWatch,250);
-function curBar(){if(CURV.g==null)CURV.g=M.gold;if(CURV.m==null)CURV.m=M.gems;return '<div class="cur"><span class="gold" id="cgold">'+IC('gold')+' <span class="cv">'+CURV.g+'</span></span><span class="gem" id="cgem">'+IC('gem')+' <span class="cv">'+CURV.m+'</span></span>'+(shOn()?'<span id="cshard" title="'+T('hub.shardsTip')+'" style="color:#ffb070">'+IC('shard')+' '+totalShards()+'</span>':'')+'</div>';}
+function curBar(){if(CURV.g==null)CURV.g=M.gold;if(CURV.m==null)CURV.m=M.gems;return '<div class="cur"><span class="gold" id="cgold">'+IC('gold')+' <span class="cv">'+CURV.g+'</span></span><span class="gem" id="cgem">'+IC('gem')+' <span class="cv">'+CURV.m+'</span>'+gemMeterHtml()+'</span>'+(shOn()?'<span id="cshard" title="'+T('hub.shardsTip')+'" style="color:#ffb070">'+IC('shard')+' '+totalShards()+'</span>':'')+'</div>';}
 function screen(id,title,body){markModal();const st=id=='stats',el=document.getElementById(st?'sheet':'pg_'+id);if(!el)return;if(st)clearArtBg(el);
  el.innerHTML=(st?'<div class="pbody">':'')+'<h1 class="ph">'+title+'</h1>'+(st?'':'<div class="pbody">')+body+(st?'<button id="back" class="act">'+T('hub.back')+'</button>':'')+'</div>';
  if(st){bindFx();el.className='';tapBtn(document.getElementById('back'),()=>{el.className='hide';});}refreshTop();}
@@ -2267,14 +2355,15 @@ function showHub(){setTimeout(()=>{try{artLoad(tileKey(M.lvlSel));}catch(e){}},1
  tapBtn(document.getElementById('h_sta'),()=>{ac();showStats();});
  renderHome();showHeroes();showUpg();showChests();renderQuests();renderTabs();initSwipe();go(tabI,true);markModal();setTimeout(runSpotQ,500);}
 // ===== 0.3.7d UI: season path page, achievement book, titles =====
-function seaRwName(st,id){if(!st)return '';return st.k=='gold'?T('sea.rw.gold',st.v):st.k=='gems'?T('sea.rw.gems',st.v):st.k=='chest'?CHESTS[st.v].n:st.k=='key'?T('sea.rw.key'):st.k=='cauld'?T('cauld.'+seasonLook(id)):st.k=='frame'?T('sea.rw.frame'):T('sea.rw.skin',T('sea.n.'+String(seasonMon(id)).padStart(2,'0')));}
+function seaRwName(st,id,k){if(!st)return '';return st.k=='gold'?T('sea.rw.gold',st.v):st.k=='gems'?seaGemLbl(st,k):st.k=='chest'?CHESTS[st.v].n:st.k=='key'?T('sea.rw.key'):st.k=='cauld'?T('cauld.'+seasonLook(id)):st.k=='frame'?T('sea.rw.frame'):T('sea.rw.skin',T('sea.n.'+String(seasonMon(id)).padStart(2,'0')));}
+function seaGemLbl(st,k){const c=k&&M.pass.claimed[k],g=c?(M.pass.gg&&M.pass.gg[k]!==undefined?M.pass.gg[k]:st.v):Math.min(st.v,gemRoom());return g>0?T('sea.rw.gems',g):T('gem.max');}
 function seaRwIcon(st,id){return st.k=='gold'?IC('gold'):st.k=='gems'?IC('gem'):st.k=='chest'?'<img src="'+chestImg(st.v)+'" alt="">':st.k=='key'?IC('key'):st.k=='cauld'?IC('pot'):st.k=='frame'?IC('frame'):'<canvas data-spv="'+seasonSkin(id)+'"></canvas>';}
 function seasonCardLine(){const id=seasonId();if(!id)return T('sea.startsDec');seasonSync();return T('sea.card',seasonStepN(),PASS_TIERS);}
 let seaPg=null;
 function showSeason(pg){newsClear('sea');const id=seasonId()||SEASON_START,live=!!seasonId();if(live)seasonSync();const n=live?seasonStepN():0,xp=live?(M.pass.xp||0):0,inStep=n>=PASS_TIERS?PASS_XP:xp-n*PASS_XP;
  if(pg!=null)seaPg=pg;else seaPg=Math.min(2,Math.floor(n/10));seaPg=Math.max(0,Math.min(2,seaPg));
  const head='<div class="seahead"><canvas id="seapv" data-spv=""></canvas><div class="seatxt"><h2>'+T('sea.title',seasonName(id))+'</h2>'+(live?'<p>'+T('sea.step',n,PASS_TIERS)+' · '+T('sea.xp',inStep,PASS_XP)+' · '+T('sea.days',seasonDays())+'</p><div class="seabar"><i style="width:'+Math.round(xp/(PASS_TIERS*PASS_XP)*100)+'%"></i></div>':'<p><b>'+T('sea.startsDec')+'</b></p>')+'<small>'+T('sea.how')+'</small></div></div>';
- let grid='<div class="seagrid">';for(let i=seaPg*10;i<seaPg*10+10;i++){const st=SEASON_STEPS[i],k=i+1,got=live&&M.pass.claimed[k],cur=live&&k==n+1;grid+='<div class="seat'+(got?' got':'')+(cur?' cur':'')+(st.k=='skin'||st.k=='cauld'||st.k=='frame'?' big':'')+'"><span class="seak">'+k+'</span><span class="seai">'+seaRwIcon(st,id)+'</span><small>'+seaRwName(st,id)+'</small>'+(got?'<span class="seaok">✓</span>':'')+'</div>';}grid+='</div>';
+ let grid='<div class="seagrid">';for(let i=seaPg*10;i<seaPg*10+10;i++){const st=SEASON_STEPS[i],k=i+1,got=live&&M.pass.claimed[k],cur=live&&k==n+1;grid+='<div class="seat'+(got?' got':'')+(cur?' cur':'')+(st.k=='skin'||st.k=='cauld'||st.k=='frame'?' big':'')+'"><span class="seak">'+k+'</span><span class="seai">'+seaRwIcon(st,id)+'</span><small>'+seaRwName(st,id,k)+'</small>'+(got?'<span class="seaok">✓</span>':'')+'</div>';}grid+='</div>';
  const nav='<div class="bxnavr"><button class="act bxnav" id="seaprev" aria-label="'+T('beast.prev')+'">‹</button><span>'+T('sea.pg',seaPg*10+1,seaPg*10+10)+'</span><button class="act bxnav" id="seanext" aria-label="'+T('beast.next')+'">›</button></div>';
  openSheet(T('sea.btn'),head+grid+nav,el=>{el.classList.add('seasheet');el.querySelectorAll('canvas[data-spv]').forEach(cv=>heroPreview(cv,'witch',cv.dataset.spv,false));
   tapBtn(document.getElementById('seaprev'),()=>showSeason((seaPg+2)%3));tapBtn(document.getElementById('seanext'),()=>showSeason((seaPg+1)%3));});}
@@ -2283,7 +2372,7 @@ let achPg=0;const ACH_PER=5;
 function showAchievements(pg){newsClear('ach');const nw=achCheck();if(nw.length)save();const fresh=M.achNew||0;M.achNew=0;save();
  const rows=ACH.map(a=>({a})).concat(MILESTONES.map(m=>({m}))),np=Math.ceil(rows.length/ACH_PER);if(pg!=null)achPg=pg;achPg=(achPg+np)%np;
  const tl=shownTitle(),top='<div class="achtop"><span>'+IC('medal')+' '+T('ach.card',achMedals(),ACH.length*3)+(fresh?' · <b class="gold">'+T('ach.newN',fresh)+'</b>':'')+'</span><button class="act mini" id="achtitle">'+T('ach.titleBtn')+': '+(tl||T('ach.noTitle'))+'</button></div>';
- const list='<div class="achlist">'+rows.slice(achPg*ACH_PER,achPg*ACH_PER+ACH_PER).map(r=>{if(r.m){const [k,n,g]=r.m,got=!!M.miles[k+n];return '<div class="achrow mile'+(got?' done':'')+'"><span class="achmed">'+IC('trophy')+'</span><div class="achtx"><b>'+mileName(k,n)+'</b><small>'+T('ach.mile')+'</small></div><span class="achrw">'+(got?'✓':IC('gem')+' '+g)+'</span></div>';}
+ const list='<div class="achlist">'+rows.slice(achPg*ACH_PER,achPg*ACH_PER+ACH_PER).map(r=>{if(r.m){const [k,n,g]=r.m,got=!!M.miles[k+n];return '<div class="achrow mile'+(got?' done':'')+'"><span class="achmed">'+IC('trophy')+'</span><div class="achtx"><b>'+mileName(k,n)+'</b><small>'+T('ach.mile')+'</small></div><span class="achrw">'+(got?'✓':IC('gem')+' '+(gemRoom()>0?Math.min(g,gemRoom()):T('gem.max')))+'</span></div>';}
    const a=r.a,t=achTier(a.id),v=achVal(a.id),nx=t<3?a.th[t]:a.th[2];
    return '<div class="achrow t'+t+'"><span class="achmed">'+[0,1,2].map(i=>'<i class="md m'+i+(t>i?' on':'')+'"></i>').join('')+'</span><div class="achtx"><b>'+T('ach.n.'+a.id)+'</b><small>'+T('ach.d.'+a.id,fmtN(nx))+' · '+(t<3?fmtN(Math.min(v,nx))+'/'+fmtN(nx):'✓')+'</small></div><span class="achrw">'+(t<3?(t==2?T('ach.titleRw',T('ach.t.'+a.id)):IC('gold')+' '+ACH_GOLD[t]):'<small>'+T('ach.t.'+a.id)+'</small>')+'</span></div>';}).join('')+'</div>';
  const nav='<div class="bxnavr"><button class="act bxnav" id="achprev" aria-label="'+T('beast.prev')+'">‹</button><span>'+T('beast.page',achPg+1,np)+'</span><button class="act bxnav" id="achnext" aria-label="'+T('beast.next')+'">›</button></div>';
@@ -2294,8 +2383,9 @@ function showTitles(pg){const L=[{k:'',n:T('ach.autoTitle')}].concat(titleList()
  const body='<p class="csub">'+T('ach.titleSub')+'</p><div class="titlelist">'+L.slice(titlePg*per,titlePg*per+per).map(t=>'<button class="act ttl'+(cur==t.k?' on':'')+'" data-ttl="'+t.k+'">'+(cur==t.k?'✓ ':'')+t.n+'</button>').join('')+'</div>'+(np>1?'<div class="bxnavr"><button class="act bxnav" id="ttlprev" aria-label="'+T('beast.prev')+'">‹</button><span>'+T('beast.page',titlePg+1,np)+'</span><button class="act bxnav" id="ttlnext" aria-label="'+T('beast.next')+'">›</button></div>':'');
  openSheet(T('ach.titleBtn'),body,el=>{el.classList.add('ttlsheet');el.querySelectorAll('[data-ttl]').forEach(b=>tapBtn(b,()=>{M.ach.title=b.dataset.ttl;save();showTitles();}));const a=document.getElementById('ttlprev'),z=document.getElementById('ttlnext');if(a)tapBtn(a,()=>showTitles(titlePg-1));if(z)tapBtn(z,()=>showTitles(titlePg+1));});}
 function renderQuests(){const el=document.getElementById('pg_qst');if(!el)return;el.innerHTML='<h1 class="ph">'+T('hub.quests')+'</h1><div class="pbody qpage">'+lobbyCards()+'<div class="soonrow liverow"><button id="h_season" class="soonli live">'+IC('flag')+' <b>'+T('sea.btn')+'</b><small>'+seasonCardLine()+'</small>'+ndot('sea')+'</button><button id="h_ach" class="soonli live">'+IC('medal')+' <b>'+T('ach.btn')+'</b><small>'+T('ach.card',achMedals(),ACH.length*3)+'</small>'+(achReady()||M.achNew?'<span class="qdot"></span>':ndot('ach'))+'</button></div><div class="soonrow"><button id="h_shop" class="soonli shopbtn">'+IC('bag')+' <b>'+T('hub.shop')+'</b> · '+T('shop.sub')+'</button></div></div>';
- const on=(id,f)=>{const b=document.getElementById(id);if(b)tapBtn(b,()=>{ac();f();});};if(unl('daily'))on('h_daily',()=>showDaily());if(unl('weekly'))on('h_week',()=>showWeekly());if(unl('endless'))on('h_endless',()=>startRun('endless'));on('h_shop',()=>showShop());on('h_season',()=>showSeason());on('h_ach',()=>showAchievements());}
-function showLevels(){screen('stats',T('lvsel.title'),'<div class="lvlist">'+LEVELS.map((L,i)=>{const k=i+1,open=k<=M.maxLvl,cl=M.cleared[k];return '<button class="act lvrow'+(k==M.lvlSel?' on':'')+'" data-lvs="'+k+'"'+(open?'':' disabled')+'><b>'+T('hub.level',k,T('lvl.'+k))+'</b><small>'+(open?(cl?'✓ '+T('lvsel.cleared'):T('lvsel.new')):IC('lock')+' '+T('lvl.locked',k-1))+'</small></button>';}).join('')+'</div>');
+ const on=(id,f)=>{const b=document.getElementById(id);if(b)tapBtn(b,()=>{ac();f();});};if(unl('daily'))on('h_daily',()=>showDaily());if(unl('weekly'))on('h_week',()=>showWeekly());on('h_shop',()=>showShop());on('h_season',()=>showSeason());on('h_ach',()=>showAchievements());}
+function showLevels(){screen('stats',T('lvsel.title'),'<div class="lvlist">'+LEVELS.map((L,i)=>{const k=i+1,open=k<=M.maxLvl,cl=M.cleared[k];return '<button class="act lvrow'+(k==M.lvlSel?' on':'')+'" data-lvs="'+k+'"'+(open?'':' disabled')+'><b>'+T('hub.level',k,T('lvl.'+k))+'</b><small>'+(open?(cl?'✓ '+T('lvsel.cleared'):T('lvsel.new')):IC('lock')+' '+T('lvl.locked',k-1))+'</small></button>';}).join('')+(endlessOpen()?'<button class="act lvrow lvend" id="lvend"><b>'+IC('trophy')+' '+T('endless.title')+'</b><small>'+T('endless.best',M.endBest||0)+'</small></button>':'<button class="act lvrow lvend" id="lvend" disabled><b>'+IC('lock')+' '+T('endless.title')+'</b><small>'+T('lvl.endlessLock',LEVELS.length)+'</small></button>')+'</div>');
+ {const e=document.getElementById('lvend');if(e&&!e.disabled)tapBtn(e,()=>{document.getElementById('sheet').className='hide';startRun('endless');});}
  document.querySelectorAll('[data-lvs]').forEach(b=>tapBtn(b,()=>{const k=+b.dataset.lvs;if(k>M.maxLvl)return;M.lvlSel=k;save();artLoad(tileKey(k));document.getElementById('sheet').className='hide';renderHome();renderTabs();}));}
 function renderSoon(k){document.getElementById('pg_'+k).innerHTML='<h1 class="ph">'+T(TAB_KEY[k])+'</h1><div class="soonpg"><div class="soonico">'+TAB_ICO[k]+'</div><h2>'+T('hub.soon')+'</h2><p>'+T('soon.'+(k=='sho'?'shop':'pass'))+'</p></div>';}
 function renderTabs(){const n=document.getElementById('tabs');const LK={her:'heroes',che:'chests'};n.innerHTML=TABS.map((k,i)=>{const lk=LK[k]&&!unl(LK[k]);return '<button id="h_'+k+'" class="tab'+(i==tabI?' on':'')+(k=='sho'||k=='pas'?' soon':'')+(k=='home'?' homet':'')+(lk?' tlock':'')+'"'+(lk?' aria-label="'+T(TAB_KEY[k])+': '+T('lvl.unlocksAt',UNL[LK[k]])+'"':'')+'><span class="ti">'+(lk?IC('lock'):k=='home'?IC('house'):TAB_ICO[k])+'</span>'+T(TAB_KEY[k])+(lk?'':(k=='upg'?badge(upgBadge()):k=='che'?badge(readyCount()):k=='her'?badge(M.evoNew)+nbadge('hT'):k=='qst'?nbadge('qT'):''))+'</button>';}).join('');
@@ -2310,8 +2400,8 @@ function initSwipe(){const p=document.getElementById('pages'),tr=document.getEle
   if(hor){const edgeK=(tabI==0&&dx>0)||(tabI==TABS.length-1&&dx<0)?.3:1;tr.style.transition='none';tr.style.transform='translateX(calc('+(-tabI*100/TABS.length)+'% + '+(dx*edgeK)+'px))';}},{passive:true});
  const end=()=>{if(!on)return;on=false;if(hor){markModal();go(Math.abs(dx)>60?tabI+(dx<0?1:-1):tabI);}};p.addEventListener('touchend',end,{passive:true});p.addEventListener('touchcancel',end,{passive:true});}
 function lobbyCards(){ensureDaily();ensureWeekly();const n=M.daily.q.filter(q=>q.c).length,W2=WEEKLY[M.weekly.idx%WEEKLY.length],tr=!M.unlocked[W2.hero];
- const dl=!unl('daily'),wl2=!unl('weekly'),el2=!unl('endless');
- return '<div class="cards">'+(dl?'<button id="h_daily" class="qcard qlock" aria-disabled="true"><b>'+IC('lock')+' '+T('daily.title')+'</b><small>'+T('lvl.unlocksAt',UNL.daily)+'</small></button>':'<button id="h_daily" class="qcard"><b>'+IC('scroll')+' '+T('daily.title')+'</b><small>'+(dailyDone()?T('daily.tomorrowShort'):T('daily.card',n))+'</small>'+(dailyClaimable()?badge(dailyClaimable()):M.questDot?'<span class="qdot" id="qdot"></span>':'')+'</button>')+(wl2?'<button id="h_week" class="qcard qlock" aria-disabled="true"><b>'+IC('lock')+' '+T('wk.short')+'</b><small>'+T('lvl.unlocksAt',UNL.weekly)+'</small></button>':'<button id="h_week" class="qcard"><b>'+IC('trophy')+' '+T('wk.short')+(tr?' <span class="trial">'+T('wk.trial')+'</span>':'')+'</b><small>'+T('wk.rule.'+W2.rule)+' · '+T('wk.best',M.weekly.best)+'<span class="wkdays"> · '+T('wk.daysLeft',weekDaysLeft())+'</span></small></button>')+(el2?'<button id="h_endless" class="qcard qlock qend" aria-disabled="true"><b>'+IC('lock')+' '+T('endless.title')+'</b><small>'+T('lvl.endlessLock',LEVELS.length)+'</small></button>':'<button id="h_endless" class="qcard qend"><b>'+IC('trophy')+' '+T('endless.title')+'</b><small>'+T('endless.card',M.endBest||0)+'</small></button>')+'</div>';}
+ const dl=!unl('daily'),wl2=!unl('weekly');
+ return '<div class="cards">'+(dl?'<button id="h_daily" class="qcard qlock" aria-disabled="true"><b>'+IC('lock')+' '+T('daily.title')+'</b><small>'+T('lvl.unlocksAt',UNL.daily)+'</small></button>':'<button id="h_daily" class="qcard"><b>'+IC('scroll')+' '+T('daily.title')+'</b><small>'+(dailyDone()?T('daily.tomorrowShort'):T('daily.card',n))+'</small>'+(dailyClaimable()?badge(dailyClaimable()):M.questDot?'<span class="qdot" id="qdot"></span>':'')+'</button>')+(wl2?'<button id="h_week" class="qcard qlock" aria-disabled="true"><b>'+IC('lock')+' '+T('wk.short')+'</b><small>'+T('lvl.unlocksAt',UNL.weekly)+'</small></button>':'<button id="h_week" class="qcard"><b>'+IC('trophy')+' '+T('wk.short')+(tr?' <span class="trial">'+T('wk.trial')+'</span>':'')+'</b><small>'+T('wk.rule.'+W2.rule)+' · '+T('wk.best',M.weekly.best)+'<span class="wkdays"> · '+T('wk.daysLeft',weekDaysLeft())+'</span></small></button>')+'</div>';}
 // ===== 0.3.0 player level: XP per run, unlocks in a fixed order (never bought, never via ads) =====
 // UNLOCKS/UNL moved up (0.3.4) so migrate() can use them while the save loads
 
@@ -2320,7 +2410,7 @@ function unl(k){if(k==='endless')return endlessOpen();return (M.plv||1)>=UNL[k];
 // 0.3.7e (Chris): Endless opens when level 10 (Toad Throne) is cleared, not at a rank; old saves that cleared it have it at once
 function endlessOpen(){return !!(M.cleared&&M.cleared[LEVELS.length]);}
 function lockHtml(k){return '<span class="lockln">'+IC('lock')+' '+T('lvl.unlocksAt',UNL[k])+'</span>';}
-function addPlayerXp(x){const before=M.plv||1;M.pxp=(M.pxp||0)+Math.max(0,Math.round(x));while(M.pxp>=pxpNeed(M.plv)){M.pxp-=pxpNeed(M.plv);M.plv++;M.gems+=GEMSHOP.earn.rank;}
+function addPlayerXp(x){const before=M.plv||1;M.pxp=(M.pxp||0)+Math.max(0,Math.round(x));while(M.pxp>=pxpNeed(M.plv)){M.pxp-=pxpNeed(M.plv);M.plv++;gemGrant(GEMSHOP.earn.rank,'rank');}
  const fresh=UNLOCKS.filter(([k,l])=>k!=='endless'&&l>before&&l<=M.plv).map(([k])=>k);for(const k of fresh)if(!M.spotSeen[k]&&!M.spotQ.includes(k))M.spotQ.push(k);return {up:M.plv-before,fresh};}
 // existing saves: give the level that matches what the player already uses (never lock something in use)
 function levelFromProgress(d){const st=d.stats||{};let l=1,xp=0;const g=d.games||0;let cum=0;for(let n=1;n<10;n++){if(g*80>=cum+pxpNeed(n)){cum+=pxpNeed(n);l=n+1;}else{xp=g*80-cum;break;}}
@@ -2329,9 +2419,9 @@ function levelFromProgress(d){const st=d.stats||{};let l=1,xp=0;const g=d.games|
  if(d.weekly&&(d.weekly.best>0||Object.keys(d.weekly.got||{}).length))need.push(7);if(d.luck>0)need.push(8);const m=Math.max(l,...need);return m>l?{plv:m,pxp:0}:{plv:l,pxp:Math.max(0,Math.floor(xp))};}
 function plvBar(){const l=M.plv||1,n=pxpNeed(l),x=M.pxp||0;return '<div class="plvbar" id="plvbar"><b>'+T('lvl.player',l)+'</b><div class="qbar"><i style="width:'+Math.round(Math.min(1,x/n)*100)+'%"></i></div><small>'+T('lvl.xp',x,n)+'</small><small class="plvnext" id="plvnext">'+plvNext()+'</small></div>';}
 // 0.3.7e step 3: what the next Rank gives (a new feature, else gems). Endless is not a Rank reward (it opens with level 10)
-function plvNext(){const l=(M.plv||1)+1,u=UNLOCKS.find(([k,r])=>r==l&&k!=='endless');return '<span class="pnl">'+T('plv.next',T('lvl.player',l))+' </span><span class="pnr">'+(u?IC('unlock')+' '+T('unl.'+u[0]):IC('gem')+' '+T('gem.got',GEMSHOP.earn.rank))+'</span>';}
+function plvNext(){const l=(M.plv||1)+1,u=UNLOCKS.find(([k,r])=>r==l&&k!=='endless');return '<span class="pnl">'+T('plv.next',T('lvl.player',l))+' </span><span class="pnr">'+(u?IC('unlock')+' '+T('unl.'+u[0]):IC('gem')+' '+(gemRoom()>0?T('gem.got',Math.min(GEMSHOP.earn.rank,gemRoom())):T('gem.max')))+'</span>';}
 // spotlight: one sentence, dim around one element, Skip; replayable from Settings
-const SPOT_SEL={play:'#play',hero1:'#pg_home .hname',upg:'#h_upg',chests:'#h_che',daily:'#h_qst',passives:'#h_upg',heroes:'#h_her',weekly:'#h_qst',luck:'#h_upg',endless:'#h_qst'};
+const SPOT_SEL={play:'#play',hero1:'#pg_home .hname',upg:'#h_upg',chests:'#h_che',daily:'#h_qst',passives:'#h_upg',heroes:'#h_her',weekly:'#h_qst',luck:'#h_upg',endless:'#hend'};
 // 0.3.7c spotlight polish: the ring follows the target's own corner radius (concentric), border inside the box (no off-centre ring),
 // the bubble arrow tip sits just off the ring, tap-tutorials get a pointing hand, and the whole spot is rebuilt when the target moves or the screen turns.
 const SPOT_PAD=6,SPOT_GAP=16;
@@ -2366,9 +2456,9 @@ function runSpotQ(){if(needWelcome()||document.getElementById('shtip'))return;if
 function renderHome(){const el=document.getElementById('pg_home');if(!el)return;const h=HEROES[M.sel],pk=pickable(),n=M.lvlSel;el.classList.add('v31');
  el.innerHTML=plvBar()+'<div class="stagewrap">'+(pk.length>1&&unl('heroes')?'<button id="hprev" class="ib arrowL" aria-label="‹">‹</button><button id="hnext" class="ib arrowR" aria-label="›">›</button>':'')+'<canvas id="stage"></canvas></div>'+
  '<div class="hside"><div class="hname"><b>'+h.name+'</b> <span class="gold">'+'★'.repeat(M.stars[M.sel]||1)+'</span>'+(shownTitle()?'<small class="htitle" id="htitle">'+shownTitle()+'</small>':'')+'<small class="hrole">'+h.style+'</small></div><button id="play" class="playbtn">'+T('hub.play')+'</button>'+
- '<button id="lvnext" class="lvnext">'+T('hub.level',n,T('lvl.'+n))+' ▾</button><span id="ver" class="ver">v'+VERSION+'</span></div>';
+ '<button id="lvnext" class="lvnext">'+T('hub.level',n,T('lvl.'+n))+' ▾</button>'+(endlessOpen()?'<button id="hend" class="lvnext hend">'+IC('trophy')+' '+T('endless.title')+'</button>':'<button id="hend" class="lvnext hend hlock" aria-disabled="true">'+IC('lock')+' '+T('lvl.endlessLock',LEVELS.length)+'</button>')+'<span id="ver" class="ver">v'+VERSION+'</span></div>';
  const on=(id,f)=>{const b=document.getElementById(id);if(b)tapBtn(b,()=>{ac();f();});};
- on('play',()=>startRun());on('lvnext',()=>showLevels());on('htitle',()=>showTitles());
+ on('play',()=>startRun());on('lvnext',()=>showLevels());if(endlessOpen())on('hend',()=>startRun('endless'));on('htitle',()=>showTitles());
  if(pk.length>1&&unl('heroes')){const cyc=d=>{M.sel=pk[(pk.indexOf(M.sel)+d+pk.length)%pk.length];save();renderHome();showHeroes();};on('hprev',()=>cyc(-1));on('hnext',()=>cyc(1));}}
 // ===== 0.2.8: Upgrades (Weapons | Passives | Chests) and Heroes in a calm Raid-style card layout =====
 const WUP_MAX=10,WUP_PER=.04,LUCK_MAX=10,LUCK_STEP=2; // weapon meta level: +4% damage of that weapon per level; Chest Luck: +2 points from gold to shards per level
@@ -2532,6 +2622,11 @@ Object.assign(STRINGS.en,{"celeb.h": "Congratulations!", "celeb.l": "Endless unl
 Object.assign(STRINGS.nl,{"celeb.h": "Gefeliciteerd!", "celeb.l": "Eindeloos ontgrendeld!", "celeb.ok": "Verder", "news.badge": "Nieuw!"});
 Object.assign(STRINGS.de,{"celeb.h": "Glückwunsch!", "celeb.l": "Endlos freigeschaltet!", "celeb.ok": "Weiter", "news.badge": "Neu!"});
 Object.assign(STRINGS.fr,{"celeb.h": "Félicitations !", "celeb.l": "Infini débloqué !", "celeb.ok": "Continuer", "news.badge": "Nouveau"});
+// 0.3.7g: weekly free-gem cap texts
+Object.assign(STRINGS.en,{"gem.max": "Max", "gem.maxWeek": "Weekly gem limit reached", "gem.cut": "+{0} gems (weekly limit)", "gem.week": "Free gems this week: {0}/{1}", "daily.bonusCap": "Finish all three: no gems left this week", "shop.capNote": "Free gems: max {0} a week (this week: {1}). Bought gems never count.", "dbg.gemcap": "Gem cap reset"});
+Object.assign(STRINGS.nl,{"gem.max": "Max", "gem.maxWeek": "Weeklimiet edelstenen bereikt", "gem.cut": "+{0} edelstenen (weeklimiet)", "gem.week": "Gratis edelstenen deze week: {0}/{1}", "daily.bonusCap": "Haal ze alle drie: geen edelstenen meer deze week", "shop.capNote": "Gratis edelstenen: max. {0} per week (deze week: {1}). Gekochte tellen nooit mee.", "dbg.gemcap": "Edelsteenlimiet reset"});
+Object.assign(STRINGS.de,{"gem.max": "Max", "gem.maxWeek": "Wochenlimit für Edelsteine erreicht", "gem.cut": "+{0} Edelsteine (Wochenlimit)", "gem.week": "Gratis-Edelsteine diese Woche: {0}/{1}", "daily.bonusCap": "Schaffe alle drei: diese Woche keine Edelsteine mehr", "shop.capNote": "Gratis-Edelsteine: max. {0} pro Woche (diese Woche: {1}). Gekaufte zählen nie mit.", "dbg.gemcap": "Edelstein-Limit zurücksetzen"});
+Object.assign(STRINGS.fr,{"gem.max": "Max", "gem.maxWeek": "Limite hebdo de gemmes atteinte", "gem.cut": "+{0} gemmes (limite hebdo)", "gem.week": "Gemmes gratuites cette semaine : {0}/{1}", "daily.bonusCap": "Les trois : plus de gemmes cette semaine", "shop.capNote": "Gemmes gratuites : max. {0} par semaine (cette semaine : {1}). Les gemmes achetées ne comptent jamais.", "dbg.gemcap": "Réinit. limite gemmes"});
 // 0.3.7f text pass: shorter texts, same keys
 Object.assign(STRINGS.en,{"tut.1": "Touch and slide your thumb: a joystick appears. The world is new every run and nothing blocks you. On PC: arrow keys or WASD.", "tut.2": "Your hero attacks by itself. Dodge monsters and grab their loot.", "tut.3": "Your hero's <b>Magic Source</b> fills as you play. When it glows, tap <b>ULT</b> for a big attack on monsters.", "tut.4": "Each hero level: pick 1 of 3 cards (<b>weapon</b>, <b>upgrade</b> or <b>skill</b>) and heal. Weapon Lv 5 + the right skill = <b>evolution</b>. A <b>magnet</b> pulls in all XP and coins.", "tut.5": "<b>New cards</b> draws 3 more. <b>Skip</b> heals you a little. A few of each per run.", "wk.scoreRule": "Score = seconds survived + enemies defeated. Your best this week counts.", "shop.earn": "Earn gems: +{0} per daily quest, +10 for all three, +{1} per boss win (3 a day), +{2} per new rank.", "shards.tip": "Chests now give hero shards: use them for weapon stars and hero stars.", "fx.shakeNote": "Off: soft glow and slow-motion. On: shake, flashes, vibration.", "fx.note": "Auto goes Low when the game stutters.", "tip.gems": "Gems buy skins in the Shop (Quests tab). Earn them with quests, bosses and Ranks.", "wel.want": "Tell us: is it fun, too hard or too easy, any bugs?", "wk.starRule": "Up to 3 stars. Each new star gives a chest, once a week.", "fb.ask": "How fun is the game? Tell us what you liked, what was too hard or easy, and any bugs.", "book.sub": "Max a weapon and own its partner item to evolve it. Seen evolutions are saved here.", "heroes.sub": "50 shards unlock a hero. More shards raise stars (+5% health each).", "bk.expSub": "Keep this code to move your progress to another device. No account needed.", "tip.rank": "Rank is your account level. Each run gives Rank XP; new Ranks unlock things.", "tip.rr": "New cards ({0} left): swap all three. Skip ({1} left): +15 health.", "tip.cauld": "Your {0} is full! Tap ULT. It waits for you.", "sea.how": "Play for season XP: about 140 per win. Rewards arrive by themselves.", "chests.sub": "Win runs to earn chests. They open after a timer. Never for sale.", "ftut.buy": "{0} +{1}% damage in every run, forever. Tap to buy with gold.", "wel.where": "Find Feedback in Settings (gear, top right) and after each run.", "shop.u16": "Under 16: no gem packs. You can still earn gems.", "fb.info": "Added: version, Rank, level, hero, screen size, browser. Nothing else.", "key.none": "No keys. Earn them: all daily quests, weekly ★3, season path.", "bk.confirm": "Replace progress on this device with: Rank {0}, {1} gold, {2} gems?", "wk.trialD": "{0} is on loan for this challenge, not unlocked.", "tip.slots": "Top row: weapons left, skills right.", "ach.titleSub": "Pick the title shown under your hero's name.", "pause.confirm": "You lose this match's progress and rewards.", "cauld.sub": "Earn looks for your cauldron and pick a favourite.", "lose3.tip": "Tough one! Upgrade your hero or replay the last level.", "lose3.tip1": "Tough one! Upgrade your hero, then try again.", "ad.body": "A short ad plays here. This build has none.", "soon.pass": "Free and premium passes come later.", "spot.chests": "Wins give chests. Open them here.", "spot.chestsNS": "Wins give chests. Open them here.", "shop.earnWhere": "Earn gems with quests, boss wins and new Ranks.", "chests.noneOfType": "You don't have this chest yet.", "ftut.done": "Done! Upgrades last forever. Win runs for more gold.", "spot.upg": "Spend gold here to power up your weapons.", "spot.passives": "Passives power up your hero in every run.", "spot.heroes": "Collect shards to unlock heroes and skins.", "spot.hero1": "Your hero. Tap to see who you play.", "chests.guarMagic": "{0}–{1} shards of a hero you don't own", "end.loseSub": "Too strong this time. Try again!", "daily.tomorrow": "Done! Tomorrow: free chest + new quests", "daily.streakNote": "A missed day pauses your streak.", "daily.comeback": "Welcome back! A Wooden Chest awaits.", "daily.chestGot": "Wooden Chest added!"});
 Object.assign(STRINGS.nl,{"tut.1": "Raak aan en schuif met je duim: er verschijnt een joystick. De wereld is elk potje nieuw en niets houdt je tegen. Op pc: pijltjestoetsen of WASD.", "tut.2": "Je held valt vanzelf aan. Ontwijk monsters en raap hun buit op.", "tut.3": "De <b>Magische Bron</b> van je held vult zich terwijl je speelt. Gloeit hij, tik dan op <b>ULT</b> voor een grote aanval op monsters.", "tut.4": "Elk heldniveau kies je 1 van 3 kaarten (<b>wapen</b>, <b>upgrade</b> of <b>vaardigheid</b>) en je geneest. Wapen Lv 5 + de juiste vaardigheid = <b>evolutie</b>. Een <b>magneet</b> trekt alle XP en munten binnen.", "tut.5": "<b>Nieuwe kaarten</b> trekt er 3 nieuwe. <b>Overslaan</b> geneest je een beetje. Een paar van elk per potje.", "wk.scoreRule": "Score = seconden overleefd + vijanden verslagen. Je beste van deze week telt.", "shop.earn": "Verdien edelstenen: +{0} per dagopdracht, +10 voor alle drie, +{1} per gewonnen baas (3 per dag), +{2} per nieuwe rang.", "shards.tip": "Kisten geven nu ook heldenscherven: gebruik ze voor wapensterren en heldensterren.", "fx.shakeNote": "Uit: zachte gloed en slow motion. Aan: schudden, flitsen, trillen.", "fx.note": "Auto gaat naar Laag als het spel hapert.", "tip.gems": "Edelstenen koop je skins mee in de winkel (tab Opdrachten). Verdien ze met opdrachten, bazen en rangen.", "wel.want": "Vertel ons: is het leuk, te moeilijk of te makkelijk, zag je fouten?", "wk.starRule": "Tot 3 sterren. Elke nieuwe ster geeft een kist, één keer per week.", "fb.ask": "Hoe leuk is het spel? Vertel wat je leuk vond, wat te moeilijk of makkelijk was, en fouten.", "book.sub": "Maak een wapen maximaal en bezit het partner-item om het te laten evolueren. Gezien = hier bewaard.", "heroes.sub": "50 scherven spelen een held vrij. Meer scherven geven sterren (+5% gezondheid per ster).", "bk.expSub": "Bewaar deze code om je voortgang naar een ander apparaat te zetten. Geen account nodig.", "tip.rank": "Rang is het niveau van je account. Elk potje geeft rang-XP; nieuwe rangen ontgrendelen dingen.", "tip.rr": "Nieuwe kaarten (nog {0}): wissel alle drie. Overslaan (nog {1}): +15 leven.", "tip.cauld": "Je {0} is vol! Tik op ULT. Hij wacht op je.", "sea.how": "Speel voor seizoens-XP: ongeveer 140 per winst. Beloningen komen vanzelf.", "chests.sub": "Win potjes voor kisten. Ze gaan open na een timer. Nooit te koop.", "ftut.buy": "{0} +{1}% schade in elk potje, voor altijd. Tik om met goud te kopen.", "wel.where": "Feedback vind je in Instellingen (tandwiel, rechtsboven) en na elk potje.", "shop.u16": "Jonger dan 16: geen edelsteenpakketten. Verdienen kan wel.", "fb.info": "Mee: versie, rang, level, held, schermgrootte, browser. Verder niets.", "key.none": "Geen sleutels. Verdien ze: alle dagopdrachten, week-★3, seizoenspad.", "bk.confirm": "Voortgang op dit apparaat vervangen door: rang {0}, {1} goud, {2} edelstenen?", "wk.trialD": "{0} is geleend voor deze uitdaging, niet vrijgespeeld.", "tip.slots": "Bovenste rij: wapens links, vaardigheden rechts.", "ach.titleSub": "Kies de titel onder de naam van je held.", "pause.confirm": "Je verliest de voortgang en beloningen van dit potje.", "cauld.sub": "Verdien looks voor je ketel en kies een favoriet.", "lose3.tip": "Pittig! Upgrade je held of speel het vorige level nog eens.", "lose3.tip1": "Pittig! Upgrade je held en probeer het opnieuw.", "ad.body": "Hier speelt een korte advertentie. Deze versie heeft er geen.", "soon.pass": "Gratis en premium passen komen later.", "spot.chests": "Winnen geeft kisten. Open ze hier.", "spot.chestsNS": "Winnen geeft kisten. Open ze hier.", "shop.earnWhere": "Verdien edelstenen met opdrachten, bazen en nieuwe rangen.", "chests.noneOfType": "Je hebt deze kist nog niet.", "ftut.done": "Klaar! Upgrades blijven altijd. Win potjes voor meer goud.", "spot.upg": "Geef hier goud uit voor sterkere wapens.", "spot.passives": "Passieve upgrades maken je held sterker in elk potje.", "spot.heroes": "Verzamel scherven voor nieuwe helden en skins.", "spot.hero1": "Je held. Tik om te zien met wie je speelt.", "chests.guarMagic": "{0}–{1} scherven van een held die je niet hebt", "end.loseSub": "Deze keer te sterk. Probeer opnieuw!", "daily.tomorrow": "Klaar! Morgen: gratis kist + nieuwe opdrachten", "daily.streakNote": "Een gemiste dag pauzeert je reeks.", "daily.comeback": "Welkom terug! Een Houten Kist wacht op je.", "daily.chestGot": "Houten Kist toegevoegd!"});
@@ -2548,11 +2643,11 @@ Object.assign(STRINGS.fr,{"lvl.endlessLock": "Bats le niveau {0}", "spot.endless
 const LANGS=['en','nl','de','fr'];
 /* ===== 0.3.3 gem shop (mock purchases only: no payment code, no SDK) ===== */
 function eur(v){try{return new Intl.NumberFormat(LANG_TAG[LANG]||'en-US',{style:'currency',currency:'EUR'}).format(v);}catch(e){return '€'+v.toFixed(2);}}
-function bossGemAward(){const d=dayKey(),G=M.gemDay&&M.gemDay.d==d?M.gemDay:(M.gemDay={d,n:0});if(G.n>=GEMSHOP.earn.bossCap)return 0;G.n++;M.gems+=GEMSHOP.earn.boss;return GEMSHOP.earn.boss;}
+function bossGemAward(){const d=dayKey(),G=M.gemDay&&M.gemDay.d==d?M.gemDay:(M.gemDay={d,n:0});if(G.n>=GEMSHOP.earn.bossCap)return 0;const g=gemGrant(GEMSHOP.earn.boss,'boss');if(g>0)G.n++;return g;}
 function showShop(msg,warn){const u16=!!M.under16,sk=Object.keys(SKINS).filter(k=>!SKINS[k].boss&&HEROES[SKINS[k].hero]&&HEROES[SKINS[k].hero].playable);
  const skin=k=>{const o=SKINS[k],own=!!M.skins[k];return '<div class="li shopli"><div class="g"><b>'+o.n+'</b></div>'+(own?'<span class="gem">✓ '+T('shop.owned')+'</span>':'<button class="act sbuy" data-buysk="'+k+'"'+(M.gems<o.gems?' data-short="1"':'')+'>'+IC('gem')+' '+o.gems+'</button>')+'</div>';};
  const pack=P=>'<div class="li shopli"><div class="g"><b>'+IC('gem')+' '+P.gems+'</b> <small>'+T('shop.vat',eur(P.eur))+'</small></div>'+(u16?'':'<button class="act pbuy" data-pk="'+P.id+'">'+eur(P.eur)+'</button>')+'</div>';
- openSheet(T('hub.shop'),(msg?'<p class="shopmsg '+(warn?'shopwarn':'gem')+'" id="shopmsg">'+msg+'</p>':'')+'<div class="shopgrid"><div><h2>'+T('shop.skins')+' · <span class="gem">'+IC('gem')+' '+M.gems+'</span></h2><div class="skinl">'+sk.map(skin).join('')+'</div>'+(warn?'':'<p><small>'+T('shop.earn',GEMSHOP.earn.quest,GEMSHOP.earn.boss,GEMSHOP.earn.rank)+'</small></p>')+'</div>'+
+ openSheet(T('hub.shop'),(msg?'<p class="shopmsg '+(warn?'shopwarn':'gem')+'" id="shopmsg">'+msg+'</p>':'')+'<div class="shopgrid"><div><h2>'+T('shop.skins')+' · <span class="gem">'+IC('gem')+' '+M.gems+'</span></h2><div class="skinl">'+sk.map(skin).join('')+'</div>'+(warn?'':'<p><small>'+T('shop.earn',GEMSHOP.earn.quest,GEMSHOP.earn.boss,GEMSHOP.earn.rank)+(GEMCAP_OFF?'':'<br>'+T('shop.capNote',BALANCE.weeklyGemCap,Math.min(BALANCE.weeklyGemCap,gemWeekSync().n)))+'</small></p>')+'</div>'+
   '<div><h2>'+T('shop.packs')+'</h2>'+GEMSHOP.packs.map(pack).join('')+'<p class="testlbl" id="testlbl">'+T('shop.test')+'</p><p><small>'+(u16?T('shop.u16'):T('shop.note'))+'</small></p></div></div>');
  document.querySelectorAll('#sheet [data-buysk]').forEach(b=>tapBtn(b,()=>{const k=b.dataset.buysk,o=SKINS[k];if(M.skins[k])return;if(M.gems<o.gems){showShop(T('shop.short',o.gems-M.gems)+' '+T('shop.earnWhere'),1);return;}if(b.dataset.conf!='1'){b.dataset.conf='1';b.textContent=T('shop.confirm',o.gems);return;}M.gems-=o.gems;M.skins[k]=1;save();showShop(T('shop.gotSkin',o.n));}));
  document.querySelectorAll('#sheet [data-pk]').forEach(b=>tapBtn(b,()=>{if(M.under16)return;const P=GEMSHOP.packs.find(x=>x.id==b.dataset.pk);M.gems+=P.gems;M.mockBuys=(M.mockBuys||0)+1;save();showShop(T('shop.mockDone',P.gems));}));}
@@ -2616,7 +2711,7 @@ function hubTipsOnce(){if(S||storyI>=0||document.getElementById('spot')||documen
   setTip(k);hubTip(el,T(key));
   const nx=()=>{document.removeEventListener('pointerdown',nx,true);setTimeout(hubTipsOnce,400);};setTimeout(()=>document.addEventListener('pointerdown',nx,true),60);return;}}
 document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('.qlock,.tlock,.ulock,#cgem,#plvbar');if(!t)return;if(document.getElementById('spot'))return;
- if(t.id=='cgem'){hubTip(t,T('tip.gems'));return;}if(t.id=='plvbar'){hubTip(t,T('tip.rank'));return;}
+ if(t.id=='cgem'){hubTip(t,T('tip.gems')+(GEMCAP_OFF?'':' '+T('gem.week',Math.min(BALANCE.weeklyGemCap,gemWeekSync().n),BALANCE.weeklyGemCap)));return;}if(t.id=='plvbar'){hubTip(t,T('tip.rank'));return;}
  let txt='';if(t.classList.contains('tlock'))txt=(t.getAttribute('aria-label')||'').split(': ').pop();else if(t.classList.contains('ulock'))txt=T('lvl.unlocksAt',UNL[UPGLOCK[t.dataset.ut]]);else{const sm=t.querySelector('small');txt=sm?sm.textContent:'';}
  e.preventDefault();e.stopPropagation();hubTip(t,txt);window.__lockTip=txt;},true);
 {const cb=document.getElementById('cauld');if(cb){cb.addEventListener('pointerdown',e=>e.stopPropagation());cb.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openCauldron();});}}
@@ -2709,7 +2804,7 @@ function update(dt){S.t+=dt;if(S.rangePulse>0)S.rangePulse-=dt;if(DBG.inv)S.p.in
  if(joy.on){const l=Math.hypot(joy.dx,joy.dy);if(l>4){const k=Math.min(1,l/JOY_R);movePlayer(joy.dx/l*k*p.spd*dt,joy.dy/l*k*p.spd*dt);}}
  addCraft(S.hero.source.perSec*dt);S.craft.bud=Math.min(2,(S.craft.bud||0)+ULT_CHARGE.bonusCap*dt);if(S.L.craftBoost&&S.craft.n==0)addCraft(S.craft.need/S.L.craftBoost*dt/(1+.15*plv('brew')));S.craft.pop=Math.max(0,S.craft.pop-dt);
  updCam();
- if(S.L.endless){S.L.kinds=BALANCE.endless.kinds.filter(k=>S.t>=k[0]).map(k=>k[1]);S.L.newest=S.L.kinds[S.L.kinds.length-1];if(!S.boss&&S.t>=S.endNext){spawnBoss(endlessBoss());S.endIdx++;S.endNext=S.t+BALANCE.endless.rotEvery;}}
+ if(S.L.endless){if(S.aegisT>0)S.aegisT-=dt;S.L.kinds=BALANCE.endless.kinds.filter(k=>S.t>=k[0]).map(k=>k[1]);S.L.newest=S.L.kinds[S.L.kinds.length-1];if(!S.boss&&S.t>=S.endNext){spawnBoss(endlessBoss());S.endIdx++;S.endNext=S.t+BALANCE.endless.rotEvery;}}
  if(!S.bossSpawned){S.spawnT-=dt;if(S.spawnT<=0){const em=S.L.endless?endlessMul():null,n=em?2:1+Math.floor(S.t/60),cap=Math.round(90*Math.min(1,S.L.enemyCount*(em?em.spawn:1)));for(let i=0;i<n;i++)if(S.en.length<cap)spawn(pickKind());S.spawnT=em?1.1/em.spawn:Math.max(.42,1.5-S.t/100)/S.L.enemyCount;}
   if(S.L.kinds.includes('thorn')){S.thornT-=dt;if(S.thornT<=0){S.thornT=8;if(S.en.filter(e=>e.still).length<8)spawn('thorn');}}
   S.eliteT-=dt;if(S.eliteT<=0){S.eliteT=S.L.elite||1e9;spawn(pickKind(),true);say(T('run.elite'),'#e8c66a');}
@@ -2717,7 +2812,7 @@ function update(dt){S.t+=dt;if(S.rangePulse>0)S.rangePulse-=dt;if(DBG.inv)S.p.in
  else if(S.boss&&S.boss.hp>0&&S.winT<0&&S.en.length<25){S.spawnT-=dt;if(S.spawnT<=0){spawn(pickKind());S.spawnT=2;}}
  updWeapons(dt);updUlt(dt);
  for(const e of S.en)tickSt(e,dt); // 0.3.7 statuses tick before the hit-flash recount below (a DoT tick inside that loop saw a partial count and let >maxFlashing enemies flash)
- for(const b of S.bul){b.x+=b.vx*dt;b.y+=b.vy*dt;
+ for(const b of S.bul){if(b.hm>0)starSteer(b,dt);b.x+=b.vx*dt;b.y+=b.vy*dt;
   for(const e of S.en)if(!introImm(e)){if(e.hp>0&&!b.hit.includes(e)&&Math.hypot(e.x-b.x,e.y-b.y)<e.r+5*(b.sz||1)){if(b.by)kitHit(e,b.by,b.d);else dmgE(e,b.d);b.hit.push(e);if(b.pierce--<=0){
     // 0.3.7b Projectile Lv 5: a spent shot bounces once on to the nearest enemy it has not hit
     if(b.bounce>0){const nx=nearest(e,KIT_N.bounceR,b.hit);if(nx){b.bounce--;b.pierce=0;const sp=Math.hypot(b.vx,b.vy),a=Math.atan2(nx.y-b.y,nx.x-b.x);b.vx=Math.cos(a)*sp;b.vy=Math.sin(a)*sp;break;}}b.dead=1;break;}}}
@@ -2747,7 +2842,7 @@ function update(dt){S.t+=dt;if(S.rangePulse>0)S.rangePulse-=dt;if(DBG.inv)S.p.in
   // magneet: zeldzaam. Kans bij elite-monsters, anders hooguit eens per ~2 minuten
   if(!e.boss&&!S.vacs.length&&((e.elite&&rnd()<.5)||(S.t-S.vac>110&&rnd()<.015))){S.vac=S.t;S.vacs.push({x:e.x+(e.elite?24:0),y:e.y,t:0});}
   if(e.elite){S.chests.push({x:e.x-12,y:e.y,t:0});say(T('run.chestDrop'),'#e8c66a');}
-  if(e.boss){if(S.L.endless){S.boss=null;coinPile(e.x,e.y,20);S.endBosses=(S.endBosses||0)+1;say(T('endless.bossDown'),'#e8c66a');}else startVictory(e);}}
+  if(e.boss){if(S.L.endless){S.boss=null;coinPile(e.x,e.y,20);S.endBosses=(S.endBosses||0)+1;say(T('endless.bossDown'),'#e8c66a');if(endx()){const X=EX();B().rerolls=Math.min(X.rerollMax,(B().rerolls||0)+X.bossReroll);enqueue('relic');}}else startVictory(e);}}
  for(const e of S.en)if(e.hp<=0&&!e.boss&&S.puffs.length<HIT_FX.puffMax)S.puffs.push({x:e.x,y:e.y,r:e.r,t:0});
  S.en=S.en.filter(e=>e.hp>0);for(const q of S.puffs)q.t+=dt;S.puffs=S.puffs.filter(q=>q.t<HIT_FX.puffLife);
  const mr=S.ups.magnet;for(const g of S.gems){g.ph+=dt*4;const d=dist(g,p);if(d<mr||g.pull){g.pull=1;const a=Math.atan2(p.y-g.y,p.x-g.x),v=g.mag?Math.max(700,d*2):260+Math.max(0,mr-d)*3;g.x+=Math.cos(a)*v*dt;g.y+=Math.sin(a)*v*dt;}
@@ -2767,7 +2862,8 @@ function update(dt){S.t+=dt;if(S.rangePulse>0)S.rangePulse-=dt;if(DBG.inv)S.p.in
  if(S.won)p.inv=99;
  if(p.hp<=0&&!S.won)return endGame(false);
  if(S.winT>0){S.winT-=dt;if(S.winT<=0||(!S.coins.length&&!S.chests.length&&S.state=='play'&&S.winT<4))return endGame(true);}}
-function hitP(d){const p=S.p;if(p.inv>0)return;p.hp-=d;S.hurtAny=1;S.minHp=Math.min(S.minHp,Math.max(0,p.hp)/p.max);if(S.hero.source.perHurt)addCraft(d*S.hero.source.perHurt);p.inv=1;p.flash=.2;p.lastHit=S.t;SND.hurt();float('-'+d,p.x,p.y-30,'#ff9ad6');}
+function aegisReady(){return endx()&&relS().aegis>0&&!(S.aegisT>0);}
+function hitP(d){const p=S.p;if(p.inv>0)return;if(aegisReady()){const X=EX();S.aegisT=Math.max(X.relic.aegisMin,X.relic.aegisT-X.relic.aegisStep*(relS().aegis-1));p.inv=.8;S.fx.push({x:p.x,y:p.y-8,r:10,max:48,c:'#9fe6ff',life:.45,ring:true});burst(p.x,p.y-8,'#bff0ff',10,120);return;}p.hp-=d;S.hurtAny=1;S.minHp=Math.min(S.minHp,Math.max(0,p.hp)/p.max);if(S.hero.source.perHurt)addCraft(d*S.hero.source.perHurt);p.inv=1;p.flash=.2;p.lastHit=S.t;SND.hurt();float('-'+d,p.x,p.y-30,'#ff9ad6');}
 
 /* ================= TEKENEN (heldhaftige stijl) ================= */
 /* ===== v0.1.5b art Build A: anti-aliased lit figures, soft shadows ===== */
@@ -3062,6 +3158,7 @@ function draw(){if(LAND&&S){ctx.setTransform(DPR,0,0,DPR,0,0);ctx.fillStyle='#0f
  for(const o of OBST)if(inView(o,40))drawObst(o); // 0.2.7c: stones/stumps are flat ground, drawn before pickups, hero and enemies
  drawDust();drawPuffs();for(const g of S.gems)if(inView(g,10))drawGem(g);for(const c of S.coins)if(inView(c,10))drawCoin(c);for(const f of S.fires)drawFire(f);for(const c of S.chests)drawChest(c);for(const v of S.vacs)drawVac(v);
  const ents=ENTS;ents.length=0;for(const e of S.en)if(inView(e,60))ents.push(e);ents.push(p);ents.sort(byY);
+ if(aegisReady()){ctx.save();ctx.globalAlpha=.5;ctx.strokeStyle='#9fe6ff';ctx.lineWidth=2;ctx.beginPath();ctx.arc(p.x,p.y-8,24,0,TAU);ctx.stroke();ctx.restore();}
  if(M.rangeOn!==0&&(S.showRange||plv('candle')>0)){ctx.save();ctx.globalAlpha=.13+(S.rangePulse>0?.35*Math.min(1,S.rangePulse):0);ctx.strokeStyle='#bfe9ff';ctx.lineWidth=1.5;ctx.setLineDash([6,9]);ctx.beginPath();ctx.arc(p.x,p.y,aimRange(),0,TAU);ctx.stroke();ctx.restore();}
  if(S.healFx>0){const g=ctx.createRadialGradient(p.x,p.y,4,p.x,p.y,46);g.addColorStop(0,'rgba(92,255,122,'+(.55*S.healFx)+')');g.addColorStop(1,'rgba(92,255,122,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,46,0,TAU);ctx.fill();}
  for(const it of ents){if(it===p){if(!(p.inv>0&&Math.floor(S.t*15)%2&&S.t-p.lastHit<1))drawHeroLit(p);}else if(it.hp===undefined)drawObst(it);else{drawEnemy(it);statusFx(it);drawSt(it);}}ents.length=0;
