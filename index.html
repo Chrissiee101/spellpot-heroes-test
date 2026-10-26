@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Spellpot Heroes v0.4.0c</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
+<title>Spellpot Heroes v0.4.0c2</title><script>window.__scr=(window.screen&&screen.width)?[screen.width,screen.height]:null;</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='36' r='22' fill='%232b2433' stroke='%23f3d98a' stroke-width='4'/%3E%3Cellipse cx='32' cy='24' rx='20' ry='6' fill='%233ce08a'/%3E%3Ccircle cx='26' cy='16' r='4' fill='%239ff5c4'/%3E%3Ccircle cx='38' cy='10' r='3' fill='%239ff5c4'/%3E%3C/svg%3E">
 <style>
 /* Nunito (SIL Open Font License 1.1, see OFL.txt), subset, inlined so it works offline from one file */
@@ -407,17 +407,17 @@ button{background:var(--pnoise),radial-gradient(130% 90% at 18% 0%,rgba(255,250,
 .hact .more{font-size:14px;color:#f2d27a}
 .skrow{display:flex;gap:6px;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;touch-action:pan-x;scrollbar-width:none;padding:1px 1px 3px;margin:0 -2px}
 .skrow::-webkit-scrollbar{display:none}
-#pg_her .skc{position:relative;flex:0 0 96px;width:96px;margin:0;padding:4px 3px 5px;display:flex;flex-direction:column;align-items:center;gap:1px;clip-path:none;border-radius:10px;border:2px solid #4c3e5c;background:linear-gradient(#30263c,#211a2a);box-shadow:none;color:#f2e8d0;font-size:14px;font-weight:700;line-height:1.15;text-transform:none;letter-spacing:0;text-align:center;white-space:normal}
-#pg_her .skc canvas{width:48px;height:48px}
-#pg_her .skc.on{border-color:#f2d27a;background:linear-gradient(#4a3b56,#2e2438)}
-#pg_her .skc.lk{border-style:dashed;border-color:#6a5a7a}
-#pg_her .skc.lk canvas{opacity:.6}
-#pg_her .skc .skp{font-size:14px;font-weight:600;color:#e8dcc4}
-#pg_her .skc .skp .ic{width:14px;height:14px;vertical-align:-2px}
-#pg_her .skc .ck{position:absolute;top:2px;right:4px;color:#f2d27a;font-size:15px}
+#pg_her .skc,.hdpg .skc{position:relative;flex:0 0 96px;width:96px;margin:0;padding:4px 3px 5px;display:flex;flex-direction:column;align-items:center;gap:1px;clip-path:none;border-radius:10px;border:2px solid #4c3e5c;background:linear-gradient(#30263c,#211a2a);box-shadow:none;color:#f2e8d0;font-size:14px;font-weight:700;line-height:1.15;text-transform:none;letter-spacing:0;text-align:center;white-space:normal}
+#pg_her .skc canvas,.hdpg .skc canvas{width:48px;height:48px}
+#pg_her .skc.on,.hdpg .skc.on{border-color:#f2d27a;background:linear-gradient(#4a3b56,#2e2438)}
+#pg_her .skc.lk,.hdpg .skc.lk{border-style:dashed;border-color:#6a5a7a}
+#pg_her .skc.lk canvas,.hdpg .skc.lk canvas{opacity:.6}
+#pg_her .skc .skp,.hdpg .skc .skp{font-size:14px;font-weight:600;color:#e8dcc4}
+#pg_her .skc .skp .ic,.hdpg .skc .skp .ic{width:14px;height:14px;vertical-align:-2px}
+#pg_her .skc .ck,.hdpg .skc .ck{position:absolute;top:2px;right:4px;color:#f2d27a;font-size:15px}
 .skhow{font-size:14px;line-height:1.25;color:#f2d27a;margin:0}.skhow .mini{margin:4px 0 2px 6px;padding:8px 12px;min-height:38px;vertical-align:middle}
 .skhow:empty{display:none}
-@media (orientation:landscape) and (max-height:520px){.hrtop canvas{flex-basis:60px;width:60px;height:60px}#pg_her .skc canvas{width:36px;height:36px}#herolist{gap:6px}.hrow{padding:5px 8px;gap:4px}}
+@media (orientation:landscape) and (max-height:520px){.hrtop canvas{flex-basis:60px;width:60px;height:60px}#pg_her .skc canvas,.hdpg .skc canvas{width:36px;height:36px}#herolist{gap:6px}.hrow{padding:5px 8px;gap:4px}}
 /* 0.3.6c: chest odds sheet fits short landscape screens when skins are owned (owned rows wrap to 2 lines): the summary line below repeats the chances, so the intro sentence goes; tighter rows */
 @media (orientation:landscape) and (max-height:520px){#sheet .csheet .cright>small{display:none}#sheet .csheet .rrow{padding:1px 8px;margin:1px 0}#sheet .csheet .rsum{margin:1px 0 2px}}
 @media (orientation:portrait) and (max-height:700px){#sheet .csheet .rrow{padding:2px 8px;margin:1px 0}#sheet .csheet .rsum{margin:1px 0 2px}}
@@ -770,6 +770,156 @@ body.lowfx .gico.leg::after{animation:none;display:none}@media (prefers-reduced-
 #lobby #tabs .tab.homet:not(.on){background:linear-gradient(#7a4e2c,#4a2c17)!important;background-color:#5a3820!important;color:var(--sp-cream)!important;border-color:#c9a24a!important;margin-top:-8px;box-shadow:0 3px 8px rgba(0,0,0,.4)!important}
 #lobby #tabs .tab.homet:not(.on) .ti{color:var(--sp-cream)}
 </style>
+<style id="v40c2">
+/* 0.4.0c2 hero grid (mockup s1) */
+#pg_her #herolist{display:block;padding:10px 6px 12px}
+.hkgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 14px;padding:0 4px}
+.hcard{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;height:156px;min-width:0;margin:0;padding:0;box-sizing:border-box;border:3px solid var(--rc);border-radius:14px;background:radial-gradient(circle at 50% 36%,color-mix(in srgb,var(--rc) 30%,transparent),transparent 62%),linear-gradient(180deg,#3b2c4b,#1d1527);color:#f2e8d0;font:inherit;box-shadow:0 3px 0 rgba(0,0,0,.35);overflow:visible}
+.hcard.sel{box-shadow:0 0 0 2px #f2d27a,0 0 14px rgba(242,210,122,.45)}
+.hcard canvas{width:108px;height:108px;max-width:100%;margin-top:2px;pointer-events:none;animation:hkbob 2.8s ease-in-out infinite}
+.hcard.lk canvas,.hcard.soonh canvas{animation:none;opacity:.85}
+@keyframes hkbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.hcard canvas{animation:none}}
+body.lowfx .hcard canvas{animation:none}
+.hcnm{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;padding:3px 2px 4px;border-radius:0 0 11px 11px;background:rgba(12,8,16,.78);line-height:1.12}
+.hcnm b{font-size:16px;text-transform:none;letter-spacing:0;color:#fff3d6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.hcnm small{font-size:14px;color:#e8dcc4;white-space:nowrap}
+.hcnm .gold{color:#f2d27a}
+.hcsd{color:#9a8ca6}
+.hclv{position:absolute;top:-8px;left:-7px;min-width:28px;height:28px;padding:0 4px;box-sizing:border-box;border-radius:14px;background:#f2d27a;color:#3a2208;font-size:14px;font-weight:800;line-height:28px;text-align:center;border:2px solid #6a4a14}
+.hcck{position:absolute;top:-8px;right:-7px;width:28px;height:28px;border-radius:50%;background:#f2d27a;color:#3a2208;font-size:16px;font-weight:900;line-height:26px;text-align:center;border:2px solid #6a4a14}
+.hcdot{position:absolute;top:8px;right:8px;width:14px;height:14px;border-radius:50%;background:#5ce08a;border:2px solid #10301c}
+.hcard.sel .hcdot{top:24px}
+.hcnew{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);padding:0 8px;border-radius:9px;background:#5ce08a;color:#0c2a16;font-size:14px;font-weight:800;line-height:20px;text-transform:none;letter-spacing:0}
+.hclk{position:absolute;top:40px;left:50%;transform:translateX(-50%);width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(20,14,26,.82);border:2px solid #8a7f96}
+.hclk .ic{width:20px;height:20px;margin:0}
+.hcsb{position:absolute;left:50%;bottom:46px;transform:translateX(-50%);width:84px;height:10px;border-radius:5px;background:#2a2030;border:1px solid #8a7f96;overflow:hidden}
+.hcsb i{display:block;height:100%;background:#ff9a3c}
+.hcard.soon{border-style:dashed;border-color:#6f6578;background:rgba(30,22,38,.6);justify-content:center;gap:4px;color:#d8c9a8}
+.hcard.soon b{font-size:28px;line-height:1;color:#d8c9a8}.hcard.soon small{font-size:14px;text-align:center;padding:0 4px}
+.hktip{display:flex;align-items:center;gap:8px;margin:0 0 10px;padding:6px 6px 6px 8px;border-radius:12px;border:2px solid #f2d27a;background:#2b2036;font-size:14px;line-height:1.25;color:#f2e8d0;text-align:left}
+.hktip>.ic{width:32px;height:32px;flex:none;margin:0}
+.hktip>span{flex:1;min-width:0}
+.hktip .act{flex:none;width:auto;margin:0;min-height:44px;padding:6px 14px;font-size:15px;text-transform:none;letter-spacing:0}
+.hktip .hkx{flex:none;width:36px;height:44px;margin:0;padding:0;border:0;background:none;color:#e8dcc4;font-size:24px;line-height:1}
+@media (max-height:700px){.hcard{height:140px}.hcard canvas{width:96px;height:96px}.hkgrid{gap:12px 14px}}
+@media (orientation:landscape) and (max-height:520px){.hkgrid{grid-template-columns:repeat(6,minmax(0,1fr))}.hcard{height:136px}.hcard canvas{width:92px;height:92px}}
+/* 0.4.0c2 hero detail (mockup s2) */
+#sheet:has(.hdpg){padding:8px 12px 10px}
+#sheet .pbody:has(.hdpg){max-width:460px;columns:1!important}
+.hdpg{display:flex;flex-direction:column;gap:6px;min-height:calc(100dvh - 18px);box-sizing:border-box;text-align:center}
+.hdA,.hdB{display:flex;flex-direction:column;gap:6px;min-width:0}
+.hdB{flex:1}
+.hdhd{display:flex;align-items:center;gap:8px;min-height:48px}
+.hdhd .act{flex:none;width:44px;height:44px;min-height:44px;margin:0;padding:0;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
+.hdhd .act .ic{width:24px;height:24px;margin:0}
+.hdtt{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.hdtt b{font-size:20px;color:#ffe9b0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.hdtt span{display:flex;align-items:center;gap:6px;font-size:14px}
+.hdtt .rar{position:static;margin:0;font-size:14px;padding:0 8px}
+.hdtt .gold{color:#f2d27a}
+.hdst{position:relative;height:clamp(176px,calc(100dvh - 410px),330px);touch-action:pan-y}
+.hdpv{position:absolute;left:50%;top:0;height:100%;aspect-ratio:1;transform:translateX(-50%);pointer-events:none}
+.hdst::before{content:'';position:absolute;left:50%;bottom:4%;width:56%;height:16%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--hg) 45%,transparent),transparent);pointer-events:none}
+.hdcol{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:4px;z-index:1}
+.hdcol.l{left:0}.hdcol.r{right:0}
+.hdsw{width:40px;height:40px;min-height:40px;margin:0;padding:0;font-size:22px;line-height:1;flex:none}
+.hdsl{position:relative;width:68px;height:68px;margin:0;padding:0;border-radius:14px;border:3px solid var(--rc);background:linear-gradient(180deg,#3a2d48,#1f1729);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 rgba(0,0,0,.35);color:#f2e8d0;font:inherit;flex:none;text-transform:none;letter-spacing:0}
+.hdsl .gico{width:54px;height:54px;border:0;box-shadow:none;background:none}
+.hdsl .si{position:absolute;top:-7px;right:-7px;width:24px;height:24px;border-radius:50%;background:#1c1622;border:2px solid var(--rc);display:flex;align-items:center;justify-content:center}
+.hdsl .si .ic{width:16px;height:16px;margin:0}
+.hdsl .lvb{position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);padding:0 6px;border-radius:8px;background:#1c1622;border:1px solid var(--rc);font-size:14px;line-height:18px;color:#fff3c4;white-space:nowrap}
+.hdsl.no{border-style:dashed;border-color:#8a7f96;flex-direction:column;gap:0}
+.hdsl.no .gico{width:38px;height:38px}
+.hdsl.no .hdplus{position:absolute;top:2px;right:6px;color:#5ce08a;font-size:20px;line-height:1}
+.hdsl.no small{font-size:14px;color:#d8c9a8;line-height:1}
+.hdsets{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;min-height:28px}
+.hdsets .chip{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:14px;border:2px solid var(--sc,#8a7f96);background:#221a2b;font-size:14px;line-height:1.25;color:#f2e8d0}
+.hdsets .chip b{color:var(--sc,#e8dcc4)}
+.hdsets .chip .ic{width:16px;height:16px;margin:0}
+.hdsets .chip.dim{border-color:#6f6578;color:#d8c9a8}
+.hdtabs{display:grid;grid-template-columns:1.1fr 1.3fr 1.1fr .8fr;gap:4px}
+.hdtb{margin:0;min-height:44px;padding:4px 2px;border-radius:10px;border:2px solid #5a4a68;background:#2a2034;color:#e8dcc4;font:inherit;font-size:14px;font-weight:700;line-height:1.1;text-transform:none;letter-spacing:0;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere}
+.hdtb.on{background:linear-gradient(#f6d77a,#d9a83a);border-color:#8a6420;color:#3a2208}
+.hdpn{flex:1;display:flex;flex-direction:column;gap:6px;min-height:0;text-align:left}
+.hdstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.hdt{display:flex;flex-direction:column;align-items:center;padding:4px 2px;border-radius:10px;background:rgba(20,15,26,.8);border:1px solid #4a3c5a;line-height:1.15;min-width:0}
+.hdt small{font-size:14px;color:#d8ccb4;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hdt b{font-size:18px;color:#fff3c4}
+.hdt i{font-style:normal;font-size:14px;line-height:1.1;color:#b9ad98;max-width:100%;overflow-wrap:anywhere;hyphens:auto;-webkit-hyphens:auto}
+.hdt i.hdup{color:#7be09a}
+.hdbtn{display:flex;gap:6px}
+.hdbtn .act{flex:1;margin:0;min-height:44px;padding:6px 4px;font-size:15px;text-transform:none;letter-spacing:0}
+.hdbtn .act:disabled{opacity:.6}
+.hdsk p{margin:0 0 4px;padding:5px 9px;border-radius:10px;background:rgba(20,15,26,.8);border:1px solid #4a3c5a;font-size:14px;line-height:1.25;color:#e8dcc4;display:flex;flex-wrap:wrap;column-gap:6px;align-items:baseline}
+.hdsk p small{font-size:14px;color:#d8ccb4;flex-basis:100%}
+.hdsk p b{font-size:15px;color:#fff3c4}
+.hdsk .hdsty{display:block;color:#e8dcc4}
+.hdbook{margin:0;min-height:44px;padding:6px 12px;font-size:15px;text-transform:none;letter-spacing:0;position:relative;width:100%}
+.hdbook .ic{width:20px;height:20px;vertical-align:-4px}
+.hdbook .badge,.hdbook .qdot{position:absolute;top:-6px;right:-4px}
+.hdpg .hpath{padding:6px 8px;border-radius:10px;background:rgba(20,15,26,.8);border:1px solid #4a3c5a}
+.hdpg .skrow{justify-content:flex-start}
+.hdpick{width:100%;margin:0;min-height:52px;padding:8px 12px;border-radius:14px;border:2px solid #8a6420;background:linear-gradient(#f6d77a,#d9a83a);color:#3a2208;font:inherit;font-size:18px;font-weight:900;letter-spacing:.02em;text-transform:none;box-shadow:0 4px 0 #6a4a14}
+.hdpick.on{display:flex;align-items:center;justify-content:center;background:#2a2034;border-color:#f2d27a;color:#f2d27a;box-shadow:none;box-sizing:border-box}
+.hdhow{margin:0;padding:6px 8px;border-radius:12px;border:2px dashed #8a7f96;font-size:14px;line-height:1.3;color:#e8dcc4;text-align:center}
+@media (max-height:700px){.hdpg{gap:4px}.hdA,.hdB{gap:4px}.hdsl{width:62px;height:62px}.hdsl .gico{width:48px;height:48px}.hdpick{min-height:48px}.hdtb{min-height:40px}.hdt b{font-size:16px}}
+@media (orientation:landscape) and (max-height:520px){#sheet .pbody:has(.hdpg){max-width:820px}.hdpg{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}.hdst{height:calc(100dvh - 126px)}.hdsl{width:58px;height:58px}.hdsl .gico{width:44px;height:44px}.hdsw{width:36px;height:36px;min-height:36px}}
+/* 0.4.0c2 bag screen (s3 top bar, minis, chips, set filter, 4-column bag, dimmed compare panel) */
+#sheet .pbody:has(.gearpg.s3){max-width:460px}
+.gearpg.s3 .gtop{display:flex;align-items:center;gap:8px;min-height:46px;margin:0 0 6px}
+.gearpg.s3 .gtop .act{flex:none;width:44px;height:44px;min-height:44px;margin:0;padding:0;font-size:26px;line-height:1}
+.gearpg.s3 .gtt{flex:1;display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.gearpg.s3 .gtt b{font-size:20px;color:#ffe9b0}.gearpg.s3 .gtt small{font-size:14px;color:#e8dcc4}
+.gearpg.s3 .ggold{flex:none;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:16px;border:2px solid #b8913f;background:#2a1f14;color:#f6e2a0;font-size:15px;font-weight:800}
+.gearpg.s3 .ggold .ic,.gpan .ggold .ic{width:18px;height:18px;margin:0}
+.gearpg.s3 .ghrow{display:flex;align-items:center;gap:8px;margin:0 0 6px;padding:4px 6px;border-radius:12px;background:rgba(20,15,26,.72);border:1px solid #4a3c5a}
+.gearpg.s3 .ghpv{width:44px;height:44px;border-radius:50%;border:2px solid #b8913f;background:#1c1420;flex:none}
+.gearpg.s3 .ghrow>b{flex:1;min-width:0;font-size:16px;color:#ffe9b0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gearpg.s3 .gmins{display:flex;gap:5px;flex:none}
+.gearpg.s3 .gmin{position:relative;width:44px;height:44px;margin:0;padding:0;border-radius:10px;border:2px solid var(--rc);background:#1c1622;display:flex;align-items:center;justify-content:center}
+.gearpg.s3 .gmin.sel{box-shadow:0 0 0 2px #f2d27a}
+.gearpg.s3 .gmin .gico{width:38px;height:38px;border:0;box-shadow:none;background:none}
+.gearpg.s3 .gmin .gico .gpips{display:none}
+.gearpg.s3 .gmin .gslv{position:absolute;right:-5px;bottom:-6px;min-width:18px;padding:0 3px;border-radius:9px;background:#1c1622;border:1px solid var(--rc);font-size:14px;line-height:16px;color:#fff3c4}
+.gearpg.s3 .gchips{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:6px;margin:0 0 6px}
+.gearpg.s3 .gchip{position:relative;display:flex;align-items:center;justify-content:center;gap:6px;min-width:52px;height:44px;margin:0;padding:0 10px;border-radius:22px;border:2px solid #5a4a68;background:#2a2034;color:#e8dcc4;font:inherit;font-size:15px;font-weight:700;text-transform:none;letter-spacing:0}
+.gearpg.s3 .gchip .ic{width:30px;height:30px;margin:0}
+.gearpg.s3 .gchip.on{border-color:#f2d27a;background:#3d2f20;color:#ffe9b0}
+.gearpg.s3 .gchip .qdot{position:absolute;top:-2px;right:-2px}
+.gearpg.s3 .gsubr{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:0 0 6px;font-size:14px;color:#e8dcc4;text-align:left}
+.gearpg.s3 .gsubr .gbf{min-width:0}
+.gearpg.s3 .gsetf{flex:none;width:auto;display:inline-flex;align-items:center;gap:4px;min-height:40px;margin:0;padding:0 10px;border-radius:12px;border:2px solid var(--sc,#8a7f96);background:#221a2b;color:#f2e8d0;font:inherit;font-size:14px;font-weight:700;text-transform:none;letter-spacing:0}
+.gearpg.s3 .gsetf .ic{width:16px;height:16px;margin:0}
+.gearpg.s3 .gbag{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.gearpg.s3 .gcell{min-height:100px;padding:16px 2px 4px}
+.gearpg.s3 .gcell .gico{width:46px;height:46px}
+.gearpg.s3 .gcell b{font-size:15px}
+.gearpg.s3 .gdet p:first-child b{color:#ffe9b0}
+.gdim{position:fixed;inset:0;z-index:9;display:flex;align-items:flex-end;justify-content:center;background:rgba(6,4,9,.66)}
+.gpan{width:100%;max-width:460px;box-sizing:border-box;padding:6px 12px 12px;border-radius:18px 18px 0 0;border-top:2px solid #b8913f;background:linear-gradient(180deg,#3a2c48,#1f1729);box-shadow:0 -8px 24px rgba(0,0,0,.5)}
+.ggrab{display:block;width:44px;height:5px;margin:0 auto 6px;border-radius:3px;background:#8a7a96}
+.gpt{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 6px;font-size:16px;color:#ffe9b0}
+.gpan .ggold{display:inline-flex;align-items:center;gap:4px;margin:0;font-size:15px;font-weight:800;color:#f6e2a0}
+.gpan .grow{display:flex;gap:8px;margin:8px 0 0}
+.gpan .grow .act{flex:1;margin:0;min-height:44px;padding:6px 4px;font-size:15px;text-transform:none;letter-spacing:0;line-height:1.2}
+@media (max-height:700px){.gearpg.s3 .gtop{min-height:44px;margin:0 0 4px}.gearpg.s3 .ghrow,.gearpg.s3 .gchips,.gearpg.s3 .gsubr{margin:0 0 4px}.gearpg.s3 .gcell{min-height:96px}}
+@media (orientation:landscape) and (max-height:520px){#sheet .pbody:has(.gearpg.s3){max-width:820px}.gpan{max-width:640px}.gearpg.s3 .gcell{min-height:90px}.gearpg.s3 .gtop{margin:0 0 4px}}
+#pg_her{position:relative}
+#pg_her .hkhd{position:absolute;top:0;right:6px;z-index:2;display:flex;gap:6px}
+#pg_her .hkbst{width:44px;height:44px;min-height:44px;padding:0;display:flex;align-items:center;justify-content:center}
+.hkgrid .hcard>.qdot{position:absolute;left:8px;top:8px;right:auto}
+body.hmton .htip{display:none}
+#pg_her .hkq{flex:none;width:44px;height:44px;min-height:44px;margin:0;padding:0;border-radius:50%;font-size:20px;font-weight:700;line-height:1;background:#2a2233;color:#f3d98a;border:2px solid #f3d98a;text-transform:none}
+#spot.hmt .spbox{width:min(calc(100vw - 24px),340px)}
+#spot.hmt .hmtn{margin:0 0 4px;font-size:14px;color:#d6cee4}
+#spot.hmt #hmttxt{font-size:16px}
+#spot.hmt .hmtrow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+#spot.hmt .hmtrow button{margin:0;width:auto;min-width:0;min-height:44px;padding:7px 16px;font-size:15px;text-transform:none;letter-spacing:0}
+#spot.hmt .hmup{color:#9be37a}#spot.hmt .hmdn{color:#c9a6ff}
+.hdtabs.lk2{grid-template-columns:1fr 1fr}
+@media (max-height:700px){.hdpg.tb-skins .hdst{height:clamp(140px,calc(100dvh - 495px),330px)}}
+/*c2end*/</style>
 </head><body>
 <div id="boot" aria-live="polite"><div class="bootin"><div class="bootpot"><i></i><i></i><i></i></div><b>Spellpot Heroes</b><small id="boottx">Loading…</small></div></div>
 <script>try{var bl=((JSON.parse(localStorage.getItem('sph_save')||'{}')||{}).lang||(navigator.language||'en')).slice(0,2);document.getElementById('boottx').textContent={nl:'Laden…',de:'Wird geladen…',fr:'Chargement…'}[bl]||'Loading…';}catch(e){}</script>
@@ -820,7 +970,7 @@ const WORLD={w:2400,h:2400};const WAREA=WORLD.w*WORLD.h/(1800*1800); // 0.2.7b: 
 let cam={x:0,y:0};
 const TAU=Math.PI*2,rnd=Math.random,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 
-const VERSION='0.4.0c';
+const VERSION='0.4.0c2';
 /* ===== 0.3.2 BALANCE: every balance number lives here (heroes, weapons, enemies, bosses, levels, endless) ===== */
 const BALANCE={
   // 0.3.7g: max FREE gems per week (quests, bosses, ranks, milestones, season). Bought gems are never capped or counted.
@@ -1349,7 +1499,7 @@ function migrate(d){const b=defSave();if(!d||typeof d!='object'||Array.isArray(d
   for(const h of [H].concat(Object.keys(HEROES).filter(k=>k!==H))){const q=oe?(oe[h]&&typeof oe[h]=='object'?oe[h]:{}):(h==H?eq:{}),m={};for(const s of GEAR_SLOTS){const id=Math.floor(+q[s]);m[s]=(id>0&&!used[id]&&inv.some(x=>x.id===id&&x.s==s))?(used[id]=1,id):0;}eqH[h]=m;}
   // 0.4.0c: the level belongs to the piece. Old shared slot level -> the piece worn in that slot; an empty slot with a level pays its gold back; unworn pieces start at 0.
   if(old<15)for(const s of GEAR_SLOTS){const L=lv[s];if(!L)continue;const it=inv.find(x=>x.id===eqH[H][s]);if(it)it.lv=Math.max(it.lv||0,L);else d.gold=num(d.gold,0,1e12)+gearLvCost(L);}
-  d.gear={inv,eqH,eq:eqH[H],nid,gift:g.gift?1:0};gearGift(d);if(old<14&&old>=9&&d.plv>=UNL.gear&&!d.spotSeen.gear&&!d.spotQ.includes('gear'))d.spotQ.push('gear');}
+  d.gear={inv,eqH,eq:eqH[H],nid,gift:g.gift?1:0};if(old<15&&inv.length&&!d.tips.hmt)d.tips.hmOld=1; /* 0.4.0c2 */gearGift(d);if(old<14&&old>=9&&d.plv>=UNL.gear&&!d.spotSeen.gear&&!d.spotQ.includes('gear'))d.spotQ.push('gear');}
  d.v=SAVE_V;return d;}
 // 0.3.6: if a save can't be read it is kept aside (sph_save_bad) instead of being overwritten by the fresh save
 let M;try{M=migrate(JSON.parse(localStorage.getItem(SAVE_KEY)));}catch(e){window.__migErr=String(e&&e.stack||e);try{const raw=localStorage.getItem(SAVE_KEY);if(raw)localStorage.setItem('sph_save_bad',raw);}catch(_){}M=defSave();}
@@ -2470,7 +2620,7 @@ function weeklyStars(t,dmg){const th=wkStarsDef();return t>=th.t3&&dmg>=th.d3?3:
 function weeklyAward(t,dmg){const got=[],n=weeklyStars(t,dmg);achAdd('wkstars',Math.max(0,n-(M.weekly.stars||0)));if(n>=3&&!M.weekly.got.key3){M.weekly.got.key3=1;if(addKeys(1))got.push(T('key.got1'));}M.weekly.stars=Math.max(M.weekly.stars||0,n);for(const [i,w] of WK_TIERS.entries())if(n>i&&!M.weekly.got[w.k]){M.weekly.got[w.k]=1;addChest(w.chest,'weekly');got.push(T('wk.starChest',i+1,CHESTS[w.chest].n));}return got;}
 function weekDaysLeft(){return 7-((nowD().getDay()+6)%7);}
 function openSheet(title,body,after){markModal();{const ht=document.getElementById('htip');if(ht)ht.remove();}const el=document.getElementById('sheet');if(!el)return;clearArtBg(el);el.innerHTML='<div class="pbody"><h1 class="ph">'+title+'</h1>'+body+'<button id="back" class="act">'+T('hub.back')+'</button></div>';el.className='';
- tapBtn(document.getElementById('back'),()=>{el.className='hide';renderHome();refreshTop();});if(after)after(el);}
+ tapBtn(document.getElementById('back'),()=>{if(hdRet&&typeof showHeroDetail=='function'){const k=hdRet;hdRet='';showHeroDetail(k);return;}el.className='hide';renderHome();refreshTop();});if(after)after(el);}
 // 0.3.7c (2) cauldron collection: earned looks, pick one; drawn with the same painted cauldron
 function drawCauldCard(cv,k){const g=cv.getContext('2d'),old=ctx;cv.width=200;cv.height=200;ctx=g;g.setTransform(2,0,0,2,0,0);try{drawVesCauldron(50,56,.72,k);}finally{ctx=old;g.setTransform(1,0,0,1,0,0);}}
 let cauldPg=0;
@@ -2956,7 +3106,7 @@ function renderSoon(k){document.getElementById('pg_'+k).innerHTML='<h1 class="ph
 function renderTabs(){const n=document.getElementById('tabs');const LK={her:'heroes',che:'chests'};n.innerHTML=TABS.map((k,i)=>{const lk=LK[k]&&!unl(LK[k]);return '<button id="h_'+k+'" class="tab'+(i==tabI?' on':'')+(k=='sho'||k=='pas'?' soon':'')+(k=='home'?' homet':'')+(lk?' tlock':'')+'"'+(lk?' aria-label="'+T(TAB_KEY[k])+': '+T('lvl.unlocksAt',UNL[LK[k]])+'"':'')+'><span class="ti">'+(lk?IC('lock'):k=='home'?IC('house'):TAB_ICO[k])+'</span>'+T(TAB_KEY[k])+(lk?'':(k=='upg'?badge(upgBadge()):k=='che'?badge(readyCount()):k=='her'?badge(M.evoNew)+nbadge('hT'):k=='qst'?nbadge('qT'):''))+'</button>';}).join('');
  n.querySelectorAll('.tab').forEach((b,i)=>b.addEventListener('click',e=>{e.preventDefault();ac();if(TABS[i]=='home'&&tabI==i&&!guarded()){showLevels();return;}go(i);}));}
 function go(i,instant){tabI=clamp(i,0,TABS.length-1);const tr=document.getElementById('track');if(!tr)return;tr.style.transition=instant?'none':'';tr.style.transform='translateX('+(-tabI*100/TABS.length)+'%)';
- if(TABS[tabI]=='home')renderHome();if(TABS[tabI]=='her'){heroInView();newsClear('hT');}if(TABS[tabI]=='qst')newsClear('qT');document.querySelectorAll('#tabs .tab').forEach((b,j)=>b.classList.toggle('on',j==tabI));}
+ if(TABS[tabI]=='home')renderHome();if(TABS[tabI]=='her'){if(gearOn()&&!tipSeen('hmt')&&!hmtOn&&typeof showHeroes=='function')showHeroes();heroInView();newsClear('hT');}if(TABS[tabI]=='qst')newsClear('qT');document.querySelectorAll('#tabs .tab').forEach((b,j)=>b.classList.toggle('on',j==tabI));}
 function initSwipe(){const p=document.getElementById('pages'),tr=document.getElementById('track');let sx=0,sy=0,dx=0,on=false,hor=null;
  p.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;dx=0;hor=null;
   // 0.3.6c root-cause fix: a horizontal swipe inside a horizontal scroller (skin row, old hero carousel) belongs to that scroller, never to the hub page swipe
@@ -3101,21 +3251,9 @@ function heroRow(k){const h=HEROES[k],un=!!M.unlocked[k],st=M.stars[k]||1,sh=M.s
 // 0.3.7c (1) hero path bar on the Heroes page: runs with this hero, steps 5 title / 10 frame / 20 skin
 function heroPathHtml(k){const n=heroRuns(k),mx=HPATH[HPATH.length-1][0],nx=HPATH.find(p=>n<p[0]);
  return '<div class="hpath" data-hp="'+k+'"><div class="hptop"><small>'+T('path.runs',n)+(nx?' · '+T('path.next',nx[0]-n,T('path.r.'+nx[1])):' · '+T('path.done'))+'</small></div><div class="hpbar"><i style="width:'+Math.round(Math.min(1,n/mx)*100)+'%"></i>'+HPATH.map(p=>'<b style="left:'+Math.round(p[0]/mx*100)+'%" class="'+(n>=p[0]?'ok':'')+'"></b>').join('')+'</div><div class="hpst">'+HPATH.map(p=>'<span class="'+(n>=p[0]?'ok':'')+'">'+(n>=p[0]?'✓ ':'')+p[0]+' · '+T('path.r.'+p[1])+'</span>').join('')+'</div></div>';}
-function heroInView(){const l=document.getElementById('herolist');if(!l)return;const r=l.querySelector('.hrow.sel');const key=M.sel+'|'+(M.skin[M.sel]||'');
+function heroInView(){const l=document.getElementById('herolist');if(!l)return;const r=l.querySelector('.hcard.sel');const key=M.sel+'|'+(M.skin[M.sel]||'');
  // bring the selected hero into view the first time the tab opens and whenever the selection changed (e.g. arrows on the home screen); otherwise keep the player's scroll position
  if(r&&heroSeen!==key){const top=r.offsetTop-l.offsetTop,bot=top+r.offsetHeight;if(top<l.scrollTop||bot>l.scrollTop+l.clientHeight)l.scrollTop=Math.max(0,Math.min(top-4,l.scrollHeight-l.clientHeight));heroScroll=l.scrollTop;}heroSeen=key;}
-function showHeroes(){if(!unl('heroes')){screen('her',T('heroes.title'),'<div class="lockpg">'+IC('lock')+'<h2>'+T('heroes.title')+'</h2><p>'+T('lvl.unlocksAt',UNL.heroes)+'</p></div>');return;}
- screen('her',T('heroes.title'),'<div class="cshead"><small>'+T('cs.sub2')+'</small><span class="hbtns"><button id="beastbtn" class="act hbook" aria-label="'+T('beast.title')+'">'+IC('paw')+ndot('bst')+'</button><button id="cauldbtn" class="act hbook" aria-label="'+T('cauld.title')+'">'+IC('pot')+ndot('cau')+'</button><button id="bookbtn" class="act hbook" aria-label="'+T('book.title')+'">'+IC('book')+badge(M.evoNew)+'</button></span></div><div id="herolist">'+['witch','barbarian','wizard','elf'].filter(k=>HEROES[k]).map(heroRow).join('')+'</div>');
- const pg=document.getElementById('pg_her');if(!pg)return;pg.querySelectorAll('[data-pv]').forEach(cv=>heroPreview(cv,cv.dataset.pv,cv.dataset.sk,!!cv.dataset.sil));{const bb=document.getElementById('bookbtn');if(bb)tapBtn(bb,()=>showBook());const b2=document.getElementById('beastbtn');if(b2)tapBtn(b2,()=>showBestiary());const b3=document.getElementById('cauldbtn');if(b3)tapBtn(b3,()=>showCauldrons());pg.querySelectorAll('[data-gh]').forEach(b4=>tapBtn(b4,()=>{gearEd=b4.dataset.gh;gearSel='';gearPg=0;showGear();}));}
- const l=document.getElementById('herolist');l.scrollTop=heroScroll;l.addEventListener('scroll',()=>{heroScroll=l.scrollTop;},{passive:true});if(TABS[tabI]=='her')heroInView();
- const pick=(k,sk)=>{M.sel=k;if(sk!==undefined)M.skin[k]=sk;save();heroSeen=M.sel+'|'+(M.skin[M.sel]||'');showHeroes();renderHome();};
- pg.querySelectorAll('[data-card]').forEach(b=>tapBtn(b,()=>{const [k,sk]=b.dataset.card.split('|');pick(k,sk);}));
- pg.querySelectorAll('[data-pick]').forEach(b=>tapBtn(b,()=>pick(b.dataset.pick)));
- pg.querySelectorAll('[data-lk]').forEach(b=>tapBtn(b,()=>{const [k,s]=b.dataset.lk.split('|');const row=b.closest('.hrow'),hw=row&&row.querySelector('.skhow');if(hw){const o=s?SKINS[s]:null,gs=o&&o.gems&&!M.skins[s];if(gs&&M.gems>=o.gems)hw.innerHTML='<span>'+IC('lock')+' '+o.n+': '+skinHow(s)+'</span><button class="act mini" data-gsk="'+s+'">'+IC('gem')+' '+T('skin.unlock')+' '+o.gems+'</button>';
-   else if(gs)hw.innerHTML=IC('lock')+' '+o.n+': '+T('skin.short',o.gems-M.gems)+' '+T('skin.earn');else hw.innerHTML=IC('lock')+' '+(s?o.n+': '+skinHow(s):HEROES[k].name);
-   const gb=hw.querySelector('[data-gsk]');if(gb)tapBtn(gb,()=>{const q=gb.dataset.gsk,g=SKINS[q].gems;if(gb.dataset.conf!='1'){gb.dataset.conf='1';gb.textContent=T('skin.confirm',g);return;}if(buyGemSkin(q)){SND.chest();showHeroes();const hw2=document.querySelector('.hrow[data-hero="'+SKINS[q].hero+'"] .skhow');if(hw2)hw2.textContent=T('skin.got',SKINS[q].n);}});}}));
- pg.querySelectorAll('[data-un]').forEach(b=>tapBtn(b,()=>{const q=b.dataset.un;if(M.shards[q]>=50){M.shards[q]-=50;M.unlocked[q]=true;M.stars[q]=1;save();SND.chest();showHeroes();}}));
- pg.querySelectorAll('[data-s]').forEach(b=>tapBtn(b,()=>{const q=b.dataset.s,n=20*(M.stars[q]||1);if(M.shards[q]>=n){M.shards[q]-=n;M.stars[q]++;save();showHeroes();}}));}
 
 // 0.4.0b gear screen. Top: 4 slot cards (relic-card component), then Best + Level up (selected slot), then the bag (pieces not worn) in pages
 function gearScore(it){let v=gearVal(it)/GEAR_CAP[gearStat(it)];for(const k of it.sub||[])if(GEAR_SUB[k]!=null)v+=GEAR_SUB[k]/GEAR_CAP[k];return v;} // Best: main + substats against their caps (set bonuses are not weighed)
@@ -3141,38 +3279,145 @@ function gearTopSet(h){const n=gearSetN(h);let b='';for(const k of GEAR_SETS)if(
 // 0.4.0c hero tab: one gear card per hero (inside the hero row): title + set line, 4 big slot icons in one strip
 function gearMini(k){if(!gearOn())return '';k=k||gearHid();const me=k==gearHid(),nw=me&&M.gear.inv.some(x=>x.nw),ts=gearTopSet(k);
  return '<button id="'+(me?'gearcard':'gearcard_'+k)+'" data-gh="'+k+'" class="gearmini" aria-label="'+T('gear.title')+': '+HEROES[k].name+'"><span class="gmt"><b>'+T('gear.title')+'</b>'+(ts?'<small class="gsetl" style="color:'+GEAR_SETC[ts.k]+'">'+T('gset.'+ts.k)+' '+ts.n+'/4</small>':'')+'<span class="gchev" aria-hidden="true">›</span></span><span class="gmrow">'+GEAR_SLOTS.map(s=>{const it=gearEq(s,k);return it?gearIc(it):gearIcNo(s);}).join('')+'</span>'+(nw?'<span class="qdot"></span>':'')+'</button>';}
+// 0.4.0c2 hero grid (mockup s1): one card per hero; tap opens the hero detail. Locked = silhouette + lock (+ shard bar), unplayable = teaser
+let hdK='',hdTab='gear',hdRet='',hgNow=0,gearSetF='';
+const RAR_C={rare:'#8fd0ff',epic:'#d8b0ff',legendary:'#f2d27a'};
+function hdStars(st){return '<span class="gold">'+'★'.repeat(st)+'</span><span class="hcsd">'+'★'.repeat(Math.max(0,5-st))+'</span>';}
+function heroCard(k){const h=HEROES[k],un=!!M.unlocked[k]&&h.playable,st=M.stars[k]||1,sh=M.shards[k]||0,rar=RARITY[k]||'rare',sel=un&&M.sel==k,n=heroRuns(k),nm=T('hs.'+k);
+ if(!h.playable)return '<div class="hcard soonh" style="--rc:#6f6578" role="img" aria-label="'+nm+', '+T('hub.soon')+'"><canvas data-pv="'+k+'" data-sk="" data-sil="1"></canvas><span class="hclk">'+IC('lock')+'</span><span class="hcnm"><b>'+nm+'</b><small>'+T('hub.soon')+'</small></span></div>';
+ if(!un)return '<button class="hcard lk" data-hc="'+k+'" style="--rc:#8a7f96" aria-label="'+nm+', '+T('hd.lockT')+(shOn()?', '+sh+'/50':'')+'"><canvas data-pv="'+k+'" data-sk="" data-sil="1"></canvas><span class="hclk">'+IC('lock')+'</span>'+(shOn()?'<span class="hcsb"><i style="width:'+Math.min(100,sh*2)+'%"></i></span>':'')+'<span class="hcnm"><b>'+nm+'</b><small>'+(shOn()?IC('shard')+' '+Math.min(sh,50)+'/50':T('hd.lockT'))+'</small></span>'+(shOn()&&sh>=50?'<span class="hcdot"></span>':'')+'</button>';
+ const dot=gearOn()&&gearBestDiff(k),nw=n==0&&!sel;
+ return '<button class="hcard'+(sel?' sel':'')+'" data-hc="'+k+'" style="--rc:'+(RAR_C[rar]||'#8fd0ff')+'" aria-label="'+h.name+', '+T('rar.'+rar)+', ★'+st+', '+T('hk.runs',n)+(sel?', '+T('heroes.chosen'):'')+(dot?', '+T('hk.better'):'')+'"><canvas data-pv="'+k+'" data-sk="'+(M.skin[k]||'')+'"></canvas>'+(n?'<span class="hclv" aria-hidden="true">'+(n>99?'99+':n)+'</span>':'')+(sel?'<span class="hcck" aria-hidden="true">✓</span>':'')+(dot?'<span class="hcdot"></span>':'')+(nw?'<span class="hcnew">'+T('hk.new')+'</span>':'')+(k=='witch'?ndot('cau'):'')+'<span class="hcnm"><b>'+nm+'</b><small>'+hdStars(st)+'</small></span></button>';}
+function hkTipOk(){const sh=document.getElementById('sheet');return gearOn()&&TABS[tabI]=='her'&&(!sh||sh.className=='hide')&&!S&&!(typeof ov!='undefined'&&ov&&ov.className==''&&ov.querySelector('.box'));}
+// 0.4.0c2 hero menu tutorial (4 steps, #spot style). Old saves (gear from before per-hero slots) get the 'own gear' notice first.
+// e2 hook: HMT_STEPS.push({k:'shop',sel:'#hdshop',on:'detail'}) adds a Workshop step (string hmt.shop).
+const HMT_STEPS=[{k:'old',sel:null,on:'grid',old:1},{k:'tap',sel:'.hcard.sel',on:'grid',hand:1},{k:'slots',sel:'#hdst',on:'detail'},{k:'bag',sel:'#hdbag',on:'detail'},{k:'best',sel:'#hdbest',on:'detail'}];
+let hmtOn=0;
+function hmtOk(){return unl('heroes')&&!INTRO&&!S&&document.body.classList.contains('inlobby')&&!document.getElementById('spot')&&hkTipOk();}
+function hmtList(){return HMT_STEPS.filter(x=>!x.old||(M.tips&&M.tips.hmOld));}
+function hmtStart(force){if(hmtOn||INTRO||S||!gearOn()||!unl('heroes')||document.getElementById('spot'))return;if(!force&&(tipSeen('hmt')||!hmtOk()))return;
+ if(force){const sh=document.getElementById('sheet');if(sh)sh.className='hide';if(TABS[tabI]!='her')go(TABS.indexOf('her'),true);}
+ hmtOn=1;document.body.classList.add('hmton');hmtStep(0);}
+function hmtStep(i){const L=hmtList();if(!hmtOn)return;if(i>=L.length){hmtEnd();return;}const st=L[i],sh=document.getElementById('sheet'),open=sh&&sh.className!='hide';
+ if(st.on=='detail'){if(!(open&&sh.querySelector('.hdpg'))){const H=hdHeroes();showHeroDetail(H.includes(M.sel)?M.sel:H[0],'gear');}else if(hdTab!='gear')showHeroDetail(hdK,'gear');}
+ else{if(open)sh.className='hide';showHeroes();}
+ const old=document.getElementById('spot');if(old)old.remove();setTimeout(()=>{if(hmtOn)hmtDraw(i);},260);}
+function hmtDraw(i){const L=hmtList(),st=L[i];if(!st||!hmtOn)return;const old=document.getElementById('spot');if(old)old.remove();markModal();
+ const last=i==L.length-1,tgt=st.sel&&document.querySelector(st.sel),el=document.createElement('div');el.id='spot';el.className='fspot hmt';el.setAttribute('role','dialog');el.dataset.hmt=st.k;
+ el.innerHTML='<div class="spbox"><i class="sparr"></i><p class="hmtn">'+T('hmt.n',i+1,L.length)+'</p><p id="hmttxt">'+T('hmt.'+st.k)+'</p><div class="hmtrow">'+(last?'':'<button id="hmtskip" class="act">'+T('spot.skip')+'</button>')+(st.k=='old'?'<button id="hmtbest" class="act">'+T('gear.best')+'</button>':'')+'<button id="hmtnext">'+T(last?'hmt.done':'hmt.next')+'</button></div></div>';document.body.appendChild(el);
+ const bx=el.querySelector('.spbox'),ar=el.querySelector('.sparr'),W=innerWidth,H=innerHeight,r=tgt&&tgt.getBoundingClientRect();
+ if(r&&r.width>0){const P=SPOT_PAD,rl=Math.max(2,r.left-P),rt=Math.max(2,r.top-P),rw=Math.min(W-2,r.right+P)-rl,rh=Math.min(H-2,r.bottom+P)-rt;const ring=document.createElement('div');ring.className='spring';el.classList.add('hasring');Object.assign(ring.style,{left:rl+'px',top:rt+'px',width:rw+'px',height:rh+'px'});el.insertBefore(ring,bx);spotShape(ring,tgt);if(st.hand)spotHand(el,ring);
+  const bw=bx.offsetWidth,bh=bx.offsetHeight,cx=r.left+r.width/2,left=Math.round(Math.min(W-bw-8,Math.max(8,cx-bw/2))),G=14;let top,below;
+  if(rt+rh+G+bh<=H-6){below=1;top=rt+rh+G;}else if(rt-G-bh>=6){below=0;top=rt-G-bh;}else{below=-1;top=Math.max(6,H-bh-6);}
+  Object.assign(bx.style,{left:left+'px',top:Math.round(top)+'px',transform:'none'});if(below<0)ar.remove();else{ar.className='sparr '+(below?'sp-up':'sp-dn');ar.style.left=Math.round(Math.min(bw-22,Math.max(22,cx-left)))+'px';}}
+ else{ar.remove();Object.assign(bx.style,{left:'50%',top:'36%',transform:'translateX(-50%)'});}
+ // taps never reach the screen below
+ for(const ev of ['pointerdown','pointerup','touchstart','click'])el.addEventListener(ev,e=>{e.stopPropagation();},{passive:true});
+ const sk=document.getElementById('hmtskip');if(sk)tapBtn(sk,()=>hmtEnd());
+ tapBtn(document.getElementById('hmtnext'),()=>hmtStep(i+1));
+ const hb=document.getElementById('hmtbest');if(hb)tapBtn(hb,()=>{let n=0;for(const k of [M.sel,...gearHeroes().filter(x=>x!=M.sel)])if(gearHeroes().includes(k))n+=gearBest(k);if(n&&SND.chest)SND.chest();hmtStep(i+1);});
+ spotFollow(el,st.sel,()=>{if(hmtOn&&document.getElementById('spot')===el)hmtDraw(i);});}
+function hmtEnd(){if(!hmtOn)return;hmtOn=0;document.body.classList.remove('hmton');const el=document.getElementById('spot');if(el)el.remove();M.tips=M.tips||{};delete M.tips.hmOld;setTip('hmt');
+ const sh=document.getElementById('sheet');if(sh&&sh.className!='hide'&&sh.querySelector('.hdpg')){sh.className='hide';}if(TABS[tabI]=='her')showHeroes();markModal();}
+function showHeroes(){if(!unl('heroes')){screen('her',T('heroes.title'),'<div class="lockpg">'+IC('lock')+'<h2>'+T('heroes.title')+'</h2><p>'+T('lvl.unlocksAt',UNL.heroes)+'</p></div>');return;}
+ const ks=['witch','barbarian','wizard','elf'].filter(k=>HEROES[k]),fill=Math.max(6,Math.ceil(ks.length/3)*3)-ks.length;
+ const tip=0&&gearOn()?'<div class="hktip" id="hktip" role="status">'+GIC('g_cloak')+'<span>'+T('hk.tip')+'</span><button class="act gold" id="hkbest">'+T('gear.best')+'</button><button class="hkx" id="hkx" aria-label="'+T('hk.close')+'">×</button></div>':'';
+ screen('her',T('heroes.title'),'<div class="hkhd"><button class="act hbook hkbst" id="hkbst" aria-label="'+T('beast.title')+'">'+IC('paw')+ndot('bst')+'</button>'+(gearOn()?'<button class="hkq" id="hkq" aria-label="'+T('hmt.help')+'">?</button>':'')+'</div>'+'<div id="herolist">'+tip+'<div class="hkgrid">'+ks.map(heroCard).join('')+('<div class="hcard soon" aria-hidden="true"><b>+</b><small>'+T('hub.soon')+'</small></div>').repeat(fill)+'</div></div>');
+ const pg=document.getElementById('pg_her');if(!pg)return;pg.querySelectorAll('[data-pv]').forEach(cv=>heroPreview(cv,cv.dataset.pv,cv.dataset.sk,!!cv.dataset.sil));
+ const l=document.getElementById('herolist');l.scrollTop=heroScroll;l.addEventListener('scroll',()=>{heroScroll=l.scrollTop;},{passive:true});if(TABS[tabI]=='her')heroInView();
+ pg.querySelectorAll('[data-hc]').forEach(b=>tapBtn(b,()=>{hgNow=0;if(typeof showHeroDetail=='function')showHeroDetail(b.dataset.hc,'gear');}));
+ const hb=document.getElementById('hkbest');if(hb)tapBtn(hb,()=>{let n=0;for(const k of [M.sel,...gearHeroes().filter(x=>x!=M.sel)])if(gearHeroes().includes(k))n+=gearBest(k);hgNow=0;if(n&&SND.chest)SND.chest();showHeroes();});
+ const hx=document.getElementById('hkx');if(hx)tapBtn(hx,()=>{hgNow=0;showHeroes();});
+ const hq=document.getElementById('hkq');if(hq)tapBtn(hq,()=>hmtStart(1));
+ const hbs=document.getElementById('hkbst');if(hbs)tapBtn(hbs,()=>{hdRet='';showBestiary();});
+ if(!hmtOn&&!tipSeen('hmt')&&hmtOk()){clearTimeout(hmtStart.t);hmtStart.t=setTimeout(()=>{if(!hmtOn&&!tipSeen('hmt')&&hmtOk())hmtStart(0);},400);}}
+// 0.4.0c2 hero detail (mockup s2): back / name + rarity + stars / bestiary; big hero with the 4 gear slots (tap = gear screen of this hero), prev/next + swipe;
+// set chips; tabs Gear (stats + Best / Bag / Star) · Skills · Hero path · Skins; big Pick (or how to unlock)
+function hdHeroes(){return ['witch','barbarian','wizard','elf'].filter(k=>HEROES[k]&&HEROES[k].playable);}
+function hdSlot(k,s){const it=gearEq(s,k);if(!it)return '<button class="hdsl no" data-hs="'+s+'" aria-label="'+T('gs.'+s)+', '+T('gear.empty')+'">'+gearIcNo(s)+'<b class="hdplus" aria-hidden="true">+</b><small>'+T('gear.empty')+'</small></button>';
+ return '<button class="hdsl" data-hs="'+s+'" style="--rc:'+GEAR_RC[it.r]+'" aria-label="'+T('gs.'+s)+', '+T('gr.'+it.r)+', '+T('gset.'+it.st)+', ★'+(it.star||1)+', '+T('lv.short')+' '+(it.lv||0)+'"><span class="si">'+IC('set_'+it.st)+'</span>'+gearIc(it)+'<small class="lvb">'+T('lv.short')+' '+(it.lv||0)+'</small></button>';}
+function hdSets(k){const n=gearSetN(k),ks=GEAR_SETS.filter(x=>n[x]).sort((a,b)=>n[b]-n[a]);if(!ks.length)return '<div class="hdsets"><span class="chip dim">'+T('hd.noSet')+'</span></div>';
+ return '<div class="hdsets">'+ks.slice(0,2).map(x=>{const c=n[x],tb=c>=4?1:c>=2?0:-1;return '<span class="chip'+(tb<0?' dim':'')+'" style="--sc:'+GEAR_SETC[x]+'">'+IC('set_'+x)+'<b>'+T('gset.'+x)+' '+c+'/4</b>'+(tb>=0?'<span>· '+gearBonTxt(GEAR_SETB[x][tb])+'</span>':'')+'</span>';}).join('')+'</div>';}
+function hdStats(k){const h=HEROES[k],t=gearOn()&&M.unlocked[k]?gearTot(k):GEAR0(),hp=Math.round(h.hp*(1+t.hp));
+ const tile=(lab,val,sub,up)=>'<div class="hdt"><small>'+lab+'</small><b>'+val+'</b><i'+(up?' class="hdup"':'')+'>'+sub+'</i></div>';
+ return '<div class="hdstats">'+tile(T('hd.hp'),hp,t.hp>0?'+'+gPct(t.hp)+'%':'—',t.hp>0)+tile(T('hd.dmg'),'+'+gPct(t.dmg)+'%',T('hd.fromGear'),t.dmg>0)+tile(T('hd.cd'),'−'+gPct(t.cd)+'%',T('hd.fromGear'),t.cd>0)+tile(T('hd.crit'),'+'+gPct(t.crit)+'%',T('hd.fromGear'),t.crit>0)+'</div>';}
+function hdClose(){const el=document.getElementById('sheet');if(el)el.className='hide';hdK='';showHeroes();renderHome();refreshTop();}
+function showHeroDetail(k,tab){const L=hdHeroes();if(!L.includes(k))k=L.includes(M.sel)?M.sel:L[0];hdK=k;if(tab)hdTab=tab;hdRet='';hgNow=0;
+ const h=HEROES[k],un=!!M.unlocked[k],st=M.stars[k]||1,sh=M.shards[k]||0,rar=RARITY[k]||'rare',sel=un&&M.sel==k,nm=T('hs.'+k),g=gearOn()&&un,tb=un?hdTab:(hdTab=='skins'?'skins':'skills');
+ const head='<div class="hdhd"><button id="back" class="act bkar" aria-label="'+T('gear.back')+'">‹</button><div class="hdtt" aria-label="'+h.name+'"><b>'+nm+'</b><span><i class="rar r-'+rar+'">'+T('rar.'+rar)+'</i>'+(un?hdStars(st):IC('lock'))+'</span></div><button id="beastbtn" class="act hbook" aria-label="'+T('beast.title')+'">'+IC('paw')+ndot('bst')+'</button></div>';
+ const sw=L.length>1;
+ const stage='<div class="hdst" id="hdst" style="--hg:'+(h.glow||'#5cff8a')+'"><canvas class="hdpv" data-pv="'+k+'" data-sk="'+(un?(M.skin[k]||''):'')+'"'+(un?'':' data-sil="1"')+'></canvas>'+
+  '<div class="hdcol l">'+(g?hdSlot(k,'hat'):'')+(sw?'<button class="act hdsw" id="hdprev" aria-label="'+T('beast.prev')+'">‹</button>':'')+(g?hdSlot(k,'cloak'):'')+'</div>'+
+  '<div class="hdcol r">'+(g?hdSlot(k,'glove'):'')+(sw?'<button class="act hdsw" id="hdnext" aria-label="'+T('beast.next')+'">›</button>':'')+(g?hdSlot(k,'amu'):'')+'</div></div>';
+ const tabs='<div class="hdtabs'+(un?'':' lk2')+'" role="tablist">'+(un?[['gear','hd.tGear'],['skills','hd.tSkills'],['path','hd.tPath'],['skins','hd.tSkins']]:[['skills','hd.tSkills'],['skins','hd.tSkins']]).map(([id,q])=>'<button class="hdtb'+(tb==id?' on':'')+'" data-ht="'+id+'" role="tab" aria-selected="'+(tb==id)+'">'+T(q)+'</button>').join('')+'</div>';
+ let pn='';
+ if(tb=='gear')pn=hdStats(k)+'<div class="hdbtn">'+(g?'<button class="act" id="hdbest"'+(gearBestDiff(k)?'':' disabled')+'>'+T('gear.best')+'</button><button class="act" id="hdbag">'+T('hd.bag')+'</button>':'')+(shOn()&&st<5?'<button class="act" id="hdstar" data-s="'+k+'"'+(sh<20*st?' disabled':'')+'>★ '+T('hd.star')+' '+sh+'/'+20*st+'</button>':'')+'</div>';
+ else if(tb=='skills')pn='<div class="hdsk"><p><small>'+T('hd.wep')+'</small><b>'+T('w.'+h.startWeapon)+'</b><span>· '+T('hd.evo',T('w.'+h.startWeapon+'.evo'))+'</span></p><p><small>'+T('hd.src')+'</small><b>'+h.source.name+'</b><span>· '+T('src.'+h.source.id+'.desc')+'</span></p>'+(un?'':'<p class="hdsty">'+h.style+'</p>')+'</div>'+(un?'<button id="bookbtn" class="act hdbook">'+IC('book')+' '+T('book.title')+badge(M.evoNew)+'</button>':'');
+ else if(tb=='path')pn=heroPathHtml(k);
+ else {const sk=Object.keys(SKINS).filter(q=>SKINS[q].hero==k&&(!SKINS[q].boss||M.skins[q]));pn=(sk.length?'<div class="skrow" aria-label="'+T('cs.skinsOf')+'">'+['',...sk].map(q=>skinChip(k,q,un)).join('')+'</div><p class="skhow"></p>':'')+(k=='witch'?'<button id="cauldbtn" class="act hdbook">'+IC('pot')+' '+T('cauld.title')+ndot('cau')+'</button>':'');}
+ const pick=un?(sel?'<div class="hdpick on" id="hdpick" role="status">✓ '+T('heroes.chosen')+'</div>':'<button class="hdpick" id="hdpick">'+T('hd.pick',nm)+'</button>'):
+  !shOn()?'<p class="hdhow">'+T('cs.howHeroNS')+'</p>':sh>=50?'<button class="hdpick" id="hdun" data-un="'+k+'">'+IC('unlock')+' '+T('heroes.unlock')+'</button>':'<p class="hdhow">'+T('cs.howHero',sh)+' · '+T('heroes.moreShards',50-sh)+'</p>';
+ openSheet(nm,'<div class="hdpg tb-'+tb+'" data-hero="'+k+'"><div class="hdA">'+head+stage+(g?hdSets(k):'')+'</div><div class="hdB">'+tabs+'<div class="hdpn" role="tabpanel">'+pn+'</div>'+pick+'</div></div>',el=>{
+  const pb=el.querySelector('.pbody');const h1=pb.querySelector(':scope>h1.ph');if(h1)h1.remove();const bks=pb.querySelectorAll('#back');if(bks.length>1)bks[bks.length-1].remove();
+  el.querySelectorAll('[data-pv]').forEach(cv=>heroPreview(cv,cv.dataset.pv,cv.dataset.sk,!!cv.dataset.sil));
+  gearBackBtn(hdClose);
+  const re=t=>{showHeroDetail(k,t);modalT=performance.now()-GUARD_MS-1;};
+  const go2=d=>{const i=L.indexOf(k);showHeroDetail(L[(i+d+L.length)%L.length]);modalT=performance.now()-GUARD_MS-1;};
+  const p=document.getElementById('hdprev'),n=document.getElementById('hdnext');if(p)tapBtn(p,()=>go2(-1));if(n)tapBtn(n,()=>go2(1));
+  const stg=document.getElementById('hdst');if(stg&&sw){let x0=null,y0=0;stg.addEventListener('pointerdown',e=>{x0=e.clientX;y0=e.clientY;});stg.addEventListener('pointerup',e=>{if(x0==null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5)go2(dx<0?1:-1);});}
+  el.querySelectorAll('[data-hs]').forEach(b=>tapBtn(b,()=>{gearEd=k;gearSel=b.dataset.hs;gearPg=0;showGear(0);}));
+  el.querySelectorAll('[data-ht]').forEach(b=>tapBtn(b,()=>re(b.dataset.ht)));
+  const bb=document.getElementById('beastbtn');if(bb)tapBtn(bb,()=>{hdRet=k;showBestiary();});
+  const bk=document.getElementById('bookbtn');if(bk)tapBtn(bk,()=>{hdRet=k;showBook();});
+  const cb=document.getElementById('cauldbtn');if(cb)tapBtn(cb,()=>{hdRet=k;showCauldrons();});
+  const be=document.getElementById('hdbest');if(be)tapBtn(be,()=>{if(gearBest(k)){SND.chest&&SND.chest();re();}});
+  const bg=document.getElementById('hdbag');if(bg)tapBtn(bg,()=>{gearEd=k;gearSel='';gearPg=0;showGear(0);});
+  const bs=document.getElementById('hdstar');if(bs)tapBtn(bs,()=>{const q=20*(M.stars[k]||1);if(M.shards[k]>=q){M.shards[k]-=q;M.stars[k]=(M.stars[k]||1)+1;save();SND.chest&&SND.chest();re();}});
+  const pk=document.getElementById('hdpick');if(pk&&pk.tagName=='BUTTON')tapBtn(pk,()=>{M.sel=k;save();heroSeen=M.sel+'|'+(M.skin[M.sel]||'');hdClose();}); // after Pick: back to the grid, the check on the new hero
+  const uu=document.getElementById('hdun');if(uu)tapBtn(uu,()=>{if(M.shards[k]>=50){M.shards[k]-=50;M.unlocked[k]=true;M.stars[k]=1;save();SND.chest&&SND.chest();re('gear');}});
+  // skins: wear an owned look (the hero is picked too, as on the old list); a locked look shows how to get it, gem looks can be bought after a confirm tap
+  el.querySelectorAll('[data-card]').forEach(b=>tapBtn(b,()=>{const [q,sk]=b.dataset.card.split('|');M.sel=q;M.skin[q]=sk;save();heroSeen=M.sel+'|'+(M.skin[M.sel]||'');renderHome();re('skins');}));
+  el.querySelectorAll('[data-lk]').forEach(b=>tapBtn(b,()=>{const [q,s2]=b.dataset.lk.split('|');const hw=el.querySelector('.skhow');if(!hw)return;const o=s2?SKINS[s2]:null,gs=o&&o.gems&&!M.skins[s2];
+   if(gs&&M.gems>=o.gems)hw.innerHTML='<span>'+IC('lock')+' '+o.n+': '+skinHow(s2)+'</span><button class="act mini" data-gsk="'+s2+'">'+IC('gem')+' '+T('skin.unlock')+' '+o.gems+'</button>';
+   else if(gs)hw.innerHTML=IC('lock')+' '+o.n+': '+T('skin.short',o.gems-M.gems)+' '+T('skin.earn');else hw.innerHTML=IC('lock')+' '+(s2?o.n+': '+skinHow(s2):HEROES[q].name);
+   const gb=hw.querySelector('[data-gsk]');if(gb)tapBtn(gb,()=>{const z=gb.dataset.gsk,gm=SKINS[z].gems;if(gb.dataset.conf!='1'){gb.dataset.conf='1';gb.textContent=T('skin.confirm',gm);return;}if(buyGemSkin(z)){SND.chest();re('skins');const hw2=document.querySelector('#sheet .skhow');if(hw2)hw2.textContent=T('skin.got',SKINS[z].n);}});}));});}
 // 0.4.0c gear screen (per hero): hero header with switch, 4 slot cards (icon left, name + rarity, stat, level in the corner), selected-slot details,
 // Best / Level up <slot> / Merge, bag bar (count + gold), bag pages; tapping a piece opens a compare card (Equip / Level up)
 let gearSel='',gearPg=0,gearEd='',gearPop='';
 function gearHeroes(){return ['witch','barbarian','wizard','elf'].filter(k=>HEROES[k]&&HEROES[k].playable&&M.unlocked[k]);}
 function gearRe(pg){showGear(pg);modalT=performance.now()-GUARD_MS-1;} // re-render inside the same screen: no tap guard (0.4.0b swallowed fast taps here)
-function gearBackBtn(fn){const bk=document.getElementById('back');if(!bk)return;const n=bk.cloneNode(false);n.textContent=T('gear.back');bk.replaceWith(n);tapBtn(n,fn);}
+function gearBackBtn(fn){const bk=document.getElementById('back');if(!bk)return;const n=bk.cloneNode(bk.classList.contains('bkar'));if(!bk.classList.contains('bkar'))n.textContent=T('gear.back');bk.replaceWith(n);tapBtn(n,fn);}
 function gearPrev(el){el.querySelectorAll('canvas[data-pv]').forEach(cv=>heroPreview(cv,cv.dataset.pv,cv.dataset.sk));}
 function showGear(pg){if(!gearOn())return;const G=gearG(),hs=gearHeroes();if(!hs.includes(gearEd))gearEd=hs.includes(gearHid())?gearHid():(hs[0]||'witch');const h=gearEd;
- if(!GEAR_SLOTS.includes(gearSel))gearSel=GEAR_SLOTS.find(s=>gearEq(s,h))||'hat';
- const land=innerWidth>innerHeight,per=land?3:(innerHeight>=900?9:innerHeight>=700?6:3),mine=new Set(GEAR_SLOTS.map(s=>gearEqH(h)[s]).filter(Boolean));
- const bag=G.inv.filter(x=>!mine.has(x.id)&&x.s==gearSel).sort((a,b)=>gearScore(b)-gearScore(a)||b.r-a.r||(b.star||1)-(a.star||1)||a.id-b.id),np=Math.max(1,Math.ceil(bag.length/per));
+ if(!GEAR_SLOTS.includes(gearSel))gearSel=GEAR_SLOTS.find(s=>gearEq(s,h))||'hat';if(gearSetF&&!GEAR_SETS.includes(gearSetF))gearSetF='';
+ // 0.4.0c2 bag screen in the s3 style: top bar (back, Bag x/40, gold), hero row with 4 minis, slot chips, "<slot> · strongest first" + set filter, bag in 4 columns
+ const land=innerWidth>innerHeight,rows=land?Math.max(1,Math.min(2,Math.floor((innerHeight-170)/100))):Math.max(1,Math.min(4,Math.floor((innerHeight-400)/112))),per=4*rows,mine=new Set(GEAR_SLOTS.map(s=>gearEqH(h)[s]).filter(Boolean));
+ const all=G.inv.filter(x=>!mine.has(x.id)&&x.s==gearSel),bag=all.filter(x=>!gearSetF||x.st==gearSetF).sort((a,b)=>gearScore(b)-gearScore(a)||b.r-a.r||(b.star||1)-(a.star||1)||a.id-b.id),np=Math.max(1,Math.ceil(bag.length/per));
  if(pg!=null)gearPg=pg;gearPg=Math.max(0,Math.min(np-1,gearPg));const show=bag.slice(gearPg*per,gearPg*per+per),sn=gearSetN(h),pop=gearPop;gearPop='';
- const head='<div class="ghero">'+(hs.length>1?'<button class="act bxnav" id="ghprev" aria-label="'+T('beast.prev')+'">‹</button>':'')+'<canvas class="ghpv" data-pv="'+h+'" data-sk="'+(M.skin[h]||'')+'"></canvas><b>'+HEROES[h].name+'</b>'+(hs.length>1?'<button class="act bxnav" id="ghnext" aria-label="'+T('beast.next')+'">›</button>':'')+'</div>';
- const cards=GEAR_SLOTS.map(s=>{const it=gearEq(s,h),l=gearLvOf(s,h),rc=it?GEAR_RC[it.r]:'#6a5634',pp=pop==s?' gpop':'';
-  return '<button class="gslot'+(s==gearSel?' sel':'')+'" data-gs="'+s+'" style="--rc:'+rc+'" aria-pressed="'+(s==gearSel)+'" aria-label="'+T('gs.'+s)+(it?', '+T('gr.'+it.r)+', '+T('gset.'+it.st)+', ★'+(it.star||1):', '+T('gear.empty'))+'">'+(G.inv.some(x=>x.nw&&x.s==s&&!mine.has(x.id))?'<span class="qdot"></span>':'')+(it?gearIc(it):gearIcNo(s))+'<span class="gsx"><span class="gsn"><b>'+T('gs.'+s)+'</b>'+(it?'<i style="color:'+rc+'">'+T('gr.'+it.r)+'</i>':'')+'</span><span class="gval'+pp+'">'+(it?gearLine(it,null,h):T('gear.empty'))+'</span></span>'+(it?'<small class="gslv'+pp+'">'+T('lv.short')+' '+l+'</small>':'')+'</button>';}).join('');
+ const top='<div class="gtop"><button id="back" class="act bkar" aria-label="'+T('gear.back')+'">‹</button><span class="gtt"><b>'+T('hd.bag')+'</b><small>'+T('gear.pcs',G.inv.length,GEAR_BAG)+'</small></span><span class="ggold'+(pop?' gpop':'')+'">'+IC('gold')+' '+M.gold+'</span></div>';
+ const hrow='<div class="ghrow"><canvas class="ghpv" data-pv="'+h+'" data-sk="'+(M.skin[h]||'')+'"></canvas><b>'+T('hs.'+h)+'</b><span class="gmins">'+GEAR_SLOTS.map(s=>{const it=gearEq(s,h);
+  return '<button class="gmin'+(s==gearSel?' sel':'')+'" data-gm="'+s+'" style="--rc:'+(it?GEAR_RC[it.r]:'#6a5634')+'" aria-pressed="'+(s==gearSel)+'" aria-label="'+T('gs.'+s)+(it?', '+T('gr.'+it.r)+', '+T('gset.'+it.st)+', ★'+(it.star||1)+', '+T('lv.short')+' '+(it.lv||0):', '+T('gear.empty'))+'">'+(it?gearIc(it):gearIcNo(s))+(it?'<small class="gslv'+(pop==s?' gpop':'')+'">'+(it.lv||0)+'</small>':'')+'</button>';}).join('')+'</span></div>';
+ const chips='<div class="gchips" role="tablist">'+GEAR_SLOTS.map(s=>'<button class="gchip'+(s==gearSel?' on':'')+'" data-gs="'+s+'" role="tab" aria-selected="'+(s==gearSel)+'" aria-label="'+T('gs.'+s)+'">'+GIC('g_'+s)+(s==gearSel?'<span>'+T('gs.'+s)+'</span>':'')+(G.inv.some(x=>x.nw&&x.s==s&&!mine.has(x.id))?'<span class="qdot"></span>':'')+'</button>').join('')+'</div>';
+ const sub='<div class="gsubr"><span class="gbf">'+T('gs.'+gearSel)+' · '+T('gear.strong')+'</span><button class="gsetf" id="gsetf" aria-label="'+T('gear.setF',gearSetF?T('gset.'+gearSetF):T('gear.setAll'))+'"'+(gearSetF?' style="--sc:'+GEAR_SETC[gearSetF]+'"':'')+'>'+(gearSetF?IC('set_'+gearSetF):'')+'<span>'+T('gear.setF',gearSetF?T('gset.'+gearSetF):T('gear.setAll'))+'</span> ▾</button></div>';
  const l=gearLvOf(gearSel,h),c=upgCost(l),mx=l>=GEAR_LVMAX,e=gearEq(gearSel,h),mg=gearMergeOf(gearSel,h);
  const upTxt=mx?T('gear.max'):'<span>'+T('lv.short')+' +1: '+T('gs.'+gearSel)+'</span><small>'+IC('gold')+' '+c+'</small>';
- const det='<div class="gdet">'+(e?'<p><b style="color:'+GEAR_SETC[e.st]+'">'+T('gset.'+e.st)+' '+sn[e.st]+'/4</b> '+gearSetTxt(e.st,sn[e.st])+'</p><p>★'+(e.star||1)+' · '+gearSubTxt(e)+'</p>':'<p>'+T('gs.'+gearSel)+': '+T('gear.empty')+'</p>')+'</div>';
+ const det='<div class="gdet">'+(e?'<p><b>'+T('gs.'+gearSel)+'</b> · <span class="gval'+(pop==gearSel?' gpop':'')+'">'+gearLine(e,null,h)+'</span> · '+T('lv.short')+' '+l+'</p><p><b style="color:'+GEAR_SETC[e.st]+'">'+T('gset.'+e.st)+' '+sn[e.st]+'/4</b> '+gearSetTxt(e.st,sn[e.st])+'</p>':'<p>'+T('gs.'+gearSel)+': '+T('gear.empty')+'</p>')+'</div>';
  const btns='<div class="grow g3"><button class="act" id="gbest"'+(gearBestDiff(h)?'':' disabled')+'>'+T('gear.best')+'</button><button class="act gupb" id="gup" aria-label="'+T('gear.up')+': '+T('gs.'+gearSel)+'"'+(mx||!e||M.gold<c?' disabled':'')+'>'+upTxt+'</button><button class="act" id="gmerge"'+(mg.length>=3?'':' disabled')+'>'+T('gear.merge')+' '+Math.min(3,mg.length)+'/3</button></div>';
  const nav=np>1?'<div class="bxnavr"><button class="act bxnav" id="gpprev" aria-label="'+T('beast.prev')+'">‹</button><span>'+T('beast.page',gearPg+1,np)+'</span><button class="act bxnav" id="gpnext" aria-label="'+T('beast.next')+'">›</button></div>':'';
  const cells=show.map(it=>{const w=gearWornBy(it.id);return '<button class="gcell" data-gi="'+it.id+'" style="--rc:'+GEAR_RC[it.r]+'" aria-label="'+T('gs.'+it.s)+' '+T('gr.'+it.r)+' '+T('gset.'+it.st)+' ★'+(it.star||1)+(w?', '+T('gear.wornBy',HEROES[w].name):'')+'">'+(it.nw?'<span class="qdot"></span>':'')+'<span class="gst">'+'★'.repeat(it.star||1)+'</span><span class="gse">'+IC('set_'+it.st)+'</span>'+gearIc(it)+(it.lv?'<span class="glvb">'+T('lv.short')+' '+it.lv+'</span>':'')+(w?'<canvas class="gwbp" data-pv="'+w+'" data-sk="'+(M.skin[w]||'')+'"></canvas>':'')+'<b>'+gearShort(it,h)+'</b><small>'+T('gsk.'+gearStat(it))+'</small></button>';}).join('');
- const bar='<div class="gbagbar"><span>'+T('gear.bag',G.inv.length,GEAR_BAG)+' · <span class="gbf">'+T('gs.'+gearSel)+'</span></span><span class="ggold'+(pop?' gpop':'')+'">'+IC('gold')+' '+M.gold+'</span></div>';
- openSheet(T('gear.title'),'<div class="gearpg cmp g2"><div class="gL">'+(land?'':head)+'<div class="gcards">'+cards+'</div>'+(land?'':det)+btns+'</div><div class="gR">'+(land?head+det:'')+bar+(bag.length?'<div class="gbag">'+cells+'</div>':'<p class="gnone">'+T('gear.none')+'</p>')+nav+'</div></div>',
-  el=>{gearPrev(el);el.querySelectorAll('[data-gs]').forEach(b=>tapBtn(b,()=>{gearSel=b.dataset.gs;gearRe();}));
+ const bagH=bag.length?'<div class="gbag">'+cells+'</div>':'<p class="gnone">'+(all.length?T('gear.noSetF'):T('gear.none'))+'</p>';
+ openSheet(T('gear.title'),'<div class="gearpg s3"><div class="gL">'+top+hrow+chips+det+btns+'</div><div class="gR">'+sub+bagH+nav+'</div></div>',
+  el=>{const pb=el.querySelector('.pbody');const h1=pb.querySelector(':scope>h1.ph');if(h1)h1.remove();const bks=pb.querySelectorAll('#back');if(bks.length>1)bks[bks.length-1].remove();
+   gearPrev(el);el.querySelectorAll('[data-gs],[data-gm]').forEach(b=>tapBtn(b,()=>{gearSel=b.dataset.gs||b.dataset.gm;gearPg=0;gearRe();}));
    el.querySelectorAll('[data-gi]').forEach(b=>tapBtn(b,()=>showGearCmp(+b.dataset.gi)));
+   tapBtn(document.getElementById('gsetf'),()=>{const o=['',...GEAR_SETS];gearSetF=o[(o.indexOf(gearSetF)+1)%o.length];gearRe(0);});
    tapBtn(document.getElementById('gbest'),()=>{if(gearBest(h)){SND.chest&&SND.chest();gearRe();}});
    tapBtn(document.getElementById('gup'),()=>{if(gearLvUp(gearSel,h)){gearPop=gearSel;SND.lvl&&SND.lvl();gearRe();}});
    tapBtn(document.getElementById('gmerge'),()=>showGearMerge());
-   const sw=d=>{const i=hs.indexOf(h);gearEd=hs[(i+d+hs.length)%hs.length];gearSel='';gearRe(0);};const hp=document.getElementById('ghprev'),hn=document.getElementById('ghnext');if(hp)tapBtn(hp,()=>sw(-1));if(hn)tapBtn(hn,()=>sw(1));
    const a=document.getElementById('gpprev'),z=document.getElementById('gpnext');if(a)tapBtn(a,()=>gearRe(gearPg-1));if(z)tapBtn(z,()=>gearRe(gearPg+1));
    let ch=0;for(const it of show)if(it.nw){delete it.nw;ch=1;}for(const s of GEAR_SLOTS){const it=gearEq(s,h);if(it&&it.nw){delete it.nw;ch=1;}}if(ch)save();
-   gearBackBtn(()=>{const sh=document.getElementById('sheet');if(sh)sh.className='hide';if(TABS[tabI]=='her'&&typeof showHeroes=='function')showHeroes();else renderHome();});});}
+   gearBackBtn(()=>{if(TABS[tabI]=='her'&&typeof showHeroDetail=='function'){showHeroDetail(h);return;} // one step back: bag -> hero detail
+    const sh=document.getElementById('sheet');if(sh)sh.className='hide';renderHome();});});}
 function gearSetAfter(h,it){const n=gearSetN(h),cur=gearEq(it.s,h),a=Object.assign({},n);if(cur&&a[cur.st]!=null)a[cur.st]--;if(a[it.st]!=null)a[it.st]++;return {n,a,cur};}
 function gearSetSum(h,it){const {n,a,cur}=gearSetAfter(h,it),ks=[];if(cur&&!ks.includes(cur.st))ks.push(cur.st);if(!ks.includes(it.st))ks.push(it.st);
  return ks.filter(k=>a[k]!==n[k]).map(k=>{const tb=x=>x>=4?2:x>=2?1:0,b0=tb(n[k]),b1=tb(a[k]);let r=T('gear.becomes',a[k]+'/4'),c='';
@@ -3186,12 +3431,14 @@ function showGearCmp(id){const h=gearEd||gearHid(),it=M.gear.inv.find(x=>x.id===
   const subs=(x.sub||[]).map(k=>{const d=nw&&!(cur&&cur.sub&&cur.sub.includes(k))?1:0;return '<li><span>'+T('gsk.'+k)+'</span><span class="'+cls(d).trim()+'">+'+gPct(GEAR_SUB[k])+'%'+mark(d)+'</span></li>';}).join('');
   return '<div class="gcc" style="--rc:'+GEAR_RC[x.r]+'"><small class="gch">'+lab+'</small>'+gearIc(x)+'<i style="color:'+GEAR_RC[x.r]+'">'+T('gr.'+x.r)+'</i><span class="gcs"><span class="gstr">'+'★'.repeat(x.star||1)+'</span> · <span class="'+cls(dl).trim()+'">'+T('lv.short')+' '+(x.lv||0)+mark(dl)+'</span></span><span class="gcv'+(pop&&x===it?' gpop':'')+cls(dm)+'">'+gearLine(x)+mark(dm)+'</span><ul>'+subs+'<li class="gcset"><span>'+T('gear.setW')+'</span><span style="color:'+GEAR_SETC[x.st]+'">'+IC('set_'+x.st)+' '+T('gset.'+x.st)+'</span></li></ul></div>';};
  const c=upgCost(l),mx=l>=GEAR_LVMAX,other=w&&w!==h,sum=w===h?'':gearSetSum(h,it);
- openSheet(T('gs.'+it.s)+' · '+T('gear.cmpT'),'<div class="gcmp"><div class="gccols">'+col(cur,T('gear.onH',HEROES[h].name.split(' ')[0]),0)+'<span class="gmar">›</span>'+col(it,w===h?T('gear.now'):T('gear.new'),1)+'</div>'+(sum?'<div class="gsum">'+sum+'</div>':'')+
-  (other?'<div class="gwn"><canvas class="gwbp" data-pv="'+w+'" data-sk="'+(M.skin[w]||'')+'"></canvas><span>'+T('gear.takeQ',HEROES[w].name.split(' ')[0],HEROES[h].name.split(' ')[0])+'</span></div>':'')+
-  '<div class="grow"><button class="act gupb" id="gcup"'+(mx||M.gold<c?' disabled':'')+'>'+(mx?T('gear.max'):'<span>'+T('lv.short')+' +1</span><small>'+IC('gold')+' '+c+'</small>')+'</button><button class="act gold gwear" id="gcwear"'+(w===h?' disabled':'')+'>'+(other?T('gear.swap'):T('gear.wear'))+'</button></div><p class="ggold'+(pop?' gpop':'')+'">'+IC('gold')+' '+M.gold+'</p></div>',
-  el=>{gearPrev(el);tapBtn(document.getElementById('gcwear'),()=>{if(gearWear(id,h)){SND.chest&&SND.chest();gearPop=it.s;save();gearRe();}});
-   tapBtn(document.getElementById('gcup'),()=>{if(gearLvUpIt(it)){gearPop=it.s;SND.lvl&&SND.lvl();showGearCmp(id);modalT=performance.now()-GUARD_MS-1;}});
-   gearBackBtn(()=>gearRe());});}
+ showGear();const pb=document.querySelector('#sheet .pbody');if(!pb)return;
+ pb.insertAdjacentHTML('beforeend','<div class="gdim" id="gdim"><div class="gpan" role="dialog" aria-label="'+T('gs.'+it.s)+' · '+T('gear.cmpT')+'"><i class="ggrab" aria-hidden="true"></i><div class="gpt"><b>'+T('gs.'+it.s)+' · '+T('gear.cmpT')+'</b><span class="ggold'+(pop?' gpop':'')+'">'+IC('gold')+' '+M.gold+'</span></div><div class="gcmp"><div class="gccols">'+col(cur,T('gear.onH',T('hs.'+h)),0)+'<span class="gmar">›</span>'+col(it,w===h?T('gear.now'):T('gear.new'),1)+'</div>'+(sum?'<div class="gsum">'+sum+'</div>':'')+
+  (other?'<div class="gwn"><canvas class="gwbp" data-pv="'+w+'" data-sk="'+(M.skin[w]||'')+'"></canvas><span>'+T('gear.takeQ',T('hs.'+w),T('hs.'+h))+'</span></div>':'')+
+  '<div class="grow g3"><button class="act" id="gcback">'+T('gear.back')+'</button><button class="act gupb" id="gcup"'+(mx||M.gold<c?' disabled':'')+'>'+(mx?T('gear.max'):'<span>'+T('lv.short')+' +1</span><small>'+IC('gold')+' '+c+'</small>')+'</button><button class="act gold gwear" id="gcwear"'+(w===h?' disabled':'')+'>'+(other?T('gear.swap'):T('gear.wear'))+'</button></div></div></div></div>');
+ const dim=document.getElementById('gdim');gearPrev(dim);
+ tapBtn(document.getElementById('gcback'),()=>gearRe());dim.addEventListener('click',ev=>{if(ev.target===dim)gearRe();});
+ tapBtn(document.getElementById('gcwear'),()=>{if(gearWear(id,h)){SND.chest&&SND.chest();gearPop=it.s;save();gearRe();}});
+ tapBtn(document.getElementById('gcup'),()=>{if(gearLvUpIt(it)){gearPop=it.s;SND.lvl&&SND.lvl();showGearCmp(id);modalT=performance.now()-GUARD_MS-1;}});}
 // merge confirm: shows the 3 pieces, the result and what is used up; Cancel / back return to the gear screen
 function showGearMerge(){const h=gearEd||gearHid(),a=gearMergeOf(gearSel,h);if(a.length<3){gearRe();return;}const it=a[0],nx=Object.assign({},it,{star:Math.min(GEAR_STARMAX,(it.star||1)+1)});
  openSheet(T('gear.mergeT'),'<div class="gmerge"><div class="gmrow">'+gearIc(it)+gearIc(it)+gearIc(it)+'<span class="gmar">→</span>'+gearIc(nx)+'</div><p class="gmnm"><b style="color:'+GEAR_SETC[it.st]+'">'+T('gset.'+it.st)+'</b> · '+T('gs.'+it.s)+' · '+T('gr.'+it.r)+' · ★'+(it.star||1)+' → ★'+nx.star+'</p><p class="gmv">'+gearLine(it)+' → <b>'+gearLine(nx)+'</b></p><p>'+T('gear.mergeQ',nx.star)+'</p><div class="grow"><button class="act" id="gmno">'+T('gear.no')+'</button><button class="act" id="gmyes">'+T('gear.merge')+'</button></div></div>',
@@ -3373,6 +3620,15 @@ Object.assign(STRINGS.en,{"hero.barbarian": "Brakk the Barbarian", "q.winBarb": 
 Object.assign(STRINGS.nl,{"hero.barbarian": "Brakk de Barbaar", "q.winBarb": "Win een potje met Brakk", "skin.ember": "Gloed-Brakk", "skin.frostfur": "IJsvacht-Brakk", "skin.nightwolf": "Nachtwolf-Brakk", "ach.n.brakk": "Vriend van Brakk", "ach.d.brakk": "Speel {0} potjes met Brakk", "ach.t.brakk": "Vriend van Brakk", "tut.3": "De <b>Magische Bron</b> van je held vult zich terwijl je speelt. Gloeit hij, tik dan op <b>ULT</b> voor een grote aanval op monsters."});
 Object.assign(STRINGS.de,{"hero.barbarian": "Brakk der Barbar", "q.winBarb": "Gewinne eine Runde mit Brakk", "skin.ember": "Glut-Brakk", "skin.frostfur": "Frostpelz-Brakk", "skin.nightwolf": "Nachtwolf-Brakk", "ach.n.brakk": "Brakks Freund", "ach.d.brakk": "Spiele {0} Runden mit Brakk", "ach.t.brakk": "Brakks Freund", "tut.3": "Die <b>Magische Quelle</b> deines Helden füllt sich beim Spielen. Leuchtet sie, tippe auf <b>ULT</b> für einen großen Angriff auf Monster."});
 Object.assign(STRINGS.fr,{"hero.barbarian": "Brakk le Barbare", "q.winBarb": "Gagne une partie avec Brakk", "skin.ember": "Brakk des braises", "skin.frostfur": "Brakk fourrure de givre", "skin.nightwolf": "Brakk loup de nuit", "ach.n.brakk": "Ami de Brakk", "ach.d.brakk": "Joue {0} parties avec Brakk", "ach.t.brakk": "Ami de Brakk", "tut.3": "La <b>Source magique</b> de ton héros se remplit en jouant. Quand elle brille, touche <b>ULT</b> pour une grosse attaque sur les monstres."});
+// 0.4.0c2 hero menu strings
+Object.assign(STRINGS.en,{"hs.witch": "Pip", "hs.barbarian": "Brakk", "hs.wizard": "Wizard", "hs.elf": "Elf", "hk.tip": "<b>New:</b> every hero now has own gear. Tap a hero.", "hk.close": "Close", "hk.new": "New", "hk.runs": "Hero path: {0} runs", "hk.better": "better gear in the bag", "hd.tGear": "Gear", "hd.tSkills": "Skills", "hd.tPath": "Hero path", "hd.tSkins": "Skins", "hd.pick": "Pick {0}", "hd.bag": "Bag", "hd.hp": "Health", "hd.dmg": "Damage", "hd.cd": "Cooldown", "hd.crit": "Crit", "hd.fromGear": "gear", "hd.noSet": "No set yet", "hd.wep": "Start weapon", "hd.evo": "Evolves into {0}", "hd.src": "Magic source", "hd.star": "Star", "hd.lockT": "Locked", "gear.pcs": "{0}/{1} pieces", "gear.setF": "Set: {0}", "gear.setAll": "all", "gear.noSetF": "No pieces of this set."});
+Object.assign(STRINGS.nl,{"hs.witch": "Pip", "hs.barbarian": "Brakk", "hs.wizard": "Tovenaar", "hs.elf": "Elf", "hk.tip": "<b>Nieuw:</b> elke held heeft nu eigen uitrusting. Tik op een held.", "hk.close": "Sluiten", "hk.new": "Nieuw", "hk.runs": "Heldenpad: {0} potjes", "hk.better": "betere uitrusting in de tas", "hd.tGear": "Uitrusting", "hd.tSkills": "Vaardigheden", "hd.tPath": "Heldenpad", "hd.tSkins": "Skins", "hd.pick": "Kies {0}", "hd.bag": "Tas", "hd.hp": "Leven", "hd.dmg": "Schade", "hd.cd": "Afkoeling", "hd.crit": "Voltreffer", "hd.fromGear": "uitrusting", "hd.noSet": "Nog geen set", "hd.wep": "Startwapen", "hd.evo": "Wordt {0}", "hd.src": "Magische bron", "hd.star": "Ster", "hd.lockT": "Op slot", "gear.pcs": "{0}/{1} stukken", "gear.setF": "Set: {0}", "gear.setAll": "alle", "gear.noSetF": "Geen stukken van deze set."});
+Object.assign(STRINGS.de,{"hs.witch": "Pip", "hs.barbarian": "Brakk", "hs.wizard": "Zauberer", "hs.elf": "Elfe", "hk.tip": "<b>Neu:</b> Jeder Held hat jetzt eigene Ausrüstung. Tippe auf einen Helden.", "hk.close": "Schließen", "hk.new": "Neu", "hk.runs": "Heldenpfad: {0} Läufe", "hk.better": "bessere Ausrüstung in der Tasche", "hd.tGear": "Ausrüstung", "hd.tSkills": "Fähigkeiten", "hd.tPath": "Heldenpfad", "hd.tSkins": "Skins", "hd.pick": "{0} wählen", "hd.bag": "Tasche", "hd.hp": "Leben", "hd.dmg": "Schaden", "hd.cd": "Abklingen", "hd.crit": "Krit", "hd.fromGear": "Ausrüstung", "hd.noSet": "Noch kein Set", "hd.wep": "Startwaffe", "hd.evo": "Wird zu {0}", "hd.src": "Magiequelle", "hd.star": "Stern", "hd.lockT": "Gesperrt", "gear.pcs": "{0}/{1} Teile", "gear.setF": "Set: {0}", "gear.setAll": "alle", "gear.noSetF": "Keine Teile dieses Sets."});
+Object.assign(STRINGS.fr,{"hs.witch": "Pip", "hs.barbarian": "Brakk", "hs.wizard": "Sorcier", "hs.elf": "Elfe", "hk.tip": "<b>Nouveau :</b> chaque héros a son propre équipement. Touche un héros.", "hk.close": "Fermer", "hk.new": "Nouveau", "hk.runs": "Parcours : {0} parties", "hk.better": "meilleur équipement dans le sac", "hd.tGear": "Équipement", "hd.tSkills": "Talents", "hd.tPath": "Parcours", "hd.tSkins": "Tenues", "hd.pick": "Choisir {0}", "hd.bag": "Sac", "hd.hp": "Vie", "hd.dmg": "Dégâts", "hd.cd": "Recharge", "hd.crit": "Critique", "hd.fromGear": "équipement", "hd.noSet": "Pas encore de set", "hd.wep": "Arme de départ", "hd.evo": "Devient {0}", "hd.src": "Source magique", "hd.star": "Étoile", "hd.lockT": "Verrouillé", "gear.pcs": "{0}/{1} pièces", "gear.setF": "Set : {0}", "gear.setAll": "tous", "gear.noSetF": "Aucune pièce de ce set."});
+Object.assign(STRINGS.en,{"hmt.old": "<b>New:</b> every hero now has own gear.", "hmt.tap": "Tap a hero to see their gear.", "hmt.slots": "Every hero has 4 own slots. A piece is on one hero at a time.", "hmt.bag": "Bag and compare: green <b class=\"hmup\">▲</b> is better, lilac <b class=\"hmdn\">▼</b> is lower. Sets give a bonus. The level travels with the piece.", "hmt.best": "<b>Best</b> fills the current hero with the strongest pieces.", "hmt.next": "Next", "hmt.done": "Got it", "hmt.help": "Hero menu tour", "hmt.n": "{0}/{1}"}); // 0.4.0c2 hero menu tutorial
+Object.assign(STRINGS.nl,{"hmt.old": "<b>Nieuw:</b> elke held heeft nu eigen uitrusting.", "hmt.tap": "Tik op een held om zijn uitrusting te zien.", "hmt.slots": "Elke held heeft 4 eigen vakken. Een stuk zit op één held tegelijk.", "hmt.bag": "Tas en vergelijken: groen <b class=\"hmup\">▲</b> is beter, lila <b class=\"hmdn\">▼</b> is lager. Sets geven een bonus. Het level gaat mee met het stuk.", "hmt.best": "<b>Beste</b> vult de huidige held met de sterkste stukken.", "hmt.next": "Verder", "hmt.done": "Begrepen", "hmt.help": "Uitleg heldenmenu", "hmt.n": "{0}/{1}"}); // 0.4.0c2 hero menu tutorial
+Object.assign(STRINGS.de,{"hmt.old": "<b>Neu:</b> Jeder Held hat jetzt eigene Ausrüstung.", "hmt.tap": "Tippe auf einen Helden, um seine Ausrüstung zu sehen.", "hmt.slots": "Jeder Held hat 4 eigene Plätze. Ein Teil trägt immer nur ein Held.", "hmt.bag": "Tasche und Vergleich: grün <b class=\"hmup\">▲</b> ist besser, lila <b class=\"hmdn\">▼</b> ist niedriger. Sets geben einen Bonus. Die Stufe wandert mit dem Teil.", "hmt.best": "<b>Beste</b> rüstet den aktuellen Helden mit den stärksten Teilen aus.", "hmt.next": "Weiter", "hmt.done": "Verstanden", "hmt.help": "Heldenmenü-Tour", "hmt.n": "{0}/{1}"}); // 0.4.0c2 hero menu tutorial
+Object.assign(STRINGS.fr,{"hmt.old": "<b>Nouveau :</b> chaque héros a son propre équipement.", "hmt.tap": "Touche un héros pour voir son équipement.", "hmt.slots": "Chaque héros a 4 emplacements à lui. Une pièce ne va que sur un héros à la fois.", "hmt.bag": "Sac et comparaison : <b class=\"hmup\">▲</b> vert = mieux, <b class=\"hmdn\">▼</b> lilas = moins. Les sets donnent un bonus. Le niveau suit la pièce.", "hmt.best": "<b>Meilleur</b> équipe le héros actuel avec les pièces les plus fortes.", "hmt.next": "Suivant", "hmt.done": "Compris", "hmt.help": "Visite du menu héros", "hmt.n": "{0}/{1}"}); // 0.4.0c2 hero menu tutorial
 const LANGS=['en','nl','de','fr'];
 /* ===== 0.3.8b: no shop (ads-only for now). Gems are earn-only; the 6 gem skins unlock in the Heroes tab (buyGemSkin). The old mock shop lives in git (0.3.8a, b47cf3d). ===== */
 function bossGemAward(){const d=dayKey(),G=M.gemDay&&M.gemDay.d==d?M.gemDay:(M.gemDay={d,n:0});if(G.n>=GEMSHOP.earn.bossCap)return 0;const g=gemGrant(GEMSHOP.earn.boss,'boss');if(g>0)G.n++;return g;}
@@ -3459,6 +3715,7 @@ document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest
  e.preventDefault();e.stopPropagation();hubTip(t,txt);window.__lockTip=txt;},true);
 {const cb=document.getElementById('cauld');if(cb){cb.addEventListener('pointerdown',e=>e.stopPropagation());cb.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openCauldron();});}}
 addEventListener('keydown',e=>{if(S&&S.state=='play'&&(e.key=='c'||e.key=='C'||e.key==' '))openCauldron();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!S&&!INTRO&&document.body.classList.contains('inlobby'))backAct();}); // 0.4.0c2: Esc in the lobby = one step back
 // big canvas text that never runs past the arena: shrink a little, then wrap into two lines
 function bigText(t,x,y,px,maxW){ctx.font='bold '+px+'px '+FS;let lines=[t];if(ctx.measureText(t).width>maxW){const k=Math.max(.8,maxW/ctx.measureText(t).width);px=Math.round(px*k);ctx.font='bold '+px+'px '+FS;
   if(ctx.measureText(t).width>maxW){const w=t.split(' ');let best=null;for(let i=1;i<w.length;i++){const a=w.slice(0,i).join(' '),b=w.slice(i).join(' '),m=Math.max(ctx.measureText(a).width,ctx.measureText(b).width);if(!best||m<best[2])best=[a,b,m];}if(best)lines=[best[0],best[1]];}}
@@ -3524,8 +3781,9 @@ function saveRepair(){const bad=saveBadRaw();if(!bad)return {ok:0,why:'none'};
 function showRepair(){openSheet2(T('rep.title'),'<div class="fbbox" id="repbox"><p>'+T('rep.ask')+'</p><div class="row"><button class="act" id="repyes">'+T('rep.yes')+'</button><button class="act" id="repno">'+T('age.cancel')+'</button></div></div>');
  const on=(id,f)=>{const b=document.getElementById(id);if(b)tapBtn(b,f);};on('repno',showStats);
  on('repyes',()=>{const r=saveRepair();window.__repair=r;if(r.ok){showHub();}openSheet2(T('rep.title'),'<div class="fbbox" id="repbox"><p id="repmsg">'+T(r.ok?'rep.ok':'rep.fail')+'</p></div>');});}
-function showTips(){const ks=UNLOCKS.filter(([k,l])=>l<=(M.plv||1)).map(([k])=>k);screen('stats',T('set.tips'),'<p><small>'+T('set.tipsSub')+'</small></p><div class="tipgrid">'+ks.map(k=>'<button class="act" data-tip="'+k+'">'+T('unl.'+k)+'</button>').join('')+'</div>');
- document.querySelectorAll('[data-tip]').forEach(b=>tapBtn(b,()=>{document.getElementById('sheet').className='hide';const k=b.dataset.tip,tb={upg:1,passives:1,luck:1};spotlight(k);}));}
+function showTips(){const ks=UNLOCKS.filter(([k,l])=>l<=(M.plv||1)).map(([k])=>k);screen('stats',T('set.tips'),'<p><small>'+T('set.tipsSub')+'</small></p><div class="tipgrid">'+(gearOn()&&unl('heroes')?'<button class="act" id="s_hmt">'+T('hmt.help')+'</button>':'')+ks.map(k=>'<button class="act" data-tip="'+k+'">'+T('unl.'+k)+'</button>').join('')+'</div>');
+ document.querySelectorAll('[data-tip]').forEach(b=>tapBtn(b,()=>{document.getElementById('sheet').className='hide';const k=b.dataset.tip,tb={upg:1,passives:1,luck:1};spotlight(k);}));
+ {const b=document.getElementById('s_hmt');if(b)tapBtn(b,()=>{document.getElementById('sheet').className='hide';hmtStart(1);});}}
 function showStatList(){const s=M.stats;screen('stats',T('stats.title'),'<div class="odds" style="font-size:16px;line-height:1.6">'+T('lvl.player',M.plv||1)+'<br>'+T('stats.games')+': '+M.games+'<br>'+T('stats.best')+': '+fmt(s.best)+'<br>'+T('stats.bosses')+': '+s.bosses+'<br>'+T('stats.kills')+': '+s.kills+'<br>'+T('stats.gold')+': '+s.goldEarned+'<br>'+T('stats.chests')+': '+s.chests+'</div>'+
  '<h2>'+T('stats.miles')+'</h2>'+MILESTONES.map(([k,n,g])=>'<div class="li'+(M.miles[k+n]?'':' dim')+'"><div class="g">'+mileName(k,n)+'</div><span class="gem">'+IC('gem')+' '+g+(M.miles[k+n]?' ✓':'')+'</span></div>').join(''));}
 // pause (app hidden / backgrounded)
@@ -3539,12 +3797,14 @@ function pauseBox(){markModal();ov.innerHTML='<div class="box" id="pausebox"><h1
 function backVis(id){const e=document.getElementById(id);return e&&(e.offsetParent!==null||getComputedStyle(e).position=='fixed')?e:null;}
 function backAct(){try{
  if(INTRO){INTRO.skip();return 'intro';}
+ if(hmtOn){hmtEnd();return 'hmt';} // 0.4.0c2: back skips the hero menu tutorial
  if(document.getElementById('adph'))return 'ad';
  if(document.getElementById('bcardov')){closeBossCard();return 'card';}
- for(const id of ['bkno','pdelno','pagno','repno','fspok','lifeno']){const e=backVis(id);if(e){e.click();return id;}}
+ for(const id of ['bkno','pdelno','pagno','repno','fspok','lifeno','gcback','gmno']){const e=backVis(id);if(e){e.click();return id;}}
  if(S){if(backVis('stopask')){backStopNo();return 'resume';}if(backVis('pauseconf')){pauseBox();return 'pausebox';}
   if(S.state=='play'){pauseGame();stopAsk();return 'stopask';}if(S.state=='pause'&&backVis('pausebox')){stopAsk();return 'stopask';}return 'none';}
  const sh=document.getElementById('sheet');if(sh&&sh.className!='hide'){const bk=sh.querySelector('#back');if(bk){bk.click();return 'sheet';}}
+ if(document.body.classList.contains('inlobby')&&TABS[tabI]=='her'&&!(ov&&ov.className==''&&ov.querySelector('.box'))){go(TABS.indexOf('home'));return 'grid';} // 0.4.0c2: hero grid -> Village
  return 'none';}catch(e){window.__backErr=String(e);return 'err';}}
 function stopAsk(){markModal();ov.innerHTML='<div class="box" id="stopask" role="dialog"><h1>'+T('back.stop')+'</h1><p>'+T('back.sub')+'</p><div class="row"><button id="stopno">'+T('back.no')+'</button><button id="stopyes" class="act">'+T('back.yes')+'</button></div></div>';ov.className='';
  tapBtn(document.getElementById('stopyes'),()=>{if(AC&&AC.state=='suspended')AC.resume();S=null;showHub();});tapBtn(document.getElementById('stopno'),backStopNo);}
