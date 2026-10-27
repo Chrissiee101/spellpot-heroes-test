@@ -1186,7 +1186,22 @@ body.hmton .htip{display:none}
 .bmfoot #bm_go{flex-direction:row;flex-wrap:wrap;gap:4px 6px}
 .fxpair{display:flex;gap:8px}.fxpair>div{flex:1;min-width:0}.fxpair h2{font-size:15px}
 </style>
-</head><body>
+<style id="v040h">
+/* 0.4.0h B2: landscape phones: the rank card is one line (as on short portrait phones), so it never runs into the hero name */
+@media (orientation:landscape) and (max-height:400px){#pg_home .plvbar{flex-wrap:nowrap}#pg_home .plvbar small:not(.plvnext){display:none}#pg_home .plvbar .qbar{min-width:70px}#pg_home .plvbar .plvnext{flex:0 1 auto;max-width:62%;flex-basis:auto;min-width:0;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#pg_home .plvbar .pnl{display:none}#pg_home .plvbar .pnr::before{content:'› '}}
+/* B3 + B12: the icon fills its frame; the hero card shows the hero */
+.cfx3 .c3ic .ric{display:flex;align-items:center;justify-content:center;width:100%;height:100%}.cfx3 .c3ic .ric>svg,.cfx3 .c3ic .ric>.ic{width:64%;height:64%}
+.cfx3 .c3ic img.c3hero{width:100%;height:100%;object-fit:contain;border-radius:12px}.cfx3 .c3hf .c3ic{width:clamp(84px,15vh,120px);height:clamp(84px,15vh,120px)}.cfx3 .c3hs{font-size:14px;color:#f2e8d0}
+/* B6: tab labels keep 4px air; the New badge sits centred and fits the tab */
+#lobby #tabs .tab{padding-left:1px;padding-right:1px;letter-spacing:-.5px}#tabs{padding-left:6px;padding-right:6px}#tabs .tab .nbadge{padding:0 4px;letter-spacing:-.2px}
+/* B7 */
+.q3wkt .q3wkr{display:flex;gap:6px;min-width:0;max-width:100%}.q3wkt .q3wkn{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.q3wkt .q3wks{flex:none;white-space:nowrap}
+/* B10 */
+.gupb span,.gupb small{white-space:nowrap}
+/* B11: Craft looks off when you can't craft yet (text contrast stays high) */
+.wsmk[aria-disabled=true]{background:#3a3640!important;border-color:#6e6874!important;color:#ebe7ee!important;filter:none}.wsmk[aria-disabled=true] .ic{filter:grayscale(1)}
+.wsmsg{margin:4px 0 0;font-size:14px;color:#ffe2b0;text-align:center;grid-column:2}
+</style></head><body>
 <div id="boot" aria-live="polite"><div class="bootin"><div class="bootpot"><i></i><i></i><i></i></div><b>Spellpot Heroes</b><small id="boottx">Loading…</small></div></div>
 <script>try{var bl=((JSON.parse(localStorage.getItem('sph_save')||'{}')||{}).lang||(navigator.language||'en')).slice(0,2);document.getElementById('boottx').textContent={nl:'Laden…',de:'Wird geladen…',fr:'Chargement…'}[bl]||'Loading…';}catch(e){}</script>
 <canvas id="c"></canvas>
@@ -1767,7 +1782,7 @@ function stars5(n){return '<span class="bmstars" aria-label="★'+n+'"><b>'+'★
 function showFeed(tid){const t=M.gear.inv.find(x=>x.id===tid);if(!t){showSell();return;}fdT=t.id;const L=fdPicked(t),x=L.reduce((a,y)=>a+gearFeedXp(y),0),sim=gearXpSim(t,x),l0=t.lv||0,mx=gearLvMax(t),need=l0<mx?gearLvNeed(l0):0,cost=gearFeedCost(L),w=gearWornBy(t.id);
  const R=gearStarRoutes(t),ex=new Set(L.map(y=>y.id));if(R){const rp=gearRaidPool(t).filter(y=>!ex.has(y.id)),fp=gearFusePool(t).filter(y=>!ex.has(y.id));R.raid=rp.slice(0,R.n);R.fuse=fp.slice(0,2);R.ok={raid:R.raid.length==R.n,fuse:R.fuse.length==2};R.best=R.ok.raid&&R.ok.fuse?(R.fuse.reduce((a,y)=>a+gearSellV(y),0)<R.raid.reduce((a,y)=>a+gearSellV(y),0)?'fuse':'raid'):R.ok.fuse?'fuse':R.ok.raid?'raid':'';}
  const route=R?(fdRoute&&R.ok[fdRoute]?fdRoute:R.best):'',up=sim.lv>l0,pct=need?Math.min(100,100*(t.xp||0)/need):100,pct2=need?(up?100:Math.min(100,100*((t.xp||0)+x)/need)):100;
- const head='<div class="fdt"><span class="fdic">'+gearIc(t)+(w?'<canvas class="bmw" data-pv="'+w+'" data-sk="'+(M.skin[w]||'')+'"></canvas>':'')+'</span><div class="fdtx"><b style="color:'+GEAR_RC[t.r]+'">'+T('gs.'+t.s)+' · '+T('gr.'+t.r)+'</b>'+stars5(t.star||1)+'<span class="fdv">'+gearLine(t)+(up?' → <em class="gup">+'+gPct(gearVal(t,sim.lv))+'% ▲</em>':'')+'</span><small>'+IC('set_'+t.st)+' '+T('c3c.setN',T('gset.'+t.st))+(w?' · '+T('c3c.onH',T('hs.'+w)):'')+(t.sig?' · '+T('c3c.sig'):'')+'</small></div></div>';
+ const head='<div class="fdt"><span class="fdic">'+gearIc(t)+(w?'<canvas class="bmw" data-pv="'+w+'" data-sk="'+(M.skin[w]||'')+'"></canvas>':'')+'</span><div class="fdtx"><b style="color:'+GEAR_RC[t.r]+'">'+T('gs.'+t.s)+' · '+T('gr.'+t.r)+'</b>'+stars5(t.star||1)+'<span class="fdv">'+gearLine(t)+(up?' → <em class="gup">'+gSg(gearStat(t))+gPct(gearVal(t,sim.lv))+'% ▲</em>':'')+'</span><small>'+IC('set_'+t.st)+' '+T('c3c.setN',T('gset.'+t.st))+(w?' · '+T('c3c.onH',T('hs.'+w)):'')+(t.sig?' · '+T('c3c.sig'):'')+'</small></div></div>';
  const lvl='<div class="fdl"><div class="fdlr"><b>'+T('lv.short')+' '+l0+(up?' → <em class="gup">'+T('lv.short')+' '+sim.lv+' ▲</em>':'')+'</b><span>'+T('c3c.maxAt',T('lv.short')+' '+mx,'★'.repeat(t.star||1))+'</span></div><i class="fdbar"><i class="fdb2" style="width:'+pct2+'%"></i><i class="fdb1" style="width:'+pct+'%"></i></i><div class="fdlr"><small>'+(need?T('c3c.xp',t.xp||0,need):T('c3c.lvMax'))+'</small><small class="fdadd">'+(x?T('c3c.xpAdd',x):'')+'</small></div></div>';
  const slots='<div class="fdhd"><b>'+T('c3c.offer')+'</b><button class="bmlink" id="fd_auto"'+(l0>=mx?' disabled':'')+'>'+T('c3c.auto',T('gr.'+fdRar))+'</button></div><div class="fds">'+[0,1,2,3,4].map(i=>L[i]?bmCell(L[i],{k:'fx',xp:gearFeedXp(L[i])}):'<button class="bmc fde" data-fe="'+i+'" aria-label="'+T('c3c.pickT')+'"'+(l0>=mx?' disabled':'')+'>+</button>').join('')+'</div>';
  let star='';if(!R)star='<div class="fdst"><b>'+IC('star')+' '+(t.sk&&(t.star||1)<GEAR_STARMAX?T('ws.starWs',T('dust.'+t.sig)):T('c3c.starMax'))+'</b></div>';else{const rn=R.raid.length,fn=R.fuse.length,miss=R.n-rn,mxl=T('lv.short')+' '+R.mx0+' → '+R.mx1;
@@ -2286,16 +2301,18 @@ const CFX_T={drop:.42,shake:1.0,burst:1.42,cards:1.9};
 // In the bag / Wear on <hero>. At most 1 bright moment per 0.33 s (never more than 3 per second), no red, only the chest moves (no screen shake),
 // tap = fast-forward, Skip = straight to the summary. Canvas = chest + light only; cards are CSS transforms (GPU) for 60 fps on phones.
 const CFX3={drop:.42,shake:1.38,pop:1.38,rise:.3,flip:.5,charge:.6};
+// 0.4.0h B3: hero portrait for the chest card (same drawing as the Heroes tab, cached)
+const HEROIMGC={};function heroImg(h){if(HEROIMGC[h])return HEROIMGC[h];const c=document.createElement('canvas');try{heroPreview(c,h,'',false);}catch(e){}return HEROIMGC[h]=c.toDataURL();}
 function cfx3Main(items){const g=items.filter(x=>x.k=='gear');if(g.length)return g;const p=items.find(x=>x.k=='hero')||items.find(x=>x.k=='shards')||items[0];return p?[p]:[];}
 function cfx3Col(x,t){return x.k=='gear'?GEAR_RC[x.g.r]:RAR_COL[itemRar(x,t)];}
 function cfx3Piece(x){return x.k=='gear'?(M.gear.inv.find(o=>o.id===x.id)||gearOvf().find(o=>o.id===x.id)||Object.assign({star:1},x.g)):null;}
 function cfx3Front(x,t,h){const col=cfx3Col(x,t);
- if(x.k!='gear')return '<div class="c3f"><span class="c3ic" style="--rc:'+col+'"><span class="ric" style="color:'+itemCol(x)+'">'+itemIco(x)+'</span></span><b class="c3nm">'+itemText(x)+'</b><div class="c3chips"><span class="c3chip" style="color:'+col+';border-color:'+col+'">'+T('rar.'+itemRar(x,t))+'</span>'+(x.guar?'<span class="c3chip">'+T('chests.guarS')+'</span>':'')+'</div></div>';
+ if(x.k!='gear')return '<div class="c3f'+(x.k=='hero'?' c3hf':'')+'"><span class="c3ic" style="--rc:'+col+'">'+(x.k=='hero'&&HEROES[x.h]?'<img class="c3hero" alt="" src="'+heroImg(x.h)+'">':'<span class="ric" style="color:'+itemCol(x)+'">'+itemIco(x)+'</span>')+'</span>'+(x.k=='hero'&&HEROES[x.h]?'<b class="c3nm c3hn">'+HEROES[x.h].name+'</b><small class="c3hs">'+T('c3h.unl')+'</small>':'<b class="c3nm">'+itemText(x)+'</b>')+'<div class="c3chips"><span class="c3chip" style="color:'+col+';border-color:'+col+'">'+T('rar.'+itemRar(x,t))+'</span>'+(x.guar?'<span class="c3chip">'+T('chests.guarS')+'</span>':'')+'</div></div>';
  if(x.sold)return '<div class="c3f"><span class="c3ic" style="--rc:'+col+'">'+IC('gold')+'</span><b class="c3nm">'+T('gear.full',x.sold)+'</b></div>';
  const o=cfx3Piece(x),inBag=M.gear.inv.some(q=>q.id===x.id),cur=gearEq(o.s,h),same=cur&&cur.id!==o.id&&gearStat(cur)==gearStat(o);
  const subs=(o.sub||[]).map(k=>T('gst.'+k,gPct(GEAR_SUB[k]))).join(' · ');
  let cmp='';if(inBag&&!x.on){const sn=gearSetN(h)[o.st]||0,sa=sn+((!cur||cur.st!==o.st)?1:0);
-  const d=same?gearVal(o)-gearVal(cur):null,dv=d==null?'':(d>1e-9?'<b class="c3up">+'+gPct(d)+'% ▲</b>':d<-1e-9?'<b class="c3dn">'+gPct(d)+'% ▼</b>':'<b>=</b>');
+  const d=same?gearVal(o)-gearVal(cur):null,dv=d==null?'':(d>1e-9?'<b class="c3up">'+gSg(gearStat(o))+gPct(d)+'% ▲</b>':d<-1e-9?'<b class="c3dn">'+(gearStat(o)=='cd'?'+':'−')+gPct(-d)+'% ▼</b>':'<b>=</b>');
   cmp='<div class="c3cmp" id="c3cmp"><div><span>'+(cur?T('c3.wearsNow',T('hs.'+h),gearLine(cur)):T('c3.wearsNone',T('hs.'+h)))+'</span>'+dv+'</div>'+(GEAR_SETS.includes(o.st)?'<div><span>'+IC('set_'+o.st)+' '+T('c3.setOn',T('gset.'+o.st),T('hs.'+h))+'</span><b class="'+(sa>sn?'c3up':'')+'">'+sn+'/4'+(sa>sn?' → '+sa+'/4 ▲':'')+'</b></div>':'')+'</div>';}
  else if(x.on)cmp='<div class="c3cmp"><div><span>'+T('c3.wornBy',T('hs.'+h))+'</span><b class="c3up">✓</b></div></div>';
  else if(x.ovf)cmp='<div class="c3cmp ovf"><div><span>'+T('c3.ovfSafe',x.ovf,GEAR_OVF)+'</span></div></div>';
@@ -3322,6 +3339,42 @@ function starSteer(b,dt){const H=BALANCE.starHome;b.hm-=dt;let t=b.tg;if(t&&(t.h
 function nearest(from,maxD,skip,aim){const rg=aim&&M.rangeOn!==0;
  // aimed weapons prefer the Toad King when he is within the normal aim range (no range extension)
  const bo=S.boss;if(aim&&bo&&bo.hp>0&&!(bo.introT>0)&&!(skip&&skip.includes(bo))&&dist(bo,from)<=Math.min(maxD||1e9,aimRange())&&(rg||inView(bo,90)))return bo;let n=null,bd=maxD||1e9;if(rg)bd=Math.min(bd,aimRange());for(const e of S.en){if(e.hp<=0||(skip&&skip.includes(e))||(e.boss&&e.introT>0)||offScr(e))continue;if(!rg&&!inView(e,90))continue;const d=dist(e,from);if(d<bd){bd=d;n=e}}return n;}
+// 0.4.0h attack animation: every attack plays wind-up -> impact -> follow-through. The phase u (0..1, impact at ATK_IMP) is driven by the weapon timers:
+// the wind-up starts before the next shot so the impact frame is the frame the shot fires; the follow-through blends back into idle / walk;
+// the cycle is scaled to the attack interval, so faster attacks loop faster instead of being cut off. Gameplay (cooldowns, damage, hit timing) is unchanged.
+const ATK_IMP=.35,ATK_CU=.06;
+const ATKC={witch:{w:.14,r:.24},barbarian:{w:.16,r:.26},wizard:{w:.16,r:.3},elf:{w:.16,r:.22}};
+const ATKW={wizard:{orb:1,meteor:1,arcchain:1,frostrune:1},elf:{arrow:1,rootsnare:1,gale:1}},ATK_FREE={axe:1,nova:1};
+function atkIsW(h,k){if(k=='orbit'||k=='trail')return false;if(h=='witch'||h=='barbarian')return true;return !!(ATKW[h]&&ATKW[h][k]);}
+function atkTau(h,b,armed){let t=Infinity;for(const k in b.wep){if(!atkIsW(h,k))continue;const c=b.wep[k].cd;if(c>0&&(armed||ATK_FREE[k]))t=Math.min(t,c);}return t;}
+function atkUpd(p,b,cd0,dt){const h=S.hero.id,C=ATKC[h];if(!C||!(dt>0))return;const A=ATK_IMP,a=p.atk||(p.atk={u:0,I:0,dr:0,T:0,ant:0,hold:0,n:0,ct:0,fu:[],at:-9});
+ let fired=false;for(const k in b.wep)if(atkIsW(h,k)&&b.wep[k].cd>cd0[k]+.001){fired=true;break;}
+ if((h=='wizard'||h=='elf')&&(p.castT||0)>a.ct+.001)fired=true;a.ct=p.castT||0;
+ if(nearest(p,0,null,true))a.at=S.t;const tau=atkTau(h,b,S.t-a.at<.25),rem=u=>u<A?A-u:1-u+A;
+ if(fired){a.n++;a.I=isFinite(tau)?tau:0;a.hold=0;
+  if(a.u<A){if(a.dr&&a.ant||A-a.u<.03){a.u=A;a.dr=0;}else{a.dr=1;a.ant=0;a.T=ATK_CU;}}
+  else if(!a.dr&&(a.u-A)/(1-A)>.3){a.dr=1;a.ant=0;a.T=ATK_CU;}}
+ const I=a.I>0?a.I:Infinity,W=Math.min(C.w,.4*I);
+ if(!a.dr&&!fired&&isFinite(tau)&&tau<=W&&tau>=rem(a.u)/14&&(a.u<A||a.u>=A+.02)){a.dr=1;a.ant=1;} // wind-up (or chain from the follow-through) towards the next shot
+ if(a.dr&&!(fired&&a.u==A)){if(a.ant){if(!isFinite(tau)){a.dr=0;}else a.T=tau;}
+  if(a.dr){const r=rem(a.u),st=r*Math.min(1,dt/Math.max(a.T,1e-4));let u=a.u+st;if(!a.ant)a.T-=dt;
+   if(st>=r-1e-6){u=a.ant?A-.004:A;if(!a.ant)a.dr=0;}if(u>=1)u-=1;a.u=u;}}
+ else if(a.u>=A&&!fired){const R=Math.min(C.r,.6*I),r=(1-a.u)/(1-A)*R;if(r<=dt||1-a.u<1e-3)a.u=0;else a.u+=(1-a.u)*dt/r;}
+ if(!a.dr&&a.u>0&&a.u<A&&!fired){a.hold+=dt;if(a.hold>.12)a.u=Math.max(0,a.u-dt*A/.2);}else if(a.dr||fired)a.hold=0;
+ p.au=a.u;if(TESTB&&window.__atkLog)__atkLog.push([S.t,a.u,fired?1:0,isFinite(tau)?1:0,a.dr&&a.ant?1:0]);}
+function atkEz(k){return k*k*(3-2*k);}
+// pose value at phase u: b = idle/walk value, W = wind-up, I = impact (the old cast pose), F = follow-through; back to b at u = 1
+function atkMix(u,b,W,I,F){const A=ATK_IMP;if(!(u>0)||u>=1)return b;if(u<A*.65)return b+(W-b)*atkEz(u/(A*.65));if(u<A)return W+(I-W)*atkEz((u-A*.65)/(A*.35));const q=(u-A)/(1-A);if(q<.4)return I+(F-I)*atkEz(q/.4);return F+(b-F)*atkEz((q-.4)/.6);}
+function atkU(p,ps){if(p.pose)return p.pose=='cast'?(p.au!=null?p.au:ATK_IMP):0;if(ps=='hit'||ps=='ult')return 0;return p.au>0?p.au:0;}
+function atkPoly(R,Cp,k){const P=R.map((v,i)=>v+(Cp[i]-v)*k);ctx.beginPath();ctx.moveTo(P[0],P[1]);ctx.quadraticCurveTo(P[2],P[3],P[4],P[5]);ctx.lineTo(P[6],P[7]);ctx.quadraticCurveTo(P[8],P[9],P[10],P[11]);ctx.closePath();ctx.fill();return P;}
+// 0.4.0h: a pose change (idle <-> walk, hit, ult) crossfades over 0.1 s instead of jumping
+const HEROXF={k:null,p:null,c:null,t0:-9,dur:.1};
+function heroXfKey(p){if(p.flash>0)return 'hit';if(S&&S.ultA&&S.ultA.k==S.hero.id&&!p.pv)return 'ult';return p.moving>0?'walk':'idle';}
+function heroXfTick(p){const X=HEROXF,k=heroXfKey(p);if(X.p!==p){X.p=p;X.k=k;X.t0=-9;return;}
+ if(X.k&&k!=X.k){const w=64,h=72,ox=32,oy=44,ss=Math.min(4,scale*DPR),cw=Math.ceil(w*ss),ch=Math.ceil(h*ss);let c=X.c;if(!c||c.width!=cw||c.height!=ch)c=X.c=mkCv(cw,ch);const g=c.getContext('2d');g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;g.clearRect(0,0,cw,ch);
+  const hc=HEROLIT[S.hero.id];if(!lowFx&&hc&&hc.width>1)g.drawImage(hc,0,0,cw,ch);else{const o=X.k=='hit'?{pose:'hit'}:X.k=='ult'?{pose:'ult'}:{flash:0,pv:1,moving:X.k=='walk'?1:0};g.setTransform(ss,0,0,ss,ox*ss,oy*ss);const old=ctx;ctx=g;NOSHADOW=true;try{S.hero.draw(Object.assign({},p,o,{x:0,y:0}));}finally{ctx=old;NOSHADOW=false;}}
+  X.t0=S.t;}X.k=k;}
+function heroXfDraw(p){const X=HEROXF;if(!X.c||X.p!==p)return;const k=1-(S.t-X.t0)/X.dur;if(!(k>0&&k<=1))return;ctx.save();ctx.globalAlpha*=k;ctx.drawImage(X.c,p.x-32,p.y-44,64,72);ctx.restore();}
 // 0.4.0f1: Pip and Brakk show their cast / axe-swing pose when one of their weapons fires (Wizard and Elf set castT in their kit)
 function heroPoseCast(p,b,cd0,dt){const h=S.hero.id;if(h!='witch'&&h!='barbarian')return;if(p.castT>0){p.castT-=dt;return;}
  for(const k in b.wep){if(k=='orbit')continue;if(b.wep[k].cd>cd0[k]+.001){p.castT=h=='barbarian'?BRK_AX:WITCH_CT;return;}}}
@@ -3342,7 +3395,7 @@ function updWeapons(dt){kitUpd(dt);const p=S.p,b=B(),D0=dm(),C=cdm(),A=area();le
     S.fx.push({x:p.x,y:p.y,r:10,max:R,c:'#bff0ff',life:.5,ring:true});for(const e of S.en)if(!introImm(e))if(dist(e,p)<R+e.r){dmgE(e,dd);e.slowT=w.evo?2.5:1.5;e.frozen=w.evo;}SND.nova();}}}
  // fire: no stacking. Each enemy burns at most once per 0.5 s of game time, for the strongest overlapping fire's dps*0.5
  for(const k in b.wep)if(!kitP(k)&&k!='orbit'&&k!='chain'&&k!='nova'&&b.wep[k].cd>cd0[k]+.001)SND.w(k);
- heroPoseCast(p,b,cd0,dt); // 0.4.0f1 // 0.2.8: each weapon has its own soft sound (chain/nova keep zap/nova)
+ heroPoseCast(p,b,cd0,dt);atkUpd(p,b,cd0,dt); // 0.4.0h attack phase // 0.4.0f1 // 0.2.8: each weapon has its own soft sound (chain/nova keep zap/nova)
  for(const f of S.fires)f.life-=dt;
  for(const e of S.en){if(e.fireT>0)e.fireT-=dt;if(e.hp<=0||(e.boss&&e.introT>0)||!S.fires.length)continue;let m=0;for(const f of S.fires)if(f.life>0&&f.dps>m&&Math.hypot(e.x-f.x,e.y-f.y)<f.r+e.r*.6)m=f.dps;if(!m)continue;e.burn=.2;if(!(e.fireT>0)){e.fireT=.5;dmgE(e,m*1.85,1);}}S.fires=S.fires.filter(f=>f.life>0);if(S.fires.length>80)S.fires.splice(0,S.fires.length-80);
  for(const z of S.zaps)z.life-=dt;S.zaps=S.zaps.filter(z=>z.life>0);for(const q of S.swings)q.life-=dt;S.swings=S.swings.filter(q=>q.life>0);}
@@ -3353,7 +3406,7 @@ function showTut(after){let i=0;const fin=()=>{try{localStorage.setItem('sph_tut
  const r=()=>{const n=TUT[i];markModal();ov.innerHTML='<div class="box"><p style="opacity:.6;margin:0">'+T('tut.step',i+1,TUT.length)+'</p><h1>'+T('tut.'+n+'.h')+'</h1><p>'+T('tut.'+n)+'</p><button id="tn">'+(i<TUT.length-1?T('tut.next'):T('tut.play'))+'</button><button id="ts" class="act">'+T('tut.skip')+'</button></div>';ov.className='';ovArt(ov,'title',.25);
   tapBtn(document.getElementById('tn'),()=>{if(i<TUT.length-1){i++;r();}else fin();});tapBtn(document.getElementById('ts'),fin);};r();}
 function fmt(t){return Math.floor(t/60)+':'+('0'+Math.floor(t%60)).slice(-2);}
-function endGame(win){if(S.state=='end')return;const firstEver=!M.games&&!(M.stats&&M.stats.games);if(S.vic)S.vic.done=1;else win?SND.win():SND.lose();S.state='end';try{joyEnd();if(S.L.endless){endEndless();return;}if(M.shakeFx){try{if(win&&navigator.vibrate)navigator.vibrate([60,40,90]);}catch(e){}}
+function endGame(win){if(S.state=='end')return;const firstEver=!M.games&&!(M.stats&&M.stats.games);if(S.vic)S.vic.done=1;else win?SND.win():SND.lose();S.state='end';try{joyEnd();if(S.L.endless){endEndless();return;}if(M.vib){try{if(win&&navigator.vibrate)navigator.vibrate([60,40,90]);}catch(e){}} /* 0.4.0h B1: M.vib, not M.shakeFx */
  const nCh0=M.chests.length,WK=S.wk,first=!WK&&win&&!M.cleared[S.lv],bonus=Math.floor(S.t/SURV_GOLD_SEC),lk=S.lucky?2:1,gold=(Math.round(S.gold)+bonus)*lk,px=(20+Math.floor(S.t/4)+(win?60:0))*lk,chest=first?'gold':'wood',oldTier=passTier();let unl=0;
  if(first){M.cleared[S.lv]=1;if(S.lv==LEVELS.length&&M.spotSeen&&!M.spotSeen.endless&&!M.spotQ.includes('endless'))M.spotQ.push('endless');const nx=lvNext(S.lv);if(nx>M.maxLvl){M.maxLvl=nx;unl=nx;}M.lvlSel=M.maxLvl;M.wd.sel=lvWorld(M.lvlSel);}
  // 0.3.5: 3 losses on the same level -> friendly tip (upgrade or replay previous level); levels themselves stay as hard
@@ -3592,7 +3645,7 @@ function q3Day(){if(!unl('daily'))return q3Lock(UNL.daily);const D=M.daily;
  return q3Bar('q3day',T('c3b.dayBar'),D.pts||0,DAYBAR_MAX,{right:IC('hourglass')+' '+q3Left(),m:DAYBAR.map(([at,t])=>({at,got:!!D.got[at],ic:'<img src="'+chestImg(t)+'" alt="'+CHESTS[t].n+'">'}))})+
   D.q.map((q,i)=>{const Q=QUESTS[q.id];return q3Card({name:T('q.'+q.id),ic:Q.ic,p:q.p,n:Q.n,c:q.c,rw:[q3Pt(Q.pts),Q.key?q3K():q3G(Q.g)],data:'data-qd="'+i+'"'});}).join('');}
 function q3Week(){if(!unl('weekly'))return q3Lock(UNL.weekly);const W=M.wq,W2=WEEKLY[M.weekly.idx%WEEKLY.length],h=HEROES[W2.hero],st=M.weekly.stars||0,pick=W.got[300]==2;
- return '<div class="q3wk" id="q3wk"><canvas class="q3wkc" data-q3h="'+W2.hero+'"></canvas><button class="act q3wkt" id="q3wkinfo"><b>'+T('wk.title')+'</b><small>'+T('wk.rule.'+W2.rule)+' · <span class="gold">'+wkStarStr(st)+'</span></small><small>'+T('wk.daysLeft',weekDaysLeft())+(M.unlocked[W2.hero]?'':' · '+T('wk.trial'))+'</small></button><button class="act q3go" id="q3wkplay">'+T('hub.play')+'</button></div>'+
+ return '<div class="q3wk" id="q3wk"><canvas class="q3wkc" data-q3h="'+W2.hero+'"></canvas><button class="act q3wkt" id="q3wkinfo"><b>'+T('wk.title')+'</b><small class="q3wkr"><span class="q3wkn">'+T('wk.rule.'+W2.rule)+'</span><span class="gold q3wks">'+wkStarStr(st)+'</span></small><small>'+T('wk.daysLeft',weekDaysLeft())+(M.unlocked[W2.hero]?'':' · '+T('wk.trial'))+'</small></button><button class="act q3go" id="q3wkplay">'+T('hub.play')+'</button></div>'+
   q3Bar('q3wkb',T('c3b.wkBar'),W.pts||0,WKBAR_MAX,{right:pick?'<button class="act q3go q3pick" id="q3pick">'+T('c3b.pickSetBtn')+'</button>':T('c3b.wkNew'),m:WKBAR.map(([at,t])=>({at,got:W.got[at]==1,ic:t=='keys'?'<span class="q3keys">'+IC('key')+' ×'+WKBAR_KEYS+'</span>':'<img src="'+chestImg(t)+'" alt="'+CHESTS[t].n+'">'}))})+
   W.q.map((q,i)=>{const Q=WQUESTS[q.id];return q3Card({name:T('wq.'+q.id),ic:Q.ic,p:q.p,n:Q.n,c:q.c,rw:[q3Pt(Q.pts)],data:'data-qw="'+i+'"'});}).join('');}
 function q3HeroTab(){if(!unl('heroes'))return q3Lock(UNL.heroes);const hs=Object.keys(HEROES).filter(k=>HQUESTS[k]||k=='elf');if(!HQUESTS[qHero])qHero=HQUESTS[M.sel]&&M.unlocked[M.sel]?M.sel:'witch';
@@ -3627,7 +3680,7 @@ function showDaily(msg){qTab='day';q3Open();if(msg)q3Toast(msg);}
 function showWeekly(){qTab='week';q3Open();}
 function q3Open(){const s=document.getElementById('sheet');if(s)s.className='hide';if(M.questDot){M.questDot=0;save();}const i=TABS.indexOf('qst');renderQuests();if(i>=0&&typeof go=='function')go(i,true);}
 // Village: Achievements, Season path and "Almost there" as small chips on the home page
-function villageChips(){const cl=closeToUnlock();return '<div class="vchips" id="vchips"><button class="act vchip" id="v_ach" title="'+T('ach.btn')+'" aria-label="'+T('ach.btn')+'">'+IC('medal')+'<small>'+T('ach.btn')+'</small><b>'+achMedals()+'/'+ACH.length*3+'</b>'+(achReady()||M.achNew?'<span class="qdot"></span>':ndot('ach'))+'</button>'+
+function villageChips(){const cl=closeToUnlock();return '<div class="vchips" id="vchips"><button class="act vchip" id="v_ach" title="'+T('ach.btn')+'" aria-label="'+T('ach.btn')+'">'+IC('medal')+'<small>'+T('ach.btn')+'</small><b>'+achMedalsNow()+'/'+ACH.length*3+'</b>'+(achReady()||M.achNew?'<span class="qdot"></span>':ndot('ach'))+'</button>'+
  '<button class="act vchip" id="v_sea" title="'+T('sea.btn')+'" aria-label="'+T('sea.btn')+'">'+IC('flag')+'<small>'+T('sea.btn')+'</small>'+ndot('sea')+'</button>'+(cl.length?'<button class="act vchip" id="v_close" title="'+T('daily.close')+'" aria-label="'+T('daily.close')+'">'+IC('up')+'<small>'+T('daily.close')+'</small><b>'+cl.length+'</b></button>':'')+'</div>';}
 function showClose(){const cl=closeToUnlock();openSheet(T('daily.close'),'<div class="odds" id="dailyclose">'+cl.map((c,i)=>'<div class="dcl">'+c+'</div>').join('')+'</div>');}
 /* ================= DEBUG MENU (?debug=1) ================= */
@@ -4074,6 +4127,7 @@ function refreshTop(){const c=document.querySelector('.topbar .cur');if(c)c.oute
 function pickable(){return Object.keys(HEROES).filter(k=>M.unlocked[k]&&HEROES[k].playable);}
 function upgBadge(){return upgBuyable().length;}
 const badge=n=>n>0?'<span class="badge">'+n+'</span>':'';
+const tbadge=(n,k)=>n>0?badge(n):M.news&&M.news[k]?'<span class="badge nbadge" data-nw="'+k+'">'+T('news.tab')+'</span>':''; // 0.4.0h B6: never two badges on one tab
 const TABS=['her','upg','home','che','qst'],TAB_KEY={her:'hub.heroes',upg:'hub.upg',home:'hub.home',che:'hub.chests',qst:'hub.quests',pas:'hub.pass'},TAB_ICO={get her(){return IC('crown')},get upg(){return IC('up')},get home(){return IC('house')},get che(){return IC('chest')},get sho(){return IC('bag')},get pas(){return IC('flag')},get qst(){return IC('scroll')}};
 let tabI=2,hubX=2,hubT=0;
 function showBalance(){const B=balanceTable(),H=Object.keys(B.heroes).filter(k=>HEROES[k].playable),td=v=>'<td>'+v+'</td>';
@@ -4100,6 +4154,7 @@ function showSeason(pg){newsClear('sea');const id=seasonId()||SEASON_START,live=
  openSheet(T('sea.btn'),head+grid+nav,el=>{el.classList.add('seasheet');el.querySelectorAll('canvas[data-spv]').forEach(cv=>heroPreview(cv,'witch',cv.dataset.spv,false));
   tapBtn(document.getElementById('seaprev'),()=>showSeason((seaPg+2)%3));tapBtn(document.getElementById('seanext'),()=>showSeason((seaPg+1)%3));});}
 function achMedals(){return ACH.reduce((a,x)=>a+achTier(x.id),0);}
+function achMedalsNow(){return ACH.reduce((a,x)=>{let t=achTier(x.id);const v=achVal(x.id);while(t<3&&v>=x.th[t])t++;return a+t;},0);} // 0.4.0h B13
 let achPg=0;const ACH_PER=5;
 function showAchievements(pg){newsClear('ach');const nw=achCheck();if(nw.length)save();const fresh=M.achNew||0;M.achNew=0;save();
  const rows=ACH.map(a=>({a})).concat(MILESTONES.map(m=>({m}))),np=Math.ceil(rows.length/ACH_PER);if(pg!=null)achPg=pg;achPg=(achPg+np)%np;
@@ -4133,9 +4188,9 @@ function showWorlds(){const fresh=worldOpen(2)&&!(M.wd&&M.wd.seen);
  document.querySelectorAll('#worldbox [data-wd]').forEach(b=>tapBtn(b,()=>{const w=+b.dataset.wd;if(!worldOpen(w))return;showLevels(w);}));}
 if(TESTB&&QS.get('worldmap'))setTimeout(()=>{try{showHub();showWorlds();}catch(e){}},700);
 function renderSoon(k){document.getElementById('pg_'+k).innerHTML='<h1 class="ph">'+T(TAB_KEY[k])+'</h1><div class="soonpg"><div class="soonico">'+TAB_ICO[k]+'</div><h2>'+T('hub.soon')+'</h2><p>'+T('soon.pass')+'</p></div>';}
-function renderTabs(){const n=document.getElementById('tabs');const LK={her:'heroes',che:'chests'};n.innerHTML=TABS.map((k,i)=>{const lk=LK[k]&&!unl(LK[k]);return '<button id="h_'+k+'" class="tab'+(i==tabI?' on':'')+(k=='sho'||k=='pas'?' soon':'')+(k=='home'?' homet':'')+(lk?' tlock':'')+'"'+(lk?' aria-label="'+T(TAB_KEY[k])+': '+T('lvl.unlocksAt',UNL[LK[k]])+'"':'')+'><span class="ti">'+(lk?IC('lock'):k=='home'?IC('house'):TAB_ICO[k])+'</span>'+T(TAB_KEY[k])+(lk?'':(k=='upg'?badge(upgBadge()):k=='che'?badge(readyCount()):k=='her'?badge(M.evoNew)+nbadge('hT'):k=='qst'?badge(q3Ready())+nbadge('qT'):''))+'</button>';}).join('');
+function renderTabs(){const n=document.getElementById('tabs');const LK={her:'heroes',che:'chests'};n.innerHTML=TABS.map((k,i)=>{const lk=LK[k]&&!unl(LK[k]);return '<button id="h_'+k+'" class="tab'+(i==tabI?' on':'')+(k=='sho'||k=='pas'?' soon':'')+(k=='home'?' homet':'')+(lk?' tlock':'')+'"'+(lk?' aria-label="'+T(TAB_KEY[k])+': '+T('lvl.unlocksAt',UNL[LK[k]])+'"':'')+'><span class="ti">'+(lk?IC('lock'):k=='home'?IC('house'):TAB_ICO[k])+'</span>'+T(TAB_KEY[k])+(lk?'':(k=='upg'?badge(upgBadge()):k=='che'?badge(readyCount()):k=='her'?tbadge(M.evoNew,'hT'):k=='qst'?tbadge(q3Ready(),'qT'):''))+'</button>';}).join('');
  n.querySelectorAll('.tab').forEach((b,i)=>b.addEventListener('click',e=>{e.preventDefault();ac();if(TABS[i]=='home'&&tabI==i&&!guarded()){showLevels();return;}go(i);}));}
-function go(i,instant){tabI=clamp(i,0,TABS.length-1);const tr=document.getElementById('track');if(!tr)return;tr.style.transition=instant?'none':'';tr.style.transform='translateX('+(-tabI*100/TABS.length)+'%)';
+function go(i,instant){tabI=clamp(i,0,TABS.length-1);if(tabI==2&&window.__spDef){window.__spDef=0;setTimeout(runSpotQ,400);}const tr=document.getElementById('track');if(!tr)return;tr.style.transition=instant?'none':'';tr.style.transform='translateX('+(-tabI*100/TABS.length)+'%)';
  if(TABS[tabI]=='home')renderHome();if(TABS[tabI]=='her'){if(gearOn()&&!tipSeen('hmt')&&!hmtOn&&typeof showHeroes=='function')showHeroes();heroInView();newsClear('hT');}if(TABS[tabI]=='qst')newsClear('qT');document.querySelectorAll('#tabs .tab').forEach((b,j)=>b.classList.toggle('on',j==tabI));}
 function initSwipe(){const p=document.getElementById('pages'),tr=document.getElementById('track');let sx=0,sy=0,dx=0,on=false,hor=null;
  p.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY;dx=0;hor=null;
@@ -4149,7 +4204,7 @@ function initSwipe(){const p=document.getElementById('pages'),tr=document.getEle
 // UNLOCKS/UNL moved up (0.3.4) so migrate() can use them while the save loads
 
 function pxpNeed(l){return 60+40*(l-1);} // XP from level l to l+1
-function unl(k){if(k==='endless')return endlessOpen();return (M.plv||1)>=UNL[k];}
+function unl(k){if(k==='endless')return endlessOpen();if(k==='heroes'&&M&&M.unlocked&&Object.keys(HEROES).some(h=>h!='witch'&&M.unlocked[h]&&HEROES[h].playable))return true; /* 0.4.0h B4 */return (M.plv||1)>=UNL[k];}
 // 0.3.7e (Chris): Endless opens when level 10 (Toad Throne) is cleared, not at a rank; old saves that cleared it have it at once
 function endlessOpen(){return !!(M.cleared&&M.cleared[LEVELS.length]);}
 function lockHtml(k){return '<span class="lockln">'+IC('lock')+' '+T('lvl.unlocksAt',UNL[k])+'</span>';}
@@ -4193,7 +4248,8 @@ function spotlight(k,after){const tgt=document.querySelector(SPOT_SEL[k]);const 
   ar.className='sparr '+(below?'sp-up':'sp-dn');ar.style.left=Math.round(Math.min(bw-22,Math.max(22,cx-left)))+'px';}
  else{ar.remove();Object.assign(bx.style,{left:'50%',top:'40%',transform:'translateX(-50%)'});}
  const done=()=>{el.remove();M.spotSeen[k]=1;M.spotQ=M.spotQ.filter(x=>x!=k);save();if(after)after();};
- tapBtn(document.getElementById('spskip'),done);el.addEventListener('click',e=>{if(e.target.closest('button')||guarded())return;done();});spotFollow(el,SPOT_SEL[k],()=>spotlight(k,after));}
+ tapBtn(document.getElementById('spskip'),done);el.addEventListener('click',e=>{if(e.target.closest('button'))return;const tg=document.querySelector(SPOT_SEL[k]),q=tg&&tg.getBoundingClientRect(),inT=!!(q&&q.width>0&&e.clientX>=q.left-SPOT_PAD&&e.clientX<=q.right+SPOT_PAD&&e.clientY>=q.top-SPOT_PAD&&e.clientY<=q.bottom+SPOT_PAD);if(!inT&&guarded())return;
+  if(inT&&tg.tagName=='BUTTON'&&tg.id!='play'){el.remove();M.spotSeen[k]=1;M.spotQ=M.spotQ.filter(x=>x!=k);save();window.__spDef=1;modalT=0;tg.click();return;}done();}); /* 0.4.0h B5: the first tap is not swallowed */spotFollow(el,SPOT_SEL[k],()=>spotlight(k,after));}
 // 0.4.0c3a: once, after the v16 update: what changed for this save
 function c3Note(){const N=M.c3n;if(!N||S||document.getElementById('spot')||document.getElementById('chestfx')||!document.body.classList.contains('inlobby'))return false;
  const L=[];if(N.gold)L.push(T('c3.refund',N.gold));if(N.gift)L.push(T('c3.giftN'));if(N.wiz)L.push(T('c3.wizN',T('boss.name.leechQueen'),T('hs.wizard')));if(N.elf)L.push(T('c3.elfN'));delete M.c3n;save();
@@ -4294,7 +4350,8 @@ function gearWear(id,h){const it=M.gear.inv.find(x=>x.id===id);if(!it||!gearFits
 function gearLvUpIt(it){if(!it)return false;const l=it.lv||0;if(l>=gearLvMax(it))return false;const c=gearLvGold(it);if(M.gold<c)return false;M.gold-=c;it.lv=l+1;delete it.xp;q3Ev('upg');save();return true;} // gold per piece; the level travels with the piece
 function gearLvUp(s,h){return gearLvUpIt(gearEq(s,h||gearHid()));}
 function gearLvCost(l){let c=0;for(let i=0;i<l;i++)c+=upgCost(i);return c;}
-function gearShort(it,h){return '+'+gPct(gearVal(it,null,h))+'%';}
+function gSg(k){return k=='cd'?'−':'+';} // 0.4.0h B9: cooldown goes down
+function gearShort(it,h){return gSg(gearStat(it))+gPct(gearVal(it,null,h))+'%';}
 // 0.4.0c merge: 3 identical pieces (slot, set, rarity, stars; amulet: same main stat) -> one piece with +1 star (max 5). The worn piece is the one kept, else the one with the best substats.
 function gearKey(it){return it.s+'|'+it.st+'|'+it.r+'|'+(it.star||1)+'|'+(it.s=='amu'?gearStat(it):'');}
 function gearMergeOf(s,h){h=h||gearHid();const g={},e=gearEq(s,h);for(const it of M.gear.inv)if(it.s==s&&!it.sk&&(it.star||1)<GEAR_STARMAX&&(!gearWornBy(it.id)||gearWornBy(it.id)===h))(g[gearKey(it)]=g[gearKey(it)]||[]).push(it);let best=null,bw=null;
@@ -4424,6 +4481,7 @@ function gearRe(pg){showGear(pg);modalT=performance.now()-GUARD_MS-1;} // re-ren
 let wsK='';
 function wsPick(h){const L=sigOf(h);if(L.includes(wsK))return wsK;return L.find(k=>!sigItem(k)&&sigNeed(k).ok)||L.find(k=>!sigItem(k)&&sigPatOk(k))||L[0];}
 function wsRow(ic,lab,val,ok,bar){return '<div class="wscr'+(ok?' ok':' no')+'">'+IC(ic)+'<span class="n">'+lab+'</span>'+(bar!=null?'<i class="wsbar"><i style="width:'+Math.round(Math.min(1,bar)*100)+'%"></i></i>':'')+'<b class="v">'+val+'</b>'+(ok?'<b class="ck" aria-hidden="true">✓</b>':'')+'</div>';}
+function wsMsg(m){let e=document.getElementById('wsmsg');const b=document.getElementById('wsmk');if(!b)return;if(!e){e=document.createElement('p');e.id='wsmsg';e.className='wsmsg';e.setAttribute('role','status');b.after(e);}e.textContent=m;window.__wsMsg=m;}
 function showWorkshop(h,k){const L=sigOf(h);if(!L.length||!M.gear)return;k=L.includes(k)?k:wsPick(h);wsK=k;const q=SIGS[k],it=sigItem(k),nm=T('c3b.pat.'+k),hn=T('hs.'+h),dn=T('dust.'+h),pat=sigPatOk(k);
  const o=it||{s:q.s,r:q.r,st:q.st,a:q.a,star:1,lv:0,sk:k,sig:h},rc=GEAR_RC[q.r],w=it&&gearWornBy(it.id),inBag=it&&M.gear.inv.includes(it);
  const tabs='<div class="wspk" role="tablist">'+L.map(x=>{const y=SIGS[x],z=sigItem(x),pk=sigPatOk(x);return '<button class="wspi'+(x==k?' on':'')+(z?' own':'')+(pk?'':' lk')+'" data-wk="'+x+'" role="tab" aria-selected="'+(x==k)+'" style="--rc:'+(z?'#ffcf4a':GEAR_RC[y.r])+'">'+(pk||z?GIC('sg_'+x):IC('lock'))+'<small>'+T('wsk.'+x)+'</small>'+(!z&&sigNeed(x).ok?'<i class="hcdot" aria-hidden="true"></i>':'')+'</button>';}).join('')+'</div>';
@@ -4443,7 +4501,7 @@ function showWorkshop(h,k){const L=sigOf(h);if(!L.length||!M.gear)return;k=L.inc
   el.querySelectorAll('[data-pv]').forEach(cv=>heroPreview(cv,cv.dataset.pv,cv.dataset.sk));gearBackBtn(()=>{wsK='';showHeroDetail(h,'gear');});
   const re=x=>{showWorkshop(h,x);modalT=performance.now()-GUARD_MS-1;};
   el.querySelectorAll('[data-wk]').forEach(b=>{if(b.tagName=='BUTTON')tapBtn(b,()=>re(b.dataset.wk));});
-  const mk=document.getElementById('wsmk');if(mk)tapBtn(mk,()=>{const r=sigCraft(k);if(r=='ok'){SND.chest&&SND.chest();q3Toast(T('ws.made',nm));re(k);}else q3Toast(T(r=='full'?'ws.full':r=='pat'?'ws.needPat':'ws.need'));});
+  const mk=document.getElementById('wsmk');if(mk)tapBtn(mk,()=>{const r=sigCraft(k);if(r=='ok'){SND.chest&&SND.chest();q3Toast(T('ws.made',nm));re(k);}else{const n=sigNeed(k),m=T(r=='full'?'ws.full':r=='pat'?'ws.needPat':n.dh<n.d?'ws.needDust':n.th<n.t?'ws.needTr':n.gh<n.g?'ws.needGold':'ws.need',dn);wsMsg(m);q3Toast(m);}}); /* 0.4.0h B11 */
   const sb=document.getElementById('wsstar');if(sb)tapBtn(sb,()=>{if(sigStarUp(it)){SND.lvl&&SND.lvl();re(k);}else q3Toast(T('ws.needDust',dn));});
   const wb=document.getElementById('wswear');if(wb)tapBtn(wb,()=>{if(gearWear(it.id,h)){SND.chest&&SND.chest();re(k);}});});}
 function gearBackBtn(fn){const bk=document.getElementById('back');if(!bk)return;const n=bk.cloneNode(bk.classList.contains('bkar'));if(!bk.classList.contains('bkar'))n.textContent=T('gear.back');bk.replaceWith(n);tapBtn(n,fn);}
@@ -4460,7 +4518,7 @@ function showGear(pg){if(!gearOn())return;const G=gearG(),hs=gearHeroes();if(!hs
  const chips='<div class="gchips" role="tablist">'+GEAR_SLOTS.map(s=>'<button class="gchip'+(s==gearSel?' on':'')+'" data-gs="'+s+'" role="tab" aria-selected="'+(s==gearSel)+'" aria-label="'+T('gs.'+s)+'">'+GIC('g_'+s)+(s==gearSel?'<span>'+T('gs.'+s)+'</span>':'')+(G.inv.some(x=>x.nw&&x.s==s&&!mine.has(x.id))?'<span class="qdot"></span>':'')+'</button>').join('')+'</div>';
  const sub='<div class="gsubr"><span class="gbf">'+T('gs.'+gearSel)+' · '+T('gear.strong')+'</span><button class="act gsell" id="gsell" aria-label="'+T('c3c.sell')+'">'+IC('gold')+'<span>'+T('c3c.sell')+'</span></button><button class="gsetf" id="gsetf" aria-label="'+T('gear.setF',gearSetF?T('gset.'+gearSetF):T('gear.setAll'))+'"'+(gearSetF?' style="--sc:'+GEAR_SETC[gearSetF]+'"':'')+'>'+(gearSetF?IC('set_'+gearSetF):'')+'<span>'+T('gear.setF',gearSetF?T('gset.'+gearSetF):T('gear.setAll'))+'</span> ▾</button></div>';
  const l=gearLvOf(gearSel,h),e=gearEq(gearSel,h),c=e?gearLvGold(e):upgCost(l),mx=e?l>=gearLvMax(e):false,mg=gearMergeOf(gearSel,h);
- const upTxt=mx?T('gear.max'):'<span>'+T('lv.short')+' +1: '+T('gs.'+gearSel)+'</span><small>'+IC('gold')+' '+c+'</small>';
+ const upTxt=mx?T('gear.max'):'<span>'+T('lv.short')+' +1</span><small>'+IC('gold')+' '+c+'</small>'; // 0.4.0h B10
  const det='<div class="gdet">'+(e?'<p><b>'+T('gs.'+gearSel)+'</b> · <span class="gval'+(pop==gearSel?' gpop':'')+'">'+gearLine(e,null,h)+'</span> · '+T('lv.short')+' '+l+'</p><p><b style="color:'+GEAR_SETC[e.st]+'">'+T('gset.'+e.st)+' '+sn[e.st]+'/4</b> '+gearSetTxt(e.st,sn[e.st])+'</p>':'<p>'+T('gs.'+gearSel)+': '+T('gear.empty')+'</p>')+'</div>';
  const btns='<div class="grow g3"><button class="act" id="gbest"'+(gearBestDiff(h)?'':' disabled')+'>'+T('gear.best')+'</button><button class="act gupb" id="gup" aria-label="'+T('gear.up')+': '+T('gs.'+gearSel)+'"'+(mx||!e||M.gold<c?' disabled':'')+'>'+upTxt+'</button><button class="act" id="gmerge"'+(e?'':' disabled')+'>'+T('c3c.merge')+'</button></div>';
  const nav=np>1?'<div class="bxnavr"><button class="act bxnav" id="gpprev" aria-label="'+T('beast.prev')+'">‹</button><span>'+T('beast.page',gearPg+1,np)+'</span><button class="act bxnav" id="gpnext" aria-label="'+T('beast.next')+'">›</button></div>':'';
@@ -4488,7 +4546,7 @@ function showGearCmp(id){const h=gearEd||gearHid(),it=M.gear.inv.find(x=>x.id===
  const same=cur&&cur!==it&&gearStat(cur)==gearStat(it),cmpv=(a,b)=>a>b+1e-9?1:a<b-1e-9?-1:0,mark=d=>d>0?' <b class="gup">▲</b>':d<0?' <b class="gdn">▼</b>':'',cls=d=>d>0?' gup':d<0?' gdn':'';
  const col=(x,lab,nw)=>{if(!x)return '<div class="gcc no" style="--rc:#6a5634"><small class="gch">'+lab+'</small>'+gearIcNo(it.s)+'<span class="gcv">'+T('gear.empty')+'</span></div>';
   const dl=nw&&cur?cmpv(x.lv||0,cur.lv||0):0,dm=nw&&same?cmpv(gearVal(x),gearVal(cur)):0,o=nw?cur:it;
-  const subs=(x.sub||[]).map(k=>{const d=nw&&!(cur&&cur.sub&&cur.sub.includes(k))?1:0;return '<li><span>'+T('gsk.'+k)+'</span><span class="'+cls(d).trim()+'">+'+gPct(GEAR_SUB[k])+'%'+mark(d)+'</span></li>';}).join('');
+  const subs=(x.sub||[]).map(k=>{const d=nw&&!(cur&&cur.sub&&cur.sub.includes(k))?1:0;return '<li><span>'+T('gsk.'+k)+'</span><span class="'+cls(d).trim()+'">'+gSg(k)+gPct(GEAR_SUB[k])+'%'+mark(d)+'</span></li>';}).join('');
   return '<div class="gcc" style="--rc:'+GEAR_RC[x.r]+'"><small class="gch">'+lab+'</small>'+gearIc(x)+'<i style="color:'+GEAR_RC[x.r]+'">'+T('gr.'+x.r)+'</i><span class="gcs"><span class="gstr">'+'★'.repeat(x.star||1)+'</span> · <span class="'+cls(dl).trim()+'">'+T('lv.short')+' '+(x.lv||0)+mark(dl)+'</span></span><span class="gcv'+(pop&&x===it?' gpop':'')+cls(dm)+'">'+gearLine(x)+mark(dm)+'</span><ul>'+subs+'<li class="gcset"><span>'+T('gear.setW')+'</span><span style="color:'+GEAR_SETC[x.st]+'">'+IC('set_'+x.st)+' '+T('gset.'+x.st)+'</span></li></ul></div>';};
  const c=gearLvGold(it),mx=l>=gearLvMax(it),other=w&&w!==h,sum=w===h?'':gearSetSum(h,it);
  showGear();const pb=document.querySelector('#sheet .pbody');if(!pb)return;
@@ -4584,10 +4642,16 @@ Object.assign(STRINGS.en,{"cauld.title": "Cauldrons", "cauld.sub": "Earn new loo
 Object.assign(STRINGS.nl,{"cauld.title": "Ketels", "cauld.sub": "Verdien nieuwe looks voor je ketel en kies je favoriet.", "cauld.classic": "Klassiek", "cauld.gold": "Gouden", "cauld.icy": "IJzig", "cauld.ghost": "Spookachtig", "cauld.ember": "Gloeiend", "cauld.use": "Kies", "cauld.req.gold": "Speel 15 potjes ({0}/15)", "cauld.req.icy": "Haal level {0}", "cauld.req.ghost": "Maak een hoofdstuk van het monsterboek vol", "cauld.req.ember": "Win 10 baasgevechten ({0}/10)", "cauld.got": "Nieuwe ketel: {0}", "beast.title": "Monsterboek", "beast.ch.meadow": "Weide", "beast.ch.dark": "Duister Woud", "beast.ch.boss": "Bazen", "beast.n.slime": "Slijmpje", "beast.n.bat": "Vleermuis", "beast.n.hopper": "Springer", "beast.n.shroom": "Paddenstoel", "beast.n.imp": "Duiveltje", "beast.n.thorn": "Doornbal", "beast.lore.slime": "Wiebelt langzaam maar zeker op je af. Houdt van plassen.", "beast.lore.bat": "Fladdert uit het donker en vliegt nooit rechtdoor.", "beast.lore.hopper": "Maakt grote sprongen. Let op waar hij landt!", "beast.lore.shroom": "Een chagrijnige paddenstoel uit het Duister Woud. Taaier dan hij lijkt.", "beast.lore.imp": "Een brutaal klein duiveltje met hoorntjes dat snel rent.", "beast.lore.thorn": "Rolt rond, vol stekels. Houd maar afstand.", "beast.lore.youngToad": "De zoon van de Paddenkoning. Springt hoog en roept bellenkringen op.", "beast.lore.shroomElder": "De oudste paddenstoel van het woud. Strooit overal sporen.", "beast.lore.slimeMother": "Een reuzenslijm die zich splitst in kleintjes.", "beast.lore.toadKing": "Heerser van het Slijk, met een gouden kroon en een machtige sprong.", "beast.unseen": "Nog niet ontmoet. Blijf ontdekken!", "beast.def": "Verslagen: {0}", "beast.pageRw": "Volle pagina: {0} goud", "beast.chRw": "Vol hoofdstuk: skin {0}", "beast.prev": "Vorige pagina", "beast.next": "Volgende pagina", "beast.page": "Pagina {0} van {1}",    "path.next": "nog {0} voor {1}", "path.done": "voltooid!", "path.r.title": "Titel", "path.r.frame": "Lijst", "path.r.skin": "Skin", "path.title.witch": "Sterretje", "path.title.barbarian": "Steenhart",    "skin.meadow": "Weide-Pip", "skin.ironbark": "IJzerbast-Brakk", "skin.thornrose": "Doornroos-Pip", "skin.mossback": "Mosrug-Brakk", "skin.kingsguard": "Koningswacht-Brakk", "cs.how.path": "Heldenpad: speel 20 potjes met deze held", "cs.how.book": "Monsterboek: maak een hoofdstuk vol",  "wk.bestStars": "Jouw sterren: {0}", "wk.starRule": "Verdien tot 3 sterren. Elke nieuwe ster geeft een kist, één keer per week. Speel zo vaak je wilt.", "wk.star1": "Overleef {0} s", "wk.star2": "Doe {0} schade (en overleef {1} s)", "wk.star3": "Overleef {0} s en doe {1} schade",  "wk.starChest": "{0} ★: {1}"});
 Object.assign(STRINGS.de,{"cauld.title": "Kessel", "cauld.sub": "Verdiene neue Looks für deinen Kessel und wähle deinen Liebling.", "cauld.classic": "Klassisch", "cauld.gold": "Golden", "cauld.icy": "Eisig", "cauld.ghost": "Geisterhaft", "cauld.ember": "Glut", "cauld.use": "Wählen", "cauld.req.gold": "Spiele 15 Runden ({0}/15)", "cauld.req.icy": "Schaffe Level {0}", "cauld.req.ghost": "Fülle ein Kapitel im Monsterbuch", "cauld.req.ember": "Gewinne 10 Bosskämpfe ({0}/10)", "cauld.got": "Neuer Kessel: {0}", "beast.title": "Monsterbuch", "beast.ch.meadow": "Wiese", "beast.ch.dark": "Dunkelwald", "beast.ch.boss": "Bosse", "beast.n.slime": "Schleimi", "beast.n.bat": "Fledermaus", "beast.n.hopper": "Hüpfer", "beast.n.shroom": "Pilz", "beast.n.imp": "Kobold", "beast.n.thorn": "Dornenball", "beast.lore.slime": "Wackelt langsam, aber sicher auf dich zu. Liebt Pfützen.", "beast.lore.bat": "Flattert aus dem Dunkeln und fliegt nie geradeaus.", "beast.lore.hopper": "Macht große Sprünge. Pass auf, wo er landet!", "beast.lore.shroom": "Ein mürrischer Pilz aus dem Dunkelwald. Zäher, als er aussieht.", "beast.lore.imp": "Ein frecher kleiner Kobold mit Hörnern, der schnell rennt.", "beast.lore.thorn": "Rollt umher, voller Stacheln. Halte lieber Abstand.", "beast.lore.youngToad": "Der Sohn des Krötenkönigs. Springt hoch und ruft Blasenringe.", "beast.lore.shroomElder": "Der älteste Pilz des Waldes. Verteilt überall Sporen.", "beast.lore.slimeMother": "Ein Riesenschleim, der sich in kleine teilt.", "beast.lore.toadKing": "Herrscher des Schlicks, mit goldener Krone und mächtigem Sprung.", "beast.unseen": "Noch nicht getroffen. Entdecke weiter!", "beast.def": "Besiegt: {0}", "beast.pageRw": "Volle Seite: {0} Gold", "beast.chRw": "Volles Kapitel: Skin {0}", "beast.prev": "Vorige Seite", "beast.next": "Nächste Seite", "beast.page": "Seite {0} von {1}",    "path.next": "noch {0} bis {1}", "path.done": "geschafft!", "path.r.title": "Titel", "path.r.frame": "Rahmen", "path.r.skin": "Skin", "path.title.witch": "Kleiner Stern", "path.title.barbarian": "Steinherz",    "skin.meadow": "Wiesen-Pip", "skin.ironbark": "Eisenrinden-Brakk", "skin.thornrose": "Dornrosen-Pip", "skin.mossback": "Moosrücken-Brakk", "skin.kingsguard": "Königsgarde-Brakk", "cs.how.path": "Heldenpfad: spiele 20 Runden mit diesem Helden", "cs.how.book": "Monsterbuch: fülle ein Kapitel",  "wk.bestStars": "Deine Sterne: {0}", "wk.starRule": "Verdiene bis zu 3 Sterne. Jeder neue Stern bringt eine Truhe, einmal pro Woche. Spiele so oft du willst.", "wk.star1": "Überlebe {0} s", "wk.star2": "Mache {0} Schaden (und überlebe {1} s)", "wk.star3": "Überlebe {0} s und mache {1} Schaden",  "wk.starChest": "{0} ★: {1}"});
 Object.assign(STRINGS.fr,{"cauld.title": "Chaudrons", "cauld.sub": "Gagne de nouveaux looks pour ton chaudron et choisis ton préféré.", "cauld.classic": "Classique", "cauld.gold": "Doré", "cauld.icy": "Glacé", "cauld.ghost": "Fantôme", "cauld.ember": "Braise", "cauld.use": "Choisir", "cauld.req.gold": "Joue 15 parties ({0}/15)", "cauld.req.icy": "Termine le niveau {0}", "cauld.req.ghost": "Complète un chapitre du bestiaire", "cauld.req.ember": "Gagne 10 combats de boss ({0}/10)", "cauld.got": "Nouveau chaudron : {0}", "beast.title": "Bestiaire", "beast.ch.meadow": "Prairie", "beast.ch.dark": "Bois sombre", "beast.ch.boss": "Boss", "beast.n.slime": "Gluant", "beast.n.bat": "Chauve-souris", "beast.n.hopper": "Sauteur", "beast.n.shroom": "Champignon", "beast.n.imp": "Diablotin", "beast.n.thorn": "Boule d'épines", "beast.lore.slime": "Il avance vers toi, lentement mais sûrement. Il adore les flaques.", "beast.lore.bat": "Elle surgit de l'ombre et ne vole jamais tout droit.", "beast.lore.hopper": "Il fait de grands bonds. Attention à l'endroit où il atterrit !", "beast.lore.shroom": "Un champignon grognon du Bois sombre. Plus coriace qu'il n'y paraît.", "beast.lore.imp": "Un petit diablotin à cornes, effronté et rapide.", "beast.lore.thorn": "Elle roule, couverte d'épines. Garde tes distances.", "beast.lore.youngToad": "Le fils du Roi Crapaud. Il saute haut et lance des anneaux de bulles.", "beast.lore.shroomElder": "Le plus vieux champignon du bois. Il répand des spores partout.", "beast.lore.slimeMother": "Un gluant géant qui se divise en petits.", "beast.lore.toadKing": "Maître de la Vase, avec une couronne d'or et un saut puissant.", "beast.unseen": "Pas encore rencontré. Continue d'explorer !", "beast.def": "Vaincus : {0}", "beast.pageRw": "Page complète : {0} or", "beast.chRw": "Chapitre complet : skin {0}", "beast.prev": "Page précédente", "beast.next": "Page suivante", "beast.page": "Page {0} sur {1}",    "path.next": "encore {0} pour {1}", "path.done": "terminé !", "path.r.title": "Titre", "path.r.frame": "Cadre", "path.r.skin": "Skin", "path.title.witch": "Petite Étoile", "path.title.barbarian": "Cœur de pierre",    "skin.meadow": "Pip des prés", "skin.ironbark": "Brakk Écorce-de-fer", "skin.thornrose": "Pip Rose-épine", "skin.mossback": "Brakk Dos-de-mousse", "skin.kingsguard": "Brakk Garde royale", "cs.how.path": "Chemin du héros : joue 20 parties avec ce héros", "cs.how.book": "Bestiaire : complète un chapitre",  "wk.bestStars": "Tes étoiles : {0}", "wk.starRule": "Gagne jusqu'à 3 étoiles. Chaque nouvelle étoile donne un coffre, une fois par semaine. Joue autant que tu veux.", "wk.star1": "Survis {0} s", "wk.star2": "Inflige {0} dégâts (et survis {1} s)", "wk.star3": "Survis {0} s et inflige {1} dégâts",  "wk.starChest": "{0} ★ : {1}"});
-Object.assign(STRINGS.en,{"rar.common": "Common",  "chests.guarS": "sure"});
-Object.assign(STRINGS.nl,{"rar.common": "Gewoon",  "chests.guarS": "zeker"});
-Object.assign(STRINGS.de,{"rar.common": "Gewöhnlich",  "chests.guarS": "sicher"});
+Object.assign(STRINGS.en,{"rar.common": "Common",  "chests.guarS": "guaranteed"});
+Object.assign(STRINGS.nl,{"rar.common": "Gewoon",  "chests.guarS": "gegarandeerd"});
+Object.assign(STRINGS.de,{"rar.common": "Gewöhnlich",  "chests.guarS": "garantiert"});
 Object.assign(STRINGS.fr,{"rar.common": "Commun",  "chests.guarS": "garanti"});
+// 0.4.0h strings (Timmie 0.4.0 bugs)
+Object.assign(STRINGS.en,{"c3h.unl": "New hero!", "news.tab": "New!", "ws.needTr": "Not enough boss trophies", "ws.needGold": "Not enough gold"});
+Object.assign(STRINGS.nl,{"c3h.unl": "Nieuwe held!", "news.tab": "Nieuw!", "ws.needTr": "Niet genoeg baastrofeeën", "ws.needGold": "Niet genoeg goud", "ad.freeBtn": "Gratis kist · advertentie", "dbl.btn": "2× goud · advertentie"});
+Object.assign(STRINGS.de,{"c3h.unl": "Neuer Held!", "news.tab": "Neu!", "ws.needTr": "Nicht genug Boss-Trophäen", "ws.needGold": "Nicht genug Gold"});
+Object.assign(STRINGS.fr,{"c3h.unl": "Nouveau héros !", "news.tab": "Neuf !", "ws.needTr": "Pas assez de trophées de boss", "ws.needGold": "Pas assez d’or"});
+
 // 0.3.7d strings: boss story card, season path, keys, Golden run, achievements
 Object.assign(STRINGS.en,{"bcard.top": "From the storybook of Elthoria", "bcard.tipH": "Tip:", "bcard.tap": "Tap to fight", "bcard.tip.youngToad": "Fires a ring of bubbles, then leaps at you. Slip through the gaps!", "bcard.tip.shroomElder": "Spore rings come in waves. Look for the gaps and keep moving.", "bcard.tip.slimeMother": "Splits when hit. Clear the little slimes fast.", "bcard.tip.toadKing": "Gets faster when he is angry. Keep moving and use your ult!", "sea.btn": "Season path", "sea.title": "{0} in Elthoria", "sea.card": "Step {0}/{1}", "sea.startsDec": "Starts on 1 December", "sea.step": "Step {0}/{1}", "sea.xp": "{0}/{1} XP", "sea.days": "{0} days left", "sea.how": "Play runs for season XP: about 140 per won run. Rewards arrive by themselves.", "sea.pg": "Steps {0}–{1}", "sea.rw.gold": "{0} gold", "sea.rw.gems": "{0} gems", "sea.rw.key": "Key", "sea.rw.frame": "Portrait frame", "sea.rw.skin": "Skin: {0}",  "sea.n.01": "Snow Star", "sea.n.02": "Ice Light", "sea.n.03": "Blossom Wind", "sea.n.04": "Rainbow Rain", "sea.n.05": "May Dew", "sea.n.06": "Midsummer", "sea.n.07": "Sea Breeze", "sea.n.08": "Starry Night", "sea.n.09": "Harvest Moon", "sea.n.10": "Misty Wood", "sea.n.11": "Lantern Light", "sea.n.12": "Winter's Turn", "cauld.swinter": "Winter", "cauld.sspring": "Blossom", "cauld.ssummer": "Sea", "cauld.sautumn": "Harvest", "cauld.req.season": "Season path step 15", "cs.how.season": "Season path reward (step 30)", "orig.season": "Season path", "key.got1": "+1 key", "key.count": "Keys {0}/{1}", "key.what": "Wooden & Silver open at once, Golden & Magic in half the time", "key.useOpen": "Key: open now", "key.useHalf": "Key: ½ time", "key.left": "×{0}",  "lucky.x2": "Golden run ×2", "lucky.start": "Golden run!", "lucky.sub": "Double gold and XP", "ach.btn": "Achievements", "ach.title": "Achievements", "ach.card": "{0}/{1} medals", "ach.newN": "{0} new", "ach.titleBtn": "Title", "ach.noTitle": "No title", "ach.autoTitle": "Hero path title", "ach.titleSub": "Pick the title shown under your hero's name in the village.", "ach.mile": "Milestone", "ach.titleRw": "Title: {0}",      "ach.n.wins": "Victories", "ach.d.wins": "Win {0} runs", "ach.t.wins": "Champion", "ach.n.kills": "Monster Hunt", "ach.d.kills": "Defeat {0} monsters", "ach.t.kills": "Hunter", "ach.n.flawless": "Untouchable", "ach.d.flawless": "Win a level {0}× without taking damage", "ach.t.flawless": "Untouchable", "ach.n.icebreaker": "Icebreaker", "ach.d.icebreaker": "Shatter frozen monsters {0}×", "ach.t.icebreaker": "Icebreaker", "ach.n.storm": "Storm Caller", "ach.d.storm": "Overload shocked monsters {0}×", "ach.t.storm": "Storm Caller", "ach.n.toads": "Toad Hunter", "ach.d.toads": "Beat {0} different bosses", "ach.t.toads": "Toad Hunter", "ach.n.pages": "Storyteller", "ach.d.pages": "Fill {0} bestiary pages", "ach.t.pages": "Storyteller", "ach.n.chests": "Treasure Seeker", "ach.d.chests": "Open {0} chests", "ach.t.chests": "Treasure Seeker", "ach.n.goldsmith": "Goldsmith", "ach.d.goldsmith": "Earn {0} gold", "ach.t.goldsmith": "Goldsmith", "ach.n.levels": "Pathfinder", "ach.d.levels": "Clear {0} levels", "ach.t.levels": "Pathfinder", "ach.n.ults": "Spellpot Master", "ach.d.ults": "Use your ult {0}×", "ach.t.ults": "Spellpot Master", "ach.n.evos": "Alchemist", "ach.d.evos": "Evolve a weapon {0}×", "ach.t.evos": "Alchemist", "ach.n.weekly": "Weekly Hero", "ach.d.weekly": "Earn {0} weekly stars", "ach.t.weekly": "Weekly Hero", "ach.n.daily": "Faithful", "ach.d.daily": "Finish all daily quests on {0} days", "ach.t.daily": "Faithful", "ach.n.pip": "Pip's Friend", "ach.d.pip": "Play {0} runs with Pip", "ach.t.pip": "Pip's Friend", "ach.n.brakk": "Barbarian's Friend", "ach.d.brakk": "Play {0} runs with the Barbarian", "ach.t.brakk": "Barbarian's Friend", "ach.n.endless": "Survivor", "ach.d.endless": "Score {0} in Endless", "ach.t.endless": "Survivor", "ach.n.cauldrons": "Collector", "ach.d.cauldrons": "Own {0} cauldrons", "ach.t.cauldrons": "Collector", "ach.n.levelups": "Fast Learner", "ach.d.levelups": "Level up {0}× in runs", "ach.t.levelups": "Fast Learner", "ach.n.rank": "Legend", "ach.d.rank": "Reach rank {0}", "ach.t.rank": "Legend", "key.noneS": "No keys yet"});
 Object.assign(STRINGS.nl,{"bcard.top": "Uit het verhalenboek van Elthoria", "bcard.tipH": "Tip:", "bcard.tap": "Tik om te vechten", "bcard.tip.youngToad": "Schiet een ring van bubbels en springt dan op je af. Glip door de gaten!", "bcard.tip.shroomElder": "Sporenringen komen in golven. Zoek de gaten en blijf bewegen.", "bcard.tip.slimeMother": "Splitst als je haar raakt. Ruim de kleine slijmpjes snel op.", "bcard.tip.toadKing": "Wordt sneller als hij boos is. Blijf bewegen en gebruik je ult!", "sea.btn": "Seizoenspad", "sea.title": "{0} in Elthoria", "sea.card": "Stap {0}/{1}", "sea.startsDec": "Begint op 1 december", "sea.step": "Stap {0}/{1}", "sea.xp": "{0}/{1} XP", "sea.days": "nog {0} dagen", "sea.how": "Speel potjes voor seizoens-XP: ongeveer 140 per gewonnen potje. Beloningen komen vanzelf.", "sea.pg": "Stap {0}–{1}", "sea.rw.gold": "{0} goud", "sea.rw.gems": "{0} edelstenen", "sea.rw.key": "Sleutel", "sea.rw.frame": "Portretlijst", "sea.rw.skin": "Skin: {0}",  "sea.n.01": "Sneeuwster", "sea.n.02": "IJslicht", "sea.n.03": "Bloesemwind", "sea.n.04": "Regenboogregen", "sea.n.05": "Meidauw", "sea.n.06": "Midzomer", "sea.n.07": "Zeebries", "sea.n.08": "Sterrennacht", "sea.n.09": "Oogstmaan", "sea.n.10": "Nevelwoud", "sea.n.11": "Lantaarnlicht", "sea.n.12": "Winterwende", "cauld.swinter": "Winter", "cauld.sspring": "Bloesem", "cauld.ssummer": "Zee", "cauld.sautumn": "Oogst", "cauld.req.season": "Seizoenspad stap 15", "cs.how.season": "Beloning seizoenspad (stap 30)", "orig.season": "Seizoenspad", "key.got1": "+1 sleutel", "key.count": "Sleutels {0}/{1}", "key.what": "Houten en zilveren kisten gaan meteen open, gouden en magische in de helft van de tijd", "key.useOpen": "Sleutel: nu open", "key.useHalf": "Sleutel: ½ tijd", "key.left": "×{0}",  "lucky.x2": "Gouden run ×2", "lucky.start": "Gouden run!", "lucky.sub": "Dubbel goud en XP", "ach.btn": "Prestaties", "ach.title": "Prestaties", "ach.card": "{0}/{1} medailles", "ach.newN": "{0} nieuw", "ach.titleBtn": "Titel", "ach.noTitle": "Geen titel", "ach.autoTitle": "Titel van het heldenpad", "ach.titleSub": "Kies de titel onder de naam van je held in het dorp.", "ach.mile": "Mijlpaal", "ach.titleRw": "Titel: {0}",      "ach.n.wins": "Overwinningen", "ach.d.wins": "Win {0} potjes", "ach.t.wins": "Kampioen", "ach.n.kills": "Monsterjacht", "ach.d.kills": "Versla {0} monsters", "ach.t.kills": "Jager", "ach.n.flawless": "Onaantastbaar", "ach.d.flawless": "Win {0}× een level zonder schade", "ach.t.flawless": "Onaantastbaar", "ach.n.icebreaker": "IJsbreker", "ach.d.icebreaker": "Verbrijzel {0}× bevroren monsters", "ach.t.icebreaker": "IJsbreker", "ach.n.storm": "Stormroeper", "ach.d.storm": "Overbelast {0}× geschokte monsters", "ach.t.storm": "Stormroeper", "ach.n.toads": "Paddenjager", "ach.d.toads": "Versla {0} verschillende bazen", "ach.t.toads": "Paddenjager", "ach.n.pages": "Verhalenverteller", "ach.d.pages": "Maak {0} pagina's van het monsterboek vol", "ach.t.pages": "Verhalenverteller", "ach.n.chests": "Schatzoeker", "ach.d.chests": "Open {0} kisten", "ach.t.chests": "Schatzoeker", "ach.n.goldsmith": "Goudsmid", "ach.d.goldsmith": "Verdien {0} goud", "ach.t.goldsmith": "Goudsmid", "ach.n.levels": "Padvinder", "ach.d.levels": "Haal {0} levels", "ach.t.levels": "Padvinder", "ach.n.ults": "Ketelmeester", "ach.d.ults": "Gebruik {0}× je ult", "ach.t.ults": "Ketelmeester", "ach.n.evos": "Alchemist", "ach.d.evos": "Laat {0}× een wapen evolueren", "ach.t.evos": "Alchemist", "ach.n.weekly": "Weekheld", "ach.d.weekly": "Verdien {0} weeksterren", "ach.t.weekly": "Weekheld", "ach.n.daily": "Trouw", "ach.d.daily": "Maak op {0} dagen alle dagopdrachten af", "ach.t.daily": "Trouwe held", "ach.n.pip": "Vriend van Pip", "ach.d.pip": "Speel {0} potjes met Pip", "ach.t.pip": "Vriend van Pip", "ach.n.brakk": "Vriend van de Barbaar", "ach.d.brakk": "Speel {0} potjes met de Barbaar", "ach.t.brakk": "Vriend van de Barbaar", "ach.n.endless": "Overlever", "ach.d.endless": "Haal {0} punten in Eindeloos", "ach.t.endless": "Overlever", "ach.n.cauldrons": "Verzamelaar", "ach.d.cauldrons": "Bezit {0} ketels", "ach.t.cauldrons": "Verzamelaar", "ach.n.levelups": "Snelle leerling", "ach.d.levelups": "Stijg {0}× een level in potjes", "ach.t.levelups": "Snelle leerling", "ach.n.rank": "Legende", "ach.d.rank": "Bereik rang {0}", "ach.t.rank": "Legende", "key.noneS": "Nog geen sleutels"});
@@ -5055,15 +5119,15 @@ function heroPulseA(p){if(!(p.inv>0&&S.t-p.lastHit<1))return 1;const u=Math.max(
 function drawHeroA(p,a){if(a>=1){drawHeroLit(p);return;}if(!lowFx){ctx.save();ctx.globalAlpha*=a;drawHeroLit(p);ctx.restore();return;}
  // low effects: the hero code may reset globalAlpha, so it is drawn to a small scratch canvas first
  const w=64,h=72,ox=32,oy=44,ss=Math.min(3,scale*DPR),cw=Math.ceil(w*ss),ch=Math.ceil(h*ss);let c=HEROPULSE.c;if(!c||c.width!=cw||c.height!=ch)c=HEROPULSE.c=mkCv(cw,ch);const g=c.getContext('2d');g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;g.clearRect(0,0,cw,ch);g.setTransform(ss,0,0,ss,ox*ss,oy*ss);
- shadow(p.x,p.y+p.r-2,p.r*(S.hero.id=='barbarian'?.95:.9));const old=ctx;ctx=g;NOSHADOW=true;try{S.hero.draw(Object.assign({},p,{x:0,y:0}));}finally{ctx=old;NOSHADOW=false;}ctx.save();ctx.globalAlpha*=a;ctx.drawImage(c,p.x-ox,p.y-oy,w,h);ctx.restore();}
+ shadow(p.x,p.y+p.r-2,p.r*(S.hero.id=='barbarian'?.95:.9));const old=ctx;ctx=g;NOSHADOW=true;heroXfTick(p);try{S.hero.draw(Object.assign({},p,{x:0,y:0}));}finally{ctx=old;NOSHADOW=false;}ctx.save();ctx.globalAlpha*=a;ctx.drawImage(c,p.x-ox,p.y-oy,w,h);ctx.restore();heroXfDraw(p);}
 function witchRing(p){if(window.__qaRing)S.ringM={m:ctx.getTransform(),x:p.x,y:p.y+p.r-1,rx:p.r*1.45,ry:p.r*.55};} // 0.3.1: no ring under the hero (kept only as a QA probe)
-const HEROLIT={};function drawHeroLit(p){shadow(p.x,p.y+p.r-2,p.r*(S&&S.hero.id=='barbarian'?.95:.9));if(S&&S.hero.id=='witch')witchRing(p);const d=S.hero.draw;
- if(lowFx){NOSHADOW=true;d(p);NOSHADOW=false;return;}
- const w=64,h=72,ox=32,oy=44,ss=Math.min(4,scale*DPR),hk=S.hero.id+'|'+ss+'|'+(p.face||p.dir||0)+'|'+(p.flash>0)+'|'+(p.skin||'')+'|'+(p.castT>0?(S.hero.id=='barbarian'?1+Math.floor(p.castT/BRK_AX*3):1):0)+(S.ultA&&S.ultA.k==S.hero.id?1:0)+'|'+Object.keys(S.sig||{}).join(',');const hc=HEROLIT[S.hero.id];
+const HEROLIT={};function drawHeroLit(p){shadow(p.x,p.y+p.r-2,p.r*(S&&S.hero.id=='barbarian'?.95:.9));if(S&&S.hero.id=='witch')witchRing(p);const d=S.hero.draw;heroXfTick(p);
+ if(lowFx){NOSHADOW=true;d(p);NOSHADOW=false;heroXfDraw(p);return;}
+ const w=64,h=72,ox=32,oy=44,ss=Math.min(4,scale*DPR),hk=S.hero.id+'|'+ss+'|'+(p.face||p.dir||0)+'|'+(p.flash>0)+'|'+(p.skin||'')+'|'+(p.au>0?1+Math.round(p.au*32):0)+(S.ultA&&S.ultA.k==S.hero.id?1:0)+'|'+Object.keys(S.sig||{}).join(',');const hc=HEROLIT[S.hero.id];
  // the lit hero is re-rendered at most 30x per second (or at once when its look changes); in between the last render is reused
- if(hc&&hc._k===hk&&S.t-hc._t<1/30&&S.t>=hc._t){ctx.drawImage(hc,p.x-ox,p.y-oy,w,h);return;}
+ if(hc&&hc._k===hk&&S.t-hc._t<1/30&&S.t>=hc._t){ctx.drawImage(hc,p.x-ox,p.y-oy,w,h);heroXfDraw(p);return;}
  const c=lightFigure(w,h,ox,oy,S.hero.col||'#3a2a4a',ss,()=>d(Object.assign({},p,{x:0,y:0})),HEROLIT[S.hero.id]||(HEROLIT[S.hero.id]=mkCv(1,1)));c._k=hk;c._t=S.t;
- ctx.drawImage(c,p.x-ox,p.y-oy,w,h);}
+ ctx.drawImage(c,p.x-ox,p.y-oy,w,h);heroXfDraw(p);}
 function glowEyes(x,y,s,col,lk){ctx.fillStyle=col;ctx.beginPath();
  ctx.moveTo(x-s*1.7+lk,y-s*.55);ctx.lineTo(x-s*.25+lk,y+s*.05);ctx.lineTo(x-s*1.4+lk,y+s*.4);ctx.closePath();
  ctx.moveTo(x+s*1.7+lk,y-s*.55);ctx.lineTo(x+s*.25+lk,y+s*.05);ctx.lineTo(x+s*1.4+lk,y+s*.4);ctx.closePath();ctx.fill();}
@@ -5093,12 +5157,12 @@ function sigDrawOn(p,h){const G=p.sigs||(S&&p===S.p?S.sig:null);if(!G)return;con
 // Skin layers unchanged: sk.cloak = cloak + sleeves, sk.trim = trim, sk.hat = hat. p.pose forces a pose (sprite sheet / previews).
 const WITCH_CT=.22; // seconds of Pip's cast pose after a spell goes off
 function witchPose(p){if(p.pose)return p.pose;if(p.flash>0)return 'hit';if(typeof S!='undefined'&&S&&S.ultA&&S.ultA.k=='witch'&&!p.pv)return 'ult';if(p.castT>0)return 'cast';return p.moving>0?'walk':'idle';}
-function drawWitch(p){const t=TT,ps=witchPose(p),walk=ps=='walk',cast=ps=='cast',hit=ps=='hit',ult=ps=='ult',wl=p.walk||0;
+function drawWitch(p){const t=TT,ps=witchPose(p),walk=ps=='walk'||(ps=='cast'&&!p.pose&&p.moving>0),hit=ps=='hit',ult=ps=='ult',wl=p.walk||0,au=atkU(p,ps),ka=atkMix(au,0,.55,1,.7);
  const bob=walk?Math.abs(Math.sin(wl))*2.5:ult?1.6+Math.sin(t*5)*.6:Math.sin(t*3)*.8;const x=p.x,y=p.y-bob,f=p.face||1,sk=p.skin||{},fl=p.flash>0&&!p.pose;
  const cloak=sk.cloak||'#2a1f3d',trim=sk.trim||'#c9a24a',hat=sk.hat||'#17111f',skn='#e0b48e';
  shadow(p.x,p.y+p.r-2,p.r*.9);
  ctx.save();ctx.translate(x,y);ctx.scale(f,1);ctx.lineJoin='round';ctx.lineCap='round';
- const lean=walk?.08:hit?-.17:cast?.05:0;if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
+ const lean=atkMix(au,walk?.08:hit?-.17:0,-.04,.05,.06);if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
  const wv=Math.sin(t*(ult?9:6)+wl)*(walk?2.6:ult?2.4:1.4),br=walk?0:Math.sin(t*3)*.4;
  if(ult&&!figGlow(0,-8,28,'110,240,220',.45)){const g=ctx.createRadialGradient(0,-8,2,0,-8,28);g.addColorStop(0,'rgba(110,240,220,.38)');g.addColorStop(1,'rgba(110,240,220,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,-8,28,0,TAU);ctx.fill();}
  // boots (rounded)
@@ -5113,31 +5177,31 @@ function drawWitch(p){const t=TT,ps=witchPose(p),walk=ps=='walk',cast=ps=='cast'
  const arm=(sx,sy,hx,hy,w)=>{ctx.fillStyle=fl?'#fff':pgr(f,Math.min(sx,hx)-2,Math.min(sy,hy),Math.max(sx,hx)+2,Math.max(sy,hy),ptone(cloak,1.12),.3,.5);const a=Math.atan2(hy-sy,hx-sx),nx=-Math.sin(a),ny=Math.cos(a);
   ctx.beginPath();ctx.moveTo(sx+nx*w,sy+ny*w);ctx.quadraticCurveTo((sx+hx)/2+nx*w*1.1,(sy+hy)/2+ny*w*1.1,hx+nx*w*.8,hy+ny*w*.8);ctx.lineTo(hx-nx*w*.8,hy-ny*w*.8);ctx.quadraticCurveTo((sx+hx)/2-nx*w*.9,(sy+hy)/2-ny*w*.9,sx-nx*w,sy-ny*w);ctx.closePath();ctx.fill();
   ctx.fillStyle=fl?'#fff':skn;ctx.beginPath();ctx.arc(hx,hy,1.8,0,TAU);ctx.fill();};
- const free=(fx,fy)=>{ctx.fillStyle='#bff6ff';ctx.globalAlpha=.7+.3*Math.sin(t*4);wizStar4(fx+(cast?3:-1.4),fy-(cast?3.4:2.4),cast?2.4:1.7);ctx.fill();ctx.globalAlpha=1;};
+ const free=(fx,fy,sc)=>{ctx.fillStyle='#bff6ff';ctx.globalAlpha=.7+.3*Math.sin(t*4);wizStar4(fx-1.4+4.4*ka,fy-2.4-ka,(1.7+.7*ka)*(sc==null?1:sc));ctx.fill();ctx.globalAlpha=1;};
  if(ult){const fx=-10.5,fy=-17+Math.sin(t*5)*.8;arm(-4.6,-2,fx,fy,2.1);free(fx,fy);}
  // hair and face
  ctx.fillStyle=pgr(f,-10,-8,10,4,'#7a4a1e',.32,.5);ctx.beginPath();ctx.moveTo(-8,-8);ctx.bezierCurveTo(-11,-3,-11,2,-10,4+wv*.2);ctx.quadraticCurveTo(-7,1,-5,0);ctx.lineTo(5,0);ctx.quadraticCurveTo(7,1,10,4);ctx.bezierCurveTo(11,2,11,-3,8,-8);ctx.closePath();ctx.fill();
  ctx.fillStyle=fl?'#fff':pgr(f,-6,-9,5,1,skn,.3,.32);ctx.beginPath();ctx.moveTo(-6,-9);ctx.lineTo(6,-9);ctx.bezierCurveTo(6.2,-5,4,-.5,0,1);ctx.bezierCurveTo(-4,-.5,-6.2,-5,-6,-9);ctx.closePath();ctx.fill();
  ctx.fillStyle='rgba(0,0,0,.4)';rrect(-6,-9,12,3,1.5);ctx.fill();
  if(hit){ctx.strokeStyle='#9ff0ff';ctx.lineWidth=.9;ctx.beginPath();ctx.moveTo(-3.9,-5.6);ctx.quadraticCurveTo(-2.5,-4.6,-1.1,-5.6);ctx.moveTo(1.1,-5.6);ctx.quadraticCurveTo(2.5,-4.6,3.9,-5.6);ctx.stroke();}
- else{ctx.fillStyle='#9ff0ff';const eh=cast||ult?1.15:.95;ctx.beginPath();ctx.ellipse(2.5,-5.2,1.6,eh,0,0,TAU);ctx.ellipse(-2.5,-5.2,1.6,eh,0,0,TAU);ctx.fill();}
+ else{ctx.fillStyle='#9ff0ff';const eh=ult?1.15:.95+.2*ka;ctx.beginPath();ctx.ellipse(2.5,-5.2,1.6,eh,0,0,TAU);ctx.ellipse(-2.5,-5.2,1.6,eh,0,0,TAU);ctx.fill();}
  // pointed hat: curved cone + soft elliptical brim; the tip sways (more while walking / in the ult)
  const hx=walk?Math.sin(wl)*1.2:ult?Math.sin(t*6)*1.4:hit?-1.2:Math.sin(t*2.4)*.8;
  ctx.fillStyle=pgr(f,-16,-11,16,-6,hat,.42,.4);ctx.beginPath();ctx.ellipse(0,-8.6+br*.3,16.8,3.1,hit?-.12:-.06,0,TAU);ctx.fill();
  ctx.fillStyle=pgr(f,-8,-34,8,-10,hat,.48,.35);ctx.beginPath();ctx.moveTo(-8,-10);ctx.quadraticCurveTo(-6,-22,-1.5+hx*.4,-27);ctx.quadraticCurveTo(4+hx*.7,-32,9+hx,-37);ctx.quadraticCurveTo(4.5+hx*.7,-31,4.2+hx*.4,-25);ctx.quadraticCurveTo(6,-16,8,-10);ctx.closePath();ctx.fill();
  ctx.fillStyle=pgr(f,-8,-13,8,-10.4,trim,.38,.35);rrect(-8,-13,16,2.6,1.2);ctx.fill();
  // staff with crystal: held at the hand (HX,HY), turned by ra (thrust forward while casting, high in the ult)
- const HX=cast?14.4:ult?13.6:hit?11.6:12.3,HY=(cast?1.2:ult?-7:hit?6:5)+br,ra=cast?.5+Math.sin(t*10)*.03:ult?-.06:hit?-.24:walk?Math.sin(wl)*.07:0;
+ const HX=ult?13.6:hit?11.6:atkMix(au,12.3,11,14.4,13.9),HY=(ult?-7:hit?6:atkMix(au,5,3.2,1.2,2.2))+br,ra=ult?-.06:hit?-.24:atkMix(au,walk?Math.sin(wl)*.07:0,-.3,.5+Math.sin(t*10)*.03,.36);
  ctx.save();ctx.translate(HX,HY);ctx.rotate(ra);
  ctx.strokeStyle='#3b2618';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(-1.3,10);ctx.lineTo(2.7,-21);ctx.stroke();
- const gl=(cast?7:ult?6:3)+Math.sin(t*6),cr=cast||ult?1.2:1;if(!figGlow(3.2,-25,9+gl,'160,240,255',cast||ult?.78:.62)){const gg=ctx.createRadialGradient(3.2,-25,0,3.2,-25,9+gl);gg.addColorStop(0,'rgba(160,240,255,.7)');gg.addColorStop(1,'rgba(160,240,255,0)');ctx.fillStyle=gg;ctx.beginPath();ctx.arc(3.2,-25,9+gl,0,TAU);ctx.fill();}
+ const gl=(ult?6:3+4*ka)+Math.sin(t*6),cr=ult?1.2:1+.2*ka;if(!figGlow(3.2,-25,9+gl,'160,240,255',ult?.78:.62+.16*ka)){const gg=ctx.createRadialGradient(3.2,-25,0,3.2,-25,9+gl);gg.addColorStop(0,'rgba(160,240,255,.7)');gg.addColorStop(1,'rgba(160,240,255,0)');ctx.fillStyle=gg;ctx.beginPath();ctx.arc(3.2,-25,9+gl,0,TAU);ctx.fill();}
  ctx.fillStyle='#bff6ff';rpoly([[3.2,-25-6*cr],[3.2+3*cr,-25],[3.2,-25+5*cr],[3.2-3*cr,-25]],1);ctx.fill();
- if(cast||ult){ctx.strokeStyle='rgba(191,246,255,.7)';ctx.lineWidth=.8;ctx.setLineDash([1.6,1.6]);ctx.beginPath();ctx.arc(3.2,-25,7.5+Math.sin(t*8),t*3,t*3+TAU);ctx.stroke();ctx.setLineDash([]);}
+ if(ka>.5||ult){ctx.strokeStyle='rgba(191,246,255,.7)';ctx.lineWidth=.8;ctx.setLineDash([1.6,1.6]);ctx.beginPath();ctx.arc(3.2,-25,7.5+Math.sin(t*8),t*3,t*3+TAU);ctx.stroke();ctx.setLineDash([]);}
  ctx.restore();
  // staff hand: sleeve from the shoulder to the staff
  arm(4.8,-1.6,HX,HY,2.1);
  // cast: the free hand comes across the chest with a spark (in front of the staff arm)
- if(cast){const fx=7.2,fy=3.4+Math.sin(t*9)*.5;arm(-3.8,-.4,fx,fy,2.1);free(fx,fy);}
+ {const ah=atkMix(au,0,.75,1,.6);if(ah>.06){const fx=-3.8+11*ah,fy=-.4+(3.8+Math.sin(t*9)*.5)*ah;arm(-3.8,-.4,fx,fy,2.1);free(fx,fy,Math.min(1,ah*1.4));}}
  SIGH=[HX-.8,HY+1];sigDrawOn(p,'witch');SIGH=null;
  ctx.restore();}
 // 0.4.0d Wizard sprite (code-drawn, 'Glowing Storybook'): deep-blue robe with star embroidery, silver beard, bent star hat, crescent staff with a violet orb, a small spellbook floating at his side.
@@ -5155,15 +5219,15 @@ function wizBook(x,y,a,open,glow,trim,t){ctx.save();ctx.translate(x,y);ctx.rotat
  if(o>.5){const fl=Math.sin(t*14)*.5+.5;ctx.fillStyle='rgba(244,234,208,.9)';ctx.beginPath();ctx.moveTo(0,-2.4);ctx.quadraticCurveTo(2+fl*1.5,-6-fl*2,4.6*fl,-3.2);ctx.lineTo(4.6*fl,2.6);ctx.quadraticCurveTo(2,1.8,0,3.6);ctx.closePath();ctx.fill();} // a page flips while casting
  ctx.fillStyle=trim;rrect(-1.1,4.2,2.2,3.2,.8);ctx.fill(); // ribbon
  ctx.restore();}
-function drawWizard(p){const t=TT,ps=wizPose(p),walk=ps=='walk',cast=ps=='cast',hit=ps=='hit',ult=ps=='ult',wl=p.walk||0;
+function drawWizard(p){const t=TT,ps=wizPose(p),walk=ps=='walk'||(ps=='cast'&&!p.pose&&p.moving>0),hit=ps=='hit',ult=ps=='ult',wl=p.walk||0,au=atkU(p,ps),ka=atkMix(au,0,.55,1,.7);
  const bob=walk?Math.abs(Math.sin(wl))*2.2:ult?1.5+Math.sin(t*5)*.6:Math.sin(t*2.6)*.8;const x=p.x,y=p.y-bob,f=p.face||1,sk=p.skin||{},fl=p.flash>0&&!p.pose;
  const robe=sk.cloak||'#2f4f9a',trim=sk.trim||'#e8c66a',hat=sk.hat||'#1f2b5e',skin='#e8bf98',beard='#eef0f6';
  shadow(p.x,p.y+p.r-2,p.r*.9);
  ctx.save();ctx.translate(x,y);ctx.scale(f,1);ctx.lineJoin='round';ctx.lineCap='round';
- const lean=walk?.07:hit?-.16:cast?.06:0;if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
+ const lean=atkMix(au,walk?.07:hit?-.16:0,-.03,.06,.05);if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
  const wv=Math.sin(t*(ult?9:5)+wl)*(walk?2.2:ult?2.6:1.1),st=walk?Math.sin(wl)*3:0;
  // floating spellbook on the back side (behind the body), in front-left over his head during the ult
- const bkO=ult?1:cast?.85:.25,bkG=ult?1:cast?.8:0;
+ const bkO=ult?1:atkMix(au,.25,.6,.85,.7),bkG=ult?1:atkMix(au,0,.45,.8,.55);
  if(!ult)wizBook(-15+Math.sin(t*1.7)*.8,-3+Math.sin(t*2.3)*2,-.18+Math.sin(t*1.3)*.06,bkO,bkG,trim,t);
  // slippers with curled toes
  ctx.fillStyle=pgr(f,-7,15,7,21,'#3a2a58',.25,.6);for(const [bx,d] of [[-4+st,-1],[4-st,1]]){ctx.beginPath();ctx.ellipse(bx,18.6,2.9,2.1,0,0,TAU);ctx.fill();ctx.beginPath();ctx.moveTo(bx+1.5,17.6);ctx.quadraticCurveTo(bx+4.6,17.4,bx+4.4,15.8);ctx.lineTo(bx+3.2,18.8);ctx.closePath();ctx.fill();}
@@ -5179,9 +5243,11 @@ function drawWizard(p){const t=TT,ps=wizPose(p),walk=ps=='walk',cast=ps=='cast',
  ctx.fillStyle=pgr(f,-7,5,7,7.4,trim,.35,.35);rrect(-7.4,4.6,14.8,2.3,1.1);ctx.fill();ctx.strokeStyle=ptone(trim,.7);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(-3,6.8);ctx.quadraticCurveTo(-3.6+wv*.3,9.5,-3.2+wv*.4,11.6);ctx.stroke();ctx.fillStyle=trim;ctx.beginPath();ctx.ellipse(-3.2+wv*.4,12.2,1,1.4,0,0,TAU);ctx.fill();
  // back arm (free hand): rests on the belt; raised with a spark when casting; up during the ult
  const sl=fl?'#fff':pgr(f,-12,-4,-4,8,ptone(robe,.9),.3,.5);ctx.fillStyle=sl;
- if(ult||cast){const ay=ult?-14:-6,ax=ult?-11:-12;ctx.beginPath();ctx.moveTo(-5.5,-1.5);ctx.quadraticCurveTo(-11,-2,ax-1.5,ay+1);ctx.lineTo(ax+2.4,ay-1.2);ctx.quadraticCurveTo(-6,-4.5,-3.6,-3);ctx.closePath();ctx.fill();ctx.fillStyle=skin;ctx.beginPath();ctx.arc(ax+.4,ay-.6,1.9,0,TAU);ctx.fill();
+ {const wk=atkMix(au,0,.8,1,.75);if(ult||wk>=.999){const ay=ult?-14:-6,ax=ult?-11:-12;ctx.beginPath();ctx.moveTo(-5.5,-1.5);ctx.quadraticCurveTo(-11,-2,ax-1.5,ay+1);ctx.lineTo(ax+2.4,ay-1.2);ctx.quadraticCurveTo(-6,-4.5,-3.6,-3);ctx.closePath();ctx.fill();ctx.fillStyle=skin;ctx.beginPath();ctx.arc(ax+.4,ay-.6,1.9,0,TAU);ctx.fill();
   const sp=(Math.sin(t*12)+1)/2;ctx.fillStyle='#e6dcff';wizStar4(ax-.4,ay-4.4,2+sp*1.4);ctx.fill();}
- else{ctx.beginPath();ctx.moveTo(-5.8,-1.6);ctx.quadraticCurveTo(-10.6,3,-8.4,8.4);ctx.lineTo(-5,7.6);ctx.quadraticCurveTo(-6.4,3.6,-3.4,-.4);ctx.closePath();ctx.fill();ctx.fillStyle=skin;ctx.beginPath();ctx.arc(-6.6,8.2,1.8,0,TAU);ctx.fill();}
+ else if(wk>.001){const P=atkPoly([-5.8,-1.6,-10.6,3,-8.4,8.4,-5,7.6,-6.4,3.6,-3.4,-.4,-6.6,8.2],[-5.5,-1.5,-11,-2,-13.5,-5,-9.6,-7.2,-6,-4.5,-3.6,-3,-11.6,-6.6],wk);ctx.fillStyle=skin;ctx.beginPath();ctx.arc(P[12],P[13],1.8+.1*wk,0,TAU);ctx.fill();
+  if(wk>.3){const sp=(Math.sin(t*12)+1)/2;ctx.fillStyle='#e6dcff';wizStar4(P[12]-.8,P[13]-3.8*wk,(2+sp*1.4)*(wk-.3)/.7);ctx.fill();}}
+ else{ctx.beginPath();ctx.moveTo(-5.8,-1.6);ctx.quadraticCurveTo(-10.6,3,-8.4,8.4);ctx.lineTo(-5,7.6);ctx.quadraticCurveTo(-6.4,3.6,-3.4,-.4);ctx.closePath();ctx.fill();ctx.fillStyle=skin;ctx.beginPath();ctx.arc(-6.6,8.2,1.8,0,TAU);ctx.fill();}}
  // head: face, bulb nose, silver beard + moustache, bushy brows, soft glowing eyes
  ctx.fillStyle=fl?'#fff':pgr(f,-5,-10,5,0,skin,.3,.32);ctx.beginPath();ctx.ellipse(0,-5.2,5.4,5.6,0,0,TAU);ctx.fill();
  ctx.fillStyle=fl?'#fff':pgr(f,-6,-4,6,10,beard,.15,.32);const bw=Math.sin(t*2.2+wl*.5)*(walk?1:.5);ctx.beginPath();ctx.moveTo(-5.4,-5);ctx.quadraticCurveTo(-7.2,1,-5.6+bw*.4,5.4);ctx.quadraticCurveTo(-3.8,4.4,-2.6+bw*.6,8);ctx.quadraticCurveTo(-1,6.6,bw,10.2);ctx.quadraticCurveTo(1.4,6.8,2.8+bw*.6,8);ctx.quadraticCurveTo(4,4.4,5.8+bw*.4,5.4);ctx.quadraticCurveTo(7.2,1,5.4,-5);ctx.quadraticCurveTo(3.6,-1.4,0,-1.6);ctx.quadraticCurveTo(-3.6,-1.4,-5.4,-5);ctx.closePath();ctx.fill();
@@ -5202,16 +5268,16 @@ function drawWizard(p){const t=TT,ps=wizPose(p),walk=ps=='walk',cast=ps=='cast',
  const sx=-13.4+tip,sy=-34.6+tip*.3;if(!figGlow(sx,sy,4.5,'255,230,140',.45)){}ctx.fillStyle='#ffe9a0';wizStar4(sx,sy,2.4);ctx.fill();
  ctx.restore();
  // staff (front hand): gnarled wood, gold crescent holding a violet orb; thrust forward when casting, raised high in the ult
- ctx.save();const ga=ult?-.28:cast?.42:walk?Math.sin(wl)*.06:0;ctx.translate(12,6);ctx.rotate(ga);ctx.translate(-12,-6);const sy0=ult?-6:0;
+ ctx.save();const ga=ult?-.28:atkMix(au,walk?Math.sin(wl)*.06:0,-.16,.42,.3);ctx.translate(12,6);ctx.rotate(ga);ctx.translate(-12,-6);const sy0=ult?-6:0;
  ctx.strokeStyle='#4a3020';ctx.lineWidth=2.6;ctx.beginPath();ctx.moveTo(11,17+sy0);ctx.quadraticCurveTo(13.4,2+sy0,12.6,-10+sy0);ctx.quadraticCurveTo(12.2,-15+sy0,13.4,-19+sy0);ctx.stroke();
  ctx.strokeStyle='#6a4a2e';ctx.lineWidth=.9;ctx.beginPath();ctx.moveTo(11.8,12+sy0);ctx.lineTo(12.6,8+sy0);ctx.moveTo(12.9,-2+sy0);ctx.lineTo(13.2,-6+sy0);ctx.stroke();
  ctx.fillStyle=fl?'#fff':pgr(f,8,0,15,8,ptone(robe,.9),.3,.5);ctx.beginPath();ctx.moveTo(5.4,-1.6);ctx.quadraticCurveTo(9.8,0,11.4,3.6+sy0*.5);ctx.lineTo(14.2,1.6+sy0*.5);ctx.quadraticCurveTo(11,-3.4,4,-3.2);ctx.closePath();ctx.fill(); // sleeve
  ctx.fillStyle=skin;ctx.beginPath();ctx.arc(12.8,2.6+sy0*.5,1.9,0,TAU);ctx.fill();
- const ox=13.6,oy=-22.6+sy0,gl=(cast||ult?5:2.6)+Math.sin(t*5)*1.1;
- if(!figGlow(ox,oy,8+gl,'201,166,255',cast||ult?.75:.55)){const gg=ctx.createRadialGradient(ox,oy,0,ox,oy,8+gl);gg.addColorStop(0,'rgba(201,166,255,.7)');gg.addColorStop(1,'rgba(201,166,255,0)');ctx.fillStyle=gg;ctx.beginPath();ctx.arc(ox,oy,8+gl,0,TAU);ctx.fill();}
+ const ox=13.6,oy=-22.6+sy0,gl=(ult?5:2.6+2.4*ka)+Math.sin(t*5)*1.1;
+ if(!figGlow(ox,oy,8+gl,'201,166,255',ult?.75:.55+.2*ka)){const gg=ctx.createRadialGradient(ox,oy,0,ox,oy,8+gl);gg.addColorStop(0,'rgba(201,166,255,.7)');gg.addColorStop(1,'rgba(201,166,255,0)');ctx.fillStyle=gg;ctx.beginPath();ctx.arc(ox,oy,8+gl,0,TAU);ctx.fill();}
  ctx.strokeStyle=trim;ctx.lineWidth=1.8;ctx.beginPath();ctx.arc(ox,oy+.6,4.6,.25*Math.PI,.75*Math.PI+Math.PI*.95,false);ctx.stroke(); // crescent cradle
  const og=ctx.createRadialGradient(ox-1,oy-1.2,.4,ox,oy,3.6);og.addColorStop(0,'#ffffff');og.addColorStop(.35,'#d9c8ff');og.addColorStop(1,'#7a5ad8');ctx.fillStyle=og;ctx.beginPath();ctx.arc(ox,oy,3.3,0,TAU);ctx.fill();
- if(cast||ult){ctx.strokeStyle='rgba(230,220,255,.75)';ctx.lineWidth=.8;ctx.setLineDash([1.6,1.6]);ctx.beginPath();ctx.arc(ox,oy,7+Math.sin(t*8),t*3,t*3+TAU);ctx.stroke();ctx.setLineDash([]);for(let i=0;i<3;i++){const a=t*3+i*TAU/3;ctx.fillStyle='#e6dcff';wizStar4(ox+Math.cos(a)*7,oy+Math.sin(a)*7,1);ctx.fill();}}
+ if(ka>.5||ult){ctx.strokeStyle='rgba(230,220,255,.75)';ctx.lineWidth=.8;ctx.setLineDash([1.6,1.6]);ctx.beginPath();ctx.arc(ox,oy,7+Math.sin(t*8),t*3,t*3+TAU);ctx.stroke();ctx.setLineDash([]);for(let i=0;i<3;i++){const a=t*3+i*TAU/3;ctx.fillStyle='#e6dcff';wizStar4(ox+Math.cos(a)*7,oy+Math.sin(a)*7,1);ctx.fill();}}
  ctx.restore();
  if(ult){wizBook(-9,-26+Math.sin(t*4)*1.2,-.1,1,1,trim,t);ctx.fillStyle='rgba(255,233,160,.85)';for(let i=0;i<4;i++){const a=t*2+i*TAU/4;wizStar4(-9+Math.cos(a)*10,-27+Math.sin(a)*4,1.1);ctx.fill();}}
  sigDrawOn(p,'wizard');
@@ -5221,12 +5287,12 @@ function drawWizard(p){const t=TT,ps=wizPose(p),walk=ps=='walk',cast=ps=='cast',
 // Skin layers: sk.cloak = cloak, sk.trim = trim/clasp/bow tips, sk.hat = hood. p.pose forces a pose (sprite sheet / previews). No red anywhere.
 function elfPose(p){if(p.pose)return p.pose;if(p.flash>0)return 'hit';if(typeof S!='undefined'&&S&&S.ultA&&S.ultA.k=='elf'&&!p.pv)return 'ult';if(p.castT>0)return 'cast';return p.moving>0?'walk':'idle';}
 function elfLeaf(x,y,r,a,c){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(-r,0);ctx.quadraticCurveTo(-r*.2,-r*.7,r,0);ctx.quadraticCurveTo(-r*.2,r*.7,-r,0);ctx.closePath();ctx.fill();ctx.restore();}
-function drawElf(p){const t=TT,ps=elfPose(p),walk=ps=='walk',cast=ps=='cast',hit=ps=='hit',ult=ps=='ult',wl=p.walk||0;
+function drawElf(p){const t=TT,ps=elfPose(p),walk=ps=='walk'||(ps=='cast'&&!p.pose&&p.moving>0),hit=ps=='hit',ult=ps=='ult',wl=p.walk||0,au=atkU(p,ps);
  const bob=walk?Math.abs(Math.sin(wl))*2.4:ult?1.6+Math.sin(t*5)*.6:Math.sin(t*2.8)*.8;const x=p.x,y=p.y-bob,f=p.face||1,sk=p.skin||{},fl=p.flash>0&&!p.pose;
  const robe=sk.cloak||'#2f6a3a',trim=sk.trim||'#e8c66a',hood=sk.hat||'#24502c',skin='#f2d2b0',hair='#ecc878',tun=ptone(robe,1.42),wood='#8a5a2e';
  shadow(p.x,p.y+p.r-2,p.r*.85);
  ctx.save();ctx.translate(x,y);ctx.scale(f,1);ctx.lineJoin='round';ctx.lineCap='round';
- const lean=walk?.09:hit?-.17:cast?-.04:0;if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
+ const lean=atkMix(au,walk?.09:hit?-.17:0,-.07,-.04,.02);if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
  const wv=Math.sin(t*(ult?9:5.5)+wl)*(walk?2.6:ult?2.8:1.2),st=walk?Math.sin(wl)*3.2:0,hs=Math.sin(t*2.4+wl*.6)*(walk?2:1);
  if(ult&&!figGlow(0,-6,26,'155,224,106',.5)){const g=ctx.createRadialGradient(0,-6,2,0,-6,26);g.addColorStop(0,'rgba(155,224,106,.4)');g.addColorStop(1,'rgba(155,224,106,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,-6,26,0,TAU);ctx.fill();}
  // quiver on her back (behind everything): leather tube, gold band, green fletchings
@@ -5245,8 +5311,7 @@ function drawElf(p){const t=TT,ps=elfPose(p),walk=ps=='walk',cast=ps=='cast',hit
  // back arm: at her side; pulls the string while casting; raised in the ult
  ctx.fillStyle=fl?'#fff':pgr(f,-8,-4,0,8,ptone(tun,.9),.3,.5);
  if(ult){ctx.beginPath();ctx.moveTo(-4.6,-2.4);ctx.quadraticCurveTo(-8.6,-8,-7.6,-15);ctx.lineTo(-5,-15.4);ctx.quadraticCurveTo(-5.4,-8,-2.4,-3.6);ctx.closePath();ctx.fill();ctx.fillStyle=skin;ctx.beginPath();ctx.arc(-6.4,-16,1.7,0,TAU);ctx.fill();}
- else if(cast){ctx.beginPath();ctx.moveTo(-4.8,-2);ctx.quadraticCurveTo(-3,-6.4,2.6,-5.6);ctx.lineTo(2.8,-3.4);ctx.quadraticCurveTo(-1.6,-3.4,-2.6,-.6);ctx.closePath();ctx.fill();ctx.fillStyle=skin;ctx.beginPath();ctx.arc(3.4,-4.6,1.6,0,TAU);ctx.fill();}
- else{ctx.beginPath();ctx.moveTo(-5.2,-2.4);ctx.quadraticCurveTo(-8.4,2.4,-7,7.4-st*.2);ctx.lineTo(-4.6,6.8);ctx.quadraticCurveTo(-5.4,2.6,-3,-.6);ctx.closePath();ctx.fill();ctx.fillStyle=skin;ctx.beginPath();ctx.arc(-5.9,7.8-st*.2,1.6,0,TAU);ctx.fill();}
+ else{const ek=atkMix(au,0,.8,1,.35),P=atkPoly([-5.2,-2.4,-8.4,2.4,-7,7.4-st*.2,-4.6,6.8,-5.4,2.6,-3,-.6,-5.9,7.8-st*.2],[-4.8,-2,-3,-6.4,2.6,-5.6,2.8,-3.4,-1.6,-3.4,-2.6,-.6,3.4,-4.6],ek);ctx.fillStyle=skin;ctx.beginPath();ctx.arc(P[12],P[13],1.6,0,TAU);ctx.fill();}
  // ponytail (behind the head)
  ctx.fillStyle=fl?'#fff':pgr(f,-12,-14,-2,4,hair,.3,.4);ctx.beginPath();ctx.moveTo(-2.4,-13);ctx.quadraticCurveTo(-9.6,-12,-10.4+hs,-4);ctx.quadraticCurveTo(-11+hs*1.4,1,-8.6+hs*1.6,4.4);ctx.quadraticCurveTo(-7.6+hs,-.6,-5.6,-4.6);ctx.quadraticCurveTo(-4.4,-7,-1.6,-8);ctx.closePath();ctx.fill();
  ctx.fillStyle=trim;ctx.beginPath();ctx.ellipse(-8.2+hs*.3,-8.6,1.2,1.8,.5,0,TAU);ctx.fill();
@@ -5271,16 +5336,16 @@ function drawElf(p){const t=TT,ps=elfPose(p),walk=ps=='walk',cast=ps=='cast',hit
  ctx.restore();
  if(!fl){elfLeaf(-1.4,-2.4,2.6,-.5,trim);elfLeaf(1.6,-2.4,2.6,.5+Math.PI,ptone(trim,.85));}
  // bow (front hand): curved wood, gold leaf tips, string; drawn while casting (arrow nocked), raised high in the ult
- ctx.save();const ba=ult?-.75:walk?.12+Math.sin(wl)*.05:hit?.2:0,bx=ult?4:cast?12.6:10.4,by=ult?-17:cast?-4:-1;ctx.translate(bx,by);ctx.rotate(ba);
- const pull=cast?-9:0;ctx.strokeStyle='rgba(240,236,220,.9)';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(0,-12);ctx.lineTo(pull,0);ctx.lineTo(0,12);ctx.stroke();
+ ctx.save();const ba=ult?-.75:hit?.2:atkMix(au,walk?.12+Math.sin(wl)*.05:0,-.04,0,.05),bx=ult?4:hit?10.4:atkMix(au,10.4,11.8,12.6,12.2),by=ult?-17:hit?-1:atkMix(au,-1,-3.4,-4,-3.2);ctx.translate(bx,by);ctx.rotate(ba);
+ const pull=ult||hit?0:atkMix(au,0,-6.5,-9,1.4);ctx.strokeStyle='rgba(240,236,220,.9)';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(0,-12);ctx.lineTo(pull,0);ctx.lineTo(0,12);ctx.stroke();
  ctx.strokeStyle='#3a2410';ctx.lineWidth=3.4;ctx.beginPath();ctx.moveTo(0,-12);ctx.quadraticCurveTo(7,-7,4.2,0);ctx.quadraticCurveTo(7,7,0,12);ctx.stroke();ctx.strokeStyle=fl?'#fff':wood;ctx.lineWidth=2.1;ctx.stroke();ctx.strokeStyle='rgba(255,230,180,.55)';ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(1.4,-10.4);ctx.quadraticCurveTo(6,-6.4,4,-1.4);ctx.stroke();
  elfLeaf(-.6,-12.6,2.4,-2.2,trim);elfLeaf(-.6,12.6,2.4,2.2,trim);ctx.fillStyle=trim;ctx.fillRect(3.2,-1.6,2.4,3.2);
- if(cast){ctx.strokeStyle='#e8c88a';ctx.lineWidth=1.1;ctx.beginPath();ctx.moveTo(pull,0);ctx.lineTo(10,0);ctx.stroke();ctx.fillStyle='#e8d070';ctx.beginPath();ctx.moveTo(12.6,0);ctx.lineTo(9.4,-1.8);ctx.lineTo(9.4,1.8);ctx.closePath();ctx.fill();
+ if(au>0&&au<=ATK_IMP&&pull<-1){ctx.strokeStyle='#e8c88a';ctx.lineWidth=1.1;ctx.beginPath();ctx.moveTo(pull,0);ctx.lineTo(10,0);ctx.stroke();ctx.fillStyle='#e8d070';ctx.beginPath();ctx.moveTo(12.6,0);ctx.lineTo(9.4,-1.8);ctx.lineTo(9.4,1.8);ctx.closePath();ctx.fill();
   ctx.fillStyle='#9be06a';ctx.beginPath();ctx.moveTo(pull+.4,0);ctx.lineTo(pull-1.6,-1.8);ctx.lineTo(pull+2.6,0);ctx.lineTo(pull-1.6,1.8);ctx.closePath();ctx.fill();
   if(!figGlow(11,0,5,'190,244,200',.5)){}}
  ctx.restore();
  // front arm holding the bow
- ctx.fillStyle=fl?'#fff':pgr(f,2,-4,12,4,ptone(tun,.92),.3,.5);const hx=ult?3.2:cast?11.6:9.6,hy=ult?-17:cast?-4:-1;ctx.beginPath();ctx.moveTo(3.6,-3.2);ctx.quadraticCurveTo((3.6+hx)/2+1,(hy-3.2)/2-1.4,hx-.6,hy-1.4);ctx.lineTo(hx+.6,hy+1.4);ctx.quadraticCurveTo((3.6+hx)/2,(hy-.4)/2+1.2,3.4,-.2);ctx.closePath();ctx.fill();
+ ctx.fillStyle=fl?'#fff':pgr(f,2,-4,12,4,ptone(tun,.92),.3,.5);const hx=ult?3.2:hit?9.6:atkMix(au,9.6,10.8,11.6,11.2),hy=ult?-17:hit?-1:atkMix(au,-1,-3.4,-4,-3.2);ctx.beginPath();ctx.moveTo(3.6,-3.2);ctx.quadraticCurveTo((3.6+hx)/2+1,(hy-3.2)/2-1.4,hx-.6,hy-1.4);ctx.lineTo(hx+.6,hy+1.4);ctx.quadraticCurveTo((3.6+hx)/2,(hy-.4)/2+1.2,3.4,-.2);ctx.closePath();ctx.fill();
  ctx.fillStyle=skin;ctx.beginPath();ctx.arc(hx+.4,hy,1.7,0,TAU);ctx.fill();
  // cloak front edge over the shoulder
  ctx.fillStyle=fl?'#fff':pgr(f,-6,-5,6,0,robe,.3,.4);ctx.beginPath();ctx.moveTo(-6,-4.4);ctx.quadraticCurveTo(0,-6,5.6,-4.2);ctx.quadraticCurveTo(4.2,-1.8,2,-1.6);ctx.quadraticCurveTo(-2,-2.6,-6,-1.4);ctx.closePath();ctx.fill();
@@ -5313,16 +5378,14 @@ function drawVesTree(cx,cy,f){f=Math.max(0,Math.min(1,f||0));const t=typeof TT==
 // Skin layer: sk.cloak = vest + bracers. p.pose forces a pose (sprite sheet / previews). No red, no blood.
 const BRK_AX=.3; // seconds of one axe-swing pose
 function barbPose(p){if(p.pose)return p.pose;if(p.flash>0)return 'hit';if(typeof S!='undefined'&&S&&S.ultA&&S.ultA.k=='barbarian'&&!p.pv)return 'ult';if(p.castT>0)return 'cast';return p.moving>0?'walk':'idle';}
-function drawBarbarian(p){const t=TT,ps=barbPose(p),walk=ps=='walk',cast=ps=='cast',hit=ps=='hit',ult=ps=='ult',wl=p.walk||0;
+function drawBarbarian(p){const t=TT,ps=barbPose(p),walk=ps=='walk'||(ps=='cast'&&!p.pose&&p.moving>0),hit=ps=='hit',ult=ps=='ult',wl=p.walk||0,au=p.pose=='cast'&&p.au==null&&p.castT>0?Math.max(.02,Math.min(.98,1-p.castT/BRK_AX)):atkU(p,ps),ka=atkMix(au,0,.6,1,.7);
  const bob=walk?Math.abs(Math.sin(wl))*2.6:ult?1.4+Math.sin(t*6)*.7:Math.sin(t*3)*.8;const x=p.x,y=p.y-bob,f=p.face||1,fl=p.flash>0&&!p.pose,sk=p.skin||{};
  const vest=sk.cloak||'#6b4a2e',skn='#c98f66',brc=ptone(vest,.78);
  // swing phase u (0..1): wind-up, strike, follow-through
- const u=cast?Math.max(0,Math.min(1,1-(p.castT||0)/BRK_AX)):0,ez=k=>k*k*(3-2*k);
  let ra=0,HX=13,HY=6;
- if(cast){if(u<.3){const k=ez(u/.3);ra=-.7*k;HX=13-2*k;HY=6-12*k;}else if(u<.6){const k=ez((u-.3)/.3);ra=-.7+2.4*k;HX=11+4*k;HY=-6+10*k;}else{const k=ez((u-.6)/.4);ra=1.7*(1-k);HX=15-2*k;HY=4+2*k;}}
- else if(ult){ra=-.2;HX=10;HY=-15+Math.sin(t*6)*.8;}else if(hit){ra=.45;HX=12;HY=7;}else if(walk){ra=Math.sin(wl)*.1;HY=6+Math.cos(wl)*.6;}else{HY=6+Math.sin(t*3)*.3;}
+ if(ult){ra=-.2;HX=10;HY=-15+Math.sin(t*6)*.8;}else if(hit){ra=.45;HX=12;HY=7;}else{let r0=0,y0=6+Math.sin(t*3)*.3;if(walk){r0=Math.sin(wl)*.1;y0=6+Math.cos(wl)*.6;}ra=atkMix(au,r0,-.75,1.7,1.05);HX=atkMix(au,13,11,15,14.2);HY=atkMix(au,y0,-6,4,5.2);}
  shadow(p.x,p.y+p.r-2,p.r*.95);ctx.save();ctx.translate(x,y);ctx.scale(f,1);ctx.lineJoin='round';ctx.lineCap='round';
- const lean=walk?.1:hit?-.15:cast?(u<.3?-.06:u<.6?.12:.05):0;if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
+ const lean=atkMix(au,walk?.1:hit?-.15:0,-.07,.12,.06);if(lean){ctx.translate(0,18);ctx.rotate(lean);ctx.translate(0,-18);}
  if(ult){if(!figGlow(0,-6,28,'255,214,102',.42)){const g=ctx.createRadialGradient(0,-6,2,0,-6,28);g.addColorStop(0,'rgba(255,214,102,.36)');g.addColorStop(1,'rgba(255,214,102,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,-6,28,0,TAU);ctx.fill();}
   const bq=(t*2)%1;ctx.strokeStyle='rgba(255,224,140,'+(.38*(1-bq)).toFixed(3)+')';ctx.lineWidth=1.6;ctx.beginPath();ctx.ellipse(0,15,12+bq*12,4+bq*4,0,0,TAU);ctx.stroke();}
  const st=walk?Math.sin(wl)*3.2:0;ctx.fillStyle='#2a1a10';rrect(-8+st,13,6,6,2.4);ctx.fill();rrect(2-st,13,6,6,2.4);ctx.fill();
@@ -5332,7 +5395,7 @@ function drawBarbarian(p){const t=TT,ps=barbPose(p),walk=ps=='walk',cast=ps=='ca
   ctx.fillStyle=fl?'#fff':pgr(f,Math.min(sx,hx)-3,Math.min(sy,hy),Math.max(sx,hx)+3,Math.max(sy,hy),skn,.25,.4);ctx.beginPath();ctx.moveTo(sx+nx*w,sy+ny*w);ctx.quadraticCurveTo((sx+hx)/2+nx*w*1.15,(sy+hy)/2+ny*w*1.15,hx+nx*w*.75,hy+ny*w*.75);ctx.lineTo(hx-nx*w*.75,hy-ny*w*.75);ctx.quadraticCurveTo((sx+hx)/2-nx*w,(sy+hy)/2-ny*w,sx-nx*w,sy-ny*w);ctx.closePath();ctx.fill();
   ctx.strokeStyle=fl?'#fff':brc;ctx.lineWidth=w*1.5;ctx.beginPath();ctx.moveTo(mx,my);ctx.lineTo(mx+(hx-sx)*.22,my+(hy-sy)*.22);ctx.stroke();
   ctx.fillStyle=fl?'#fff':ptone(skn,.92);ctx.beginPath();ctx.arc(hx,hy,2.4,0,TAU);ctx.fill();};
- const bsw=walk?-Math.sin(wl)*2.4:0,BX=ult?-12.5:hit?-13.5:cast&&u>=.3&&u<.6?-14:-12.5+bsw*.4,BY=ult?-16+Math.sin(t*6)*.8:hit?2:6+bsw;
+ const bsw=walk?-Math.sin(wl)*2.4:0,BX=ult?-12.5:hit?-13.5:atkMix(au,-12.5+bsw*.4,-14,-14,-13.2),BY=ult?-16+Math.sin(t*6)*.8:hit?2:6+bsw;
  arm(-9,-4,BX,BY,2.6);
  ctx.fillStyle=fl?'#fff':vest;rpoly([[-15,-6],[15,-6],[11,10],[-11,10]],4);ctx.fill();
  ctx.fillStyle=fl?'#fff':skn;rpoly([[-7,-6],[7,-6],[5,8],[-5,8]],3);ctx.fill();
@@ -5344,13 +5407,13 @@ function drawBarbarian(p){const t=TT,ps=barbPose(p),walk=ps=='walk',cast=ps=='ca
  ctx.fillStyle=fl?'#fff':skn;ctx.beginPath();ctx.arc(0,-12,7,0,TAU);ctx.fill();
  ctx.fillStyle='#8a3a14';ctx.beginPath();ctx.moveTo(-6,-10);ctx.lineTo(6,-10);ctx.bezierCurveTo(5,-4,3+bs*.5,1,bs,3);ctx.bezierCurveTo(-3+bs*.5,1,-5,-4,-6,-10);ctx.closePath();ctx.fill();
  if(ult){ctx.fillStyle='#2a140a';ctx.beginPath();ctx.ellipse(0,-6.4,2.6,2+Math.abs(Math.sin(t*6))*.8,0,0,TAU);ctx.fill();}
- else if(cast&&u>=.3&&u<.6){ctx.fillStyle='#2a140a';ctx.beginPath();ctx.ellipse(0,-6.8,1.8,1.2,0,0,TAU);ctx.fill();}
+ else if(au>ATK_IMP*.6&&au<ATK_IMP+.25){ctx.fillStyle='#2a140a';ctx.beginPath();ctx.ellipse(0,-6.8,1.8,1.2,0,0,TAU);ctx.fill();}
  ctx.fillStyle='#6b6b72';ctx.beginPath();ctx.arc(0,-14,7.5,Math.PI,0);ctx.fill();rrect(-1.2,-14,2.4,6,1.2);ctx.fill();
  ctx.fillStyle='#e8dcc0';for(const s of[-1,1]){ctx.beginPath();ctx.moveTo(s*6,-17);ctx.quadraticCurveTo(s*14,-20,s*13,-29);ctx.quadraticCurveTo(s*10,-21,s*4,-20);ctx.fill();}
  if(hit){ctx.strokeStyle='#ffdd6a';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(-4,-12.6);ctx.lineTo(-1.6,-12);ctx.moveTo(1.6,-12);ctx.lineTo(4,-12.6);ctx.stroke();}
- else{const eh=ult||cast?1.05:.85;ctx.fillStyle='#ffdd6a';ctx.beginPath();ctx.ellipse(2.75,-12.3,1.35,eh,0,0,TAU);ctx.ellipse(-2.75,-12.3,1.35,eh,0,0,TAU);ctx.fill();}
+ else{const eh=ult?1.05:.85+.2*ka;ctx.fillStyle='#ffdd6a';ctx.beginPath();ctx.ellipse(2.75,-12.3,1.35,eh,0,0,TAU);ctx.ellipse(-2.75,-12.3,1.35,eh,0,0,TAU);ctx.fill();}
  // axe: held at the hand (HX,HY), turned by ra; a soft swoosh during the strike
- if(cast&&u>=.3&&u<.85){const a1=-.7+2.4*Math.min(1,(u-.3)/.3);ctx.strokeStyle='rgba(232,244,255,'+(u<.6?.42:.42*(1-(u-.6)/.25)).toFixed(3)+')';ctx.lineWidth=3;ctx.beginPath();ctx.arc(8,0,22,-Math.PI/2-.7+.2,-Math.PI/2+a1+.2);ctx.stroke();}
+ {const s0=ATK_IMP*.65,s1=ATK_IMP+.3*(1-ATK_IMP);if(au>s0&&au<s1){const a1=Math.max(-.7,Math.min(1.7,ra));ctx.strokeStyle='rgba(232,244,255,'+(au<=ATK_IMP?.42:.42*(1-(au-ATK_IMP)/(s1-ATK_IMP))).toFixed(3)+')';ctx.lineWidth=3;ctx.beginPath();ctx.arc(8,0,22,-Math.PI/2-.7+.2,-Math.PI/2+a1+.2);ctx.stroke();}}
  ctx.save();ctx.translate(HX,HY);ctx.rotate(ra);
  ctx.strokeStyle='#3b2618';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-1,7);ctx.lineTo(3,-18);ctx.stroke();ctx.fillStyle='#b8b8c0';ctx.beginPath();ctx.moveTo(2,-18);ctx.quadraticCurveTo(12,-20,10,-8);ctx.quadraticCurveTo(6,-11,2,-12);ctx.closePath();ctx.fill();
  ctx.fillStyle='#dcdce4';ctx.beginPath();ctx.moveTo(9.6,-16.6);ctx.quadraticCurveTo(11.4,-13,10,-8.6);ctx.lineTo(9,-9.6);ctx.quadraticCurveTo(10,-13,8.6,-16.2);ctx.closePath();ctx.fill();
